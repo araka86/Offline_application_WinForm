@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartrigeAltstar", "CartrigeAltstar.csproj", "{2F674A38-0B6C-46B4-9529-6661F9566743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F674A38-0B6C-46B4-9529-6661F9566743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F674A38-0B6C-46B4-9529-6661F9566743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F674A38-0B6C-46B4-9529-6661F9566743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F674A38-0B6C-46B4-9529-6661F9566743}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61801358-E6BD-49B8-8FD4-AD7E2F250141}
+	EndGlobalSection
+EndGlobal
