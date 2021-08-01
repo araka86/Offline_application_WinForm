@@ -30,8 +30,6 @@ namespace CartrigeAltstar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,20 +43,20 @@ namespace CartrigeAltstar
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).BeginInit();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cartrigesBindingSource
-            // 
-            this.cartrigesBindingSource.DataMember = "Cartriges";
-            // 
-            // controllsBindingSource
-            // 
-            this.controllsBindingSource.DataMember = "Controlls";
             // 
             // dataGridView1
             // 
@@ -68,6 +66,15 @@ namespace CartrigeAltstar
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(492, 124);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(845, 46);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(71, 121);
+            this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -88,15 +95,6 @@ namespace CartrigeAltstar
             this.button2.Text = "Показать совместимые картриджи";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(845, 46);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(71, 121);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -177,11 +175,69 @@ namespace CartrigeAltstar
             this.label6.TabIndex = 13;
             this.label6.Text = "Какие Принтеры подходят к конктретным картриджам";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(47, 176);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(177, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Добавить подразделение";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(47, 392);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(177, 23);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "Добавить картридж";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(12, 515);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(492, 150);
+            this.dataGridView4.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 482);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(284, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Какие картриджи находятся на каких подразделениях";
+            // 
+            // cartrigesBindingSource
+            // 
+            this.cartrigesBindingSource.DataMember = "Cartriges";
+            // 
+            // controllsBindingSource
+            // 
+            this.controllsBindingSource.DataMember = "Controlls";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(718, 515);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 531);
+            this.ClientSize = new System.Drawing.Size(1017, 735);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dataGridView4);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView3);
@@ -191,7 +247,6 @@ namespace CartrigeAltstar
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
@@ -199,11 +254,12 @@ namespace CartrigeAltstar
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +282,11 @@ namespace CartrigeAltstar
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button5;
     }
 }
 

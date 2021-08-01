@@ -29,6 +29,8 @@ namespace CartrigeAltstar
         {
             InitializeComponent();
 
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,6 +40,9 @@ namespace CartrigeAltstar
                 db.Printers.Load();
                 db.Subdivisions.Load();
                 db.Cartriges.Load();
+                db.Compatibilities.Load();
+
+
 
                 var a = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
 
@@ -46,16 +51,17 @@ namespace CartrigeAltstar
 
                 var query = from p in db.Subdivisions
                             select new
-            {
-                                p.id,
+                            {
+                                p.Id,
                                 подразделение = p.division,
                                 адресс = p.address_part
                             };
                 db.Subdivisions.Load();
                 db.Printers.Load();
-                var a1 = (from usr in db.Printers.Include(p => p.ModelPrinter  ) select usr);
-               
-                          
+                var a1 = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
+
+
+
 
                 dataGridView1.DataSource = query.ToList();
 
@@ -69,7 +75,7 @@ namespace CartrigeAltstar
                 //               };
                 //
                 //   dataGridView2.DataSource = query2.ToList();
-                
+
                 var cartige = from c in db.Cartriges
                               select new
                               {
@@ -80,6 +86,21 @@ namespace CartrigeAltstar
 
                               };
                 dataGridView2.DataSource = cartige.ToList();
+
+
+                var cp = from c in db.Compatibilities
+                         select new
+                         {
+                             c.id,
+                             c.PrinterPK.ModelPrinter,
+                             c.CartrigePK.ModelCartrige,
+                             c.SubdivisionPK.division
+                             
+                         };
+
+                dataGridView4.DataSource = cp.ToList();
+
+
             }
 
 
@@ -144,23 +165,29 @@ namespace CartrigeAltstar
                     listBox2.DisplayMember = "ModelPrinter";
 
                 }
-                }
-
-
-
-
             }
+
+
+
+
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog(this);
+        }
 
-    //2
+
+        //2
     }
 
 
 
-//1
+    //1
 }

@@ -19,10 +19,10 @@ namespace CartrigeAltstar.Model
 
 
 
-           
 
 
-            
+
+
 
             Subdivision sb1 = new Subdivision
             {
@@ -48,7 +48,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb4= new Subdivision
+            Subdivision sb4 = new Subdivision
             {
 
                 division = "СТО Киев Выдубичи",
@@ -142,7 +142,7 @@ namespace CartrigeAltstar.Model
 
                 division = "СТО Киев «Вереснева»",
                 address_part = "Киев ул. Вереснева 24"
-                
+
 
             };
             Subdivision sb16 = new Subdivision
@@ -153,7 +153,15 @@ namespace CartrigeAltstar.Model
 
 
             };
-            context.Subdivisions.AddRange(new List<Subdivision> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15,sb16 });
+            Subdivision sb17 = new Subdivision
+            {
+
+                division = "279",
+                address_part = "Киев ул. Бориспольская 7, 2ет"
+
+
+            };
+            context.Subdivisions.AddRange(new List<Subdivision> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15, sb16 });
             context.SaveChanges();
 
             Cartrige ct1 = new Cartrige
@@ -185,10 +193,13 @@ namespace CartrigeAltstar.Model
 
             Printer pr1 = new Printer
             {
-                
+
                 ModelPrinter = "Samsung 106A",
                 Article = "P0KV",
-               
+                CartrigePk = ct3,
+                SubdivisioPK = sb4
+
+
 
 
 
@@ -198,6 +209,8 @@ namespace CartrigeAltstar.Model
 
                 ModelPrinter = "Canon MF3010 V4",
                 Article = "P001",
+                CartrigePk = ct1,
+                SubdivisioPK = sb1
 
 
 
@@ -208,17 +221,27 @@ namespace CartrigeAltstar.Model
 
                 ModelPrinter = "Canon MF3010 V4",
                 Article = "P883",
+                CartrigePk = ct2,
+                SubdivisioPK = sb1
 
 
 
 
             };
-           
-            context.Printers.AddRange(new List<Printer> { pr1,pr2,pr3 });
+
+            context.Printers.AddRange(new List<Printer> { pr1, pr2, pr3 });
             context.SaveChanges();
 
 
+            Compatibility cp = new Compatibility
+            {
+                PrinterPK = pr1,
+                CartrigePK = ct3,
+                SubdivisionPK = sb4
 
+            };
+            context.Compatibilities.Add(cp);
+            context.SaveChanges();
 
 
 

@@ -11,11 +11,11 @@ namespace CartrigeAltstar.Model
         public int id { get; set; }
 
         //Foreign key
-        public int CartrigeId { get; set; }
-        public int PrinterId { get; set; }
+       
 
-        public Printer Printer { get; set; } //link to printer
-        public Cartrige Cartrige { get; set; } //link to cartrige
+        public virtual Printer PrinterPK { get; set; } //link to printer
+        public virtual Cartrige CartrigePK { get; set; } //link to cartrige
+        public virtual Subdivision SubdivisionPK { get; set; } //link to cartrige
 
 
     }

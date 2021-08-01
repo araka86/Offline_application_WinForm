@@ -26,6 +26,6 @@ namespace CartrigeAltstar.Model
             Printers = new List<Printer>();
         }
 
-
+       
     }
 }

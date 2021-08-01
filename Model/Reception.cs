@@ -14,12 +14,7 @@ namespace CartrigeAltstar.Model
         public string Date_of_receipt { get; set; } //от куда приехал
         public double Weight { get; set; } // вес
         public string Work_notes { get; set; } //примечания работ
-        //Foreign key
-        public int IdSubdivision { get; set; }  //подразделения
-        public int IdCartrige { get; set; } //Картридж
-
-        public Subdivision Subdivision { get; set; }
-        public Cartrige Cartrige { get; set; }
+       
 
     }
 }

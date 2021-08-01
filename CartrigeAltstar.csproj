@@ -79,10 +79,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddInfoService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddInfoService.Designer.cs">
+      <DependentUpon>FormAddInfoService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Cartrige.cs" />
     <Compile Include="Model\Compatibility.cs" />
     <Compile Include="Model\ContexAltstar.cs" />
     <Compile Include="Model\Dispatch.cs" />
+    <Compile Include="Model\InfoService.cs" />
     <Compile Include="Model\Printer.cs" />
     <Compile Include="Model\Reception.cs" />
     <Compile Include="Model\Start_Data.cs" />
@@ -91,6 +104,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddInfoService.resx">
+      <DependentUpon>FormAddInfoService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

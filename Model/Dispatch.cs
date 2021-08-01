@@ -13,12 +13,6 @@ namespace CartrigeAltstar.Model
         public string Date_of_dispatch { get; set; }
         public double Weight { get; set; } // вес после заправка
 
-        //Foreign key
-        public int IdSubdivision { get; set; }  //подразделения
-        public int IdCartrige { get; set; } //Картридж
-
-        public Subdivision Subdivision { get; set; } // ссилка форен
-        public Cartrige Cartrige { get; set; }
-
+       
     }
 }
