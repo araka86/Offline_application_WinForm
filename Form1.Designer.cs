@@ -47,13 +47,32 @@ namespace CartrigeAltstar
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -70,19 +89,19 @@ namespace CartrigeAltstar
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(845, 46);
+            this.listBox1.Location = new System.Drawing.Point(800, 46);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(71, 121);
+            this.listBox1.Size = new System.Drawing.Size(47, 121);
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(449, 176);
+            this.button1.Location = new System.Drawing.Point(449, 186);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 23);
+            this.button1.Size = new System.Drawing.Size(156, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Показать принтеры";
+            this.button1.Text = "Показать подразделения";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -99,7 +118,7 @@ namespace CartrigeAltstar
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 9);
+            this.label1.Location = new System.Drawing.Point(35, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 5;
@@ -134,7 +153,7 @@ namespace CartrigeAltstar
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 217);
+            this.label3.Location = new System.Drawing.Point(35, 226);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 9;
@@ -177,20 +196,20 @@ namespace CartrigeAltstar
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(47, 176);
+            this.button3.Location = new System.Drawing.Point(12, 176);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 23);
+            this.button3.Size = new System.Drawing.Size(291, 23);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Добавить подразделение";
+            this.button3.Text = "Изменить зависимости Принтер--->подразделения";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(47, 392);
+            this.button4.Location = new System.Drawing.Point(12, 392);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(177, 23);
+            this.button4.Size = new System.Drawing.Size(291, 23);
             this.button4.TabIndex = 15;
-            this.button4.Text = "Добавить картридж";
+            this.button4.Text = "Изменит зависимость Картридж--->Подразделения";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // dataGridView4
@@ -210,6 +229,168 @@ namespace CartrigeAltstar
             this.label7.TabIndex = 17;
             this.label7.Text = "Какие картриджи находятся на каких подразделениях";
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button5.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button5.FlatAppearance.BorderSize = 10;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button5.Location = new System.Drawing.Point(591, 545);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button5.Size = new System.Drawing.Size(190, 67);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(974, 46);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView5.Size = new System.Drawing.Size(462, 150);
+            this.dataGridView5.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(982, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(102, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Список Принтеров";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(974, 221);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(80, 23);
+            this.button6.TabIndex = 21;
+            this.button6.Text = "Добавить";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1078, 221);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(80, 23);
+            this.button7.TabIndex = 22;
+            this.button7.Text = "Удалить";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1179, 221);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(80, 23);
+            this.button8.TabIndex = 23;
+            this.button8.Text = "Обновить";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(803, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Id";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(1179, 477);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(80, 23);
+            this.button9.TabIndex = 29;
+            this.button9.Text = "Обновить";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(1078, 477);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(80, 23);
+            this.button10.TabIndex = 28;
+            this.button10.Text = "Удалить";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(974, 477);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(80, 23);
+            this.button11.TabIndex = 27;
+            this.button11.Text = "Добавить";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(982, 286);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(109, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Список Картриджей";
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Location = new System.Drawing.Point(974, 302);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(462, 150);
+            this.dataGridView6.TabIndex = 25;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(1179, 720);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(80, 23);
+            this.button12.TabIndex = 34;
+            this.button12.Text = "Обновить";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(1078, 720);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(80, 23);
+            this.button13.TabIndex = 33;
+            this.button13.Text = "Удалить";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(974, 720);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(80, 23);
+            this.button14.TabIndex = 32;
+            this.button14.Text = "Добавить";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(982, 529);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(127, 13);
+            this.label11.TabIndex = 31;
+            this.label11.Text = "Список Подразделений";
+            // 
+            // dataGridView7
+            // 
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Location = new System.Drawing.Point(974, 545);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.Size = new System.Drawing.Size(462, 150);
+            this.dataGridView7.TabIndex = 30;
+            // 
             // cartrigesBindingSource
             // 
             this.cartrigesBindingSource.DataMember = "Cartriges";
@@ -218,21 +399,27 @@ namespace CartrigeAltstar
             // 
             this.controllsBindingSource.DataMember = "Controlls";
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(718, 515);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 735);
+            this.ClientSize = new System.Drawing.Size(1491, 968);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.dataGridView7);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.dataGridView6);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dataGridView5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView4);
@@ -258,6 +445,9 @@ namespace CartrigeAltstar
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -287,6 +477,22 @@ namespace CartrigeAltstar
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button6;
+        public System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.DataGridView dataGridView7;
     }
 }
 

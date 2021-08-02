@@ -118,9 +118,9 @@ namespace CartrigeAltstar
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(506, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(484, 49);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(471, 249);
             this.dataGridView1.TabIndex = 10;
             // 
             // button1
@@ -134,12 +134,13 @@ namespace CartrigeAltstar
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(403, 275);
+            this.button3.Location = new System.Drawing.Point(390, 275);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 12;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // linkLabel1
             // 
@@ -164,7 +165,7 @@ namespace CartrigeAltstar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1005, 450);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button3);

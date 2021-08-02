@@ -72,12 +72,17 @@ namespace CartrigeAltstar
                 db.infoServices.Add(infserv);
                 db.SaveChanges();
 
-
+                
 
 
             }
             
           
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
 
         }
     }

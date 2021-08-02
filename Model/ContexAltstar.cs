@@ -30,6 +30,12 @@ namespace CartrigeAltstar.Model
 
 
 
+
+
+
+
+
+
         //initialization 2
 
 

@@ -24,11 +24,16 @@ namespace CartrigeAltstar
     {
 
         //2
+        ContexAltstarContext db;
+
+
+
 
         public Form1()
         {
             InitializeComponent();
 
+            db = new ContexAltstarContext();
 
 
         }
@@ -42,7 +47,29 @@ namespace CartrigeAltstar
                 db.Cartriges.Load();
                 db.Compatibilities.Load();
 
+                //список принтеров
 
+                PrintPrinter();
+
+
+
+                //список картриджей
+
+
+                var listcartr = from cart in db.Cartriges
+                                select new
+                                {
+                                    cart.Id,
+                                    cart.ModelCartrige,
+                                    cart.ArticleCartrige,
+                                    cart.purchase_date
+                                };
+                dataGridView6.DataSource = listcartr.ToList();
+
+                //список подразделений
+
+
+                dataGridView7.DataSource = db.Subdivisions.Local.ToBindingList();
 
                 var a = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
 
@@ -95,7 +122,7 @@ namespace CartrigeAltstar
                              c.PrinterPK.ModelPrinter,
                              c.CartrigePK.ModelCartrige,
                              c.SubdivisionPK.division
-                             
+
                          };
 
                 dataGridView4.DataSource = cp.ToList();
@@ -181,6 +208,130 @@ namespace CartrigeAltstar
         {
             Form2 form2 = new Form2();
             form2.ShowDialog(this);
+        }
+
+        //------------------------Вивод Принтеров----------------------------
+        public void PrintPrinter()
+        {
+
+            var pr = from p in db.Printers
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelPrinter,
+                         Артикул = p.Article,
+                         Дата_покуки = p.DateTimes
+                     };
+
+            dataGridView5.DataSource = pr.ToList();
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+
+            //Insert (ADD)
+            AddPrinter add = new AddPrinter();
+
+
+            DialogResult result = add.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
+
+
+
+            Printer printer = new Printer();
+            printer.DateTimes = add.txtDatetime.Value;
+            printer.ModelPrinter = add.txtModelPrinter.Text;
+            printer.Article = add.txtArticle.Text;
+
+            db.Printers.Add(printer);
+
+            db.SaveChanges();
+
+            MessageBox.Show("Новый принтер добавлен ");
+            dataGridView5.DataSource = null;
+            this.dataGridView5.Update();
+            this.dataGridView5.Refresh();
+            PrintPrinter();
+
+
+
+
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+
+            // Delete
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView5.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView5[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                Printer printerdel = db.Printers.Find(id);
+                db.Printers.Remove(printerdel);
+                db.SaveChanges();
+                MessageBox.Show("Принтер Удален ");
+                dataGridView5.DataSource = null;
+                this.dataGridView5.Update();
+                this.dataGridView5.Refresh();
+                PrintPrinter();
+
+
+            }
+
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+            // update
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView5.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView5[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                //заполнение полей
+                Printer printerUpdate = db.Printers.Find(id);
+                AddPrinter update = new AddPrinter();
+                update.txtDatetime.Text = printerUpdate.DateTimes.ToString();
+                update.txtModelPrinter.Text = printerUpdate.ModelPrinter;
+                update.txtArticle.Text = printerUpdate.Article;
+
+                //откритие диалогового окна AddPrinter
+                DialogResult result = update.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+
+
+                printerUpdate.DateTimes = update.txtDatetime.Value;
+                printerUpdate.ModelPrinter = update.txtModelPrinter.Text;
+                printerUpdate.Article = update.txtArticle.Text;
+
+
+
+                db.Entry(printerUpdate).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+                MessageBox.Show("Принтер Обновлен ");
+                dataGridView5.DataSource = null;
+                this.dataGridView5.Update();
+                this.dataGridView5.Refresh();
+                PrintPrinter();
+
+
+
+            }
         }
 
 

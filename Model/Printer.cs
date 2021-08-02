@@ -11,6 +11,9 @@ namespace CartrigeAltstar.Model
     class Printer
     {
         public int Id { get; set; }
+        public DateTime? DateTimes { get; set; }
+
+
         public string ModelPrinter { get; set; }
         public string Article { get; set; }
 

@@ -189,11 +189,12 @@ namespace CartrigeAltstar.Model
 
 
 
+            DateTime adDateTime = new DateTime();
 
-
+            adDateTime.ToString("MM/dd/yyyy");
             Printer pr1 = new Printer
             {
-
+                
                 ModelPrinter = "Samsung 106A",
                 Article = "P0KV",
                 CartrigePk = ct3,
@@ -218,7 +219,7 @@ namespace CartrigeAltstar.Model
             };
             Printer pr3 = new Printer
             {
-
+               
                 ModelPrinter = "Canon MF3010 V4",
                 Article = "P883",
                 CartrigePk = ct2,
