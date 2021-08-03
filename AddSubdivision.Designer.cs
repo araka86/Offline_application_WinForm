@@ -1,5 +1,5 @@
 ﻿
-namespace CartrigeAltstar.Model
+namespace CartrigeAltstar
 {
     partial class AddSubdivision
     {
@@ -29,27 +29,25 @@ namespace CartrigeAltstar.Model
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtModelCartrige = new System.Windows.Forms.TextBox();
+            this.txtModelDivision = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtArticle = new System.Windows.Forms.TextBox();
-            this.txtData = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtStreet = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtModelCartrige
+            // txtModelDivision
             // 
-            this.txtModelCartrige.Location = new System.Drawing.Point(194, 9);
-            this.txtModelCartrige.Name = "txtModelCartrige";
-            this.txtModelCartrige.Size = new System.Drawing.Size(100, 20);
-            this.txtModelCartrige.TabIndex = 25;
+            this.txtModelDivision.Location = new System.Drawing.Point(194, 21);
+            this.txtModelDivision.Name = "txtModelDivision";
+            this.txtModelDivision.Size = new System.Drawing.Size(314, 20);
+            this.txtModelDivision.TabIndex = 25;
             // 
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(219, 182);
+            this.button2.Location = new System.Drawing.Point(433, 202);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 24;
@@ -59,48 +57,33 @@ namespace CartrigeAltstar.Model
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 63);
+            this.label3.Location = new System.Drawing.Point(42, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(125, 13);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Артикул";
+            this.label3.Text = "Адресс подразделения";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(42, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Модель картриджа";
+            this.label2.Text = "Подразделения";
             // 
-            // txtArticle
+            // txtStreet
             // 
-            this.txtArticle.Location = new System.Drawing.Point(194, 63);
-            this.txtArticle.Name = "txtArticle";
-            this.txtArticle.Size = new System.Drawing.Size(100, 20);
-            this.txtArticle.TabIndex = 21;
-            // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(194, 114);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(200, 20);
-            this.txtData.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Дата покупки картриджа";
+            this.txtStreet.Location = new System.Drawing.Point(194, 75);
+            this.txtStreet.Multiline = true;
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(314, 94);
+            this.txtStreet.TabIndex = 21;
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(15, 182);
+            this.button1.Location = new System.Drawing.Point(194, 202);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -111,14 +94,12 @@ namespace CartrigeAltstar.Model
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtModelCartrige);
+            this.ClientSize = new System.Drawing.Size(575, 274);
+            this.Controls.Add(this.txtModelDivision);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtArticle);
-            this.Controls.Add(this.txtData);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtStreet);
             this.Controls.Add(this.button1);
             this.Name = "AddSubdivision";
             this.Text = "AddSubdivision";
@@ -129,13 +110,11 @@ namespace CartrigeAltstar.Model
 
         #endregion
 
-        public System.Windows.Forms.TextBox txtModelCartrige;
+        public System.Windows.Forms.TextBox txtModelDivision;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox txtArticle;
-        public System.Windows.Forms.DateTimePicker txtData;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtStreet;
         private System.Windows.Forms.Button button1;
     }
 }

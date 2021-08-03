@@ -60,12 +60,9 @@ namespace CartrigeAltstar
 
                 //список подразделений
 
+                PrintSubdivision();
 
-                dataGridView7.DataSource = db.Subdivisions.Local.ToBindingList();
 
-                var a = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
-
-                //  dataGridView1.DataSource = db.Subdivisions.Local.ToBindingList();
 
 
                 var query = from p in db.Subdivisions
@@ -223,7 +220,7 @@ namespace CartrigeAltstar
 
 
 
-        public void PrintCartrige() 
+        public void PrintCartrige()
         {
             var crt = from c in db.Cartriges
                       select new
@@ -234,6 +231,21 @@ namespace CartrigeAltstar
                           c.purchase_date
                       };
             dataGridView6.DataSource = crt.ToList();
+
+        }
+        //------------------------Вивод подразделений----------------------------
+
+
+        public void PrintSubdivision()
+        {
+            var crt = from c in db.Subdivisions
+                      select new
+                      {
+                          c.Id,
+                          c.division,
+                          c.address_part
+                      };
+            dataGridView7.DataSource = crt.ToList();
 
         }
 
@@ -453,7 +465,127 @@ namespace CartrigeAltstar
 
 
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+            //Add подразделения
+
+
+            AddSubdivision addSubdivisionForm = new AddSubdivision();
+
+
+            DialogResult result = addSubdivisionForm.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
+
+
+
+            Subdivision subdivisionModel = new Subdivision();
+            subdivisionModel.division = addSubdivisionForm.txtModelDivision.Text;
+            subdivisionModel.address_part = addSubdivisionForm.txtStreet.Text;
+            db.Subdivisions.Add(subdivisionModel);
+
+
+
+            db.SaveChanges();
+
+            MessageBox.Show("Новое подразделение добавленно ");
+            dataGridView7.DataSource = null;
+            this.dataGridView7.Update();
+            this.dataGridView7.Refresh();
+            PrintSubdivision();
+
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            //DEL подразделения
+
+
+
+
+
+            if (dataGridView7.SelectedRows.Count > 0)
+            {
+                int index = dataGridView7.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView7[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                Subdivision subdivisionModel = db.Subdivisions.Find(id);
+                db.Subdivisions.Remove(subdivisionModel);
+                db.SaveChanges();
+                MessageBox.Show("Подразделение Удаленно!!! ");
+                dataGridView7.DataSource = null;
+                this.dataGridView7.Update();
+                this.dataGridView7.Refresh();
+                PrintSubdivision();
+
+
             }
+
+
+
+
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            //Update Subdivision
+
+
+
+
+
+            // update Cartrige
+            if (dataGridView7.SelectedRows.Count > 0)
+            {
+                int index = dataGridView7.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView7[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                //екземпляр Формы
+                AddSubdivision updateSubdivisionForm = new AddSubdivision();
+
+                //заполнение полей
+                Subdivision subdivisionModel = db.Subdivisions.Find(id);
+                updateSubdivisionForm.txtModelDivision.Text = subdivisionModel.division;
+                updateSubdivisionForm.txtStreet.Text = subdivisionModel.address_part;
+         
+
+                //откритие диалогового окна AddCartrige
+                DialogResult result = updateSubdivisionForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+
+                //
+                subdivisionModel.division = updateSubdivisionForm.txtModelDivision.Text;
+                subdivisionModel.address_part = updateSubdivisionForm.txtStreet.Text;
+           
+
+                //подключения к состоянию обьявив его модифицированним
+                db.Entry(subdivisionModel).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+                MessageBox.Show("Подразделение Обновленно!! ");
+                dataGridView7.DataSource = null;
+                this.dataGridView7.Update();
+                this.dataGridView7.Refresh();
+                PrintSubdivision();
+
+            }
+
+
+
+        }
 
 
         //2

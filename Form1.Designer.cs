@@ -359,6 +359,7 @@ namespace CartrigeAltstar
             this.button12.TabIndex = 34;
             this.button12.Text = "Обновить";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -368,6 +369,7 @@ namespace CartrigeAltstar
             this.button13.TabIndex = 33;
             this.button13.Text = "Удалить";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -377,6 +379,7 @@ namespace CartrigeAltstar
             this.button14.TabIndex = 32;
             this.button14.Text = "Добавить";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // label11
             // 
@@ -392,6 +395,7 @@ namespace CartrigeAltstar
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView7.Location = new System.Drawing.Point(974, 545);
             this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView7.Size = new System.Drawing.Size(462, 150);
             this.dataGridView7.TabIndex = 30;
             // 
