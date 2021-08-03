@@ -168,19 +168,19 @@ namespace CartrigeAltstar.Model
             {
                 ModelCartrige = "719",
                 ArticleCartrige = "K514",
-                purchase_date = "29.07.21"
+              
             };
             Cartrige ct2 = new Cartrige
             {
                 ModelCartrige = "725 start",
                 ArticleCartrige = "K86",
-                purchase_date = "29.07.21"
+              
             };
             Cartrige ct3 = new Cartrige
             {
                 ModelCartrige = "106A",
                 ArticleCartrige = "K106",
-                purchase_date = "29.07.21"
+              
             };
 
             context.Cartriges.AddRange(new List<Cartrige> { ct1, ct2, ct3 });

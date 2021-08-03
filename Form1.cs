@@ -56,15 +56,7 @@ namespace CartrigeAltstar
                 //список картриджей
 
 
-                var listcartr = from cart in db.Cartriges
-                                select new
-                                {
-                                    cart.Id,
-                                    cart.ModelCartrige,
-                                    cart.ArticleCartrige,
-                                    cart.purchase_date
-                                };
-                dataGridView6.DataSource = listcartr.ToList();
+                PrintCartrige();
 
                 //список подразделений
 
@@ -225,11 +217,31 @@ namespace CartrigeAltstar
 
             dataGridView5.DataSource = pr.ToList();
         }
+
+        //------------------------Вивод Картриджей----------------------------
+
+
+
+
+        public void PrintCartrige() 
+        {
+            var crt = from c in db.Cartriges
+                      select new
+                      {
+                          c.Id,
+                          c.ModelCartrige,
+                          c.ArticleCartrige,
+                          c.purchase_date
+                      };
+            dataGridView6.DataSource = crt.ToList();
+
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
 
 
-            //Insert (ADD)
+            //Insert (ADD) Printers
             AddPrinter add = new AddPrinter();
 
 
@@ -266,7 +278,7 @@ namespace CartrigeAltstar
 
 
             // Delete
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView5.SelectedRows.Count > 0)
             {
                 int index = dataGridView5.SelectedRows[0].Index;
                 int id = 0;
@@ -293,7 +305,7 @@ namespace CartrigeAltstar
         {
 
             // update
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView6.SelectedRows.Count > 0)
             {
                 int index = dataGridView5.SelectedRows[0].Index;
                 int id = 0;
@@ -333,6 +345,115 @@ namespace CartrigeAltstar
 
             }
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            //Add Cartrige
+
+
+            AddCartrige addctrgFrm = new AddCartrige();
+
+
+            DialogResult result = addctrgFrm.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
+
+
+
+            Cartrige cartrigeModel = new Cartrige();
+            cartrigeModel.purchase_date = addctrgFrm.txtData.Value;
+            cartrigeModel.ModelCartrige = addctrgFrm.txtModelCartrige.Text;
+            cartrigeModel.ArticleCartrige = addctrgFrm.txtArticle.Text;
+
+            db.Cartriges.Add(cartrigeModel);
+
+            db.SaveChanges();
+
+            MessageBox.Show("Новый картридж добавлен ");
+            dataGridView6.DataSource = null;
+            this.dataGridView6.Update();
+            this.dataGridView6.Refresh();
+            PrintCartrige();
+
+
+
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+
+            // Delete Cartrige
+            if (dataGridView6.SelectedRows.Count > 0)
+            {
+                int index = dataGridView6.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView6[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                Cartrige cartrigeDel = db.Cartriges.Find(id);
+                db.Cartriges.Remove(cartrigeDel);
+                db.SaveChanges();
+                MessageBox.Show("Картридж Удален ");
+                dataGridView6.DataSource = null;
+                this.dataGridView6.Update();
+                this.dataGridView6.Refresh();
+                PrintCartrige();
+
+
+            }
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            // update Cartrige
+            if (dataGridView6.SelectedRows.Count > 0)
+            {
+                int index = dataGridView6.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView6[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                //екземпляр Формы
+                AddCartrige updateCartrigeForm = new AddCartrige();
+
+                //заполнение полей
+                Cartrige cartrigeUpdate = db.Cartriges.Find(id);
+                updateCartrigeForm.txtData.Text = cartrigeUpdate.purchase_date.ToString();
+                updateCartrigeForm.txtModelCartrige.Text = cartrigeUpdate.ModelCartrige;
+                updateCartrigeForm.txtArticle.Text = cartrigeUpdate.ArticleCartrige;
+
+                //откритие диалогового окна AddCartrige
+                DialogResult result = updateCartrigeForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+
+                //
+                cartrigeUpdate.purchase_date = updateCartrigeForm.txtData.Value;
+                cartrigeUpdate.ModelCartrige = updateCartrigeForm.txtModelCartrige.Text;
+                cartrigeUpdate.ArticleCartrige = updateCartrigeForm.txtArticle.Text;
+
+
+                //подключения к состоянию обьявив его модифицированним
+                db.Entry(cartrigeUpdate).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+                MessageBox.Show("Картридж Обновлен ");
+                dataGridView6.DataSource = null;
+                this.dataGridView6.Update();
+                this.dataGridView6.Refresh();
+                PrintCartrige();
+
+            }
+
+
+
+            }
 
 
         //2
