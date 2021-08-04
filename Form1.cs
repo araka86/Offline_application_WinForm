@@ -66,7 +66,10 @@ namespace CartrigeAltstar
 
                 PrintSubdivision();
 
+                //Пермещения картриджа
 
+
+                PrintDisplacement();
 
 
                 var query = from p in db.Subdivisions
@@ -107,24 +110,30 @@ namespace CartrigeAltstar
                               };
                 dataGridView2.DataSource = cartige.ToList();
 
-                //Картридж ----> Подразделения
-                var cp = from c in db.Compatibilities
-                         select new
-                         {
-                             c.id,
-                         
-                           Модель =  c.CartrigePK.ModelCartrige,
-                           Артикул =   c.CartrigePK.ArticleCartrige,
-                           Подразделение =   c.SubdivisionPK.division
-
-                         };
-
-                dataGridView4.DataSource = cp.ToList();
+                
 
 
             }
 
             
+        }
+
+
+       public void PrintDisplacement() 
+        {
+            //Картридж ----> Подразделения
+            var cp = from c in db.Compatibilities
+                     select new
+                     {
+                         c.id,
+
+                         Модель = c.CartrigePK.ModelCartrige,
+                         Артикул = c.CartrigePK.ArticleCartrige,
+                         Подразделение = c.SubdivisionPK.division
+
+                     };
+
+            dataGridView4.DataSource = cp.ToList();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -724,6 +733,86 @@ namespace CartrigeAltstar
 
 
 
+
+        }
+        //Добавить перемещение картриджа
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+            AddDellCartrigeSubdivisionForm addDellCartrigeSubdivisionForm = new AddDellCartrigeSubdivisionForm();
+            var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
+            var div = from dv in db.Subdivisions select (dv.division);
+
+
+            addDellCartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
+            addDellCartrigeSubdivisionForm.comboBoxCartrige.DataSource = crt.ToList();
+
+            DialogResult result = addDellCartrigeSubdivisionForm.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
+            Compatibility cm = new Compatibility();
+
+            //choise combobox Cartrige
+            var c = addDellCartrigeSubdivisionForm.comboBoxCartrige.SelectedItem.ToString();
+
+
+
+            //Find Cartrige
+            var ctt = db.Cartriges.Single(t => t.ArticleCartrige.StartsWith(c));
+
+           
+            cm.CartrigeId = ctt.Id; //write Foreign Key
+
+            //choise combobox Subdivision
+            var t3 = addDellCartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
+            //Find Subdivision
+            var t4 = db.Subdivisions.Single(t5 => t5.division.StartsWith(t3));
+
+            cm.SubdivisionId = t4.Id; //write Foreign Key
+            db.Compatibilities.Add(cm);
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
+            MessageBox.Show("Перемещение Добавленно!!! ");
+            dataGridView4.DataSource = null;
+            this.dataGridView4.Update();
+            this.dataGridView4.Refresh();
+            PrintDisplacement();
+        }
+
+
+        //Del Displacement
+        private void button16_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView4.SelectedRows.Count > 0)
+            {
+                int index = dataGridView4.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView4[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                AddDellCartrigeSubdivisionForm addDellCartrigeSubdivisionForm = new AddDellCartrigeSubdivisionForm();
+
+                Compatibility cmDel = db.Compatibilities.Find(id);
+
+                db.Compatibilities.Remove(cmDel);
+                db.SaveChanges();
+                MessageBox.Show("Перемещение Удаленно!!! ");
+                dataGridView4.DataSource = null;
+                this.dataGridView4.Update();
+                this.dataGridView4.Refresh();
+                PrintDisplacement();
+
+
+            }
+
+
+
+
+
+               
 
         }
 

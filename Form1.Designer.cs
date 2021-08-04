@@ -64,12 +64,12 @@ namespace CartrigeAltstar
             this.button14 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
-            this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
+            this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -77,9 +77,9 @@ namespace CartrigeAltstar
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -221,8 +221,9 @@ namespace CartrigeAltstar
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(12, 515);
+            this.dataGridView4.Location = new System.Drawing.Point(12, 525);
             this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView4.Size = new System.Drawing.Size(492, 150);
             this.dataGridView4.TabIndex = 16;
             // 
@@ -405,14 +406,6 @@ namespace CartrigeAltstar
             this.dataGridView7.Size = new System.Drawing.Size(462, 150);
             this.dataGridView7.TabIndex = 30;
             // 
-            // cartrigesBindingSource
-            // 
-            this.cartrigesBindingSource.DataMember = "Cartriges";
-            // 
-            // controllsBindingSource
-            // 
-            this.controllsBindingSource.DataMember = "Controlls";
-            // 
             // dataGridView10
             // 
             this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -440,6 +433,7 @@ namespace CartrigeAltstar
             this.button16.TabIndex = 38;
             this.button16.Text = "Удалить";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button17
             // 
@@ -449,6 +443,15 @@ namespace CartrigeAltstar
             this.button17.TabIndex = 39;
             this.button17.Text = "Добавить";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // cartrigesBindingSource
+            // 
+            this.cartrigesBindingSource.DataMember = "Cartriges";
+            // 
+            // controllsBindingSource
+            // 
+            this.controllsBindingSource.DataMember = "Controlls";
             // 
             // Form1
             // 
@@ -503,9 +506,9 @@ namespace CartrigeAltstar
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

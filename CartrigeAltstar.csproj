@@ -79,6 +79,12 @@
     <Compile Include="AddCartrige.Designer.cs">
       <DependentUpon>AddCartrige.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDellCartrigeSubdivisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDellCartrigeSubdivisionForm.Designer.cs">
+      <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPrinter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddCartrige.resx">
       <DependentUpon>AddCartrige.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDellCartrigeSubdivisionForm.resx">
+      <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPrinter.resx">
       <DependentUpon>AddPrinter.cs</DependentUpon>
