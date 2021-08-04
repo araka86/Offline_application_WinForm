@@ -53,6 +53,10 @@ namespace CartrigeAltstar
 
 
 
+
+
+
+
                 //список картриджей
 
 
@@ -103,14 +107,15 @@ namespace CartrigeAltstar
                               };
                 dataGridView2.DataSource = cartige.ToList();
 
-
+                //Картридж ----> Подразделения
                 var cp = from c in db.Compatibilities
                          select new
                          {
                              c.id,
-                             c.PrinterPK.ModelPrinter,
-                             c.CartrigePK.ModelCartrige,
-                             c.SubdivisionPK.division
+                         
+                           Модель =  c.CartrigePK.ModelCartrige,
+                           Артикул =   c.CartrigePK.ArticleCartrige,
+                           Подразделение =   c.SubdivisionPK.division
 
                          };
 
@@ -119,7 +124,7 @@ namespace CartrigeAltstar
 
             }
 
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -601,14 +606,121 @@ namespace CartrigeAltstar
 
             PrinterSubdivision printerSubdivisionForm = new PrinterSubdivision();
 
-            var sub = from s in db.Printers  select s.SubdivisioPK ;
+            var sub = from s in db.Subdivisions  select s.division;
+            var print = from p1 in db.Printers select p1.Article;
 
+
+            printerSubdivisionForm.comboBoxPrint.DataSource = print.ToList();
             printerSubdivisionForm.comboBoxSub.DataSource = sub.ToList();
-
 
             DialogResult result = printerSubdivisionForm.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
+
+
+
+
+
+            //choise combobox Printer
+            var p = printerSubdivisionForm.comboBoxPrint.SelectedItem.ToString();
+            //Find Printer
+            var pr = db.Printers.Single(e3 => e3.Article.StartsWith(p));
+            //choise combobox Subdivision
+            var d = printerSubdivisionForm.comboBoxSub.SelectedItem.ToString();
+            //Find Subdivision
+            var sbPk = db.Subdivisions.Single(a => a.division.StartsWith(d));
+
+              pr.SubdivisionId = sbPk.Id;
+              db.ChangeTracker.DetectChanges();
+              db.SaveChanges();
+
+
+
+            //
+            //   var sbPk = db.Subdivisions.Single(a => a.division.StartsWith("СТО Киев Выдубичи"));
+            //
+            //   var pr = db.Printers.Single(e3 => e3.Article.StartsWith("P001"));
+            //
+            //
+            //
+            //   pr.SubdivisionId = sbPk.Id;
+            //   db.ChangeTracker.DetectChanges();
+            //   db.SaveChanges();
+            //
+            //   var sbPk1 = db.Subdivisions.Single(a => a.division.StartsWith(" Сто Бориспольская"));
+            //
+            //   var pr1 = db.Printers.Single(e3 => e3.Article.StartsWith("P0KV"));
+            //   pr1.SubdivisionId = sbPk1.Id;
+            //   db.ChangeTracker.DetectChanges();
+            //   db.SaveChanges();
+            //
+
+
+
+
+
+
+
+
+
+
+
+        }
+        //Перемещение картриджа по подразделением
+        private void button15_Click(object sender, EventArgs e)
+        {
+            CartrigeSubdivision cartrigeSubdivisionForm = new CartrigeSubdivision();
+            var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
+            var div = from dv in db.Subdivisions select (dv.division);
+
+
+            cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
+            cartrigeSubdivisionForm.comboBoxCartrige.DataSource = crt.ToList();
+
+            DialogResult result = cartrigeSubdivisionForm.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
+
+
+
+            //choise combobox Cartrige
+            var c = cartrigeSubdivisionForm.comboBoxCartrige.SelectedItem.ToString();
+
+
+
+            //Find Cartrige
+            var ctt = db.Cartriges.Single(t => t.ArticleCartrige.StartsWith(c));
+            //Find Compatibilities Id CartrigeId
+            var ct = db.Compatibilities.Find(ctt.Id);
+
+
+
+            //Choise Combobox Subdivision
+
+            var div1 = cartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
+
+
+
+
+            //find Subdivision
+            var div2 = db.Subdivisions.Single(s => s.division.StartsWith(div1));
+            //Find Compatibilities Id SubdivisionId
+
+            var div3 = db.Compatibilities.Find(div2.Id);
+
+            div3.SubdivisionId = div2.Id;
+
+
+
+
+               db.ChangeTracker.DetectChanges();
+               db.SaveChanges();
+
+
+
+
+
 
 
 

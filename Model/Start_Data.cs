@@ -234,7 +234,7 @@ namespace CartrigeAltstar.Model
 
             Compatibility cp = new Compatibility
             {
-                PrinterPK = pr1,
+               
                 CartrigePK = ct3,
                 SubdivisionPK = sb4
 

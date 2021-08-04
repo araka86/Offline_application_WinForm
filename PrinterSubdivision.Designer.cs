@@ -33,12 +33,15 @@ namespace CartrigeAltstar
             this.comboBoxPrint = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxSub
             // 
             this.comboBoxSub.FormattingEnabled = true;
-            this.comboBoxSub.Location = new System.Drawing.Point(301, 117);
+            this.comboBoxSub.Location = new System.Drawing.Point(255, 58);
             this.comboBoxSub.Name = "comboBoxSub";
             this.comboBoxSub.Size = new System.Drawing.Size(183, 21);
             this.comboBoxSub.TabIndex = 0;
@@ -46,7 +49,7 @@ namespace CartrigeAltstar
             // comboBoxPrint
             // 
             this.comboBoxPrint.FormattingEnabled = true;
-            this.comboBoxPrint.Location = new System.Drawing.Point(58, 117);
+            this.comboBoxPrint.Location = new System.Drawing.Point(12, 58);
             this.comboBoxPrint.Name = "comboBoxPrint";
             this.comboBoxPrint.Size = new System.Drawing.Size(183, 21);
             this.comboBoxPrint.TabIndex = 1;
@@ -54,7 +57,7 @@ namespace CartrigeAltstar
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(58, 257);
+            this.button1.Location = new System.Drawing.Point(15, 114);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -64,25 +67,56 @@ namespace CartrigeAltstar
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(301, 257);
+            this.button2.Location = new System.Drawing.Point(255, 114);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Принтер";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(252, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Подразделение";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(98, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "---------------------------------------->";
+            // 
             // PrinterSubdivision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(476, 172);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxPrint);
             this.Controls.Add(this.comboBoxSub);
             this.Name = "PrinterSubdivision";
-            this.Text = "PrinterSubdivision";
+            this.Text = "Перемещение принтера";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,5 +125,8 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ComboBox comboBoxSub;
         public System.Windows.Forms.ComboBox comboBoxPrint;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

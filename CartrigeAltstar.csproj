@@ -91,6 +91,12 @@
     <Compile Include="AddSubdivision.Designer.cs">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
     </Compile>
+    <Compile Include="CartrigeSubdivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CartrigeSubdivision.Designer.cs">
+      <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSubdivision.resx">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CartrigeSubdivision.resx">
+      <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
