@@ -38,6 +38,8 @@ namespace CartrigeAltstar
             this.button2 = new System.Windows.Forms.Button();
             this.txtModelPrinter = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxSubdision = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -118,11 +120,29 @@ namespace CartrigeAltstar
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 269);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "подразделение";
+            // 
+            // textBoxSubdision
+            // 
+            this.textBoxSubdision.Location = new System.Drawing.Point(205, 266);
+            this.textBoxSubdision.Name = "textBoxSubdision";
+            this.textBoxSubdision.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSubdision.TabIndex = 10;
+            // 
             // AddPrinter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 334);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxSubdision);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtModelPrinter);
             this.Controls.Add(this.button2);
@@ -152,5 +172,7 @@ namespace CartrigeAltstar
         public System.Windows.Forms.TextBox txtModelPrinter;
         public System.Windows.Forms.TextBox txtArticle;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox textBoxSubdision;
     }
 }

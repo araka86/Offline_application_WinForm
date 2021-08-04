@@ -325,11 +325,18 @@ namespace CartrigeAltstar
                 if (converted == false)
                     return;
                 //заполнение полей
+                Subdivision s = new Subdivision();
                 Printer printerUpdate = db.Printers.Find(id);
                 AddPrinter update = new AddPrinter();
                 update.txtDatetime.Text = printerUpdate.DateTimes.ToString();
                 update.txtModelPrinter.Text = printerUpdate.ModelPrinter;
                 update.txtArticle.Text = printerUpdate.Article;
+              
+
+               s = printerUpdate.SubdivisioPK;
+           
+
+
 
                 //откритие диалогового окна AddPrinter
                 DialogResult result = update.ShowDialog(this);
@@ -340,6 +347,7 @@ namespace CartrigeAltstar
                 printerUpdate.DateTimes = update.txtDatetime.Value;
                 printerUpdate.ModelPrinter = update.txtModelPrinter.Text;
                 printerUpdate.Article = update.txtArticle.Text;
+                
 
 
 
@@ -582,6 +590,26 @@ namespace CartrigeAltstar
                 PrintSubdivision();
 
             }
+
+
+
+        }
+
+        //зависимость принтер ---> подразделение
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            PrinterSubdivision printerSubdivisionForm = new PrinterSubdivision();
+
+            var sub = from s in db.Printers  select s.SubdivisioPK ;
+
+            printerSubdivisionForm.comboBoxSub.DataSource = sub.ToList();
+
+
+            DialogResult result = printerSubdivisionForm.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
 
 
 

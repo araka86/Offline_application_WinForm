@@ -189,9 +189,7 @@ namespace CartrigeAltstar.Model
 
 
 
-            DateTime adDateTime = new DateTime();
-
-            adDateTime.ToString("MM/dd/yyyy");
+          
             Printer pr1 = new Printer
             {
                 

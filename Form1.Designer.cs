@@ -66,6 +66,19 @@ namespace CartrigeAltstar
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -75,6 +88,11 @@ namespace CartrigeAltstar
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -202,6 +220,7 @@ namespace CartrigeAltstar
             this.button3.TabIndex = 14;
             this.button3.Text = "Изменить зависимости Принтер--->подразделения";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -407,11 +426,142 @@ namespace CartrigeAltstar
             // 
             this.controllsBindingSource.DataMember = "Controlls";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(56, 692);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(329, 254);
+            this.tabControl1.TabIndex = 35;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(450, 145);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(450, 145);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button18);
+            this.tabPage3.Controls.Add(this.dataGridView9);
+            this.tabPage3.Controls.Add(this.button20);
+            this.tabPage3.Controls.Add(this.button19);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(321, 228);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button15);
+            this.tabPage4.Controls.Add(this.dataGridView8);
+            this.tabPage4.Controls.Add(this.button16);
+            this.tabPage4.Controls.Add(this.button17);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(321, 228);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView8
+            // 
+            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView8.Location = new System.Drawing.Point(19, 21);
+            this.dataGridView8.Name = "dataGridView8";
+            this.dataGridView8.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView8.TabIndex = 0;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(225, 194);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(80, 23);
+            this.button15.TabIndex = 38;
+            this.button15.Text = "Обновить";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(124, 194);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(80, 23);
+            this.button16.TabIndex = 37;
+            this.button16.Text = "Удалить";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(20, 194);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(80, 23);
+            this.button17.TabIndex = 36;
+            this.button17.Text = "Добавить";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(212, 179);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(80, 23);
+            this.button18.TabIndex = 42;
+            this.button18.Text = "Обновить";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView9
+            // 
+            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView9.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView9.Name = "dataGridView9";
+            this.dataGridView9.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView9.TabIndex = 39;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(111, 179);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(80, 23);
+            this.button19.TabIndex = 41;
+            this.button19.Text = "Удалить";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(7, 179);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(80, 23);
+            this.button20.TabIndex = 40;
+            this.button20.Text = "Добавить";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1491, 968);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
@@ -458,6 +608,11 @@ namespace CartrigeAltstar
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartrigesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controllsBindingSource)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,6 +656,19 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.DataGridView dataGridView9;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.DataGridView dataGridView8;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
     }
 }
 

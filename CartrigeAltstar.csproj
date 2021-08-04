@@ -118,6 +118,12 @@
     <Compile Include="Model\Reception.cs" />
     <Compile Include="Model\Start_Data.cs" />
     <Compile Include="Model\Subdivision.cs" />
+    <Compile Include="PrinterSubdivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrinterSubdivision.Designer.cs">
+      <DependentUpon>PrinterSubdivision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddCartrige.resx">
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddInfoService.resx">
       <DependentUpon>FormAddInfoService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterSubdivision.resx">
+      <DependentUpon>PrinterSubdivision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
