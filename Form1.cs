@@ -11,7 +11,8 @@ using System.Windows.Forms;
 using CartrigeAltstar.Model;
 using System.Data.SqlClient;
 using System.Collections;
-
+using ClosedXML.Excel;
+using System.IO;
 
 namespace CartrigeAltstar
 {
@@ -46,6 +47,9 @@ namespace CartrigeAltstar
                 db.Subdivisions.Load();
                 db.Cartriges.Load();
                 db.Compatibilities.Load();
+
+
+
 
                 //список принтеров
 
@@ -85,7 +89,7 @@ namespace CartrigeAltstar
 
 
 
-              
+
                 dataGridView1.DataSource = query.ToList();
 
                 //   var query2 = from p in db.Printers
@@ -114,11 +118,11 @@ namespace CartrigeAltstar
 
 
 
-                var q = from a in db.Cartriges 
+                var q = from a in db.Cartriges
                         join b in db.Printers on a.Id equals b.Id
-                        select new 
-                        { 
-                            a.ModelCartrige 
+                        select new
+                        {
+                            a.ModelCartrige
                         };
                 dataGridView10.DataSource = q.ToList();
 
@@ -129,11 +133,11 @@ namespace CartrigeAltstar
 
             }
 
-            
+
         }
 
 
-       public void PrintDisplacement() 
+        public void PrintDisplacement()
         {
             //Картридж ----> Подразделения
             var cp = from c in db.Compatibilities
@@ -269,9 +273,9 @@ namespace CartrigeAltstar
             var crt = from c in db.Subdivisions
                       select new
                       {
-                          c.Id,
-                          c.division,
-                          c.address_part
+                          Id = c.Id,
+                          Подразделения = c.division,
+                          Адресс = c.address_part
                       };
             dataGridView7.DataSource = crt.ToList();
 
@@ -359,10 +363,10 @@ namespace CartrigeAltstar
                 update.txtDatetime.Text = printerUpdate.DateTimes.ToString();
                 update.txtModelPrinter.Text = printerUpdate.ModelPrinter;
                 update.txtArticle.Text = printerUpdate.Article;
-              
 
-               s = printerUpdate.SubdivisioPK;
-           
+
+                s = printerUpdate.SubdivisioPK;
+
 
 
 
@@ -375,7 +379,7 @@ namespace CartrigeAltstar
                 printerUpdate.DateTimes = update.txtDatetime.Value;
                 printerUpdate.ModelPrinter = update.txtModelPrinter.Text;
                 printerUpdate.Article = update.txtArticle.Text;
-                
+
 
 
 
@@ -594,7 +598,7 @@ namespace CartrigeAltstar
                 Subdivision subdivisionModel = db.Subdivisions.Find(id);
                 updateSubdivisionForm.txtModelDivision.Text = subdivisionModel.division;
                 updateSubdivisionForm.txtStreet.Text = subdivisionModel.address_part;
-         
+
 
                 //откритие диалогового окна AddCartrige
                 DialogResult result = updateSubdivisionForm.ShowDialog(this);
@@ -604,7 +608,7 @@ namespace CartrigeAltstar
                 //
                 subdivisionModel.division = updateSubdivisionForm.txtModelDivision.Text;
                 subdivisionModel.address_part = updateSubdivisionForm.txtStreet.Text;
-           
+
 
                 //подключения к состоянию обьявив его модифицированним
                 db.Entry(subdivisionModel).State = EntityState.Modified;
@@ -629,7 +633,7 @@ namespace CartrigeAltstar
 
             PrinterSubdivision printerSubdivisionForm = new PrinterSubdivision();
 
-            var sub = from s in db.Subdivisions  select s.division;
+            var sub = from s in db.Subdivisions select s.division;
             var print = from p1 in db.Printers select p1.Article;
 
 
@@ -653,9 +657,9 @@ namespace CartrigeAltstar
             //Find Subdivision
             var sbPk = db.Subdivisions.Single(a => a.division.StartsWith(d));
 
-              pr.SubdivisionId = sbPk.Id;
-              db.ChangeTracker.DetectChanges();
-              db.SaveChanges();
+            pr.SubdivisionId = sbPk.Id;
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
 
 
 
@@ -737,8 +741,8 @@ namespace CartrigeAltstar
 
 
 
-               db.ChangeTracker.DetectChanges();
-               db.SaveChanges();
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
 
 
 
@@ -775,7 +779,7 @@ namespace CartrigeAltstar
             //Find Cartrige
             var ctt = db.Cartriges.Single(t => t.ArticleCartrige.StartsWith(c));
 
-           
+
             cm.CartrigeId = ctt.Id; //write Foreign Key
 
             //choise combobox Subdivision
@@ -826,15 +830,180 @@ namespace CartrigeAltstar
 
 
 
+
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+
+
+            DateTime curTime = DateTime.Now; // Current Data
+
+
+
+
+            // creating Excel Application
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+
+
+            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+            // changing the name of active sheet  
+
+
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            worksheet = ExcelWorkBook.ActiveSheet;
+
+
+            worksheet.Name = "Printer -  " + curTime.ToShortDateString().ToString(); // название документа
+
+
+            ExcelApp.Visible = true;
+            for (int i = 1; i < dataGridView6.Columns.Count + 1; i++)
+            {
+                ExcelWorkSheet.Cells[1, i] = dataGridView6.Columns[i - 1].HeaderText;
+            }
+            for (int i = 0; i < dataGridView6.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView6.Columns.Count; j++)
+                {
+                    ExcelWorkSheet.Cells[i + 2, j + 1] = dataGridView6.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+
+
+
+
+            //   // save the application  
+            //   ExcelWorkBook.SaveAs("E:\\output.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            //   // Exit from the application  
+            //   ExcelApp.Quit();
+            //
+
+
+
+
+
+
+
+
+
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+
+            DateTime curTime = DateTime.Now; // Current Data
+
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+
+
+            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            worksheet = ExcelWorkBook.ActiveSheet;
+
+
+            worksheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); // название документа
+
+            object[,] d = new object[dataGridView7.RowCount, dataGridView7.ColumnCount];
+
+
+
+            //Header -Not Fill
+
+            for (int i = 1; i < dataGridView7.Columns.Count + 1; i++)
+            {
+                ExcelWorkSheet.Cells[1, i] = dataGridView7.Columns[i - 1].HeaderText;
+
+            }
+
+
+            //DATA (Fill)
+
+            for (int i = 0; i < dataGridView7.Rows.Count - 1; i++) //отступ вниз 1
+            {
                
+                for (int j = 0; j < dataGridView7.Columns.Count; j++)
+                {
+                  
+                    d[i, j] = dataGridView7.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+
+
+
+            Fill(2, 1, d);
+            ExcelApp.Visible = true;
+
+
+
+
+            //Заполнение строк
+            void Fill(int topRow, int leftCol, object[,] data)
+            {
+                int rows = data.GetUpperBound(0) + 1;
+                int cols = data.GetUpperBound(1) + 1;
+
+                Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+
+                object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
+                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridView7.RowCount - 1, leftCol + dataGridView7.ColumnCount - 1];
+
+                Microsoft.Office.Interop.Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
+                range.Value2 = data;
+                setStyle(range);
+
+            }
+
+
+
+            //Прорисовка  (оформление) документа
+            void setStyle(Microsoft.Office.Interop.Excel.Range range)
+            {
+                range.EntireColumn.AutoFit();
+                range.EntireRow.AutoFit();
+                //отрисовка линий для excel документа
+                object[] border = new object[] { Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeLeft, //Лево
+                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop, //Верх
+                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeBottom, //Низ
+                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeRight, //Право
+                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlInsideVertical, //Вертикаль
+                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlInsideHorizontal}; //Горизонталь
+
+                for (int i = 0; i < border.Length; i++)
+                {
+                    range.Borders[(Microsoft.Office.Interop.Excel.XlBordersIndex)border[i]].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous; //Стиль
+                    range.Borders[(Microsoft.Office.Interop.Excel.XlBordersIndex)border[i]].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin; //Толщина
+                    range.Borders[(Microsoft.Office.Interop.Excel.XlBordersIndex)border[i]].ColorIndex = Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic;
+                }
+
+
+
+
+
+
+
+
+            }
+
 
         }
 
 
         //2
+
     }
 
-
-
     //1
+
 }

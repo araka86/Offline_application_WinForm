@@ -70,6 +70,8 @@ namespace CartrigeAltstar
             this.button17 = new System.Windows.Forms.Button();
             this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -453,11 +455,33 @@ namespace CartrigeAltstar
             // 
             this.controllsBindingSource.DataMember = "Controlls";
             // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(1293, 477);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(123, 23);
+            this.button18.TabIndex = 40;
+            this.button18.Text = "Export Exel (simple)";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(1293, 720);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(123, 23);
+            this.button19.TabIndex = 41;
+            this.button19.Text = "Export Exel (Mod)";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1491, 968);
+            this.Controls.Add(this.button19);
+            this.Controls.Add(this.button18);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
@@ -556,6 +580,8 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button15;
         public System.Windows.Forms.Button button16;
         public System.Windows.Forms.Button button17;
+        public System.Windows.Forms.Button button18;
+        public System.Windows.Forms.Button button19;
     }
 }
 
