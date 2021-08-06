@@ -85,7 +85,7 @@ namespace CartrigeAltstar
 
 
 
-
+              
                 dataGridView1.DataSource = query.ToList();
 
                 //   var query2 = from p in db.Printers
@@ -110,7 +110,21 @@ namespace CartrigeAltstar
                               };
                 dataGridView2.DataSource = cartige.ToList();
 
-                
+
+
+
+
+                var q = from a in db.Cartriges 
+                        join b in db.Printers on a.Id equals b.Id
+                        select new 
+                        { 
+                            a.ModelCartrige 
+                        };
+                dataGridView10.DataSource = q.ToList();
+
+
+
+
 
 
             }

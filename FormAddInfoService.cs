@@ -24,7 +24,6 @@ namespace CartrigeAltstar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-         
 
         }
 
@@ -34,10 +33,6 @@ namespace CartrigeAltstar
             
             
             {
-
-
-
-
                 var r = from w in db.Cartriges select w.ModelCartrige ;
 
                 comboBoxCartrige.DataSource = r.ToList();
@@ -71,8 +66,6 @@ namespace CartrigeAltstar
                 infserv.TypeService = txtype.Text;
                 db.infoServices.Add(infserv);
                 db.SaveChanges();
-
-                
 
 
             }
