@@ -13,6 +13,9 @@ using System.Data.SqlClient;
 using System.Collections;
 using ClosedXML.Excel;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
+
 
 namespace CartrigeAltstar
 {
@@ -897,25 +900,97 @@ namespace CartrigeAltstar
         private void button19_Click(object sender, EventArgs e)
         {
 
+           
+
+
+
+
+
+
+
+
+
+
+
+
             DateTime curTime = DateTime.Now; // Current Data
 
-            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Application ExcelApp = new Excel.Application(); //Объявляем приложение
+            
+
+            Excel.Workbook ExcelWorkBook; //инициализация рабочей книги
+            Excel.Worksheet ExcelWorkSheet; //инициализация рабочего листа
+            Excel.Range ExecelRange; //Переменная диапазона
+
+           
+
+    
+            ExcelApp.SheetsInNewWorkbook = 2; //Количество листов в рабочей книге
 
 
-            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value); //Добавить рабочую книгу
 
-            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
-            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+            ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
 
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-
-            worksheet = ExcelWorkBook.ActiveSheet;
+            ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
 
 
-            worksheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); // название документа
+            ExcelWorkSheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
 
+           
+
+
+
+     //                               //Пример заполнения ячеек
+     //      for (int i = 1; i <= 9; i++)
+     //      {
+     //          for (int j = 1; j < 9; j++)
+     //          {
+     //            ExcelWorkSheet.Cells[i, j] = string.Format("Boom {0} {1}", i, j);
+     //
+     //            
+     //
+     //
+     //              //     ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeRight].Weight = 4;
+     //              //     ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = 4;
+     //              //     ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeLeft].Weight = 4;
+     //              //     ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeBottom].Weight = 4;
+     //              //
+     //              //
+     //              //     ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[i, j];
+     //              //     ExecelRange.Cells.Font.Size = 20; // размер букв
+     //              //     ExecelRange.Cells.Font.Bold = 500; // жирность
+     //              //     ExecelRange.Cells.Font.Color = Color.Aqua; //цвет букв
+     //              //     ExecelRange.Cells.Font.Italic = true; //косая
+     //          }
+     //
+     //
+     //
+     //      }
+
+            
+
+
+
+
+
+
+            //   ExcelApp.get_Range("A1", "A5").Select();
+
+
+
+            //          Excel.Range CR = (Excel.Range)ExcelWorkSheet.Cells[1, 1];
+            //
+            //          CR.Select();
+            //          CR.Cells.Font.Size = 20;
+            //
+            //
             object[,] d = new object[dataGridView7.RowCount, dataGridView7.ColumnCount];
+ 
+            
+
+
+
 
 
 
@@ -923,28 +998,65 @@ namespace CartrigeAltstar
 
             for (int i = 1; i < dataGridView7.Columns.Count + 1; i++)
             {
-                ExcelWorkSheet.Cells[1, i] = dataGridView7.Columns[i - 1].HeaderText;
+
+               ExcelWorkSheet.Cells[1, i] = dataGridView7.Columns[i - 1].HeaderText;
+
+             
+
+
+                        ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeRight].Weight = 2;
+                        ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = 2;
+                        ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeLeft].Weight = 2;
+                        ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeBottom].Weight = 4;
+              
+                        ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[1, i];
+                        ExecelRange.Cells.Font.Size = 14;
+                        ExecelRange.Cells.Font.Bold = 500;
+                        ExecelRange.Cells.Font.Color = Color.Brown;
+
+
+
+         //       ExcelWorkSheet.Cells["A1"].FillColor = Color.Yellow;
 
             }
+
+           
+
+            //
+            //      ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[1, 0];
+            //      ExecelRange.Select();
+            //
+            //      ExecelRange.Cells.Font.Size = 20;
+            //
+
+            //   ExcelWorkSheet.get_Range("A1:A10").Value2 = 67;  // захватить диапазон от А1-А10 и присвоить циффру
+
+
+
+
 
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridView7.Rows.Count - 1; i++) //отступ вниз 1
+            for (int i = 0; i < dataGridView7.Rows.Count -1; i++) //отступ вниз 1
             {
-               
-                for (int j = 0; j < dataGridView7.Columns.Count; j++)
+
+                for (int j = 0; j < dataGridView7.Columns.Count ; j++)
                 {
-                  
+                 
                     d[i, j] = dataGridView7.Rows[i].Cells[j].Value.ToString();
+
+
+
+
                 }
             }
 
 
 
             Fill(2, 1, d);
-            ExcelApp.Visible = true;
 
+            ExcelApp.Visible = true; //Отобразить Excel
 
 
 
@@ -968,23 +1080,23 @@ namespace CartrigeAltstar
 
 
             //Прорисовка  (оформление) документа
-            void setStyle(Microsoft.Office.Interop.Excel.Range range)
+            void setStyle(Excel.Range range)
             {
                 range.EntireColumn.AutoFit();
                 range.EntireRow.AutoFit();
                 //отрисовка линий для excel документа
-                object[] border = new object[] { Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeLeft, //Лево
-                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop, //Верх
-                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeBottom, //Низ
-                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeRight, //Право
-                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlInsideVertical, //Вертикаль
-                                             Microsoft.Office.Interop.Excel.XlBordersIndex.xlInsideHorizontal}; //Горизонталь
+                object[] border = new object[] { Excel.XlBordersIndex.xlEdgeLeft, //Лево
+                                                Excel.XlBordersIndex.xlEdgeTop, //Верх
+                                                Excel.XlBordersIndex.xlEdgeBottom, //Низ
+                                                Excel.XlBordersIndex.xlEdgeRight, //Право
+                                                Excel.XlBordersIndex.xlInsideVertical, //Вертикаль
+                                                Excel.XlBordersIndex.xlInsideHorizontal}; //Горизонталь
 
                 for (int i = 0; i < border.Length; i++)
                 {
-                    range.Borders[(Microsoft.Office.Interop.Excel.XlBordersIndex)border[i]].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous; //Стиль
-                    range.Borders[(Microsoft.Office.Interop.Excel.XlBordersIndex)border[i]].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin; //Толщина
-                    range.Borders[(Microsoft.Office.Interop.Excel.XlBordersIndex)border[i]].ColorIndex = Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic;
+                    range.Borders[(Excel.XlBordersIndex)border[i]].LineStyle = Excel.XlLineStyle.xlContinuous; //Стиль
+                    range.Borders[(Excel.XlBordersIndex)border[i]].Weight = Excel.XlBorderWeight.xlThin; //Толщина
+                    range.Borders[(Excel.XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
                 }
 
 
