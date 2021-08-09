@@ -83,6 +83,7 @@
     <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -125,6 +126,12 @@
     <Compile Include="CartrigeSubdivision.Designer.cs">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dispatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dispatch.Designer.cs">
+      <DependentUpon>Dispatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +167,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reception.Designer.cs">
+      <DependentUpon>Reception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptionConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceptionConfig.Designer.cs">
+      <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddCartrige.resx">
       <DependentUpon>AddCartrige.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CartrigeSubdivision.resx">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dispatch.resx">
+      <DependentUpon>Dispatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -196,6 +218,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reception.resx">
+      <DependentUpon>Reception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptionConfig.resx">
+      <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

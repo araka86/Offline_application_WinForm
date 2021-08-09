@@ -11,9 +11,11 @@ namespace CartrigeAltstar.Model
     {
 
         public int id { get; set; }
+        public DateTime? Date { get; set; } //data empty
+        public string Cartrige { get; set; }//Catrige
         public string Date_of_receipt { get; set; } //от куда приехал
         public double Weight { get; set; } // вес
-        public string Work_notes { get; set; } //примечания работ
+        public string  Status { get; set; } //статус (пустой, полний)
        
 
     }

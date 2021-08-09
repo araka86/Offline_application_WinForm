@@ -9,10 +9,13 @@ namespace CartrigeAltstar.Model
 {
     class Dispatch //отправка на подразделения
     {
-        public int Id { get; set; }
-        public string Date_of_dispatch { get; set; }
-        public double Weight { get; set; } // вес после заправка
+        public int id { get; set; }
+        public DateTime? Date { get; set; } //data empty
+        public string Cartrige { get; set; }//Catrige
+        public string Date_of_receipt { get; set; } // куда поехал
+        public double Weight { get; set; } // вес после заправки
+        public string Work_notes { get; set; } //примечания работ (смена барабана, заправка, смена чистищего лезвие)
 
-       
+
     }
 }

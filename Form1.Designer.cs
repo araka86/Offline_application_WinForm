@@ -68,10 +68,10 @@ namespace CartrigeAltstar
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.cartrigesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controllsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -447,14 +447,6 @@ namespace CartrigeAltstar
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
-            // cartrigesBindingSource
-            // 
-            this.cartrigesBindingSource.DataMember = "Cartriges";
-            // 
-            // controllsBindingSource
-            // 
-            this.controllsBindingSource.DataMember = "Controlls";
-            // 
             // button18
             // 
             this.button18.Location = new System.Drawing.Point(1293, 477);
@@ -474,6 +466,14 @@ namespace CartrigeAltstar
             this.button19.Text = "Export Exel (Mod)";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // cartrigesBindingSource
+            // 
+            this.cartrigesBindingSource.DataMember = "Cartriges";
+            // 
+            // controllsBindingSource
+            // 
+            this.controllsBindingSource.DataMember = "Controlls";
             // 
             // Form1
             // 
@@ -522,6 +522,7 @@ namespace CartrigeAltstar
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

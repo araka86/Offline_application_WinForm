@@ -11,15 +11,15 @@ namespace CartrigeAltstar.Model
     {
 
 
-       
-     public ContexAltstarContext() :base("DefaultConnection") { }  //initialization 1
 
-  //     static ContexAltstarContext() 
-  //     {
-  //         Database.SetInitializer(new ContexAltstarInit());
-  //     }
+        public ContexAltstarContext() : base("DefaultConnection") { }  //initialization 1
 
-        public DbSet<Compatibility> Compatibilities {get;set;} //Совместимость
+        static ContexAltstarContext()
+        {
+            Database.SetInitializer(new ContexAltstarInit());
+        }
+
+        public DbSet<Compatibility> Compatibilities { get; set; } //Совместимость
         public DbSet<Printer> Printers { get; set; } //Принтеры
         public DbSet<Subdivision> Subdivisions { get; set; } //Подразделения
         public DbSet<Cartrige> Cartriges { get; set; } //Картриджи
@@ -49,7 +49,7 @@ namespace CartrigeAltstar.Model
 
 
 
-   
+
 
 
 }
