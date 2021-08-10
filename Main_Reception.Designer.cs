@@ -63,7 +63,6 @@ namespace CartrigeAltstar
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -88,6 +87,7 @@ namespace CartrigeAltstar
             this.flowLayoutPanel4.Controls.Add(this.button5);
             this.flowLayoutPanel4.Controls.Add(this.button16);
             this.flowLayoutPanel4.Controls.Add(this.button17);
+            this.flowLayoutPanel4.Controls.Add(this.button4);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(1153, 24);
@@ -238,7 +238,6 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxFiltrCartrige);
             this.flowLayoutPanel1.Controls.Add(this.button8);
@@ -282,9 +281,9 @@ namespace CartrigeAltstar
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(3, 61);
+            this.button4.Location = new System.Drawing.Point(3, 155);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(156, 23);
+            this.button4.Size = new System.Drawing.Size(102, 23);
             this.button4.TabIndex = 9;
             this.button4.Text = "Перемещение";
             this.button4.UseVisualStyleBackColor = true;
@@ -293,7 +292,7 @@ namespace CartrigeAltstar
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 87);
+            this.label1.Location = new System.Drawing.Point(3, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 13);
             this.label1.TabIndex = 6;
@@ -302,14 +301,14 @@ namespace CartrigeAltstar
             // comboBoxFiltrCartrige
             // 
             this.comboBoxFiltrCartrige.FormattingEnabled = true;
-            this.comboBoxFiltrCartrige.Location = new System.Drawing.Point(3, 103);
+            this.comboBoxFiltrCartrige.Location = new System.Drawing.Point(3, 74);
             this.comboBoxFiltrCartrige.Name = "comboBoxFiltrCartrige";
             this.comboBoxFiltrCartrige.Size = new System.Drawing.Size(153, 21);
             this.comboBoxFiltrCartrige.TabIndex = 5;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(3, 130);
+            this.button8.Location = new System.Drawing.Point(3, 101);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 8;
@@ -318,7 +317,7 @@ namespace CartrigeAltstar
             // 
             // resetFiltr
             // 
-            this.resetFiltr.Location = new System.Drawing.Point(84, 130);
+            this.resetFiltr.Location = new System.Drawing.Point(84, 101);
             this.resetFiltr.Name = "resetFiltr";
             this.resetFiltr.Size = new System.Drawing.Size(73, 23);
             this.resetFiltr.TabIndex = 10;
@@ -327,7 +326,7 @@ namespace CartrigeAltstar
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(3, 159);
+            this.button7.Location = new System.Drawing.Point(3, 130);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(156, 23);
             this.button7.TabIndex = 7;
@@ -384,7 +383,6 @@ namespace CartrigeAltstar
             this.flowLayoutPanel2.Controls.Add(this.button9);
             this.flowLayoutPanel2.Controls.Add(this.button10);
             this.flowLayoutPanel2.Controls.Add(this.button11);
-            this.flowLayoutPanel2.Controls.Add(this.button13);
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.comboBox2);
             this.flowLayoutPanel2.Controls.Add(this.button6);
@@ -423,19 +421,10 @@ namespace CartrigeAltstar
             this.button11.Text = "Удалить";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(3, 61);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(156, 23);
-            this.button13.TabIndex = 4;
-            this.button13.Text = "Перемещение";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 87);
+            this.label2.Location = new System.Drawing.Point(3, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 13);
             this.label2.TabIndex = 6;
@@ -444,14 +433,14 @@ namespace CartrigeAltstar
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 103);
+            this.comboBox2.Location = new System.Drawing.Point(3, 74);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(153, 21);
             this.comboBox2.TabIndex = 5;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(3, 130);
+            this.button6.Location = new System.Drawing.Point(3, 101);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 23);
             this.button6.TabIndex = 11;
@@ -460,7 +449,7 @@ namespace CartrigeAltstar
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(82, 130);
+            this.button12.Location = new System.Drawing.Point(82, 101);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 23);
             this.button12.TabIndex = 12;
@@ -469,7 +458,7 @@ namespace CartrigeAltstar
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(3, 159);
+            this.button15.Location = new System.Drawing.Point(3, 130);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(156, 23);
             this.button15.TabIndex = 7;
@@ -543,7 +532,6 @@ namespace CartrigeAltstar
         public System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button6;

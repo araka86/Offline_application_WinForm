@@ -312,33 +312,31 @@ namespace CartrigeAltstar
 
         }
 
+        //візвать форму перещения картриджа
         private void button4_Click(object sender, EventArgs e)
         {
 
+            CartrigePlace ctpl = new CartrigePlace(); // екземпляр формы CartrigePlace
 
-            CartrigePlace ctpl = new CartrigePlace();
 
             var cp = from c1 in db.Compatibilities
                      select new
                      {
                          c1.id,
-
                          Модель = c1.CartrigePK.ModelCartrige,
                          Артикул = c1.CartrigePK.ArticleCartrige,
                          Подразделение = c1.SubdivisionPK.division
 
                      };
 
-            ctpl.dataGridView1.DataSource = cp.ToList();
+            ctpl.dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
 
-
-            ctpl.ShowDialog();
+           
+            ctpl.Show(this); // вызов формы
 
 
 
         }
-
-
 
 
 
