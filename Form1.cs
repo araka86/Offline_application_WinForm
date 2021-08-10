@@ -297,7 +297,7 @@ namespace CartrigeAltstar
                 return;
 
 
-
+            
 
             Printer printer = new Printer();
             printer.DateTimes = add.txtDatetime.Value;
@@ -368,7 +368,7 @@ namespace CartrigeAltstar
                 update.txtArticle.Text = printerUpdate.Article;
 
 
-                s = printerUpdate.SubdivisioPK;
+                s = printerUpdate.SubdivisioPK; //
 
 
 
@@ -1108,6 +1108,11 @@ namespace CartrigeAltstar
 
             }
 
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
 
         }
 

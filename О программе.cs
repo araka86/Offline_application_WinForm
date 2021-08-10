@@ -10,21 +10,25 @@ using System.Windows.Forms;
 
 namespace CartrigeAltstar
 {
-    public partial class CartrigeSubdivision : Form
+    public partial class О_программе : Form
     {
-        public CartrigeSubdivision()
+        public О_программе()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Close();
+            // Specify that the link was visited.
+            this.linkLabel1.LinkVisited = true;
+
+            // Navigate to a URL.
+            System.Diagnostics.Process.Start("http://altstar.com.ua");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

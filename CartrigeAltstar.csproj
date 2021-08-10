@@ -120,6 +120,12 @@
     <Compile Include="AddSubdivision.Designer.cs">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
     </Compile>
+    <Compile Include="CartrigePlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CartrigePlace.Designer.cs">
+      <DependentUpon>CartrigePlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="CartrigeSubdivision.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,17 +173,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reception.cs">
+    <Compile Include="Main_Reception.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reception.Designer.cs">
-      <DependentUpon>Reception.cs</DependentUpon>
+    <Compile Include="Main_Reception.Designer.cs">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
     </Compile>
     <Compile Include="ReceptionConfig.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReceptionConfig.Designer.cs">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="О программе.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="О программе.Designer.cs">
+      <DependentUpon>О программе.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddCartrige.resx">
       <DependentUpon>AddCartrige.cs</DependentUpon>
@@ -190,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSubdivision.resx">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CartrigePlace.resx">
+      <DependentUpon>CartrigePlace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CartrigeSubdivision.resx">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
@@ -218,11 +233,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reception.resx">
-      <DependentUpon>Reception.cs</DependentUpon>
+    <EmbeddedResource Include="Main_Reception.resx">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReceptionConfig.resx">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="О программе.resx">
+      <DependentUpon>О программе.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

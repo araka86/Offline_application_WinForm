@@ -16,7 +16,7 @@ namespace CartrigeAltstar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reception());
+            Application.Run(new Main_Reception());
         }
     }
 }
