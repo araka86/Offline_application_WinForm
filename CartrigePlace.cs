@@ -23,7 +23,7 @@ namespace CartrigeAltstar
 
             db.Receptions.Load();
         }
-
+        //Добавление перемещения
         private void button1_Click(object sender, EventArgs e)
         {
             CartrigeSubdivision cartrigeSubdivisionForm = new CartrigeSubdivision(); //екземпляр формы CartrigeSubdivision
@@ -34,7 +34,7 @@ namespace CartrigeAltstar
                var div = from dv in db.Subdivisions select (dv.division);
 
             //заполнения comboBox даними
-            cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
+               cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
                cartrigeSubdivisionForm.comboBoxCartrige.DataSource = crt.ToList();
 
 
@@ -49,7 +49,7 @@ namespace CartrigeAltstar
             Compatibility cm = new Compatibility();
 
             //choise combobox Cartrige
-            var c = cartrigeSubdivisionForm.comboBoxCartrige.SelectedItem.ToString();
+            var c = cartrigeSubdivisionForm.comboBoxCartrige.SelectedItem.ToString(); 
 
 
 
@@ -65,6 +65,8 @@ namespace CartrigeAltstar
             var t4 = db.Subdivisions.Single(t5 => t5.division.StartsWith(t3));
 
             cm.SubdivisionId = t4.Id; //write Foreign Key
+
+
             db.Compatibilities.Add(cm);
             db.ChangeTracker.DetectChanges();
             db.SaveChanges();
@@ -93,7 +95,7 @@ namespace CartrigeAltstar
 
             dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
         }
-
+        //удаления
         private void button3_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -106,9 +108,9 @@ namespace CartrigeAltstar
 
                 AddDellCartrigeSubdivisionForm addDellCartrigeSubdivisionForm = new AddDellCartrigeSubdivisionForm();
 
-                Compatibility cmDel = db.Compatibilities.Find(id);
+                Compatibility cmUpd = db.Compatibilities.Find(id);
 
-                db.Compatibilities.Remove(cmDel);
+                db.Compatibilities.Remove(cmUpd);
                 db.SaveChanges();
                 MessageBox.Show("Перемещение Удаленно!!! ");
                 dataGridView1.DataSource = null;
@@ -118,9 +120,73 @@ namespace CartrigeAltstar
             }
         }
 
+
+        //обновоение перемещения
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+          
+
+           
+
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                CartrigeSubdivision cartrigeSubdivisionForm = new CartrigeSubdivision();
+                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
+                var div = from dv in db.Subdivisions select (dv.division);
+
+
+                cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
+                cartrigeSubdivisionForm.comboBoxCartrige.DataSource = crt.ToList();
+
+
+
+
+
+
+
+
+               
+
+
+
+                int index = dataGridView1.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id); //Find Index
+
+                Compatibility cmUpd = db.Compatibilities.Find(id); //поиск индекса в таблице совместимости внешнего ключа
+                Cartrige fndCtt = db.Cartriges.Find(cmUpd.CartrigeId); //поиск индека в таблице картриджи первичного ключа
+
+
+                int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
+
+                cartrigeSubdivisionForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrigeArticle;
+
+
+
+
+
+                DialogResult result = cartrigeSubdivisionForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+
+
+                if (converted == false)
+                    return;
+
+
+
+
+
+               
+
+            }
+
+
+
+
+
+              
+
         }
     }
 }
