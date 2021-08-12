@@ -51,7 +51,7 @@ namespace CartrigeAltstar
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1Article = new System.Windows.Forms.Label();
             this.comboBoxFiltrCartrige = new System.Windows.Forms.ComboBox();
             this.button8 = new System.Windows.Forms.Button();
             this.resetFiltr = new System.Windows.Forms.Button();
@@ -68,6 +68,7 @@ namespace CartrigeAltstar
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -159,25 +160,25 @@ namespace CartrigeAltstar
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItem5.Text = "просмотр печати";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItem4.Text = "печать";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItem6.Text = "информация";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItem3.Text = "Выход здесь";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -248,8 +249,9 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxFiltrCartrige);
+            this.flowLayoutPanel1.Controls.Add(this.label1Article);
             this.flowLayoutPanel1.Controls.Add(this.button8);
             this.flowLayoutPanel1.Controls.Add(this.resetFiltr);
             this.flowLayoutPanel1.Controls.Add(this.button7);
@@ -289,14 +291,14 @@ namespace CartrigeAltstar
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label1
+            // label1Article
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Фильтр истории картриджей";
+            this.label1Article.AutoSize = true;
+            this.label1Article.Location = new System.Drawing.Point(3, 98);
+            this.label1Article.Name = "label1Article";
+            this.label1Article.Size = new System.Drawing.Size(153, 13);
+            this.label1Article.TabIndex = 6;
+            this.label1Article.Text = "------------------Article---------------------";
             // 
             // comboBoxFiltrCartrige
             // 
@@ -308,7 +310,7 @@ namespace CartrigeAltstar
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(3, 101);
+            this.button8.Location = new System.Drawing.Point(3, 114);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 8;
@@ -317,7 +319,7 @@ namespace CartrigeAltstar
             // 
             // resetFiltr
             // 
-            this.resetFiltr.Location = new System.Drawing.Point(84, 101);
+            this.resetFiltr.Location = new System.Drawing.Point(84, 114);
             this.resetFiltr.Name = "resetFiltr";
             this.resetFiltr.Size = new System.Drawing.Size(73, 23);
             this.resetFiltr.TabIndex = 10;
@@ -326,7 +328,7 @@ namespace CartrigeAltstar
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(3, 130);
+            this.button7.Location = new System.Drawing.Point(3, 143);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(156, 23);
             this.button7.TabIndex = 7;
@@ -465,6 +467,15 @@ namespace CartrigeAltstar
             this.button15.Text = "Export ---> Excel";
             this.button15.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Фильтр истории картриджей";
+            // 
             // Main_Reception
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,8 +531,6 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxFiltrCartrige;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button resetFiltr;
         private System.Windows.Forms.Button button7;
@@ -537,5 +546,8 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button15;
+        public System.Windows.Forms.ComboBox comboBoxFiltrCartrige;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label1Article;
     }
 }

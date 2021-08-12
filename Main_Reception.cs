@@ -43,6 +43,9 @@ namespace CartrigeAltstar
 
             var ListCartrige = from lc in db.Cartriges
                                select lc.ModelCartrige;
+
+
+          
         }
 
 
@@ -85,9 +88,21 @@ namespace CartrigeAltstar
 
             var ListCartrigeFiltr = from lc in db.Cartriges
                                     select lc.ModelCartrige;
+            var ListCartrigeFiltrArticle = from lc in db.Cartriges
+                                    select lc.ArticleCartrige;
+
             comboBoxFiltrCartrige.DataSource = ListCartrigeFiltr.ToList();
 
 
+
+            if (string.IsNullOrEmpty(comboBoxFiltrCartrige.Text))
+            {
+                MessageBox.Show("No Item is Selected");
+            }
+            else
+            {
+                MessageBox.Show("Item Selected is:" + comboBoxFiltrCartrige.Text);
+            }
 
 
 

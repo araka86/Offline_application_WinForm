@@ -185,6 +185,12 @@
     <Compile Include="ReceptionConfig.Designer.cs">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateMovingCartrige.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateMovingCartrige.Designer.cs">
+      <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
+    </Compile>
     <Compile Include="О программе.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReceptionConfig.resx">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateMovingCartrige.resx">
+      <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="О программе.resx">
       <DependentUpon>О программе.cs</DependentUpon>

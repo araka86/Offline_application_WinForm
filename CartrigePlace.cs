@@ -139,13 +139,13 @@ namespace CartrigeAltstar
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                CartrigeSubdivision cartrigeSubdivisionForm = new CartrigeSubdivision();
-                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
+                UpdateMovingCartrige UpdateMovingCartrigeForm = new UpdateMovingCartrige();
+               var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
                 var div = from dv in db.Subdivisions select (dv.division);
 
 
-                cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
-                cartrigeSubdivisionForm.comboBoxCartrige.DataSource = crt.ToList();
+                UpdateMovingCartrigeForm.comboBoxDivision.DataSource = div.ToList();
+   //             cartrigeSubdivisionForm.comboBoxCartrige.DataSource = crt.ToList();
 
 
 
@@ -156,18 +156,32 @@ namespace CartrigeAltstar
 
                 Compatibility cmUpd = db.Compatibilities.Find(id); //поиск индекса в таблице совместимости внешнего ключа
                 Cartrige fndCtt = db.Cartriges.Find(cmUpd.CartrigeId); //поиск индека в таблице картриджи первичного ключа
-                Subdivision fndCtt1 = db.Subdivisions.Find(cmUpd.SubdivisionId); 
 
 
-                int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
-                int findIndexComboboxDivision = cartrigeSubdivisionForm.comboBoxSub.FindString(fndCtt1.division); //find index comboboxDivision
 
 
-                cartrigeSubdivisionForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrigeArticle; //insert value for cartrige
-                cartrigeSubdivisionForm.comboBoxSub.SelectedIndex = findIndexComboboxDivision; //insert value for cartrige
+                UpdateMovingCartrigeForm.labelCartrige.Text = fndCtt.ModelCartrige;
+                UpdateMovingCartrigeForm.labelCartrigeArticle.Text = fndCtt.ArticleCartrige;
 
 
-                DialogResult result = cartrigeSubdivisionForm.ShowDialog(this);
+
+
+                Subdivision fndCtt1 = db.Subdivisions.Find(cmUpd.SubdivisionId); //поиск индека в таблице подразделения первичного ключа
+
+
+                //        int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
+                int findIndexComboboxDivision = UpdateMovingCartrigeForm.comboBoxDivision.FindString(fndCtt1.division); //find index comboboxDivision
+
+
+                //             cartrigeSubdivisionForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrigeArticle; //insert value for cartrige
+
+              
+
+
+                UpdateMovingCartrigeForm.comboBoxDivision.SelectedIndex = findIndexComboboxDivision; //insert value for cartrige
+
+
+                DialogResult result = UpdateMovingCartrigeForm.ShowDialog(this);
                 if (result == DialogResult.Cancel)
                     return;
 
@@ -180,10 +194,8 @@ namespace CartrigeAltstar
 
 
 
-                cmUpd.CartrigeId = cmUpd.id; //write Foreign Key
 
-                //choise combobox Subdivision
-                var t3 = cartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
+                var t3 = UpdateMovingCartrigeForm.comboBoxDivision.SelectedItem.ToString();
                 //Find Subdivision
                 var t4 = db.Subdivisions.Single(t5 => t5.division.StartsWith(t3));
 
@@ -191,9 +203,14 @@ namespace CartrigeAltstar
 
 
                 db.Compatibilities.Add(cmUpd);
-                db.ChangeTracker.DetectChanges();
+           
+
+
+                db.Entry(cmUpd).State = EntityState.Modified;
+
+
                 db.SaveChanges();
-                MessageBox.Show("Перемещение Добавленно!!! ");
+                MessageBox.Show("Подразделения Обновленно!!!!!! ");
                 dataGridView1.DataSource = null;
                 this.dataGridView1.Update();
                 this.dataGridView1.Refresh();
