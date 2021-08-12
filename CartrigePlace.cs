@@ -23,6 +23,28 @@ namespace CartrigeAltstar
 
             db.Receptions.Load();
         }
+
+       
+        /// //////////////////////SHOW////////////////////
+    
+        public void ShowCartige()
+        {
+            var cp = from c1 in db.Compatibilities
+                     select new
+                     {
+                         c1.id,
+                         Модель = c1.CartrigePK.ModelCartrige,
+                         Артикул = c1.CartrigePK.ArticleCartrige,
+                         Подразделение = c1.SubdivisionPK.division
+
+                     };
+
+            dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
+        }
+
+
+
+
         //Добавление перемещения
         private void button1_Click(object sender, EventArgs e)
         {
@@ -81,20 +103,7 @@ namespace CartrigeAltstar
 
         }
 
-        public void ShowCartige() 
-        {
-            var cp = from c1 in db.Compatibilities
-                     select new
-                     {
-                         c1.id,
-                         Модель = c1.CartrigePK.ModelCartrige,
-                         Артикул = c1.CartrigePK.ArticleCartrige,
-                         Подразделение = c1.SubdivisionPK.division
-
-                     };
-
-            dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
-        }
+     
         //удаления
         private void button3_Click(object sender, EventArgs e)
         {
@@ -141,28 +150,21 @@ namespace CartrigeAltstar
 
 
 
-
-
-
-
-               
-
-
-
                 int index = dataGridView1.SelectedRows[0].Index;
                 int id = 0;
                 bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id); //Find Index
 
                 Compatibility cmUpd = db.Compatibilities.Find(id); //поиск индекса в таблице совместимости внешнего ключа
                 Cartrige fndCtt = db.Cartriges.Find(cmUpd.CartrigeId); //поиск индека в таблице картриджи первичного ключа
+                Subdivision fndCtt1 = db.Subdivisions.Find(cmUpd.SubdivisionId); 
 
 
                 int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
-
-                cartrigeSubdivisionForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrigeArticle;
-
+                int findIndexComboboxDivision = cartrigeSubdivisionForm.comboBoxSub.FindString(fndCtt1.division); //find index comboboxDivision
 
 
+                cartrigeSubdivisionForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrigeArticle; //insert value for cartrige
+                cartrigeSubdivisionForm.comboBoxSub.SelectedIndex = findIndexComboboxDivision; //insert value for cartrige
 
 
                 DialogResult result = cartrigeSubdivisionForm.ShowDialog(this);
@@ -177,7 +179,28 @@ namespace CartrigeAltstar
 
 
 
-               
+
+                cmUpd.CartrigeId = cmUpd.id; //write Foreign Key
+
+                //choise combobox Subdivision
+                var t3 = cartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
+                //Find Subdivision
+                var t4 = db.Subdivisions.Single(t5 => t5.division.StartsWith(t3));
+
+                cmUpd.SubdivisionId = t4.Id; //write Foreign Key
+
+
+                db.Compatibilities.Add(cmUpd);
+                db.ChangeTracker.DetectChanges();
+                db.SaveChanges();
+                MessageBox.Show("Перемещение Добавленно!!! ");
+                dataGridView1.DataSource = null;
+                this.dataGridView1.Update();
+                this.dataGridView1.Refresh();
+                ShowCartige();
+
+
+
 
             }
 
