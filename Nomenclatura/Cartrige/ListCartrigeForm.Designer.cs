@@ -1,5 +1,5 @@
 ﻿
-namespace CartrigeAltstar.Nomenclatura.Cartrige
+namespace CartrigeAltstar
 {
     partial class ListCartrigeForm
     {
@@ -71,6 +71,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             this.btnDellCartrige.TabIndex = 26;
             this.btnDellCartrige.Text = "Удалить";
             this.btnDellCartrige.UseVisualStyleBackColor = true;
+            this.btnDellCartrige.Click += new System.EventHandler(this.btnDellCartrige_Click);
             // 
             // btnUpdateCartrige
             // 
@@ -80,6 +81,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             this.btnUpdateCartrige.TabIndex = 27;
             this.btnUpdateCartrige.Text = "Обновить";
             this.btnUpdateCartrige.UseVisualStyleBackColor = true;
+            this.btnUpdateCartrige.Click += new System.EventHandler(this.btnUpdateCartrige_Click);
             // 
             // btnExportCartroge
             // 
@@ -89,6 +91,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             this.btnExportCartroge.TabIndex = 47;
             this.btnExportCartroge.Text = "Export Exel";
             this.btnExportCartroge.UseVisualStyleBackColor = true;
+            this.btnExportCartroge.Click += new System.EventHandler(this.btnExportCartroge_Click);
             // 
             // btnClosed
             // 
@@ -98,6 +101,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             this.btnClosed.TabIndex = 28;
             this.btnClosed.Text = "Закрыть";
             this.btnClosed.UseVisualStyleBackColor = true;
+            this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
             // 
             // dataGridViewListCartrige
             // 

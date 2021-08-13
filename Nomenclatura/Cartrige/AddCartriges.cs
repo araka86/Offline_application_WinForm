@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CartrigeAltstar.Nomenclatura.Cartrige
 {
-    public partial class AddCartrige : Form
+    public partial class AddCartriges : Form
     {
-        public AddCartrige()
+        public AddCartriges()
         {
             InitializeComponent();
+        }
+
+        private void AddCartriges_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

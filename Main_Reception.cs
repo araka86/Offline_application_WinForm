@@ -34,18 +34,9 @@ namespace CartrigeAltstar
         {
             InitializeComponent();
             db = new ContexAltstarContext();
-
-            db.Receptions.Load();
-            db.Dispatches.Load();
-          
             db.Subdivisions.Load();
-            
             db.Compatibilities.Load();
 
-
-
-
-          
 
 
 
@@ -79,17 +70,22 @@ namespace CartrigeAltstar
 
         }
 
+        public object ForFiltrCartrige() 
+        {
+            var ListCartrigeFiltr = from lc in db.Cartriges
+                                    select lc.ModelCartrige;
 
+            return ListCartrigeFiltr.ToList();
+        }
 
-        private void Reception_Load(object sender, EventArgs e)
+    private void Reception_Load(object sender, EventArgs e)
         {
             printRecept();
 
-            var ListCartrigeFiltr = from lc in db.Cartriges
-                                    select lc.ModelCartrige;
+            
        
 
-            comboBoxFiltrCartrige.DataSource = ListCartrigeFiltr.ToList();
+            comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
 
 
        //
@@ -364,7 +360,7 @@ namespace CartrigeAltstar
         //обработчик собитий, при выборе значений - виберается и его артикул, который записиввается в лейбл
         private void comboBoxFiltrCartrige_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string takeValue = comboBoxFiltrCartrige.SelectedItem.ToString();
+      //      string takeValue = comboBoxFiltrCartrige.SelectedItem.ToString();
 
           
 
@@ -648,6 +644,17 @@ namespace CartrigeAltstar
 
             listCartrigeForm.Show();
 
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+
+            comboBoxFiltrCartrige.DataSource = null;
+            comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
+
+            
 
         }
 

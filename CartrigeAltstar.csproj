@@ -96,11 +96,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCartrige.cs">
+    <Compile Include="AddCartrige_Old.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCartrige.Designer.cs">
-      <DependentUpon>AddCartrige.cs</DependentUpon>
+    <Compile Include="AddCartrige_Old.Designer.cs">
+      <DependentUpon>AddCartrige_Old.cs</DependentUpon>
     </Compile>
     <Compile Include="AddDellCartrigeSubdivisionForm.cs">
       <SubType>Form</SubType>
@@ -108,11 +108,11 @@
     <Compile Include="AddDellCartrigeSubdivisionForm.Designer.cs">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\AddCartrige.cs">
+    <Compile Include="Nomenclatura\Cartrige\AddCartriges.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\AddCartrige.Designer.cs">
-      <DependentUpon>AddCartrige.cs</DependentUpon>
+    <Compile Include="Nomenclatura\Cartrige\AddCartriges.Designer.cs">
+      <DependentUpon>AddCartriges.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\Cartrige\ListCartrigeForm.cs">
       <SubType>Form</SubType>
@@ -215,14 +215,14 @@
     <Compile Include="О программе.Designer.cs">
       <DependentUpon>О программе.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddCartrige.resx">
-      <DependentUpon>AddCartrige.cs</DependentUpon>
+    <EmbeddedResource Include="AddCartrige_Old.resx">
+      <DependentUpon>AddCartrige_Old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\AddCartrige.resx">
-      <DependentUpon>AddCartrige.cs</DependentUpon>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\AddCartriges.resx">
+      <DependentUpon>AddCartriges.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.resx">
       <DependentUpon>ListCartrigeForm.cs</DependentUpon>

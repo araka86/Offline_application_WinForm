@@ -72,6 +72,7 @@ namespace CartrigeAltstar
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.flowLayoutPanel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -95,6 +96,7 @@ namespace CartrigeAltstar
             this.flowLayoutPanel4.Controls.Add(this.btnPrinterShow);
             this.flowLayoutPanel4.Controls.Add(this.btnCartrigeShow);
             this.flowLayoutPanel4.Controls.Add(this.btnDivisionShow);
+            this.flowLayoutPanel4.Controls.Add(this.button13);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(1153, 24);
@@ -194,25 +196,25 @@ namespace CartrigeAltstar
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "просмотр печати";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem4.Text = "печать";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem6.Text = "информация";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "Выход здесь";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -514,6 +516,16 @@ namespace CartrigeAltstar
             this.button15.Text = "Export ---> Excel";
             this.button15.UseVisualStyleBackColor = true;
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(3, 300);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(102, 23);
+            this.button13.TabIndex = 13;
+            this.button13.Text = "Update";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Main_Reception
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,5 +602,6 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button btnDivisionShow;
         private System.Windows.Forms.Button btnCartrigeShow;
         private System.Windows.Forms.Button btnPrinterShow;
+        private System.Windows.Forms.Button button13;
     }
 }
