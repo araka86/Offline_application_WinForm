@@ -84,6 +84,7 @@ namespace CartrigeAltstar
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -102,6 +103,7 @@ namespace CartrigeAltstar
             this.Controls.Add(this.dataGridView1);
             this.Name = "CartrigePlace";
             this.Text = "CartrigePlace";
+            this.Load += new System.EventHandler(this.CartrigePlace_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

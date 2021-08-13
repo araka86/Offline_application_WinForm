@@ -15,7 +15,7 @@ using ClosedXML.Excel;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
-
+using CartrigeAltstar.Nomenclatura.Cartrige;
 
 namespace CartrigeAltstar
 {
@@ -37,29 +37,26 @@ namespace CartrigeAltstar
 
             db.Receptions.Load();
             db.Dispatches.Load();
+          
+            db.Subdivisions.Load();
+            
+            db.Compatibilities.Load();
 
 
 
 
-            var ListCartrige = from lc in db.Cartriges
-                               select lc.ModelCartrige;
-
-
-
-
-
-           
-
+          
 
 
 
         }
 
+        
 
 
 
-        //Список картриджей для Combobox 
-        public static object MiGlobalFunction()
+            //Список картриджей для Combobox 
+            public static object MiGlobalFunction()
         {
             ContexAltstarContext db;
             db = new ContexAltstarContext();
@@ -95,11 +92,14 @@ namespace CartrigeAltstar
             comboBoxFiltrCartrige.DataSource = ListCartrigeFiltr.ToList();
 
 
-
-          
-
-
-
+       //
+           dataGridView1.Columns[0].Width = 65;
+           dataGridView1.Columns[1].Width = 220;
+           dataGridView1.Columns[2].Width = 240;
+           dataGridView1.Columns[3].Width = 200;
+           dataGridView1.Columns[4].Width = 200;
+       //   
+       //
 
         }
 
@@ -127,8 +127,21 @@ namespace CartrigeAltstar
         public void printRecept() //отображение прием картриджа
         {
 
-            dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
-            dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
+            var dataReception = from r in db.Receptions select new 
+            {
+               ID = r.id,
+               Дата =  r.Date,
+               Картридж = r.Cartrige,
+               Статус =  r.Status,
+               Вес = r.Weight,
+               Подразделения =  r.Date_of_receipt
+            };
+
+
+            dataGridView1.DataSource = dataReception.ToList();
+
+           // dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
+         //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
 
         }
 
@@ -352,8 +365,11 @@ namespace CartrigeAltstar
         private void comboBoxFiltrCartrige_SelectedIndexChanged(object sender, EventArgs e)
         {
             string takeValue = comboBoxFiltrCartrige.SelectedItem.ToString();
-            var ctt = db.Cartriges.Single(t => t.ModelCartrige.StartsWith(takeValue)); // нахождения ВСЕХ ЗНАЧЕНИЙ в одной  СТРОКИ!!!!!!!!!!!!!!
-            label1Article.Text = ctt.ArticleCartrige;
+
+          
+
+      //      var ctt = db.Cartriges.Single(t => t.ModelCartrige.StartsWith(takeValue)); // нахождения ВСЕХ ЗНАЧЕНИЙ в одной  СТРОКИ!!!!!!!!!!!!!!
+       //     label1Article.Text = ctt.ArticleCartrige;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -363,47 +379,59 @@ namespace CartrigeAltstar
             string searchValue = comboBoxFiltrCartrige.SelectedItem.ToString();
 
 
-            string[] data = new string[dataGridView1.Rows.Count];
+
+
+            var ctt = from u in db.Receptions.Where(p => p.Cartrige == searchValue) select u;
+
+
+            dataGridView1.DataSource = null;
+            this.dataGridView1.Update();
+            this.dataGridView1.Refresh();
+            dataGridView1.DataSource = ctt.ToList();
 
 
 
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
-                {
-
-                    if( cell.Value.ToString().Contains(searchValue)) 
-                    {
-
-                        data[i] += cell.Value;
-                    }
 
 
-                       
-                }
-            }
 
+   //
+   //         for (int i = 0; i < dataGridView1.Rows.Count; i++)
+   //         {
+   //             foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
+   //             {
+   //
+   //                 if( cell.Value.ToString().Contains(searchValue)) 
+   //                 {
+   //
+   //                   
+   //                 }
+   //
+   //
+   //                    
+   //             }
+   //         }
 
-            dataGridView1.ClearSelection();
-            var targetText = searchValue;
-            if (targetText != String.Empty)
-            {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (!row.IsNewRow && row.Cells["Cartrige"].Value != null && row.Cells["Cartrige"].Value.ToString().Contains(targetText))
-                    {
-                        row.Selected = true;
-                      dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
-
-                        
-                        //   break;  // remove this if you want to select all the rows that contain the text
-
-                       
-
-                    }
-                   
-                }
-            }
+  //
+  //        dataGridView1.ClearSelection();
+  //        var targetText = searchValue;
+  //        if (targetText != String.Empty)
+  //        {
+  //            foreach (DataGridViewRow row in dataGridView1.Rows)
+  //            {
+  //                if (!row.IsNewRow && row.Cells["Cartrige"].Value != null && row.Cells["Cartrige"].Value.ToString().Contains(targetText))
+  //                {
+  //                    row.Selected = true;
+  //                  dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
+  //
+  //                    
+  //                    //   break;  // remove this if you want to select all the rows that contain the text
+  //
+  //                   
+  //
+  //                }
+  //               
+  //            }
+  //        }
 
 
 
@@ -459,6 +487,171 @@ namespace CartrigeAltstar
 
 
         }
+
+        private void resetFiltr_Click(object sender, EventArgs e)
+        {
+
+            dataGridView1.DataSource = null;
+            this.dataGridView1.Update();
+            this.dataGridView1.Refresh();
+            printRecept();
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+
+            DateTime curTime = DateTime.Now; // Current Data
+
+            Excel.Application ExcelApp = new Excel.Application(); //Объявляем приложение
+
+
+            Excel.Workbook ExcelWorkBook; //инициализация рабочей книги
+            Excel.Worksheet ExcelWorkSheet; //инициализация рабочего листа
+            Excel.Range ExecelRange; //Переменная диапазона
+
+
+
+
+            ExcelApp.SheetsInNewWorkbook = 2; //Количество листов в рабочей книге
+
+
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value); //Добавить рабочую книгу
+
+            ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
+
+            ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
+
+
+            ExcelWorkSheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+
+            object[,] d = new object[dataGridView1.RowCount, dataGridView1.ColumnCount];
+
+
+
+
+
+            for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+            {
+
+                ExcelWorkSheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+
+
+
+
+                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeRight].Weight = 2;
+                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = 2;
+                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeLeft].Weight = 2;
+                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeBottom].Weight = 4;
+
+                ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[1, i];
+                ExecelRange.Cells.Font.Size = 14;
+                ExecelRange.Cells.Font.Bold = 500;
+                ExecelRange.Cells.Font.Color = Color.Brown;
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+            //DATA (Fill)
+
+            for (int i = 0; i < dataGridView1.Rows.Count ; i++) //отступ вниз 1
+            {
+
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+
+                    d[i, j] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+
+
+
+
+                }
+            }
+
+
+
+            Fill(2, 1, d);
+
+            ExcelApp.Visible = true; //Отобразить Excel
+
+
+
+            //Заполнение строк
+            void Fill(int topRow, int leftCol, object[,] data)
+            {
+                int rows = data.GetUpperBound(0) + 1;
+                int cols = data.GetUpperBound(1) + 1;
+
+                Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+
+                object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
+                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridView1.RowCount - 1, leftCol + dataGridView1.ColumnCount - 1];
+
+                Microsoft.Office.Interop.Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
+                range.Value2 = data;
+                setStyle(range);
+
+            }
+
+
+
+            //Прорисовка  (оформление) документа
+            void setStyle(Excel.Range range)
+            {
+                range.EntireColumn.AutoFit();
+                range.EntireRow.AutoFit();
+                //отрисовка линий для excel документа
+                object[] border = new object[] { Excel.XlBordersIndex.xlEdgeLeft, //Лево
+                                                Excel.XlBordersIndex.xlEdgeTop, //Верх
+                                                Excel.XlBordersIndex.xlEdgeBottom, //Низ
+                                                Excel.XlBordersIndex.xlEdgeRight, //Право
+                                                Excel.XlBordersIndex.xlInsideVertical, //Вертикаль
+                                                Excel.XlBordersIndex.xlInsideHorizontal}; //Горизонталь
+
+                for (int i = 0; i < border.Length; i++)
+                {
+                    range.Borders[(Excel.XlBordersIndex)border[i]].LineStyle = Excel.XlLineStyle.xlContinuous; //Стиль
+                    range.Borders[(Excel.XlBordersIndex)border[i]].Weight = Excel.XlBorderWeight.xlThin; //Толщина
+                    range.Borders[(Excel.XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
+                }
+
+            }
+        }
+
+
+
+
+
+        private void btnPrinterShow_Click(object sender, EventArgs e)
+        {
+            ListSettingPinterForm listSettingPinterForm = new ListSettingPinterForm();
+
+            listSettingPinterForm.Show();
+
+        }
+
+        private void btnCartrigeShow_Click(object sender, EventArgs e)
+        {
+
+            ListCartrigeForm listCartrigeForm = new ListCartrigeForm();
+
+            listCartrigeForm.Show();
+
+
+        }
+
+
 
 
 

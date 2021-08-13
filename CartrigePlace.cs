@@ -228,5 +228,21 @@ namespace CartrigeAltstar
               
 
         }
+
+        private void CartrigePlace_Load(object sender, EventArgs e)
+        {
+
+            //Размер ширины колонки в datagrid
+            dataGridView1.Columns[0].Width = 30;
+            dataGridView1.Columns[1].Width = 100;
+            dataGridView1.Columns[2].Width = 80;
+          
+
+
+        }
+
+
+
+
     }
 }

@@ -108,10 +108,22 @@
     <Compile Include="AddDellCartrigeSubdivisionForm.Designer.cs">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddPrinter.cs">
+    <Compile Include="Nomenclatura\Cartrige\AddCartrige.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPrinter.Designer.cs">
+    <Compile Include="Nomenclatura\Cartrige\AddCartrige.Designer.cs">
+      <DependentUpon>AddCartrige.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\Cartrige\ListCartrigeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Cartrige\ListCartrigeForm.Designer.cs">
+      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\Printer\AddPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Printer\AddPrinter.Designer.cs">
       <DependentUpon>AddPrinter.cs</DependentUpon>
     </Compile>
     <Compile Include="AddSubdivision.cs">
@@ -155,6 +167,12 @@
     </Compile>
     <Compile Include="FormAddInfoService.Designer.cs">
       <DependentUpon>FormAddInfoService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\Printer\ListSettingPinterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Printer\ListSettingPinterForm.Designer.cs">
+      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Cartrige.cs" />
     <Compile Include="Model\Compatibility.cs" />
@@ -203,7 +221,13 @@
     <EmbeddedResource Include="AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPrinter.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartrige\AddCartrige.resx">
+      <DependentUpon>AddCartrige.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.resx">
+      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Printer\AddPrinter.resx">
       <DependentUpon>AddPrinter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSubdivision.resx">
@@ -226,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddInfoService.resx">
       <DependentUpon>FormAddInfoService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.resx">
+      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrinterSubdivision.resx">
       <DependentUpon>PrinterSubdivision.cs</DependentUpon>
@@ -276,6 +303,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Nomenclatura\Subdivision\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

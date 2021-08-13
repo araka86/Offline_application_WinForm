@@ -37,17 +37,18 @@ namespace CartrigeAltstar
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtModelPrinter = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxSubdision = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(26, 209);
+            this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(203, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
@@ -55,7 +56,7 @@ namespace CartrigeAltstar
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 47);
+            this.label1.Location = new System.Drawing.Point(18, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 2;
@@ -63,22 +64,22 @@ namespace CartrigeAltstar
             // 
             // txtDatetime
             // 
-            this.txtDatetime.Location = new System.Drawing.Point(205, 41);
+            this.txtDatetime.Location = new System.Drawing.Point(200, 25);
             this.txtDatetime.Name = "txtDatetime";
-            this.txtDatetime.Size = new System.Drawing.Size(200, 20);
+            this.txtDatetime.Size = new System.Drawing.Size(215, 20);
             this.txtDatetime.TabIndex = 3;
             // 
             // txtArticle
             // 
-            this.txtArticle.Location = new System.Drawing.Point(205, 156);
+            this.txtArticle.Location = new System.Drawing.Point(200, 124);
             this.txtArticle.Name = "txtArticle";
-            this.txtArticle.Size = new System.Drawing.Size(100, 20);
+            this.txtArticle.Size = new System.Drawing.Size(134, 20);
             this.txtArticle.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 93);
+            this.label2.Location = new System.Drawing.Point(18, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 5;
@@ -87,7 +88,7 @@ namespace CartrigeAltstar
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 159);
+            this.label3.Location = new System.Drawing.Point(18, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 6;
@@ -96,68 +97,61 @@ namespace CartrigeAltstar
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(230, 209);
+            this.button2.Location = new System.Drawing.Point(212, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(203, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Calcel";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // txtModelPrinter
             // 
-            this.txtModelPrinter.Location = new System.Drawing.Point(205, 93);
+            this.txtModelPrinter.Location = new System.Drawing.Point(200, 77);
             this.txtModelPrinter.Name = "txtModelPrinter";
-            this.txtModelPrinter.Size = new System.Drawing.Size(100, 20);
+            this.txtModelPrinter.Size = new System.Drawing.Size(134, 20);
             this.txtModelPrinter.TabIndex = 8;
             // 
-            // button3
+            // groupBox1
             // 
-            this.button3.Location = new System.Drawing.Point(418, 208);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Выход";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtDatetime);
+            this.groupBox1.Controls.Add(this.txtArticle);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtModelPrinter);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(420, 197);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
             // 
-            // label4
+            // flowLayoutPanel1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 269);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "подразделение";
-            // 
-            // textBoxSubdision
-            // 
-            this.textBoxSubdision.Location = new System.Drawing.Point(205, 266);
-            this.textBoxSubdision.Name = "textBoxSubdision";
-            this.textBoxSubdision.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSubdision.TabIndex = 10;
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 167);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 30);
+            this.flowLayoutPanel1.TabIndex = 11;
             // 
             // AddPrinter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 334);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxSubdision);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.txtModelPrinter);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtArticle);
-            this.Controls.Add(this.txtDatetime);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(420, 197);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "AddPrinter";
             this.Text = "AddPrinter";
             this.Load += new System.EventHandler(this.AddPrinter_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -171,8 +165,7 @@ namespace CartrigeAltstar
         public System.Windows.Forms.DateTimePicker txtDatetime;
         public System.Windows.Forms.TextBox txtModelPrinter;
         public System.Windows.Forms.TextBox txtArticle;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox textBoxSubdision;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

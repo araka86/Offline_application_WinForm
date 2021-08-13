@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CartrigeAltstar
+namespace CartrigeAltstar.Nomenclatura.Cartrige
 {
-    public partial class AddPrinter : Form
+    public partial class AddCartrige : Form
     {
-        public AddPrinter()
+        public AddCartrige()
         {
             InitializeComponent();
-        }
-
-        private void AddPrinter_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }
