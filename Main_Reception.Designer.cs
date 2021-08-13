@@ -51,8 +51,9 @@ namespace CartrigeAltstar
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label1Article = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboBoxFiltrCartrige = new System.Windows.Forms.ComboBox();
+            this.label1Article = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.resetFiltr = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -68,7 +69,6 @@ namespace CartrigeAltstar
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -95,7 +95,6 @@ namespace CartrigeAltstar
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(108, 733);
             this.flowLayoutPanel4.TabIndex = 10;
-            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
             // 
             // button5
             // 
@@ -291,6 +290,24 @@ namespace CartrigeAltstar
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Фильтр истории картриджей";
+            // 
+            // comboBoxFiltrCartrige
+            // 
+            this.comboBoxFiltrCartrige.FormattingEnabled = true;
+            this.comboBoxFiltrCartrige.Location = new System.Drawing.Point(3, 74);
+            this.comboBoxFiltrCartrige.Name = "comboBoxFiltrCartrige";
+            this.comboBoxFiltrCartrige.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxFiltrCartrige.TabIndex = 5;
+            this.comboBoxFiltrCartrige.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltrCartrige_SelectedIndexChanged);
+            // 
             // label1Article
             // 
             this.label1Article.AutoSize = true;
@@ -300,14 +317,6 @@ namespace CartrigeAltstar
             this.label1Article.TabIndex = 6;
             this.label1Article.Text = "------------------Article---------------------";
             // 
-            // comboBoxFiltrCartrige
-            // 
-            this.comboBoxFiltrCartrige.FormattingEnabled = true;
-            this.comboBoxFiltrCartrige.Location = new System.Drawing.Point(3, 74);
-            this.comboBoxFiltrCartrige.Name = "comboBoxFiltrCartrige";
-            this.comboBoxFiltrCartrige.Size = new System.Drawing.Size(153, 21);
-            this.comboBoxFiltrCartrige.TabIndex = 5;
-            // 
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(3, 114);
@@ -316,6 +325,7 @@ namespace CartrigeAltstar
             this.button8.TabIndex = 8;
             this.button8.Text = "Применить";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // resetFiltr
             // 
@@ -466,15 +476,6 @@ namespace CartrigeAltstar
             this.button15.TabIndex = 7;
             this.button15.Text = "Export ---> Excel";
             this.button15.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Фильтр истории картриджей";
             // 
             // Main_Reception
             // 

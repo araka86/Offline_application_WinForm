@@ -45,7 +45,14 @@ namespace CartrigeAltstar
                                select lc.ModelCartrige;
 
 
-          
+
+
+
+           
+
+
+
+
         }
 
 
@@ -77,32 +84,19 @@ namespace CartrigeAltstar
 
 
 
-        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Reception_Load(object sender, EventArgs e)
         {
             printRecept();
 
             var ListCartrigeFiltr = from lc in db.Cartriges
                                     select lc.ModelCartrige;
-            var ListCartrigeFiltrArticle = from lc in db.Cartriges
-                                    select lc.ArticleCartrige;
+       
 
             comboBoxFiltrCartrige.DataSource = ListCartrigeFiltr.ToList();
 
 
 
-            if (string.IsNullOrEmpty(comboBoxFiltrCartrige.Text))
-            {
-                MessageBox.Show("No Item is Selected");
-            }
-            else
-            {
-                MessageBox.Show("Item Selected is:" + comboBoxFiltrCartrige.Text);
-            }
+          
 
 
 
@@ -346,9 +340,122 @@ namespace CartrigeAltstar
 
             ctpl.dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
 
-           
+
             ctpl.Show(this); // вызов формы
 
+
+
+        }
+
+
+        //обработчик собитий, при выборе значений - виберается и его артикул, который записиввается в лейбл
+        private void comboBoxFiltrCartrige_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string takeValue = comboBoxFiltrCartrige.SelectedItem.ToString();
+            var ctt = db.Cartriges.Single(t => t.ModelCartrige.StartsWith(takeValue)); // нахождения ВСЕХ ЗНАЧЕНИЙ в одной  СТРОКИ!!!!!!!!!!!!!!
+            label1Article.Text = ctt.ArticleCartrige;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+
+            string searchValue = comboBoxFiltrCartrige.SelectedItem.ToString();
+
+
+            string[] data = new string[dataGridView1.Rows.Count];
+
+
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
+                {
+
+                    if( cell.Value.ToString().Contains(searchValue)) 
+                    {
+
+                        data[i] += cell.Value;
+                    }
+
+
+                       
+                }
+            }
+
+
+            dataGridView1.ClearSelection();
+            var targetText = searchValue;
+            if (targetText != String.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (!row.IsNewRow && row.Cells["Cartrige"].Value != null && row.Cells["Cartrige"].Value.ToString().Contains(targetText))
+                    {
+                        row.Selected = true;
+                      dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
+
+                        
+                        //   break;  // remove this if you want to select all the rows that contain the text
+
+                       
+
+                    }
+                   
+                }
+            }
+
+
+
+
+
+
+            //      try
+            //      {
+            //          bool valueResult = false;
+            //          foreach (DataGridViewRow row in dataGridView1.Rows)
+            //          {
+            //              for (int i = 0; i < row.Cells.Count; i++)
+            //              {
+            //                  if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(searchValue))
+            //                  {
+            //                      var rowIndex = row.Cells[i].Value;
+            //
+            //
+            //
+            //                      DataGridViewRow rows = (DataGridViewRow)row.Cells[i].Value;
+            //
+            //
+            //
+            //
+            //
+            //                      //      dataGridView1.DataSource = null;
+            //                      //      this.dataGridView1.Update();
+            //                      //      this.dataGridView1.Refresh();
+            //                      //      printRecept();
+            //                      //
+            //
+            //                      //
+            //                      //      object  ss = dataGridView1.SelectedRows[rowIndex];
+            //                      //      dataGridView1.Rows[rowIndex].Selected = true;
+            //                      //      valueResult = true;
+            //                      //      break;
+            //                  }
+            //              }
+            //
+            //          }
+            //          if (!valueResult)
+            //          {
+            //              MessageBox.Show("Unable to find " + "Not Found");
+            //              return;
+            //          }
+            //      }
+            //      catch (Exception exc)
+            //      {
+            //          MessageBox.Show(exc.Message);
+            //      }
+            //
+            //
 
 
         }
