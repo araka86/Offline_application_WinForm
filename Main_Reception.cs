@@ -42,12 +42,12 @@ namespace CartrigeAltstar
 
         }
 
-        
 
 
 
-            //Список картриджей для Combobox 
-            public static object MiGlobalFunction()
+
+        //Список картриджей для Combobox 
+        public static object MiGlobalFunction()
         {
             ContexAltstarContext db;
             db = new ContexAltstarContext();
@@ -70,7 +70,7 @@ namespace CartrigeAltstar
 
         }
 
-        public object ForFiltrCartrige() 
+        public object ForFiltrCartrige()
         {
             var ListCartrigeFiltr = from lc in db.Cartriges
                                     select lc.ModelCartrige;
@@ -78,24 +78,24 @@ namespace CartrigeAltstar
             return ListCartrigeFiltr.ToList();
         }
 
-    private void Reception_Load(object sender, EventArgs e)
+        private void Reception_Load(object sender, EventArgs e)
         {
             printRecept();
 
-            
-       
+
+
 
             comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
 
 
-       //
-           dataGridView1.Columns[0].Width = 65;
-           dataGridView1.Columns[1].Width = 220;
-           dataGridView1.Columns[2].Width = 240;
-           dataGridView1.Columns[3].Width = 200;
-           dataGridView1.Columns[4].Width = 200;
-       //   
-       //
+            //
+            dataGridView1.Columns[0].Width = 65;
+            dataGridView1.Columns[1].Width = 220;
+            dataGridView1.Columns[2].Width = 240;
+            dataGridView1.Columns[3].Width = 200;
+            dataGridView1.Columns[4].Width = 200;
+            //   
+            //
 
         }
 
@@ -123,21 +123,22 @@ namespace CartrigeAltstar
         public void printRecept() //отображение прием картриджа
         {
 
-            var dataReception = from r in db.Receptions select new 
-            {
-               ID = r.id,
-               Дата =  r.Date,
-               Картридж = r.Cartrige,
-               Статус =  r.Status,
-               Вес = r.Weight,
-               Подразделения =  r.Date_of_receipt
-            };
+            var dataReception = from r in db.Receptions
+                                select new
+                                {
+                                    ID = r.id,
+                                    Дата = r.Date,
+                                    Картридж = r.Cartrige,
+                                    Статус = r.Status,
+                                    Вес = r.Weight,
+                                    Подразделения = r.Date_of_receipt
+                                };
 
 
             dataGridView1.DataSource = dataReception.ToList();
 
-           // dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
-         //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
+            // dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
+            //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
 
         }
 
@@ -360,12 +361,12 @@ namespace CartrigeAltstar
         //обработчик собитий, при выборе значений - виберается и его артикул, который записиввается в лейбл
         private void comboBoxFiltrCartrige_SelectedIndexChanged(object sender, EventArgs e)
         {
-      //      string takeValue = comboBoxFiltrCartrige.SelectedItem.ToString();
+            //      string takeValue = comboBoxFiltrCartrige.SelectedItem.ToString();
 
-          
 
-      //      var ctt = db.Cartriges.Single(t => t.ModelCartrige.StartsWith(takeValue)); // нахождения ВСЕХ ЗНАЧЕНИЙ в одной  СТРОКИ!!!!!!!!!!!!!!
-       //     label1Article.Text = ctt.ArticleCartrige;
+
+            //      var ctt = db.Cartriges.Single(t => t.ModelCartrige.StartsWith(takeValue)); // нахождения ВСЕХ ЗНАЧЕНИЙ в одной  СТРОКИ!!!!!!!!!!!!!!
+            //     label1Article.Text = ctt.ArticleCartrige;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -390,44 +391,44 @@ namespace CartrigeAltstar
 
 
 
-   //
-   //         for (int i = 0; i < dataGridView1.Rows.Count; i++)
-   //         {
-   //             foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
-   //             {
-   //
-   //                 if( cell.Value.ToString().Contains(searchValue)) 
-   //                 {
-   //
-   //                   
-   //                 }
-   //
-   //
-   //                    
-   //             }
-   //         }
+            //
+            //         for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            //         {
+            //             foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
+            //             {
+            //
+            //                 if( cell.Value.ToString().Contains(searchValue)) 
+            //                 {
+            //
+            //                   
+            //                 }
+            //
+            //
+            //                    
+            //             }
+            //         }
 
-  //
-  //        dataGridView1.ClearSelection();
-  //        var targetText = searchValue;
-  //        if (targetText != String.Empty)
-  //        {
-  //            foreach (DataGridViewRow row in dataGridView1.Rows)
-  //            {
-  //                if (!row.IsNewRow && row.Cells["Cartrige"].Value != null && row.Cells["Cartrige"].Value.ToString().Contains(targetText))
-  //                {
-  //                    row.Selected = true;
-  //                  dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
-  //
-  //                    
-  //                    //   break;  // remove this if you want to select all the rows that contain the text
-  //
-  //                   
-  //
-  //                }
-  //               
-  //            }
-  //        }
+            //
+            //        dataGridView1.ClearSelection();
+            //        var targetText = searchValue;
+            //        if (targetText != String.Empty)
+            //        {
+            //            foreach (DataGridViewRow row in dataGridView1.Rows)
+            //            {
+            //                if (!row.IsNewRow && row.Cells["Cartrige"].Value != null && row.Cells["Cartrige"].Value.ToString().Contains(targetText))
+            //                {
+            //                    row.Selected = true;
+            //                  dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
+            //
+            //                    
+            //                    //   break;  // remove this if you want to select all the rows that contain the text
+            //
+            //                   
+            //
+            //                }
+            //               
+            //            }
+            //        }
 
 
 
@@ -502,16 +503,11 @@ namespace CartrigeAltstar
 
             Excel.Application ExcelApp = new Excel.Application(); //Объявляем приложение
 
-
-            Excel.Workbook ExcelWorkBook; //инициализация рабочей книги
-            Excel.Worksheet ExcelWorkSheet; //инициализация рабочего листа
-            Excel.Range ExecelRange; //Переменная диапазона
-
-
-
+            Workbook ExcelWorkBook; //инициализация рабочей книги
+            Worksheet ExcelWorkSheet; //инициализация рабочего листа
+            Range ExecelRange; //Переменная диапазона
 
             ExcelApp.SheetsInNewWorkbook = 2; //Количество листов в рабочей книге
-
 
             ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value); //Добавить рабочую книгу
 
@@ -523,9 +519,6 @@ namespace CartrigeAltstar
             ExcelWorkSheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
 
             object[,] d = new object[dataGridView1.RowCount, dataGridView1.ColumnCount];
-
-
-
 
 
             for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
@@ -546,41 +539,25 @@ namespace CartrigeAltstar
                 ExecelRange.Cells.Font.Bold = 500;
                 ExecelRange.Cells.Font.Color = Color.Brown;
 
-
-
-
-
             }
-
-
-
-
-
-
 
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridView1.Rows.Count ; i++) //отступ вниз 1
+            for (int i = 0; i < dataGridView1.Rows.Count; i++) //отступ вниз 1
             {
 
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
                 {
 
                     d[i, j] = dataGridView1.Rows[i].Cells[j].Value.ToString();
-
-
-
-
                 }
             }
-
 
 
             Fill(2, 1, d);
 
             ExcelApp.Visible = true; //Отобразить Excel
-
 
 
             //Заполнение строк
@@ -601,19 +578,18 @@ namespace CartrigeAltstar
             }
 
 
-
             //Прорисовка  (оформление) документа
             void setStyle(Excel.Range range)
             {
                 range.EntireColumn.AutoFit();
                 range.EntireRow.AutoFit();
                 //отрисовка линий для excel документа
-                object[] border = new object[] { Excel.XlBordersIndex.xlEdgeLeft, //Лево
-                                                Excel.XlBordersIndex.xlEdgeTop, //Верх
-                                                Excel.XlBordersIndex.xlEdgeBottom, //Низ
-                                                Excel.XlBordersIndex.xlEdgeRight, //Право
-                                                Excel.XlBordersIndex.xlInsideVertical, //Вертикаль
-                                                Excel.XlBordersIndex.xlInsideHorizontal}; //Горизонталь
+                object[] border = new object[] {XlBordersIndex.xlEdgeLeft, //Лево
+                                                XlBordersIndex.xlEdgeTop, //Верх
+                                                XlBordersIndex.xlEdgeBottom, //Низ
+                                                XlBordersIndex.xlEdgeRight, //Право
+                                                XlBordersIndex.xlInsideVertical, //Вертикаль
+                                                XlBordersIndex.xlInsideHorizontal}; //Горизонталь
 
                 for (int i = 0; i < border.Length; i++)
                 {
@@ -654,8 +630,21 @@ namespace CartrigeAltstar
             comboBoxFiltrCartrige.DataSource = null;
             comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
 
-            
 
+
+        }
+
+        private void btnDivisionShow_Click(object sender, EventArgs e)
+        {
+            ListSubdivisionForm listSubdivisionForm = new ListSubdivisionForm();
+            listSubdivisionForm.Show();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            InfoOrgTechnic infoOrgTechnic = new InfoOrgTechnic();
+
+            infoOrgTechnic.ShowDialog();
         }
 
 

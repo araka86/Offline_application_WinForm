@@ -112,6 +112,7 @@ namespace CartrigeAltstar
             this.button18.TabIndex = 47;
             this.button18.Text = "Export Exel";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // ListSettingPinterForm
             // 

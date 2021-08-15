@@ -13,180 +13,163 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CartrigeAltstar
 {
-    public partial class ListSettingPinterForm : Form
+
+
+
+
+
+    public partial class ListSubdivisionForm : Form
     {
 
         ContexAltstarContext db;
 
-        public ListSettingPinterForm()
+        public ListSubdivisionForm()
         {
             InitializeComponent();
             db = new ContexAltstarContext();
-            db.Printers.Load();
+            db.Subdivisions.Load();
         }
 
-        private void ListSettingPinterForm_Load(object sender, EventArgs e)
+
+        public void ShowSubdivision()
         {
-            PrintPrinter();
-           
+            var sub = from r in db.Subdivisions
+                      select new
+                      {
+                          iD = r.Id,
+                          Подразделения = r.division,
+                          Адресс = r.address_part
+                      };
+            dataGridViewListSubdivision.DataSource = sub.ToList();
+            dataGridViewListSubdivision.Columns[0].Width = 45;
         }
 
-        //------------------------Вивод Принтеров----------------------------
-        public void PrintPrinter()
+
+        private void ListSubdivisionForm_Load(object sender, EventArgs e)
         {
-
-            var pr = from p in db.Printers
-                     select new
-                     {
-                         p.Id,
-                         Модель = p.ModelPrinter,
-                         Артикул = p.Article,
-                         Дата_покуки = p.DateTimes
-                     };
-
-            dataGridViewListPrinter.DataSource = pr.ToList();
-            dataGridViewListPrinter.Columns[0].Width = 45;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
+            ShowSubdivision();
         }
 
 
-
-
-        //////////////////////Insert (ADD) Printers////////////////////////
+        //Add Subdivision
         private void button6_Click(object sender, EventArgs e)
         {
 
 
-            
-            AddPrinter add = new AddPrinter();
+            //Add подразделения
 
 
-            DialogResult result = add.ShowDialog(this);
+            AddSubdivision addSubdivisionForm = new AddSubdivision();
+
+
+            DialogResult result = addSubdivisionForm.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
 
 
 
 
-            Printer printer = new Printer();
-            printer.DateTimes = add.txtDatetime.Value;
-            printer.ModelPrinter = add.txtModelPrinter.Text;
-            printer.Article = add.txtArticle.Text;
+            Subdivision subdivisionModel = new Subdivision();
+            subdivisionModel.division = addSubdivisionForm.txtModelDivision.Text;
+            subdivisionModel.address_part = addSubdivisionForm.txtStreet.Text;
+            db.Subdivisions.Add(subdivisionModel);
 
-            db.Printers.Add(printer);
+
 
             db.SaveChanges();
 
-            MessageBox.Show("Новый принтер добавлен ");
-            dataGridViewListPrinter.DataSource = null;
-            this.dataGridViewListPrinter.Update();
-            this.dataGridViewListPrinter.Refresh();
-            PrintPrinter();
+            MessageBox.Show("Новое подразделение добавленно ");
+            dataGridViewListSubdivision.DataSource = null;
+            this.dataGridViewListSubdivision.Update();
+            this.dataGridViewListSubdivision.Refresh();
+            ShowSubdivision();
 
 
 
         }
 
-
-        /////// Delete/////////////////////////////////////////////
+        //DELETE Subdivision
         private void button7_Click(object sender, EventArgs e)
         {
 
 
-
-           
-            if (dataGridViewListPrinter.SelectedRows.Count > 0)
+            if (dataGridViewListSubdivision.SelectedRows.Count > 0)
             {
-                int index = dataGridViewListPrinter.SelectedRows[0].Index;
+                int index = dataGridViewListSubdivision.SelectedRows[0].Index;
                 int id = 0;
-                bool converted = Int32.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
+                bool converted = Int32.TryParse(dataGridViewListSubdivision[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
 
-                Printer printerdel = db.Printers.Find(id);
-                db.Printers.Remove(printerdel);
+                Subdivision subdivisionModel = db.Subdivisions.Find(id);
+                db.Subdivisions.Remove(subdivisionModel);
                 db.SaveChanges();
-                MessageBox.Show("Принтер Удален ");
-                dataGridViewListPrinter.DataSource = null;
-                this.dataGridViewListPrinter.Update();
-                this.dataGridViewListPrinter.Refresh();
-                PrintPrinter();
+                MessageBox.Show("Подразделение Удаленно!!! ");
+                dataGridViewListSubdivision.DataSource = null;
+                this.dataGridViewListSubdivision.Update();
+                this.dataGridViewListSubdivision.Refresh();
+                ShowSubdivision();
 
 
             }
 
-
-
         }
 
+
+        //UPDATE Subdivision
         private void button8_Click(object sender, EventArgs e)
         {
 
 
-
-
-
-
-            // update
-            if (dataGridViewListPrinter.SelectedRows.Count > 0)
+            if (dataGridViewListSubdivision.SelectedRows.Count > 0)
             {
-                int index = dataGridViewListPrinter.SelectedRows[0].Index;
+                int index = dataGridViewListSubdivision.SelectedRows[0].Index;
                 int id = 0;
-                bool converted = Int32.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
+                bool converted = Int32.TryParse(dataGridViewListSubdivision[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
+                //екземпляр Формы
+                AddSubdivision updateSubdivisionForm = new AddSubdivision();
+
                 //заполнение полей
-                Subdivision s = new Subdivision();
-                Printer printerUpdate = db.Printers.Find(id);
-                AddPrinter update = new AddPrinter();
-                update.txtDatetime.Text = printerUpdate.DateTimes.ToString();
-                update.txtModelPrinter.Text = printerUpdate.ModelPrinter;
-                update.txtArticle.Text = printerUpdate.Article;
+                Subdivision subdivisionModel = db.Subdivisions.Find(id);
+                updateSubdivisionForm.txtModelDivision.Text = subdivisionModel.division;
+                updateSubdivisionForm.txtStreet.Text = subdivisionModel.address_part;
 
 
-                s = printerUpdate.SubdivisioPK; //
-
-
-
-
-                //откритие диалогового окна AddPrinter
-                DialogResult result = update.ShowDialog(this);
+                //откритие диалогового окна AddCartrige
+                DialogResult result = updateSubdivisionForm.ShowDialog(this);
                 if (result == DialogResult.Cancel)
                     return;
 
-
-                printerUpdate.DateTimes = update.txtDatetime.Value;
-                printerUpdate.ModelPrinter = update.txtModelPrinter.Text;
-                printerUpdate.Article = update.txtArticle.Text;
-
+                //
+                subdivisionModel.division = updateSubdivisionForm.txtModelDivision.Text;
+                subdivisionModel.address_part = updateSubdivisionForm.txtStreet.Text;
 
 
-
-                db.Entry(printerUpdate).State = EntityState.Modified;
+                //подключения к состоянию обьявив его модифицированним
+                db.Entry(subdivisionModel).State = EntityState.Modified;
                 db.SaveChanges();
 
 
-                MessageBox.Show("Принтер Обновлен ");
-                dataGridViewListPrinter.DataSource = null;
-                this.dataGridViewListPrinter.Update();
-                this.dataGridViewListPrinter.Refresh();
-                PrintPrinter();
-
-
-
-
-
-
+                MessageBox.Show("Подразделение Обновленно!! ");
+                dataGridViewListSubdivision.DataSource = null;
+                this.dataGridViewListSubdivision.Update();
+                this.dataGridViewListSubdivision.Refresh();
+                ShowSubdivision();
 
             }
+
         }
+
+        //EXPORT to EXCEL
 
         private void button18_Click(object sender, EventArgs e)
         {
+
+
+
+
             DateTime curTime = DateTime.Now; // Current Data
             Excel.Application ExcelApp = new Excel.Application(); //Объявляем приложение
             Excel.Workbook ExcelWorkBook; //инициализация рабочей книги
@@ -197,27 +180,30 @@ namespace CartrigeAltstar
             ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
             ExcelWorkSheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
-            object[,] d = new object[dataGridViewListPrinter.RowCount, dataGridViewListPrinter.ColumnCount];
-            for (int i = 1; i < dataGridViewListPrinter.Columns.Count + 1; i++)
+            object[,] d = new object[dataGridViewListSubdivision.RowCount, dataGridViewListSubdivision.ColumnCount];
+            for (int i = 1; i < dataGridViewListSubdivision.Columns.Count + 1; i++)
             {
 
-                ExcelWorkSheet.Cells[1, i] = dataGridViewListPrinter.Columns[i - 1].HeaderText;
+                ExcelWorkSheet.Cells[1, i] = dataGridViewListSubdivision.Columns[i - 1].HeaderText;
+
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeRight].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeLeft].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeBottom].Weight = 4;
-
                 ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[1, i];
                 ExecelRange.Cells.Font.Size = 14;
                 ExecelRange.Cells.Font.Bold = 500;
                 ExecelRange.Cells.Font.Color = Color.Brown;
+
             }
+
             //DATA (Fill)
-            for (int i = 0; i < dataGridViewListPrinter.Rows.Count; i++) //отступ вниз 1
+
+            for (int i = 0; i < dataGridViewListSubdivision.Rows.Count; i++) //отступ вниз 1
             {
-                for (int j = 0; j < dataGridViewListPrinter.Columns.Count; j++)
+                for (int j = 0; j < dataGridViewListSubdivision.Columns.Count; j++)
                 {
-                    d[i, j] = dataGridViewListPrinter.Rows[i].Cells[j].Value.ToString();
+                    d[i, j] = dataGridViewListSubdivision.Rows[i].Cells[j].Value.ToString();
                 }
             }
             Fill(2, 1, d);
@@ -228,10 +214,10 @@ namespace CartrigeAltstar
                 int rows = data.GetUpperBound(0) + 1;
                 int cols = data.GetUpperBound(1) + 1;
 
-                Excel.Worksheet sheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
+                Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
 
                 object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
-                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridViewListPrinter.RowCount - 1, leftCol + dataGridViewListPrinter.ColumnCount - 1];
+                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridViewListSubdivision.RowCount - 1, leftCol + dataGridViewListSubdivision.ColumnCount - 1];
 
                 Microsoft.Office.Interop.Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
                 range.Value2 = data;
@@ -260,6 +246,11 @@ namespace CartrigeAltstar
 
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

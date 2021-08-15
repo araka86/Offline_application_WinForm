@@ -583,10 +583,6 @@ namespace CartrigeAltstar
             //Update Subdivision
 
 
-
-
-
-            // update Cartrige
             if (dataGridView7.SelectedRows.Count > 0)
             {
                 int index = dataGridView7.SelectedRows[0].Index;

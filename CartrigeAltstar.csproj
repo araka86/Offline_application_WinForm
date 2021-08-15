@@ -108,6 +108,30 @@
     <Compile Include="AddDellCartrigeSubdivisionForm.Designer.cs">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nomenclatura\AddI_Del_infoOrgTehnic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\AddI_Del_infoOrgTehnic.Designer.cs">
+      <DependentUpon>AddI_Del_infoOrgTehnic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\InfoOrgTechnic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\InfoOrgTechnic.Designer.cs">
+      <DependentUpon>InfoOrgTechnic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\Subdivision\AddSubdivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Subdivision\AddSubdivision.Designer.cs">
+      <DependentUpon>AddSubdivision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\Subdivision\ListSubdivisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Subdivision\ListSubdivisionForm.Designer.cs">
+      <DependentUpon>ListSubdivisionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nomenclatura\Cartrige\AddCartriges.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,11 +245,17 @@
     <EmbeddedResource Include="AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\AddI_Del_infoOrgTehnic.resx">
+      <DependentUpon>AddI_Del_infoOrgTehnic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\AddCartriges.resx">
       <DependentUpon>AddCartriges.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.resx">
       <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\InfoOrgTechnic.resx">
+      <DependentUpon>InfoOrgTechnic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Printer\AddPrinter.resx">
       <DependentUpon>AddPrinter.cs</DependentUpon>
@@ -253,6 +283,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.resx">
       <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Subdivision\AddSubdivision.resx">
+      <DependentUpon>AddSubdivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Subdivision\ListSubdivisionForm.resx">
+      <DependentUpon>ListSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrinterSubdivision.resx">
       <DependentUpon>PrinterSubdivision.cs</DependentUpon>
@@ -304,9 +340,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Nomenclatura\Subdivision\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

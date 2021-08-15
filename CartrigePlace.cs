@@ -190,11 +190,6 @@ namespace CartrigeAltstar
                     return;
 
 
-
-
-
-
-
                 var t3 = UpdateMovingCartrigeForm.comboBoxDivision.SelectedItem.ToString();
                 //Find Subdivision
                 var t4 = db.Subdivisions.Single(t5 => t5.division.StartsWith(t3));

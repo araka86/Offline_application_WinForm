@@ -18,7 +18,7 @@ namespace CartrigeAltstar.Model
       
 
 
-        public ICollection<Printer> Printers { get; set; }
+        public ICollection<Printer> Printers { get; set; } //ссилка, колекция принтер
 
 
         public Cartrige() 
