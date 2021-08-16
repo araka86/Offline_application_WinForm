@@ -33,12 +33,11 @@ namespace CartrigeAltstar
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxCartrige = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBoxArticleCartige = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBoxArticleCartige = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -47,9 +46,9 @@ namespace CartrigeAltstar
             // comboBoxPrinter
             // 
             this.comboBoxPrinter.FormattingEnabled = true;
-            this.comboBoxPrinter.Location = new System.Drawing.Point(379, 3);
+            this.comboBoxPrinter.Location = new System.Drawing.Point(3, 29);
             this.comboBoxPrinter.Name = "comboBoxPrinter";
-            this.comboBoxPrinter.Size = new System.Drawing.Size(286, 21);
+            this.comboBoxPrinter.Size = new System.Drawing.Size(324, 21);
             this.comboBoxPrinter.TabIndex = 1;
             // 
             // button1
@@ -74,19 +73,12 @@ namespace CartrigeAltstar
             // 
             // textBoxCartrige
             // 
+            this.textBoxCartrige.CausesValidation = false;
+            this.textBoxCartrige.Enabled = false;
             this.textBoxCartrige.Location = new System.Drawing.Point(3, 3);
             this.textBoxCartrige.Name = "textBoxCartrige";
             this.textBoxCartrige.Size = new System.Drawing.Size(159, 20);
             this.textBoxCartrige.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(333, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "--------->";
             // 
             // groupBox1
             // 
@@ -95,7 +87,7 @@ namespace CartrigeAltstar
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(829, 95);
+            this.groupBox1.Size = new System.Drawing.Size(337, 138);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Какой картридж подходит к принтеру";
@@ -105,30 +97,12 @@ namespace CartrigeAltstar
             this.flowLayoutPanel3.Controls.Add(this.textBoxCartrige);
             this.flowLayoutPanel3.Controls.Add(this.label2);
             this.flowLayoutPanel3.Controls.Add(this.textBoxArticleCartige);
-            this.flowLayoutPanel3.Controls.Add(this.label1);
             this.flowLayoutPanel3.Controls.Add(this.comboBoxPrinter);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(823, 35);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(331, 58);
             this.flowLayoutPanel3.TabIndex = 6;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.button2);
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 58);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(823, 34);
-            this.flowLayoutPanel2.TabIndex = 4;
-            // 
-            // textBoxArticleCartige
-            // 
-            this.textBoxArticleCartige.Location = new System.Drawing.Point(190, 3);
-            this.textBoxArticleCartige.Name = "textBoxArticleCartige";
-            this.textBoxArticleCartige.Size = new System.Drawing.Size(137, 20);
-            this.textBoxArticleCartige.TabIndex = 4;
             // 
             // label2
             // 
@@ -139,11 +113,30 @@ namespace CartrigeAltstar
             this.label2.TabIndex = 5;
             this.label2.Text = " : ";
             // 
+            // textBoxArticleCartige
+            // 
+            this.textBoxArticleCartige.CausesValidation = false;
+            this.textBoxArticleCartige.Enabled = false;
+            this.textBoxArticleCartige.Location = new System.Drawing.Point(190, 3);
+            this.textBoxArticleCartige.Name = "textBoxArticleCartige";
+            this.textBoxArticleCartige.Size = new System.Drawing.Size(137, 20);
+            this.textBoxArticleCartige.TabIndex = 4;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.button2);
+            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 101);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(331, 34);
+            this.flowLayoutPanel2.TabIndex = 4;
+            // 
             // AddI_Del_infoOrgTehnic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 95);
+            this.ClientSize = new System.Drawing.Size(337, 138);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddI_Del_infoOrgTehnic";
             this.Text = "AddI_Del_infoOrgTehnic";
@@ -159,7 +152,6 @@ namespace CartrigeAltstar
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
