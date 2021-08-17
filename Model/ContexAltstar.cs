@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 
 namespace CartrigeAltstar.Model
 {
@@ -13,11 +8,11 @@ namespace CartrigeAltstar.Model
 
 
         public ContexAltstarContext() : base("DefaultConnection") { }  //initialization 1
- //
- //       static ContexAltstarContext()
- //       {
- //           Database.SetInitializer(new ContexAltstarInit());
- //       }
+
+       static ContexAltstarContext()
+       {
+           Database.SetInitializer(new ContexAltstarInit());
+       }
 
         public DbSet<Compatibility> Compatibilities { get; set; } //Совместимость
         public DbSet<Printer> Printers { get; set; } //Принтеры

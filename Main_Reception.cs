@@ -137,11 +137,11 @@ namespace CartrigeAltstar
                                 select new
                                 {
                                     ID = r.id,
-                                    Дата = r.Date,
-                                    Картридж = r.Cartrige,
-                                    Статус = r.Status,
-                                    Вес = r.Weight,
-                                    Подразделения = r.Date_of_receipt
+                                    Дата = r.Дата,
+                                    Картридж = r.Картридж,
+                                    Статус = r.Статус,
+                                    Вес = r.Вес,
+                                    Подразделения = r.Подразделения
                                 };
 
 
@@ -164,7 +164,7 @@ namespace CartrigeAltstar
             dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].Width = 200;
 
-         
+
 
 
         }
@@ -176,17 +176,17 @@ namespace CartrigeAltstar
                               select new
                               {
                                   ID = d.id,
-                                  Дата = d.Date,
-                                  Картридж = d.Cartrige,
-                                  Заметки = d.Work_notes,
-                                  Вес = d.Weight,
-                                  Подразделения = d.Date_of_receipt
+                                  Дата = d.Дата,
+                                  Картридж = d.Картридж,
+                                  Заметки = d.Заметки,
+                                  Вес = d.Вес,
+                                  Подразделения = d.Подразделения
                               };
 
 
 
-            dataGridView2.DataSource = datadispath.ToList();
-
+            //  dataGridView2.DataSource = datadispath.ToList();
+            dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
             //
             dataGridView2.Columns[0].Width = 65;
 
@@ -230,21 +230,21 @@ namespace CartrigeAltstar
             Reception reception = new Reception();
 
 
-            reception.Date = receptioncfg.txtdate.Value;
-            reception.Date_of_receipt = receptioncfg.comboBoxDivision.Text.ToString();
-            reception.Cartrige = receptioncfg.comboBoxCartrige.Text.ToString();
+            reception.Дата = receptioncfg.txtdate.Value;
+            reception.Подразделения = receptioncfg.comboBoxDivision.Text.ToString();
+            reception.Картридж = receptioncfg.comboBoxCartrige.Text.ToString();
 
             if (receptioncfg.rbEmpty.Checked)
             {
-                reception.Status = receptioncfg.rbEmpty.Text;
+                reception.Статус = receptioncfg.rbEmpty.Text;
             }
             if (receptioncfg.rbFull.Checked)
             {
-                reception.Status = receptioncfg.rbFull.Text;
+                reception.Статус = receptioncfg.rbFull.Text;
             }
 
 
-            reception.Weight = Convert.ToDouble(receptioncfg.txtWeight.Text);
+            reception.Вес = Convert.ToDouble(receptioncfg.txtWeight.Text);
 
             db.Receptions.Add(reception);
             db.SaveChanges();
@@ -275,12 +275,12 @@ namespace CartrigeAltstar
                 Reception receptionupdateModel = db.Receptions.Find(id); //нахождения индекса модели
                 ReceptionConfig receptionConfigUpdateForm = new ReceptionConfig(); //екземпляяр класа формы
                 //заполнения даты
-                receptionConfigUpdateForm.txtdate.Text = receptionupdateModel.Date.ToString();
+                receptionConfigUpdateForm.txtdate.Text = receptionupdateModel.Дата.ToString();
                 //заполнение веса
-                receptionConfigUpdateForm.txtWeight.Text = receptionupdateModel.Weight.ToString();
+                receptionConfigUpdateForm.txtWeight.Text = receptionupdateModel.Вес.ToString();
 
                 // проверка и заполениия radioButton
-                if (receptionupdateModel.Status == "Пустой")
+                if (receptionupdateModel.Статус == "Пустой")
                 {
                     receptionConfigUpdateForm.rbFull.Checked = false;
                     receptionConfigUpdateForm.rbEmpty.Checked = true;
@@ -295,12 +295,12 @@ namespace CartrigeAltstar
                 //заполнения comboBoxCartrige
                 receptionConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
 
-                int findIndexComboboxCartrige = receptionConfigUpdateForm.comboBoxCartrige.FindString(receptionupdateModel.Cartrige); //поиск индекса в comboBoxCartrige
+                int findIndexComboboxCartrige = receptionConfigUpdateForm.comboBoxCartrige.FindString(receptionupdateModel.Картридж); //поиск индекса в comboBoxCartrige
                 receptionConfigUpdateForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrige;
 
                 //заполнения comboBoxDivision
                 receptionConfigUpdateForm.comboBoxDivision.DataSource = MiGlobalFunction2();
-                int findIndexComboboxDivision = receptionConfigUpdateForm.comboBoxDivision.FindString(receptionupdateModel.Date_of_receipt); //поиск индекса в comboBoxDivision
+                int findIndexComboboxDivision = receptionConfigUpdateForm.comboBoxDivision.FindString(receptionupdateModel.Подразделения); //поиск индекса в comboBoxDivision
                 receptionConfigUpdateForm.comboBoxDivision.SelectedIndex = findIndexComboboxDivision;
 
 
@@ -315,20 +315,20 @@ namespace CartrigeAltstar
                 //заполнение полей обратно
 
 
-                receptionupdateModel.Date = receptionConfigUpdateForm.txtdate.Value; //заполнения дати
-                receptionupdateModel.Date_of_receipt = receptionConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
-                receptionupdateModel.Cartrige = receptionConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
-                receptionupdateModel.Weight = Convert.ToDouble(receptionConfigUpdateForm.txtWeight.Text); //заполнения веса
+                receptionupdateModel.Дата = receptionConfigUpdateForm.txtdate.Value; //заполнения дати
+                receptionupdateModel.Подразделения = receptionConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
+                receptionupdateModel.Картридж = receptionConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
+                receptionupdateModel.Вес = Convert.ToDouble(receptionConfigUpdateForm.txtWeight.Text); //заполнения веса
 
 
                 //заполнения статуса (Полный - Пустой)
                 if (receptionConfigUpdateForm.rbEmpty.Checked)
                 {
-                    receptionupdateModel.Status = receptionConfigUpdateForm.rbEmpty.Text;
+                    receptionupdateModel.Статус = receptionConfigUpdateForm.rbEmpty.Text;
                 }
                 if (receptionConfigUpdateForm.rbFull.Checked)
                 {
-                    receptionupdateModel.Status = receptionConfigUpdateForm.rbFull.Text;
+                    receptionupdateModel.Статус = receptionConfigUpdateForm.rbFull.Text;
                 }
 
 
@@ -440,7 +440,7 @@ namespace CartrigeAltstar
 
 
 
-            var ctt = from u in db.Receptions.Where(p => p.Cartrige == searchValue) select u;
+            var ctt = from u in db.Receptions.Where(p => p.Картридж == searchValue) select u;
 
 
             dataGridView1.DataSource = null;
@@ -606,7 +606,7 @@ namespace CartrigeAltstar
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridView1.Rows.Count; i++) //отступ вниз 1
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++) //отступ вниз 1
             {
 
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
@@ -721,13 +721,40 @@ namespace CartrigeAltstar
             DispatchConfig dispatchConfigForm = new DispatchConfig();
 
 
+            //  var ListCartrige = from lc in db.Cartriges
+            //                     select lc.ModelCartrige;
+            //
+
             var ListCartrige = from lc in db.Cartriges
-                               select lc.ModelCartrige;
+                               select new
+                               {
+                                  Модель = lc.ModelCartrige,
+                                  Артикул = lc.ArticleCartrige
+                               };
+
+
+            var p = ListCartrige.ToList();
+            string[] sdata = new string[p.Count];
+            //изменяем знаки
+            for (int i = 0; i < p.Count; i++)
+            {
+
+                sdata[i] = p[i].ToString().Replace('}', ')').Replace('{', '(');
+
+            }
+            dispatchConfigForm.comboBoxCartrige.DataSource = sdata.ToList();
+
+
+
+
+
+
+
 
             var ListDivision = from ls in db.Subdivisions
                                select ls.division;
 
-            dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
+          //  dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
             dispatchConfigForm.comboBoxDivision.DataSource = ListDivision.ToList();
 
 
@@ -742,12 +769,12 @@ namespace CartrigeAltstar
 
 
 
-            dispatchModel.Date = dispatchConfigForm.txtdate.Value; // дата отправки
-            dispatchModel.Date_of_receipt = dispatchConfigForm.comboBoxDivision.Text.ToString(); //подразделение
-            dispatchModel.Cartrige = dispatchConfigForm.comboBoxCartrige.Text.ToString(); // картридж
-            dispatchModel.Work_notes = dispatchConfigForm.txtZametki.Text.ToString(); //Заметки
+            dispatchModel.Дата = dispatchConfigForm.txtdate.Value; // дата отправки
+            dispatchModel.Подразделения = dispatchConfigForm.comboBoxDivision.Text.ToString(); //подразделение
+            dispatchModel.Картридж = dispatchConfigForm.comboBoxCartrige.Text.ToString(); // картридж
+            dispatchModel.Заметки = dispatchConfigForm.txtZametki.Text.ToString(); //Заметки
 
-            dispatchModel.Weight = Convert.ToDouble(dispatchConfigForm.txtWeight.Text); //Вес
+            dispatchModel.Вес = Convert.ToDouble(dispatchConfigForm.txtWeight.Text); //Вес
 
             db.Dispatches.Add(dispatchModel);
             db.SaveChanges();
@@ -787,22 +814,22 @@ namespace CartrigeAltstar
                 Dispatch dispatchUpdateModel = db.Dispatches.Find(id); //нахождения индекса модели
                 DispatchConfig dispatchnConfigUpdateForm = new DispatchConfig(); //екземпляяр класа формы
                 //заполнения даты
-                dispatchnConfigUpdateForm.txtdate.Text = dispatchUpdateModel.Date.ToString();
+                dispatchnConfigUpdateForm.txtdate.Text = dispatchUpdateModel.Дата.ToString();
                 //заполнение веса
-                dispatchnConfigUpdateForm.txtWeight.Text = dispatchUpdateModel.Weight.ToString();
+                dispatchnConfigUpdateForm.txtWeight.Text = dispatchUpdateModel.Вес.ToString();
 
-                dispatchnConfigUpdateForm.txtZametki.Text = dispatchUpdateModel.Work_notes.ToString();
+                dispatchnConfigUpdateForm.txtZametki.Text = dispatchUpdateModel.Заметки.ToString();
 
 
                 //заполнения comboBoxCartrige
                 dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
 
-                int findIndexComboboxCartrige = dispatchnConfigUpdateForm.comboBoxCartrige.FindString(dispatchUpdateModel.Cartrige); //поиск индекса в comboBoxCartrige
+                int findIndexComboboxCartrige = dispatchnConfigUpdateForm.comboBoxCartrige.FindString(dispatchUpdateModel.Картридж); //поиск индекса в comboBoxCartrige
                 dispatchnConfigUpdateForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrige;
 
                 //заполнения comboBoxDivision
                 dispatchnConfigUpdateForm.comboBoxDivision.DataSource = MiGlobalFunction2();
-                int findIndexComboboxDivision = dispatchnConfigUpdateForm.comboBoxDivision.FindString(dispatchUpdateModel.Date_of_receipt); //поиск индекса в comboBoxDivision
+                int findIndexComboboxDivision = dispatchnConfigUpdateForm.comboBoxDivision.FindString(dispatchUpdateModel.Подразделения); //поиск индекса в comboBoxDivision
                 dispatchnConfigUpdateForm.comboBoxDivision.SelectedIndex = findIndexComboboxDivision;
 
 
@@ -817,12 +844,12 @@ namespace CartrigeAltstar
                 //заполнение полей обратно
 
 
-                dispatchUpdateModel.Date = dispatchnConfigUpdateForm.txtdate.Value; //заполнения дати
-                dispatchUpdateModel.Date_of_receipt = dispatchnConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
-                dispatchUpdateModel.Cartrige = dispatchnConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
-                dispatchUpdateModel.Weight = Convert.ToDouble(dispatchnConfigUpdateForm.txtWeight.Text); //заполнения веса
+                dispatchUpdateModel.Дата = dispatchnConfigUpdateForm.txtdate.Value; //заполнения дати
+                dispatchUpdateModel.Подразделения = dispatchnConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
+                dispatchUpdateModel.Картридж = dispatchnConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
+                dispatchUpdateModel.Вес = Convert.ToDouble(dispatchnConfigUpdateForm.txtWeight.Text); //заполнения веса
 
-                dispatchUpdateModel.Work_notes = dispatchnConfigUpdateForm.txtZametki.Text;
+                dispatchUpdateModel.Заметки = dispatchnConfigUpdateForm.txtZametki.Text;
 
 
 
@@ -884,7 +911,7 @@ namespace CartrigeAltstar
 
 
 
-            var ctt = from u in db.Dispatches.Where(p => p.Cartrige == searchValue) select u;
+            var ctt = from u in db.Dispatches.Where(p => p.Картридж == searchValue) select u;
 
 
             dataGridView2.DataSource = null;
@@ -901,7 +928,7 @@ namespace CartrigeAltstar
             dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
-
+        //сбросить фильтра
         private void button6_Click(object sender, EventArgs e)
         {
             dataGridView2.DataSource = null;
@@ -961,7 +988,7 @@ namespace CartrigeAltstar
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridView2.Rows.Count; i++) //отступ вниз 1
+            for (int i = 0; i < dataGridView2.Rows.Count - 1; i++) //отступ вниз 1
             {
 
                 for (int j = 0; j < dataGridView2.Columns.Count; j++)
@@ -1019,26 +1046,7 @@ namespace CartrigeAltstar
 
 
 
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

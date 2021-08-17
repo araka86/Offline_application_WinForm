@@ -11,12 +11,11 @@ namespace CartrigeAltstar
     {
 
         public int id { get; set; }
-        public DateTime? Date { get; set; } //data empty
-        public string Cartrige { get; set; }//Catrige
-        public string Date_of_receipt { get; set; } //от куда приехал
-        public double Weight { get; set; } // вес
-        public string  Status { get; set; } //статус (пустой, полний)
-       
+        public DateTime? Дата { get; set; } //data empty
+        public string Картридж { get; set; }//Catrige
+        public double Вес { get; set; } // вес
+        public string  Статус { get; set; } //статус (пустой, полний)
+        public string Подразделения { get; set; } //от куда приехал
 
     }
 }

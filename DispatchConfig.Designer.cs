@@ -54,6 +54,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxCartrige
             // 
+            this.comboBoxCartrige.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCartrige.FormattingEnabled = true;
             this.comboBoxCartrige.Location = new System.Drawing.Point(127, 94);
             this.comboBoxCartrige.Name = "comboBoxCartrige";
@@ -112,6 +113,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxDivision
             // 
+            this.comboBoxDivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDivision.FormattingEnabled = true;
             this.comboBoxDivision.Location = new System.Drawing.Point(127, 52);
             this.comboBoxDivision.Name = "comboBoxDivision";

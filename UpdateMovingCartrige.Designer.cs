@@ -57,6 +57,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxDivision
             // 
+            this.comboBoxDivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDivision.FormattingEnabled = true;
             this.comboBoxDivision.Location = new System.Drawing.Point(214, 19);
             this.comboBoxDivision.Name = "comboBoxDivision";

@@ -23,21 +23,16 @@ namespace CartrigeAltstar
             InitializeComponent();
             db = new ContexAltstarContext();
 
-
-
-        }
-
-        private void InfoOrgTechnic_Load(object sender, EventArgs e)
-        {
             db.Printers.Load();
             db.Subdivisions.Load();
             db.Cartriges.Load();
             db.Compatibilities.Load();
 
+        }
 
-
-
-
+        public void ShowPrinter()
+        {
+            dataGridView1.DataSource = null;
             var queryPrinter = from p in db.Printers
                                select new
                                {
@@ -46,6 +41,19 @@ namespace CartrigeAltstar
                                    Артикул = p.Article
                                };
 
+
+
+
+
+            var a1 = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
+            dataGridView1.DataSource = queryPrinter.ToList();
+        }
+
+        public void ShowCartrige()
+        {
+            dataGridView2.DataSource = null;
+            dataGridView2.Refresh();
+            dataGridView2.Update();
             var queryCartrige = from p in db.Cartriges
                                 select new
                                 {
@@ -53,22 +61,21 @@ namespace CartrigeAltstar
                                     Картридж = p.ModelCartrige,
                                     Артикул = p.ArticleCartrige
                                 };
-
-
-            db.Subdivisions.Load();
-            db.Printers.Load();
-            var a1 = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
-            dataGridView1.DataSource = queryPrinter.ToList();
             dataGridView2.DataSource = queryCartrige.ToList();
             dataGridView2.Columns[0].Width = 45;
+
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void InfoOrgTechnic_Load(object sender, EventArgs e)
         {
 
+            ShowCartrige();
+            ShowPrinter();
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        
+        public void ShowPrinter_subdivision() 
         {
             int index = dataGridView1.SelectedRows[0].Index;
             int ids;
@@ -80,45 +87,32 @@ namespace CartrigeAltstar
             Printer sb = db.Printers.Find(ids);
             Subdivision subdivision = new Subdivision();
 
-      //  db.Entry(sb).Reference("Printers").Load();
-        //    db.Entry(subdivision).Collection("Printers").Load();
-
-
-
             var p = from l in db.Subdivisions
                     where l.Id == sb.SubdivisionId
                     select new
                     {
                         l.Id,
-                         Подразделение = l.division,
+                        Подразделение = l.division,
                         Адресс = l.address_part,
-                      
+
                     };
 
 
             dataGridView4.DataSource = p.ToList();
+        }
 
 
-            //
-            //    if (listBox1.Items.Count != 0)
-            //    {
-            //        listBox1.Items.Clear();
-            //        listBox1.Items.Add(sb.SubdivisioPK.division);
-            //        listBox1.DisplayMember = "Id";
-            //    }
-            //    else
-            //    {
-            //        listBox1.Items.Add(sb.SubdivisioPK.division);
-            //        listBox1.DisplayMember = "Id";
-            //    }
+        private void button2_Click(object sender, EventArgs e)
+        {
 
+            ShowPrinter_subdivision();
 
         }
 
 
-        private void button4_Click_1(object sender, EventArgs e)
-        {
 
+        public void ShowCartige_Printer() 
+        {
             int index = dataGridView2.SelectedRows[0].Index;
             int ids;
             bool converted = Int32.TryParse(dataGridView2[0, index].Value.ToString(), out ids);
@@ -137,7 +131,7 @@ namespace CartrigeAltstar
 
             parts.Add(cartrige);
 
-            var r = from b in cartrige.Printers 
+            var r = from b in cartrige.Printers
                     select new
                     {
 
@@ -149,11 +143,11 @@ namespace CartrigeAltstar
 
 
             dataGridView3.DataSource = r.ToList();
+        }
+        private void button4_Click_1(object sender, EventArgs e)
+        {
 
-            //       listBox2.DataSource = cartrige.Printers.ToList();
-            //
-            //       listBox2.DisplayMember = "ModelPrinter";
-            //
+            ShowCartige_Printer();
 
         }
 
@@ -240,7 +234,7 @@ namespace CartrigeAltstar
             db.SaveChanges();
             MessageBox.Show("Перемещение обновленно");
 
-
+            ShowCartige_Printer();
 
         }
 
@@ -267,20 +261,20 @@ namespace CartrigeAltstar
 
             //находим принтер  по айди в базе
             Printer printerAdd = db.Printers.Find(ids);
-            
-           //заполняем поля
+
+            //заполняем поля
             addI_Del_InfoOrgTehnicForm.textBoxCartrige.Text = printerAdd.ModelPrinter;
             addI_Del_InfoOrgTehnicForm.textBoxArticleCartige.Text = printerAdd.Article;
 
 
             //создаем запрос для комбобокса Subdivisions
             var divisionAdd = from a in db.Subdivisions
-                             select new
-                             {
-                                 a.Id,
-                                 Модель = a.division,
-                                 Артикул = a.address_part
-                             };
+                              select new
+                              {
+                                  a.Id,
+                                  Подразделение = a.division,
+                                 
+                              };
 
             // в лист
             var p = divisionAdd.ToList();
@@ -335,20 +329,48 @@ namespace CartrigeAltstar
             var pr = db.Subdivisions.Find(getId);
 
 
-       //     Subdivision subdivisionadd = db.Subdivisions.Find(getId);
+            //     Subdivision subdivisionadd = db.Subdivisions.Find(getId);
 
 
             printerAdd.SubdivisionId = pr.Id;
 
 
-
-
-
             db.ChangeTracker.DetectChanges();
             db.SaveChanges();
             MessageBox.Show("Перемещение обновленно");
+            ShowPrinter_subdivision();
 
+        }
 
+        //Удалить привязку  Совместимость Принтер - Подразделения
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            int index = dataGridView3.SelectedRows[0].Index;
+            int ids;
+            bool converted = Int32.TryParse(dataGridView3[0, index].Value.ToString(), out ids);
+            if (converted == false)
+                return;
+
+            Printer printerDel = db.Printers.Find(ids);
+
+            printerDel.CartrigePk = null;
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
+            MessageBox.Show("Принтер отвязан!!!!");
+            ShowCartige_Printer();
+
+        }
+
+        //Click mouse
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowCartige_Printer();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowPrinter_subdivision();
         }
     }
 }

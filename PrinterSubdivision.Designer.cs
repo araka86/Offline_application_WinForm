@@ -40,6 +40,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxSub
             // 
+            this.comboBoxSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSub.FormattingEnabled = true;
             this.comboBoxSub.Location = new System.Drawing.Point(255, 58);
             this.comboBoxSub.Name = "comboBoxSub";
@@ -48,6 +49,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxPrint
             // 
+            this.comboBoxPrint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPrint.FormattingEnabled = true;
             this.comboBoxPrint.Location = new System.Drawing.Point(12, 58);
             this.comboBoxPrint.Name = "comboBoxPrint";

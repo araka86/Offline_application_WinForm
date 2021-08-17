@@ -65,6 +65,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxDivision
             // 
+            this.comboBoxDivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDivision.FormattingEnabled = true;
             this.comboBoxDivision.Location = new System.Drawing.Point(127, 54);
             this.comboBoxDivision.Name = "comboBoxDivision";
@@ -110,7 +111,7 @@ namespace CartrigeAltstar
             // 
             // txtdate
             // 
-            this.txtdate.Location = new System.Drawing.Point(137, 11);
+            this.txtdate.Location = new System.Drawing.Point(127, 11);
             this.txtdate.Name = "txtdate";
             this.txtdate.Size = new System.Drawing.Size(215, 20);
             this.txtdate.TabIndex = 29;
@@ -142,6 +143,7 @@ namespace CartrigeAltstar
             // 
             // comboBoxCartrige
             // 
+            this.comboBoxCartrige.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCartrige.FormattingEnabled = true;
             this.comboBoxCartrige.Location = new System.Drawing.Point(127, 96);
             this.comboBoxCartrige.Name = "comboBoxCartrige";
