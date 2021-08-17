@@ -81,19 +81,16 @@ namespace CartrigeAltstar
         private void Reception_Load(object sender, EventArgs e)
         {
             printRecept();
-
+            PrintDispatch();
 
 
 
             comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
+            comboBoxFiltrDispath.DataSource = ForFiltrCartrige();
 
 
             //
-            dataGridView1.Columns[0].Width = 65;
-            dataGridView1.Columns[1].Width = 220;
-            dataGridView1.Columns[2].Width = 240;
-            dataGridView1.Columns[3].Width = 200;
-            dataGridView1.Columns[4].Width = 200;
+          
             //   
             //
 
@@ -137,8 +134,32 @@ namespace CartrigeAltstar
 
             dataGridView1.DataSource = dataReception.ToList();
 
+            dataGridView1.Columns[0].Width = 65;
+            dataGridView1.Columns[1].Width = 220;
+            dataGridView1.Columns[2].Width = 240;
+            dataGridView1.Columns[3].Width = 200;
+            dataGridView1.Columns[4].Width = 200;
+
             // dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
             //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
+
+        }
+
+        public void PrintDispatch() 
+        {
+
+            var datadispath = from d in db.Dispatches select new 
+            {
+                ID = d.id,
+                Дата = d.Date,
+                Картридж = d.Cartrige,
+                Статус = d.Work_notes,
+                Вес = d.Weight,
+                Подразделения = d.Date_of_receipt
+            };
+
+            dataGridView2.DataSource = datadispath.ToList();
+           
 
         }
 
@@ -645,6 +666,11 @@ namespace CartrigeAltstar
             InfoOrgTechnic infoOrgTechnic = new InfoOrgTechnic();
 
             infoOrgTechnic.ShowDialog();
+        }
+        //добавления для отправки
+        private void button9_Click(object sender, EventArgs e)
+        {
+
         }
 
 
