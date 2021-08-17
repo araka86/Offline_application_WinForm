@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace CartrigeAltstar.Model
+namespace CartrigeAltstar
 {
     class Reception //прием + сдача на сервис
     {

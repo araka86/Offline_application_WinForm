@@ -108,6 +108,12 @@
     <Compile Include="AddDellCartrigeSubdivisionForm.Designer.cs">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DispatchConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispatchConfig.Designer.cs">
+      <DependentUpon>DispatchConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nomenclatura\AddI_Del_infoOrgTehnic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,12 +173,6 @@
     </Compile>
     <Compile Include="CartrigeSubdivision.Designer.cs">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dispatch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dispatch.Designer.cs">
-      <DependentUpon>Dispatch.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -245,6 +245,9 @@
     <EmbeddedResource Include="AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DispatchConfig.resx">
+      <DependentUpon>DispatchConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\AddI_Del_infoOrgTehnic.resx">
       <DependentUpon>AddI_Del_infoOrgTehnic.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,9 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CartrigeSubdivision.resx">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dispatch.resx">
-      <DependentUpon>Dispatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

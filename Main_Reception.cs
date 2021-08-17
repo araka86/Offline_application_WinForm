@@ -16,6 +16,7 @@ using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using CartrigeAltstar.Nomenclatura.Cartrige;
+using SortOrder = System.Windows.Forms.SortOrder;
 
 namespace CartrigeAltstar
 {
@@ -84,13 +85,25 @@ namespace CartrigeAltstar
             PrintDispatch();
 
 
+            //     dataGridView2.Columns[0].Width = 65;
+
+
+
+
+
+
+
+            //    db.Receptions.Load();
+            //   dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
+
+            //    dataGridView1.Columns[0].Width = 45;
 
             comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
             comboBoxFiltrDispath.DataSource = ForFiltrCartrige();
 
 
             //
-          
+
             //   
             //
 
@@ -132,7 +145,18 @@ namespace CartrigeAltstar
                                 };
 
 
-            dataGridView1.DataSource = dataReception.ToList();
+
+
+
+            //   dataGridView1.DataSource = dataReception.ToArray();
+
+
+
+            db.Receptions.Load();
+
+            dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
+            //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
+
 
             dataGridView1.Columns[0].Width = 65;
             dataGridView1.Columns[1].Width = 220;
@@ -140,26 +164,40 @@ namespace CartrigeAltstar
             dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].Width = 200;
 
-            // dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
-            //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
+         
+
 
         }
 
-        public void PrintDispatch() 
+        public void PrintDispatch()
         {
 
-            var datadispath = from d in db.Dispatches select new 
-            {
-                ID = d.id,
-                Дата = d.Date,
-                Картридж = d.Cartrige,
-                Статус = d.Work_notes,
-                Вес = d.Weight,
-                Подразделения = d.Date_of_receipt
-            };
+            var datadispath = from d in db.Dispatches
+                              select new
+                              {
+                                  ID = d.id,
+                                  Дата = d.Date,
+                                  Картридж = d.Cartrige,
+                                  Заметки = d.Work_notes,
+                                  Вес = d.Weight,
+                                  Подразделения = d.Date_of_receipt
+                              };
+
+
 
             dataGridView2.DataSource = datadispath.ToList();
-           
+
+            //
+            dataGridView2.Columns[0].Width = 65;
+
+
+            dataGridView2.Columns[1].Width = 220;
+            dataGridView2.Columns[2].Width = 240;
+            dataGridView2.Columns[3].Width = 200;
+            dataGridView2.Columns[4].Width = 200;
+            dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+
 
         }
 
@@ -390,6 +428,9 @@ namespace CartrigeAltstar
             //     label1Article.Text = ctt.ArticleCartrige;
         }
 
+
+
+        //SUBMIT FILTR
         private void button8_Click(object sender, EventArgs e)
         {
 
@@ -537,7 +578,7 @@ namespace CartrigeAltstar
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
 
 
-            ExcelWorkSheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+            ExcelWorkSheet.Name = "Приемка -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
 
             object[,] d = new object[dataGridView1.RowCount, dataGridView1.ColumnCount];
 
@@ -667,11 +708,331 @@ namespace CartrigeAltstar
 
             infoOrgTechnic.ShowDialog();
         }
+
+
+
+
         //добавления для отправки
         private void button9_Click(object sender, EventArgs e)
         {
 
+
+
+            DispatchConfig dispatchConfigForm = new DispatchConfig();
+
+
+            var ListCartrige = from lc in db.Cartriges
+                               select lc.ModelCartrige;
+
+            var ListDivision = from ls in db.Subdivisions
+                               select ls.division;
+
+            dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
+            dispatchConfigForm.comboBoxDivision.DataSource = ListDivision.ToList();
+
+
+
+            DialogResult result = dispatchConfigForm.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+                return;
+
+
+
+            Dispatch dispatchModel = new Dispatch();
+
+
+
+            dispatchModel.Date = dispatchConfigForm.txtdate.Value; // дата отправки
+            dispatchModel.Date_of_receipt = dispatchConfigForm.comboBoxDivision.Text.ToString(); //подразделение
+            dispatchModel.Cartrige = dispatchConfigForm.comboBoxCartrige.Text.ToString(); // картридж
+            dispatchModel.Work_notes = dispatchConfigForm.txtZametki.Text.ToString(); //Заметки
+
+            dispatchModel.Weight = Convert.ToDouble(dispatchConfigForm.txtWeight.Text); //Вес
+
+            db.Dispatches.Add(dispatchModel);
+            db.SaveChanges();
+            MessageBox.Show("Картридж на отправку записан!!!!");
+            dataGridView2.DataSource = null;
+            this.dataGridView2.Update();
+            this.dataGridView2.Refresh();
+            PrintDispatch();
+
+
+
+
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Sort(dataGridView1.Columns["Id"], ListSortDirection.Ascending);
+
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        //UPDATE DISPATCH
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+
+
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                int index = dataGridView2.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView2[0, index].Value.ToString(), out id); //Find Index
+                Dispatch dispatchUpdateModel = db.Dispatches.Find(id); //нахождения индекса модели
+                DispatchConfig dispatchnConfigUpdateForm = new DispatchConfig(); //екземпляяр класа формы
+                //заполнения даты
+                dispatchnConfigUpdateForm.txtdate.Text = dispatchUpdateModel.Date.ToString();
+                //заполнение веса
+                dispatchnConfigUpdateForm.txtWeight.Text = dispatchUpdateModel.Weight.ToString();
+
+                dispatchnConfigUpdateForm.txtZametki.Text = dispatchUpdateModel.Work_notes.ToString();
+
+
+                //заполнения comboBoxCartrige
+                dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
+
+                int findIndexComboboxCartrige = dispatchnConfigUpdateForm.comboBoxCartrige.FindString(dispatchUpdateModel.Cartrige); //поиск индекса в comboBoxCartrige
+                dispatchnConfigUpdateForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrige;
+
+                //заполнения comboBoxDivision
+                dispatchnConfigUpdateForm.comboBoxDivision.DataSource = MiGlobalFunction2();
+                int findIndexComboboxDivision = dispatchnConfigUpdateForm.comboBoxDivision.FindString(dispatchUpdateModel.Date_of_receipt); //поиск индекса в comboBoxDivision
+                dispatchnConfigUpdateForm.comboBoxDivision.SelectedIndex = findIndexComboboxDivision;
+
+
+
+                DialogResult result = dispatchnConfigUpdateForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+
+
+                if (converted == false)
+                    return;
+                //заполнение полей обратно
+
+
+                dispatchUpdateModel.Date = dispatchnConfigUpdateForm.txtdate.Value; //заполнения дати
+                dispatchUpdateModel.Date_of_receipt = dispatchnConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
+                dispatchUpdateModel.Cartrige = dispatchnConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
+                dispatchUpdateModel.Weight = Convert.ToDouble(dispatchnConfigUpdateForm.txtWeight.Text); //заполнения веса
+
+                dispatchUpdateModel.Work_notes = dispatchnConfigUpdateForm.txtZametki.Text;
+
+
+
+
+
+                //подключения к состоянию обьявив его модифицированним
+                db.Entry(dispatchUpdateModel).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+                MessageBox.Show("Запись обновленна!!!!");
+                dataGridView2.DataSource = null; //занулить датагрид
+                this.dataGridView2.Update(); //обновить
+                this.dataGridView2.Refresh(); //обновить
+                PrintDispatch(); //вивести по новой
+
+
+
+            }
+
+
+
+
+
+        }
+        //DELETE DISPATCH DATA
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                int index = dataGridView2.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView2[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+
+                Dispatch dispatchupdateModel = db.Dispatches.Find(id); //нахождения индекса модели
+                db.Dispatches.Remove(dispatchupdateModel);
+                db.SaveChanges();
+                MessageBox.Show("Запись Удаленна!!! ");
+                dataGridView2.DataSource = null;
+                this.dataGridView2.Update();
+                this.dataGridView2.Refresh();
+                PrintDispatch(); //вивести по новой
+
+
+
+
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            string searchValue = comboBoxFiltrCartrige.SelectedItem.ToString();
+
+
+
+
+            var ctt = from u in db.Dispatches.Where(p => p.Cartrige == searchValue) select u;
+
+
+            dataGridView2.DataSource = null;
+            this.dataGridView2.Update();
+            this.dataGridView2.Refresh();
+            dataGridView2.DataSource = ctt.ToList();
+            dataGridView2.Columns[0].Width = 65;
+
+
+            dataGridView2.Columns[1].Width = 220;
+            dataGridView2.Columns[2].Width = 240;
+            dataGridView2.Columns[3].Width = 200;
+            dataGridView2.Columns[4].Width = 200;
+            dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = null;
+            this.dataGridView2.Update();
+            this.dataGridView2.Refresh();
+            PrintDispatch();
+        }
+
+        //EXPORT EXCEL
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+
+
+            DateTime curTime = DateTime.Now; // Current Data
+
+            Excel.Application ExcelApp = new Excel.Application(); //Объявляем приложение
+
+            Workbook ExcelWorkBook; //инициализация рабочей книги
+            Worksheet ExcelWorkSheet; //инициализация рабочего листа
+            Range ExecelRange; //Переменная диапазона
+
+            ExcelApp.SheetsInNewWorkbook = 2; //Количество листов в рабочей книге
+
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value); //Добавить рабочую книгу
+
+            ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
+
+            ExcelWorkSheet = (Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
+
+
+            ExcelWorkSheet.Name = "Отправка-  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+
+            object[,] d = new object[dataGridView2.RowCount, dataGridView2.ColumnCount];
+
+
+            for (int i = 1; i < dataGridView2.Columns.Count + 1; i++)
+            {
+
+                ExcelWorkSheet.Cells[1, i] = dataGridView2.Columns[i - 1].HeaderText;
+
+
+
+
+                ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeRight].Weight = 2;
+                ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeTop].Weight = 2;
+                ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeLeft].Weight = 2;
+                ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeBottom].Weight = 4;
+
+                ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[1, i];
+                ExecelRange.Cells.Font.Size = 14;
+                ExecelRange.Cells.Font.Bold = 500;
+                ExecelRange.Cells.Font.Color = Color.Brown;
+
+            }
+
+
+            //DATA (Fill)
+
+            for (int i = 0; i < dataGridView2.Rows.Count; i++) //отступ вниз 1
+            {
+
+                for (int j = 0; j < dataGridView2.Columns.Count; j++)
+                {
+
+                    d[i, j] = dataGridView2.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+
+
+            Fill(2, 1, d);
+
+            ExcelApp.Visible = true; //Отобразить Excel
+
+
+            //Заполнение строк
+            void Fill(int topRow, int leftCol, object[,] data)
+            {
+                int rows = data.GetUpperBound(0) + 1;
+                int cols = data.GetUpperBound(1) + 1;
+
+                Worksheet sheet = (Worksheet)ExcelApp.ActiveSheet;
+
+                object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
+                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridView2.RowCount - 1, leftCol + dataGridView2.ColumnCount - 1];
+
+                Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
+                range.Value2 = data;
+                setStyle(range);
+
+            }
+
+
+            //Прорисовка  (оформление) документа
+            void setStyle(Excel.Range range)
+            {
+                range.EntireColumn.AutoFit();
+                range.EntireRow.AutoFit();
+                //отрисовка линий для excel документа
+                object[] border = new object[] {XlBordersIndex.xlEdgeLeft, //Лево
+                                                XlBordersIndex.xlEdgeTop, //Верх
+                                                XlBordersIndex.xlEdgeBottom, //Низ
+                                                XlBordersIndex.xlEdgeRight, //Право
+                                                XlBordersIndex.xlInsideVertical, //Вертикаль
+                                                XlBordersIndex.xlInsideHorizontal}; //Горизонталь
+
+                for (int i = 0; i < border.Length; i++)
+                {
+                    range.Borders[(XlBordersIndex)border[i]].LineStyle = XlLineStyle.xlContinuous; //Стиль
+                    range.Borders[(XlBordersIndex)border[i]].Weight = XlBorderWeight.xlThin; //Толщина
+                    range.Borders[(XlBordersIndex)border[i]].ColorIndex = XlColorIndex.xlColorIndexAutomatic;
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
 
 
 

@@ -29,8 +29,8 @@ namespace CartrigeAltstar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.btnPrinterShow = new System.Windows.Forms.Button();
@@ -39,6 +39,7 @@ namespace CartrigeAltstar
             this.button5 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@ namespace CartrigeAltstar
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxFiltrCartrige = new System.Windows.Forms.ComboBox();
-            this.label1Article = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.resetFiltr = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -72,7 +72,6 @@ namespace CartrigeAltstar
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.flowLayoutPanel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -174,6 +173,12 @@ namespace CartrigeAltstar
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 291);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 14;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -267,14 +272,14 @@ namespace CartrigeAltstar
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
@@ -291,7 +296,6 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxFiltrCartrige);
-            this.flowLayoutPanel1.Controls.Add(this.label1Article);
             this.flowLayoutPanel1.Controls.Add(this.button8);
             this.flowLayoutPanel1.Controls.Add(this.resetFiltr);
             this.flowLayoutPanel1.Controls.Add(this.button7);
@@ -349,18 +353,9 @@ namespace CartrigeAltstar
             this.comboBoxFiltrCartrige.TabIndex = 5;
             this.comboBoxFiltrCartrige.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltrCartrige_SelectedIndexChanged);
             // 
-            // label1Article
-            // 
-            this.label1Article.AutoSize = true;
-            this.label1Article.Location = new System.Drawing.Point(3, 98);
-            this.label1Article.Name = "label1Article";
-            this.label1Article.Size = new System.Drawing.Size(153, 13);
-            this.label1Article.TabIndex = 6;
-            this.label1Article.Text = "------------------Article---------------------";
-            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(3, 114);
+            this.button8.Location = new System.Drawing.Point(3, 101);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 8;
@@ -370,7 +365,7 @@ namespace CartrigeAltstar
             // 
             // resetFiltr
             // 
-            this.resetFiltr.Location = new System.Drawing.Point(84, 114);
+            this.resetFiltr.Location = new System.Drawing.Point(84, 101);
             this.resetFiltr.Name = "resetFiltr";
             this.resetFiltr.Size = new System.Drawing.Size(73, 23);
             this.resetFiltr.TabIndex = 10;
@@ -380,7 +375,7 @@ namespace CartrigeAltstar
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(3, 143);
+            this.button7.Location = new System.Drawing.Point(3, 130);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(156, 23);
             this.button7.TabIndex = 7;
@@ -390,7 +385,7 @@ namespace CartrigeAltstar
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
+            this.tabPage2.BackColor = System.Drawing.Color.PowderBlue;
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -413,17 +408,16 @@ namespace CartrigeAltstar
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 16);
             this.dataGridView2.Name = "dataGridView2";
@@ -468,6 +462,7 @@ namespace CartrigeAltstar
             this.button10.TabIndex = 1;
             this.button10.Text = "Обновить";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -477,6 +472,7 @@ namespace CartrigeAltstar
             this.button11.TabIndex = 2;
             this.button11.Text = "Удалить";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // label2
             // 
@@ -503,6 +499,7 @@ namespace CartrigeAltstar
             this.button6.TabIndex = 11;
             this.button6.Text = "Сбросить";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button12
             // 
@@ -512,6 +509,7 @@ namespace CartrigeAltstar
             this.button12.TabIndex = 12;
             this.button12.Text = "Применить";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button15
             // 
@@ -521,12 +519,7 @@ namespace CartrigeAltstar
             this.button15.TabIndex = 7;
             this.button15.Text = "Export ---> Excel";
             this.button15.UseVisualStyleBackColor = true;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 291);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 14;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // Main_Reception
             // 
@@ -575,7 +568,6 @@ namespace CartrigeAltstar
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
@@ -586,8 +578,6 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button resetFiltr;
         private System.Windows.Forms.Button button7;
         public System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        public System.Windows.Forms.DataGridView dataGridView2;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         public System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
@@ -598,12 +588,14 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button15;
         public System.Windows.Forms.ComboBox comboBoxFiltrCartrige;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label1Article;
         private System.Windows.Forms.Button btnDivisionShow;
         private System.Windows.Forms.Button btnCartrigeShow;
         private System.Windows.Forms.Button btnPrinterShow;
         private System.Windows.Forms.Button button13;
         public System.Windows.Forms.ComboBox comboBoxFiltrDispath;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        public System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.GroupBox groupBox2;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CartrigeAltstar
 {
-    public partial class Dispatch : Form
+    public partial class DispatchConfig : Form
     {
-        public Dispatch()
+        public DispatchConfig()
         {
             InitializeComponent();
         }
