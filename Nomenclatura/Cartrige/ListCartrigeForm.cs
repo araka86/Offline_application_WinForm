@@ -1,14 +1,10 @@
 ﻿using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartrige;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -57,8 +53,6 @@ namespace CartrigeAltstar
         {
 
 
-
-
             AddCartriges addctrgFrm = new AddCartriges();
 
          
@@ -66,8 +60,6 @@ namespace CartrigeAltstar
             if (result == DialogResult.Cancel)
                 return;
 
-
-            
 
             Cartrige cartrigeModel = new Cartrige();
 
@@ -138,13 +130,13 @@ namespace CartrigeAltstar
                 if (converted == false)
                     return;
                 //екземпляр Формы
-                AddCartrige updateCartrigeForm = new AddCartrige();
+                AddCartriges updateCartrigeForm = new AddCartriges();
 
                 //заполнение полей
                 Cartrige cartrigeUpdate = db.Cartriges.Find(id);
-                updateCartrigeForm.txtData.Text = cartrigeUpdate.purchase_date.ToString();
+                updateCartrigeForm.txtDatetimeCartrige.Text = cartrigeUpdate.purchase_date.ToString();
                 updateCartrigeForm.txtModelCartrige.Text = cartrigeUpdate.ModelCartrige;
-                updateCartrigeForm.txtArticle.Text = cartrigeUpdate.ArticleCartrige;
+                updateCartrigeForm.txtArticleCartrige.Text = cartrigeUpdate.ArticleCartrige;
 
                 //откритие диалогового окна AddCartrige
                 DialogResult result = updateCartrigeForm.ShowDialog(this);
@@ -152,9 +144,9 @@ namespace CartrigeAltstar
                     return;
 
                 //
-                cartrigeUpdate.purchase_date = updateCartrigeForm.txtData.Value;
+                cartrigeUpdate.purchase_date = updateCartrigeForm.txtDatetimeCartrige.Value;
                 cartrigeUpdate.ModelCartrige = updateCartrigeForm.txtModelCartrige.Text;
-                cartrigeUpdate.ArticleCartrige = updateCartrigeForm.txtArticle.Text;
+                cartrigeUpdate.ArticleCartrige = updateCartrigeForm.txtArticleCartrige.Text;
 
 
                 //подключения к состоянию обьявив его модифицированним
@@ -169,7 +161,6 @@ namespace CartrigeAltstar
                 PrintCartrige();
 
             }
-
 
 
         }
@@ -196,7 +187,7 @@ namespace CartrigeAltstar
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
 
 
-            ExcelWorkSheet.Name = "список картриждей -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+            ExcelWorkSheet.Name = "Крартриджи -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
 
             object[,] d = new object[dataGridViewListCartrige.RowCount, dataGridViewListCartrige.ColumnCount];
 
@@ -273,9 +264,6 @@ namespace CartrigeAltstar
                 }
 
             }
-
-
-
 
 
 

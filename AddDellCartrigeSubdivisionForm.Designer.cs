@@ -117,6 +117,7 @@ namespace CartrigeAltstar
             this.Controls.Add(this.comboBoxSub);
             this.Name = "AddDellCartrigeSubdivisionForm";
             this.Text = "AddDellCartrigeSubdivisionForm";
+            this.Load += new System.EventHandler(this.AddDellCartrigeSubdivisionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

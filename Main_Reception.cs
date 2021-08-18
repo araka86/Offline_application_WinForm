@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartrigeAltstar.Model;
-using System.Data.SqlClient;
-using System.Collections;
-using ClosedXML.Excel;
-using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
-using CartrigeAltstar.Nomenclatura.Cartrige;
-using SortOrder = System.Windows.Forms.SortOrder;
+using System.Text.RegularExpressions;
 
 namespace CartrigeAltstar
 {
@@ -24,28 +16,13 @@ namespace CartrigeAltstar
     {
         ContexAltstarContext db;
 
-
-
-
-
-
-
-
         public Main_Reception()
         {
             InitializeComponent();
             db = new ContexAltstarContext();
             db.Subdivisions.Load();
-            db.Compatibilities.Load();
-
-
-
 
         }
-
-
-
-
 
         //Список картриджей для Combobox 
         public static object MiGlobalFunction()
@@ -79,6 +56,67 @@ namespace CartrigeAltstar
             return ListCartrigeFiltr.ToList();
         }
 
+
+      
+
+
+
+
+        public string [] ForCartrigeArticleComboboxCUT() 
+        {
+            var ListCartrige = from lc in db.Cartriges
+                               select new
+                               {
+                                   Модель = lc.ModelCartrige,
+                                   Артикул = lc.ArticleCartrige
+                               };
+
+
+            var p = ListCartrige.ToList();
+            string[] sdata = new string[p.Count];
+            //изменяем знаки
+            for (int i = 0; i < p.Count; i++)
+            {
+
+                //     sdata[i] = p[i].ToString().Replace('}', ')').Replace('{', '(');
+
+                sdata[i] = p[i].ToString().Trim(new char[] { '{','}' });
+
+
+            }
+            return sdata;
+
+        }
+        public string[] ForCartrigeArticleComboboxFull()
+        {
+            var ListCartrige = from lc in db.Cartriges
+                               select new
+                               {
+                                   Модель = lc.ModelCartrige,
+                                   Артикул = lc.ArticleCartrige
+                               };
+
+
+            var p = ListCartrige.ToList();
+            string[] sdata = new string[p.Count];
+            //изменяем знаки
+            for (int i = 0; i < p.Count; i++)
+            {
+
+                sdata[i] = p[i].ToString().Replace('}', ')').Replace('{', '(');
+
+             
+
+            }
+            return sdata;
+
+        }
+
+
+
+
+
+
         private void Reception_Load(object sender, EventArgs e)
         {
             printRecept();
@@ -87,25 +125,15 @@ namespace CartrigeAltstar
 
             //     dataGridView2.Columns[0].Width = 65;
 
-
-
-
-
-
-
             //    db.Receptions.Load();
             //   dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
 
             //    dataGridView1.Columns[0].Width = 45;
 
-            comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
-            comboBoxFiltrDispath.DataSource = ForFiltrCartrige();
 
-
-            //
-
-            //   
-            //
+            //Fill Filter
+            comboBoxFiltrCartrige.DataSource = ForCartrigeArticleComboboxCUT().ToList();
+            comboBoxFiltrDispath.DataSource = ForCartrigeArticleComboboxCUT().ToList();
 
         }
 
@@ -114,7 +142,6 @@ namespace CartrigeAltstar
             Form1 form2 = new Form1();
             form2.ShowDialog(this);
         }
-
 
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -145,11 +172,7 @@ namespace CartrigeAltstar
                                 };
 
 
-
-
-
             //   dataGridView1.DataSource = dataReception.ToArray();
-
 
 
             db.Receptions.Load();
@@ -157,21 +180,18 @@ namespace CartrigeAltstar
             dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
             //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
 
-
             dataGridView1.Columns[0].Width = 65;
             dataGridView1.Columns[1].Width = 220;
-            dataGridView1.Columns[2].Width = 240;
+            dataGridView1.Columns[2].Width = 300;
             dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].Width = 200;
-
-
 
 
         }
 
         public void PrintDispatch()
         {
-
+            db.Dispatches.Load();
             var datadispath = from d in db.Dispatches
                               select new
                               {
@@ -189,14 +209,11 @@ namespace CartrigeAltstar
             dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
             //
             dataGridView2.Columns[0].Width = 65;
-
-
             dataGridView2.Columns[1].Width = 220;
-            dataGridView2.Columns[2].Width = 240;
+            dataGridView2.Columns[2].Width = 300;
             dataGridView2.Columns[3].Width = 200;
             dataGridView2.Columns[4].Width = 200;
             dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
 
 
         }
@@ -216,7 +233,9 @@ namespace CartrigeAltstar
             var ListDivision = from ls in db.Subdivisions
                                select ls.division;
 
-            receptioncfg.comboBoxCartrige.DataSource = ListCartrige.ToList();
+            //  receptioncfg.comboBoxCartrige.DataSource = ListCartrige.ToList();
+
+            receptioncfg.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
             receptioncfg.comboBoxDivision.DataSource = ListDivision.ToList();
 
 
@@ -227,12 +246,29 @@ namespace CartrigeAltstar
 
 
 
+
+
+          
+
+
             Reception reception = new Reception();
 
 
             reception.Дата = receptioncfg.txtdate.Value;
             reception.Подразделения = receptioncfg.comboBoxDivision.Text.ToString();
-            reception.Картридж = receptioncfg.comboBoxCartrige.Text.ToString();
+
+
+            //вносим в переменную выбранную позицию
+            string res2 = receptioncfg.comboBoxCartrige.SelectedItem.ToString();
+            //обрезаем
+
+
+
+            string trimmed = res2.Trim(new char[] { '(', ')' });
+
+
+
+            reception.Картридж = trimmed.ToString();
 
             if (receptioncfg.rbEmpty.Checked)
             {
@@ -254,17 +290,12 @@ namespace CartrigeAltstar
             this.dataGridView1.Refresh();
             printRecept();
 
-
         }
-
 
 
         // update///////////////////////
         private void button2_Click(object sender, EventArgs e)
         {
-
-
-
 
 
             if (dataGridView1.SelectedRows.Count > 0)
@@ -292,10 +323,19 @@ namespace CartrigeAltstar
                     receptionConfigUpdateForm.rbEmpty.Checked = false;
                 }
 
-                //заполнения comboBoxCartrige
-                receptionConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
 
-                int findIndexComboboxCartrige = receptionConfigUpdateForm.comboBoxCartrige.FindString(receptionupdateModel.Картридж); //поиск индекса в comboBoxCartrige
+
+                //заполнения comboBoxCartrige
+                //      receptionConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
+
+                receptionConfigUpdateForm.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
+
+
+                //достаем из базы ранее найденую по id чистую запись (без скобок) и вешаем скобки для поиска на равенство
+                var findForFiltrCartrige = "(" + receptionupdateModel.Картридж + ")";
+
+
+                int findIndexComboboxCartrige = receptionConfigUpdateForm.comboBoxCartrige.FindString(findForFiltrCartrige); //поиск индекса в comboBoxCartrige
                 receptionConfigUpdateForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrige;
 
                 //заполнения comboBoxDivision
@@ -317,7 +357,15 @@ namespace CartrigeAltstar
 
                 receptionupdateModel.Дата = receptionConfigUpdateForm.txtdate.Value; //заполнения дати
                 receptionupdateModel.Подразделения = receptionConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
-                receptionupdateModel.Картридж = receptionConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
+
+                //вносим в переменную выбранную позицию
+                string res2 = receptionConfigUpdateForm.comboBoxCartrige.SelectedItem.ToString();
+                //обрезаем
+                string trimmed = res2.Trim(new char[] { '(', ')' });
+                receptionupdateModel.Картридж = trimmed.ToString(); //заполнения картриджа
+
+                receptionupdateModel.Картридж = trimmed.ToString(); //заполнения картриджа
+
                 receptionupdateModel.Вес = Convert.ToDouble(receptionConfigUpdateForm.txtWeight.Text); //заполнения веса
 
 
@@ -347,11 +395,7 @@ namespace CartrigeAltstar
 
 
 
-
-
-
             }
-
 
 
         }
@@ -379,12 +423,7 @@ namespace CartrigeAltstar
                 printRecept(); //вивести по новой
 
 
-
-
-
             }
-
-
 
 
 
@@ -409,10 +448,7 @@ namespace CartrigeAltstar
 
             ctpl.dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
 
-
             ctpl.Show(this); // вызов формы
-
-
 
         }
 
@@ -434,23 +470,14 @@ namespace CartrigeAltstar
         private void button8_Click(object sender, EventArgs e)
         {
 
-
             string searchValue = comboBoxFiltrCartrige.SelectedItem.ToString();
 
-
-
-
             var ctt = from u in db.Receptions.Where(p => p.Картридж == searchValue) select u;
-
 
             dataGridView1.DataSource = null;
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
             dataGridView1.DataSource = ctt.ToList();
-
-
-
-
 
 
             //
@@ -589,8 +616,6 @@ namespace CartrigeAltstar
                 ExcelWorkSheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
 
 
-
-
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeRight].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeLeft].Weight = 2;
@@ -664,9 +689,6 @@ namespace CartrigeAltstar
         }
 
 
-
-
-
         private void btnPrinterShow_Click(object sender, EventArgs e)
         {
             ListSettingPinterForm listSettingPinterForm = new ListSettingPinterForm();
@@ -709,9 +731,6 @@ namespace CartrigeAltstar
             infoOrgTechnic.ShowDialog();
         }
 
-
-
-
         //добавления для отправки
         private void button9_Click(object sender, EventArgs e)
         {
@@ -721,41 +740,19 @@ namespace CartrigeAltstar
             DispatchConfig dispatchConfigForm = new DispatchConfig();
 
 
-            //  var ListCartrige = from lc in db.Cartriges
-            //                     select lc.ModelCartrige;
-            //
-
-            var ListCartrige = from lc in db.Cartriges
-                               select new
-                               {
-                                  Модель = lc.ModelCartrige,
-                                  Артикул = lc.ArticleCartrige
-                               };
-
-
-            var p = ListCartrige.ToList();
-            string[] sdata = new string[p.Count];
-            //изменяем знаки
-            for (int i = 0; i < p.Count; i++)
-            {
-
-                sdata[i] = p[i].ToString().Replace('}', ')').Replace('{', '(');
-
-            }
-            dispatchConfigForm.comboBoxCartrige.DataSource = sdata.ToList();
-
-
-
-
-
+           
+            dispatchConfigForm.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
 
 
 
             var ListDivision = from ls in db.Subdivisions
                                select ls.division;
 
-          //  dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
+            //  dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
             dispatchConfigForm.comboBoxDivision.DataSource = ListDivision.ToList();
+
+
+
 
 
 
@@ -765,13 +762,28 @@ namespace CartrigeAltstar
 
 
 
+            //вносим в переменную выбранную позицию
+            string res2 = dispatchConfigForm.comboBoxCartrige.SelectedItem.ToString();
+            //обрезаем
+
+
+
+            string trimmed = res2.Trim(new char[] { '(', ')' });
+
+
+
+
+
+
+
             Dispatch dispatchModel = new Dispatch();
 
 
+            dispatchModel.Картридж = trimmed.ToString();
 
             dispatchModel.Дата = dispatchConfigForm.txtdate.Value; // дата отправки
             dispatchModel.Подразделения = dispatchConfigForm.comboBoxDivision.Text.ToString(); //подразделение
-            dispatchModel.Картридж = dispatchConfigForm.comboBoxCartrige.Text.ToString(); // картридж
+                                                                                               //     dispatchModel.Картридж = dispatchConfigForm.comboBoxCartrige.Text.ToString(); // картридж
             dispatchModel.Заметки = dispatchConfigForm.txtZametki.Text.ToString(); //Заметки
 
             dispatchModel.Вес = Convert.ToDouble(dispatchConfigForm.txtWeight.Text); //Вес
@@ -783,7 +795,6 @@ namespace CartrigeAltstar
             this.dataGridView2.Update();
             this.dataGridView2.Refresh();
             PrintDispatch();
-
 
 
 
@@ -822,9 +833,21 @@ namespace CartrigeAltstar
 
 
                 //заполнения comboBoxCartrige
-                dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
+                //          dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
 
-                int findIndexComboboxCartrige = dispatchnConfigUpdateForm.comboBoxCartrige.FindString(dispatchUpdateModel.Картридж); //поиск индекса в comboBoxCartrige
+
+
+             
+                dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
+
+                //достаем из базы ранее найденую по id чистую запись (без скобок) и вешаем скобки для поиска на равенство
+                var findForFiltrCartrige = "(" + dispatchUpdateModel.Картридж + ")";
+
+
+
+
+
+                int findIndexComboboxCartrige = dispatchnConfigUpdateForm.comboBoxCartrige.FindString(findForFiltrCartrige); //поиск строки в comboBoxCartrige
                 dispatchnConfigUpdateForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrige;
 
                 //заполнения comboBoxDivision
@@ -846,13 +869,18 @@ namespace CartrigeAltstar
 
                 dispatchUpdateModel.Дата = dispatchnConfigUpdateForm.txtdate.Value; //заполнения дати
                 dispatchUpdateModel.Подразделения = dispatchnConfigUpdateForm.comboBoxDivision.Text.ToString(); //заполнения подразделения
-                dispatchUpdateModel.Картридж = dispatchnConfigUpdateForm.comboBoxCartrige.Text.ToString(); //заполнения картриджа
+
+                //вносим в переменную выбранную позицию
+                string res2 = dispatchnConfigUpdateForm.comboBoxCartrige.SelectedItem.ToString();
+                //обрезаем
+                string trimmed = res2.Trim(new char[] { '(', ')' });
+                dispatchUpdateModel.Картридж = trimmed.ToString(); //заполнения картриджа
+
+
+
                 dispatchUpdateModel.Вес = Convert.ToDouble(dispatchnConfigUpdateForm.txtWeight.Text); //заполнения веса
 
                 dispatchUpdateModel.Заметки = dispatchnConfigUpdateForm.txtZametki.Text;
-
-
-
 
 
                 //подключения к состоянию обьявив его модифицированним
@@ -867,10 +895,7 @@ namespace CartrigeAltstar
                 PrintDispatch(); //вивести по новой
 
 
-
             }
-
-
 
 
 
@@ -900,17 +925,16 @@ namespace CartrigeAltstar
 
 
 
-
             }
         }
-
+        //применения фильтра
         private void button12_Click(object sender, EventArgs e)
         {
-            string searchValue = comboBoxFiltrCartrige.SelectedItem.ToString();
+            //заполняем выбранное
+            string searchValue = comboBoxFiltrDispath.SelectedItem.ToString();
 
-
-
-
+          
+            //находим запись в базе
             var ctt = from u in db.Dispatches.Where(p => p.Картридж == searchValue) select u;
 
 
@@ -919,10 +943,8 @@ namespace CartrigeAltstar
             this.dataGridView2.Refresh();
             dataGridView2.DataSource = ctt.ToList();
             dataGridView2.Columns[0].Width = 65;
-
-
             dataGridView2.Columns[1].Width = 220;
-            dataGridView2.Columns[2].Width = 240;
+            dataGridView2.Columns[2].Width = 300;
             dataGridView2.Columns[3].Width = 200;
             dataGridView2.Columns[4].Width = 200;
             dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -940,7 +962,6 @@ namespace CartrigeAltstar
         //EXPORT EXCEL
         private void button15_Click(object sender, EventArgs e)
         {
-
 
 
             DateTime curTime = DateTime.Now; // Current Data
@@ -1045,10 +1066,27 @@ namespace CartrigeAltstar
             }
 
 
-
         }
 
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+            CartrigePlace ctpl = new CartrigePlace(); // екземпляр формы CartrigePlace
 
+
+            var cp = from c1 in db.Compatibilities
+                     select new
+                     {
+                         c1.id,
+                         Модель = c1.CartrigePK.ModelCartrige,
+                         Артикул = c1.CartrigePK.ArticleCartrige,
+                         Подразделение = c1.SubdivisionPK.division
+
+                     };
+
+            ctpl.dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
+
+            ctpl.Show(this); // вызов формы
+        }
 
 
 

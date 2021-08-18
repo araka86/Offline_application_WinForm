@@ -43,36 +43,33 @@ namespace CartrigeAltstar
 
             }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+       private void button1_Click(object sender, EventArgs e)
+       {
+   
+       //   using (ContexAltstarContext db = new ContexAltstarContext())
+       //   {
+       //
+       //       FormAddInfoService formAddInfService = new FormAddInfoService();
+       //
+       //       db.infoServices.Load();
+       //
+       //       formAddInfService.dataGridView1.DataSource = db.infoServices.Local.ToBindingList();
+       //
+       //
+       //       
+       //
+       //
+       //
+       //
+       //
+       //       formAddInfService.ShowDialog(this);
+       //
+       //
+       //
+       //   }
+      
+       }
 
-            using (ContexAltstarContext db = new ContexAltstarContext())
-            {
 
-                FormAddInfoService formAddInfService = new FormAddInfoService();
-
-                db.infoServices.Load();
-
-                formAddInfService.dataGridView1.DataSource = db.infoServices.Local.ToBindingList();
-
-
-                
-
-
-
-
-
-                formAddInfService.ShowDialog(this);
-
-
-
-            }
-
-
-
-
-
-                
-        }
     }
 }

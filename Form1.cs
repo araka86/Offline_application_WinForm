@@ -403,38 +403,38 @@ namespace CartrigeAltstar
 
         private void button11_Click(object sender, EventArgs e)
         {
-            //Add Cartrige
-
-
-            AddCartrige addctrgFrm = new AddCartrige();
-
-
-            DialogResult result = addctrgFrm.ShowDialog(this);
-            if (result == DialogResult.Cancel)
-                return;
-
-
-
-
-            Cartrige cartrigeModel = new Cartrige();
-            cartrigeModel.purchase_date = addctrgFrm.txtData.Value;
-            cartrigeModel.ModelCartrige = addctrgFrm.txtModelCartrige.Text;
-            cartrigeModel.ArticleCartrige = addctrgFrm.txtArticle.Text;
-
-            db.Cartriges.Add(cartrigeModel);
-
-            db.SaveChanges();
-
-            MessageBox.Show("Новый картридж добавлен ");
-            dataGridView6.DataSource = null;
-            this.dataGridView6.Update();
-            this.dataGridView6.Refresh();
-            PrintCartrige();
-
-
-
-
-        }
+   //         //Add Cartrige
+   //
+   //
+   //         AddCartrige addctrgFrm = new AddCartrige();
+   //
+   //
+   //         DialogResult result = addctrgFrm.ShowDialog(this);
+   //         if (result == DialogResult.Cancel)
+   //             return;
+   //
+   //
+   //
+   //
+   //         Cartrige cartrigeModel = new Cartrige();
+   //         cartrigeModel.purchase_date = addctrgFrm.txtData.Value;
+   //         cartrigeModel.ModelCartrige = addctrgFrm.txtModelCartrige.Text;
+   //         cartrigeModel.ArticleCartrige = addctrgFrm.txtArticle.Text;
+   //
+   //         db.Cartriges.Add(cartrigeModel);
+   //
+   //         db.SaveChanges();
+   //
+   //         MessageBox.Show("Новый картридж добавлен ");
+   //         dataGridView6.DataSource = null;
+   //         this.dataGridView6.Update();
+   //         this.dataGridView6.Refresh();
+   //         PrintCartrige();
+   //
+   //
+   //
+   //
+       }
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -463,52 +463,52 @@ namespace CartrigeAltstar
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+       private void button9_Click(object sender, EventArgs e)
         {
-            // update Cartrige
-            if (dataGridView6.SelectedRows.Count > 0)
-            {
-                int index = dataGridView6.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = Int32.TryParse(dataGridView6[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
-                //екземпляр Формы
-                AddCartrige updateCartrigeForm = new AddCartrige();
-
-                //заполнение полей
-                Cartrige cartrigeUpdate = db.Cartriges.Find(id);
-                updateCartrigeForm.txtData.Text = cartrigeUpdate.purchase_date.ToString();
-                updateCartrigeForm.txtModelCartrige.Text = cartrigeUpdate.ModelCartrige;
-                updateCartrigeForm.txtArticle.Text = cartrigeUpdate.ArticleCartrige;
-
-                //откритие диалогового окна AddCartrige
-                DialogResult result = updateCartrigeForm.ShowDialog(this);
-                if (result == DialogResult.Cancel)
-                    return;
-
-                //
-                cartrigeUpdate.purchase_date = updateCartrigeForm.txtData.Value;
-                cartrigeUpdate.ModelCartrige = updateCartrigeForm.txtModelCartrige.Text;
-                cartrigeUpdate.ArticleCartrige = updateCartrigeForm.txtArticle.Text;
-
-
-                //подключения к состоянию обьявив его модифицированним
-                db.Entry(cartrigeUpdate).State = EntityState.Modified;
-                db.SaveChanges();
-
-
-                MessageBox.Show("Картридж Обновлен ");
-                dataGridView6.DataSource = null;
-                this.dataGridView6.Update();
-                this.dataGridView6.Refresh();
-                PrintCartrige();
-
-            }
-
-
-
-        }
+   //         // update Cartrige
+   //         if (dataGridView6.SelectedRows.Count > 0)
+   //         {
+   //             int index = dataGridView6.SelectedRows[0].Index;
+   //             int id = 0;
+   //             bool converted = Int32.TryParse(dataGridView6[0, index].Value.ToString(), out id);
+   //             if (converted == false)
+   //                 return;
+   //             //екземпляр Формы
+   //             AddCartrige updateCartrigeForm = new AddCartrige();
+   //
+   //             //заполнение полей
+   //             Cartrige cartrigeUpdate = db.Cartriges.Find(id);
+   //             updateCartrigeForm.txtData.Text = cartrigeUpdate.purchase_date.ToString();
+   //             updateCartrigeForm.txtModelCartrige.Text = cartrigeUpdate.ModelCartrige;
+   //             updateCartrigeForm.txtArticle.Text = cartrigeUpdate.ArticleCartrige;
+   //
+   //             //откритие диалогового окна AddCartrige
+   //             DialogResult result = updateCartrigeForm.ShowDialog(this);
+   //             if (result == DialogResult.Cancel)
+   //                 return;
+   //
+   //             //
+   //             cartrigeUpdate.purchase_date = updateCartrigeForm.txtData.Value;
+   //             cartrigeUpdate.ModelCartrige = updateCartrigeForm.txtModelCartrige.Text;
+   //             cartrigeUpdate.ArticleCartrige = updateCartrigeForm.txtArticle.Text;
+   //
+   //
+   //             //подключения к состоянию обьявив его модифицированним
+   //             db.Entry(cartrigeUpdate).State = EntityState.Modified;
+   //             db.SaveChanges();
+   //
+   //
+   //             MessageBox.Show("Картридж Обновлен ");
+   //             dataGridView6.DataSource = null;
+   //             this.dataGridView6.Update();
+   //             this.dataGridView6.Refresh();
+   //             PrintCartrige();
+   //
+   //         }
+   //
+   //
+   //
+       }
 
         private void button14_Click(object sender, EventArgs e)
         {

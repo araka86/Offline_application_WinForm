@@ -29,17 +29,16 @@ namespace CartrigeAltstar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnPrinterShow = new System.Windows.Forms.Button();
             this.btnCartrigeShow = new System.Windows.Forms.Button();
             this.btnDivisionShow = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,12 +66,12 @@ namespace CartrigeAltstar
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxFiltrDispath = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.flowLayoutPanel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -92,7 +91,6 @@ namespace CartrigeAltstar
             this.flowLayoutPanel4.Controls.Add(this.btnPrinterShow);
             this.flowLayoutPanel4.Controls.Add(this.btnCartrigeShow);
             this.flowLayoutPanel4.Controls.Add(this.btnDivisionShow);
-            this.flowLayoutPanel4.Controls.Add(this.button5);
             this.flowLayoutPanel4.Controls.Add(this.button16);
             this.flowLayoutPanel4.Controls.Add(this.button13);
             this.flowLayoutPanel4.Controls.Add(this.monthCalendar1);
@@ -102,16 +100,6 @@ namespace CartrigeAltstar
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(182, 733);
             this.flowLayoutPanel4.TabIndex = 10;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(84, 32);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Перемещение Картриджей";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnPrinterShow
             // 
@@ -143,19 +131,9 @@ namespace CartrigeAltstar
             this.btnDivisionShow.UseVisualStyleBackColor = true;
             this.btnDivisionShow.Click += new System.EventHandler(this.btnDivisionShow_Click);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(9, 90);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(170, 48);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Номенклатура";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(9, 144);
+            this.button16.Location = new System.Drawing.Point(9, 90);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(170, 48);
             this.button16.TabIndex = 1;
@@ -165,19 +143,29 @@ namespace CartrigeAltstar
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(9, 198);
+            this.button13.Location = new System.Drawing.Point(9, 144);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(170, 23);
             this.button13.TabIndex = 13;
-            this.button13.Text = "Update";
+            this.button13.Text = "Обновить фильтр";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 233);
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 179);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 14;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(108, 32);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(99, 23);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Перемещение Картриджей";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // menuStrip1
             // 
@@ -260,9 +248,9 @@ namespace CartrigeAltstar
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(165, 3);
+            this.groupBox2.Location = new System.Drawing.Point(213, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1085, 701);
+            this.groupBox2.Size = new System.Drawing.Size(1037, 701);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Прием картриджей которые приехали на офис";
@@ -272,21 +260,21 @@ namespace CartrigeAltstar
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1079, 682);
+            this.dataGridView1.Size = new System.Drawing.Size(1031, 682);
             this.dataGridView1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -297,20 +285,20 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxFiltrCartrige);
-            this.flowLayoutPanel1.Controls.Add(this.button8);
             this.flowLayoutPanel1.Controls.Add(this.resetFiltr);
+            this.flowLayoutPanel1.Controls.Add(this.button8);
             this.flowLayoutPanel1.Controls.Add(this.button7);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 701);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(210, 701);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(99, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
@@ -318,9 +306,9 @@ namespace CartrigeAltstar
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(84, 3);
+            this.button2.Location = new System.Drawing.Point(108, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(99, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Обновить";
             this.button2.UseVisualStyleBackColor = true;
@@ -330,7 +318,7 @@ namespace CartrigeAltstar
             // 
             this.button3.Location = new System.Drawing.Point(3, 32);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(99, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
@@ -351,15 +339,15 @@ namespace CartrigeAltstar
             this.comboBoxFiltrCartrige.FormattingEnabled = true;
             this.comboBoxFiltrCartrige.Location = new System.Drawing.Point(3, 74);
             this.comboBoxFiltrCartrige.Name = "comboBoxFiltrCartrige";
-            this.comboBoxFiltrCartrige.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxFiltrCartrige.Size = new System.Drawing.Size(204, 21);
             this.comboBoxFiltrCartrige.TabIndex = 5;
             this.comboBoxFiltrCartrige.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltrCartrige_SelectedIndexChanged);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(3, 101);
+            this.button8.Location = new System.Drawing.Point(108, 101);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.Size = new System.Drawing.Size(99, 23);
             this.button8.TabIndex = 8;
             this.button8.Text = "Применить";
             this.button8.UseVisualStyleBackColor = true;
@@ -367,9 +355,9 @@ namespace CartrigeAltstar
             // 
             // resetFiltr
             // 
-            this.resetFiltr.Location = new System.Drawing.Point(84, 101);
+            this.resetFiltr.Location = new System.Drawing.Point(3, 101);
             this.resetFiltr.Name = "resetFiltr";
-            this.resetFiltr.Size = new System.Drawing.Size(73, 23);
+            this.resetFiltr.Size = new System.Drawing.Size(99, 23);
             this.resetFiltr.TabIndex = 10;
             this.resetFiltr.Text = "Сбросить";
             this.resetFiltr.UseVisualStyleBackColor = true;
@@ -379,7 +367,7 @@ namespace CartrigeAltstar
             // 
             this.button7.Location = new System.Drawing.Point(3, 130);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(156, 23);
+            this.button7.Size = new System.Drawing.Size(204, 23);
             this.button7.TabIndex = 7;
             this.button7.Text = "Export ---> Excel";
             this.button7.UseVisualStyleBackColor = true;
@@ -401,9 +389,9 @@ namespace CartrigeAltstar
             // 
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(165, 3);
+            this.groupBox3.Location = new System.Drawing.Point(213, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1085, 701);
+            this.groupBox3.Size = new System.Drawing.Size(1037, 701);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Отправка картриджей которые уехали с офиса на подразделения";
@@ -412,21 +400,21 @@ namespace CartrigeAltstar
             // 
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 16);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1079, 682);
+            this.dataGridView2.Size = new System.Drawing.Size(1031, 682);
             this.dataGridView2.TabIndex = 4;
             // 
             // flowLayoutPanel2
@@ -444,14 +432,14 @@ namespace CartrigeAltstar
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(162, 701);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(210, 701);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(3, 3);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.Size = new System.Drawing.Size(99, 23);
             this.button9.TabIndex = 0;
             this.button9.Text = "Добавить";
             this.button9.UseVisualStyleBackColor = true;
@@ -459,9 +447,9 @@ namespace CartrigeAltstar
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(84, 3);
+            this.button10.Location = new System.Drawing.Point(108, 3);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(99, 23);
             this.button10.TabIndex = 1;
             this.button10.Text = "Обновить";
             this.button10.UseVisualStyleBackColor = true;
@@ -471,11 +459,21 @@ namespace CartrigeAltstar
             // 
             this.button11.Location = new System.Drawing.Point(3, 32);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.Size = new System.Drawing.Size(99, 23);
             this.button11.TabIndex = 2;
             this.button11.Text = "Удалить";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(108, 32);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(99, 23);
+            this.button14.TabIndex = 13;
+            this.button14.Text = "Перемещение Картриджей";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
             // 
             // label2
             // 
@@ -492,14 +490,14 @@ namespace CartrigeAltstar
             this.comboBoxFiltrDispath.FormattingEnabled = true;
             this.comboBoxFiltrDispath.Location = new System.Drawing.Point(3, 74);
             this.comboBoxFiltrDispath.Name = "comboBoxFiltrDispath";
-            this.comboBoxFiltrDispath.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxFiltrDispath.Size = new System.Drawing.Size(204, 21);
             this.comboBoxFiltrDispath.TabIndex = 5;
             // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(3, 101);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(73, 23);
+            this.button6.Size = new System.Drawing.Size(99, 23);
             this.button6.TabIndex = 11;
             this.button6.Text = "Сбросить";
             this.button6.UseVisualStyleBackColor = true;
@@ -507,9 +505,9 @@ namespace CartrigeAltstar
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(82, 101);
+            this.button12.Location = new System.Drawing.Point(108, 101);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.Size = new System.Drawing.Size(99, 23);
             this.button12.TabIndex = 12;
             this.button12.Text = "Применить";
             this.button12.UseVisualStyleBackColor = true;
@@ -519,20 +517,11 @@ namespace CartrigeAltstar
             // 
             this.button15.Location = new System.Drawing.Point(3, 130);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(156, 23);
+            this.button15.Size = new System.Drawing.Size(204, 23);
             this.button15.TabIndex = 7;
             this.button15.Text = "Export ---> Excel";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(84, 32);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 13;
-            this.button14.Text = "Перемещение Картриджей";
-            this.button14.UseVisualStyleBackColor = true;
             // 
             // Main_Reception
             // 
@@ -570,7 +559,6 @@ namespace CartrigeAltstar
 
         #endregion
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;

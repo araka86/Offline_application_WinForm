@@ -69,7 +69,7 @@ namespace CartrigeAltstar
             this.comboBoxDivision.FormattingEnabled = true;
             this.comboBoxDivision.Location = new System.Drawing.Point(127, 54);
             this.comboBoxDivision.Name = "comboBoxDivision";
-            this.comboBoxDivision.Size = new System.Drawing.Size(215, 21);
+            this.comboBoxDivision.Size = new System.Drawing.Size(262, 21);
             this.comboBoxDivision.TabIndex = 19;
             // 
             // LabelData
@@ -83,7 +83,7 @@ namespace CartrigeAltstar
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(277, 223);
+            this.button2.Location = new System.Drawing.Point(314, 223);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 16;
@@ -113,7 +113,7 @@ namespace CartrigeAltstar
             // 
             this.txtdate.Location = new System.Drawing.Point(127, 11);
             this.txtdate.Name = "txtdate";
-            this.txtdate.Size = new System.Drawing.Size(215, 20);
+            this.txtdate.Size = new System.Drawing.Size(262, 20);
             this.txtdate.TabIndex = 29;
             // 
             // txtWeight
@@ -147,7 +147,7 @@ namespace CartrigeAltstar
             this.comboBoxCartrige.FormattingEnabled = true;
             this.comboBoxCartrige.Location = new System.Drawing.Point(127, 96);
             this.comboBoxCartrige.Name = "comboBoxCartrige";
-            this.comboBoxCartrige.Size = new System.Drawing.Size(215, 21);
+            this.comboBoxCartrige.Size = new System.Drawing.Size(262, 21);
             this.comboBoxCartrige.TabIndex = 33;
             // 
             // rbEmpty
@@ -176,7 +176,7 @@ namespace CartrigeAltstar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 260);
+            this.ClientSize = new System.Drawing.Size(401, 260);
             this.Controls.Add(this.rbFull);
             this.Controls.Add(this.rbEmpty);
             this.Controls.Add(this.label2);

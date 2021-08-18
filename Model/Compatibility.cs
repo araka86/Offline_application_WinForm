@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-namespace CartrigeAltstar.Model
+﻿namespace CartrigeAltstar.Model
 {
     class Compatibility
     {
         public int id { get; set; }
 
         //Foreign key
-
 
         public int? CartrigeId { get; set; }    //Foreign key
         public int? SubdivisionId { get; set; } //Foreign key

@@ -58,7 +58,7 @@ namespace CartrigeAltstar
             this.comboBoxCartrige.FormattingEnabled = true;
             this.comboBoxCartrige.Location = new System.Drawing.Point(127, 94);
             this.comboBoxCartrige.Name = "comboBoxCartrige";
-            this.comboBoxCartrige.Size = new System.Drawing.Size(215, 21);
+            this.comboBoxCartrige.Size = new System.Drawing.Size(262, 21);
             this.comboBoxCartrige.TabIndex = 46;
             // 
             // label1
@@ -81,7 +81,7 @@ namespace CartrigeAltstar
             // 
             this.txtdate.Location = new System.Drawing.Point(127, 9);
             this.txtdate.Name = "txtdate";
-            this.txtdate.Size = new System.Drawing.Size(215, 20);
+            this.txtdate.Size = new System.Drawing.Size(262, 20);
             this.txtdate.TabIndex = 43;
             // 
             // datalabel
@@ -117,12 +117,13 @@ namespace CartrigeAltstar
             this.comboBoxDivision.FormattingEnabled = true;
             this.comboBoxDivision.Location = new System.Drawing.Point(127, 52);
             this.comboBoxDivision.Name = "comboBoxDivision";
-            this.comboBoxDivision.Size = new System.Drawing.Size(215, 21);
+            this.comboBoxDivision.Size = new System.Drawing.Size(262, 21);
             this.comboBoxDivision.TabIndex = 39;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(267, 281);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(314, 281);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 38;
@@ -151,7 +152,7 @@ namespace CartrigeAltstar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 313);
+            this.ClientSize = new System.Drawing.Size(401, 323);
             this.Controls.Add(this.txtZametki);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxCartrige);

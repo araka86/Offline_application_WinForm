@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CartrigeAltstar.Model
 {
@@ -13,10 +7,8 @@ namespace CartrigeAltstar.Model
         public int Id { get; set; }
         public DateTime? DateTimes { get; set; }
 
-
         public string ModelPrinter { get; set; }
         public string Article { get; set; }
-
 
        
         // явно указать  внешний ключ
@@ -32,15 +24,6 @@ namespace CartrigeAltstar.Model
         public virtual Subdivision SubdivisioPK { get; set; } //ссилка на подразделения + внешний ключ SubdivisioPK_Id
         public virtual Cartrige CartrigePk { get; set; }     //ссилка на картридж + внешний ключ CartrigePk_Id
     }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,13 +1,9 @@
 ﻿using CartrigeAltstar.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -196,7 +192,7 @@ namespace CartrigeAltstar
             ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value); //Добавить рабочую книгу
             ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
-            ExcelWorkSheet.Name = "Подразделения -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+            ExcelWorkSheet.Name = "Принтеры -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
             object[,] d = new object[dataGridViewListPrinter.RowCount, dataGridViewListPrinter.ColumnCount];
             for (int i = 1; i < dataGridViewListPrinter.Columns.Count + 1; i++)
             {
