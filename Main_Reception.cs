@@ -137,12 +137,7 @@ namespace CartrigeAltstar
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form1 form2 = new Form1();
-            form2.ShowDialog(this);
-        }
-
+       
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
@@ -711,9 +706,11 @@ namespace CartrigeAltstar
         {
 
 
-            comboBoxFiltrCartrige.DataSource = null;
-            comboBoxFiltrCartrige.DataSource = ForFiltrCartrige();
 
+            comboBoxFiltrCartrige.DataSource = null;
+            comboBoxFiltrDispath.DataSource = null;
+            comboBoxFiltrCartrige.DataSource = ForCartrigeArticleComboboxCUT().ToList();
+            comboBoxFiltrDispath.DataSource = ForCartrigeArticleComboboxCUT().ToList();
 
 
         }
@@ -1086,6 +1083,14 @@ namespace CartrigeAltstar
             ctpl.dataGridView1.DataSource = cp.ToList(); //внесение данных в dataGridView1
 
             ctpl.Show(this); // вызов формы
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            
+            db.Dispose();
+            System.Windows.Forms.Application.Exit();
         }
 
 

@@ -1,9 +1,11 @@
 ﻿using CartrigeAltstar.Model;
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -24,24 +26,35 @@ namespace CartrigeAltstar
         private void ListSettingPinterForm_Load(object sender, EventArgs e)
         {
             PrintPrinter();
-           
+      //     PropertyInfo verticalOffset = dataGridViewListPrinter.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
+      //     verticalOffset.SetValue(this.dataGridViewListPrinter, 10, null);
+
         }
 
         //------------------------Вивод Принтеров----------------------------
         public void PrintPrinter()
         {
 
-            var pr = from p in db.Printers
+        var pr = from p in db.Printers
                      select new
                      {
                          p.Id,
                          Модель = p.ModelPrinter,
                          Артикул = p.Article,
                          Дата_покуки = p.DateTimes
-                     };
 
+                     };
+            
             dataGridViewListPrinter.DataSource = pr.ToList();
             dataGridViewListPrinter.Columns[0].Width = 45;
+
+
+
+
+
+       
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -256,6 +269,86 @@ namespace CartrigeAltstar
 
             }
 
+        }
+
+      
+
+        //Sort Id
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridViewListPrinter.DataSource = null;
+
+            var pr = from p in db.Printers
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelPrinter,
+                         Артикул = p.Article,
+                         Дата_покуки = p.DateTimes
+
+                     };
+
+
+            dataGridViewListPrinter.DataSource = pr.OrderBy(d => d.Id).ToList();
+            dataGridViewListPrinter.Columns[0].Width = 45;
+        }
+        //sort Model Printer
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridViewListPrinter.DataSource = null;
+            var pr = from p in db.Printers
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelPrinter,
+                         Артикул = p.Article,
+                         Дата_покуки = p.DateTimes
+
+                     };
+
+           
+            dataGridViewListPrinter.DataSource = pr.OrderBy(d => d.Модель).ToList();
+            dataGridViewListPrinter.Columns[0].Width = 45;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            dataGridViewListPrinter.DataSource = null;
+
+            var pr = from p in db.Printers
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelPrinter,
+                         Артикул = p.Article,
+                         Дата_покуки = p.DateTimes
+
+                     };
+
+
+            dataGridViewListPrinter.DataSource = pr.OrderBy(d => d.Артикул).ToList();
+            dataGridViewListPrinter.Columns[0].Width = 45;
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridViewListPrinter.DataSource = null;
+
+            var pr = from p in db.Printers
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelPrinter,
+                         Артикул = p.Article,
+                         Дата_покуки = p.DateTimes
+
+                     };
+
+
+            dataGridViewListPrinter.DataSource = pr.OrderBy(d => d.Дата_покуки).ToList();
+            dataGridViewListPrinter.Columns[0].Width = 45;
         }
     }
 }

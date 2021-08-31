@@ -259,10 +259,13 @@ namespace CartrigeAltstar
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(3, 16);
             this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersVisible = false;
+            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView4.Size = new System.Drawing.Size(626, 254);
             this.dataGridView4.TabIndex = 0;
             // 
@@ -309,7 +312,7 @@ namespace CartrigeAltstar
         private System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.Button button5;
+        public System.Windows.Forms.DataGridView dataGridView4;
     }
 }

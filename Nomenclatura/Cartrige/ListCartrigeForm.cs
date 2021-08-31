@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -39,12 +40,20 @@ namespace CartrigeAltstar
 
             dataGridViewListCartrige.DataSource = pr.ToList();
             dataGridViewListCartrige.Columns[0].Width = 45;
+
+
+
+       
+
+
         }
 
 
         private void ListCartrigeForm_Load(object sender, EventArgs e)
         {
             PrintCartrige();
+         //   PropertyInfo verticalOffset = dataGridViewListCartrige.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
+         //   verticalOffset.SetValue(this.dataGridViewListCartrige, 10, null);
         }
 
 
@@ -274,6 +283,71 @@ namespace CartrigeAltstar
 
 
             Close();
+        }
+        //Sort Id
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridViewListCartrige.DataSource = null;
+            var pr = from p in db.Cartriges
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelCartrige,
+                         Артикул = p.ArticleCartrige,
+                         Дата_покуки = p.purchase_date
+                     };
+
+            dataGridViewListCartrige.DataSource = pr.OrderBy(p=>p.Id).ToList();
+            dataGridViewListCartrige.Columns[0].Width = 45;
+
+        }
+        //Sort Model
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridViewListCartrige.DataSource = null;
+            var pr = from p in db.Cartriges
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelCartrige,
+                         Артикул = p.ArticleCartrige,
+                         Дата_покуки = p.purchase_date
+                     };
+
+            dataGridViewListCartrige.DataSource = pr.OrderBy(p => p.Модель).ToList();
+            dataGridViewListCartrige.Columns[0].Width = 45;
+        }
+        //Sort article
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridViewListCartrige.DataSource = null;
+            var pr = from p in db.Cartriges
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelCartrige,
+                         Артикул = p.ArticleCartrige,
+                         Дата_покуки = p.purchase_date
+                     };
+
+            dataGridViewListCartrige.DataSource = pr.OrderBy(p => p.Артикул).ToList();
+            dataGridViewListCartrige.Columns[0].Width = 45;
+        }
+        //Sort Data
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridViewListCartrige.DataSource = null;
+            var pr = from p in db.Cartriges
+                     select new
+                     {
+                         p.Id,
+                         Модель = p.ModelCartrige,
+                         Артикул = p.ArticleCartrige,
+                         Дата_покуки = p.purchase_date
+                     };
+
+            dataGridViewListCartrige.DataSource = pr.OrderBy(p => p.Дата_покуки).ToList();
+            dataGridViewListCartrige.Columns[0].Width = 45;
         }
     }
 }

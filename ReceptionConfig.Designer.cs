@@ -193,6 +193,7 @@ namespace CartrigeAltstar
             this.Controls.Add(this.okAdd);
             this.Name = "ReceptionConfig";
             this.Text = "ReceptionConfig";
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 

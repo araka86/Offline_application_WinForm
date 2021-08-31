@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -41,6 +42,8 @@ namespace CartrigeAltstar
         private void ListSubdivisionForm_Load(object sender, EventArgs e)
         {
             ShowSubdivision();
+        //   PropertyInfo verticalOffset = dataGridViewListSubdivision.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
+        //   verticalOffset.SetValue(this.dataGridViewListSubdivision, 10, null);
         }
 
 
@@ -244,6 +247,48 @@ namespace CartrigeAltstar
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        //Sort Id
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var sub = from r in db.Subdivisions
+                      select new
+                      {
+                          iD = r.Id,
+                          Подразделения = r.division,
+                          Адресс = r.address_part
+                      };
+            dataGridViewListSubdivision.DataSource = sub.OrderBy(s=>s.iD).ToList();
+            dataGridViewListSubdivision.Columns[0].Width = 45;
+
+        }
+        //Sort division
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            var sub = from r in db.Subdivisions
+                      select new
+                      {
+                          iD = r.Id,
+                          Подразделения = r.division,
+                          Адресс = r.address_part
+                      };
+            dataGridViewListSubdivision.DataSource = sub.OrderBy(s => s.Подразделения).ToList();
+            dataGridViewListSubdivision.Columns[0].Width = 45;
+
+        }
+        //Sort Adddress
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var sub = from r in db.Subdivisions
+                      select new
+                      {
+                          iD = r.Id,
+                          Подразделения = r.division,
+                          Адресс = r.address_part
+                      };
+            dataGridViewListSubdivision.DataSource = sub.OrderBy(s => s.Адресс).ToList();
+            dataGridViewListSubdivision.Columns[0].Width = 45;
         }
     }
 }

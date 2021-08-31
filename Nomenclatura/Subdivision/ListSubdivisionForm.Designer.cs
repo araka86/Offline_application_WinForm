@@ -35,9 +35,14 @@ namespace CartrigeAltstar
             this.button8 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewListSubdivision = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSubdivision)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -47,10 +52,13 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Controls.Add(this.button8);
             this.flowLayoutPanel1.Controls.Add(this.button18);
             this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 368);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 365);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(591, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(679, 31);
             this.flowLayoutPanel1.TabIndex = 31;
             // 
             // button6
@@ -103,31 +111,72 @@ namespace CartrigeAltstar
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(593, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(22, 23);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "0";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(621, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(22, 23);
+            this.button3.TabIndex = 50;
+            this.button3.Text = "1";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(649, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(22, 23);
+            this.button4.TabIndex = 51;
+            this.button4.Text = "2";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // dataGridViewListSubdivision
             // 
             this.dataGridViewListSubdivision.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewListSubdivision.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridViewListSubdivision.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListSubdivision.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewListSubdivision.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewListSubdivision.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewListSubdivision.Name = "dataGridViewListSubdivision";
+            this.dataGridViewListSubdivision.RowHeadersVisible = false;
             this.dataGridViewListSubdivision.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewListSubdivision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewListSubdivision.Size = new System.Drawing.Size(591, 399);
+            this.dataGridViewListSubdivision.Size = new System.Drawing.Size(679, 349);
             this.dataGridViewListSubdivision.TabIndex = 30;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridViewListSubdivision);
+            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(685, 399);
+            this.groupBox1.TabIndex = 32;
+            this.groupBox1.TabStop = false;
             // 
             // ListSubdivisionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 399);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.dataGridViewListSubdivision);
+            this.ClientSize = new System.Drawing.Size(685, 399);
+            this.Controls.Add(this.groupBox1);
             this.Name = "ListSubdivisionForm";
             this.Text = "ListSubdivisionForm";
             this.Load += new System.EventHandler(this.ListSubdivisionForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSubdivision)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -141,5 +190,9 @@ namespace CartrigeAltstar
         public System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.DataGridView dataGridViewListSubdivision;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

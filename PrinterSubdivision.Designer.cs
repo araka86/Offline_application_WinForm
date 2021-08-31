@@ -44,7 +44,7 @@ namespace CartrigeAltstar
             this.comboBoxSub.FormattingEnabled = true;
             this.comboBoxSub.Location = new System.Drawing.Point(255, 58);
             this.comboBoxSub.Name = "comboBoxSub";
-            this.comboBoxSub.Size = new System.Drawing.Size(183, 21);
+            this.comboBoxSub.Size = new System.Drawing.Size(275, 21);
             this.comboBoxSub.TabIndex = 0;
             // 
             // comboBoxPrint
@@ -107,7 +107,7 @@ namespace CartrigeAltstar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 172);
+            this.ClientSize = new System.Drawing.Size(542, 172);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -42,6 +42,7 @@ namespace CartrigeAltstar
 
             var a1 = (from usr in db.Printers.Include(p => p.ModelPrinter) select usr);
             dataGridView1.DataSource = queryPrinter.ToList();
+            dataGridView1.Columns[0].Width = 65;
         }
 
         public void ShowCartrige()
@@ -57,7 +58,7 @@ namespace CartrigeAltstar
                                     Артикул = p.ArticleCartrige
                                 };
             dataGridView2.DataSource = queryCartrige.ToList();
-            dataGridView2.Columns[0].Width = 45;
+            dataGridView2.Columns[0].Width = 65;
 
         }
 
@@ -94,6 +95,7 @@ namespace CartrigeAltstar
 
 
             dataGridView4.DataSource = p.ToList();
+            dataGridView4.Columns[0].Width = 65;
         }
 
 
@@ -138,6 +140,7 @@ namespace CartrigeAltstar
 
 
             dataGridView3.DataSource = r.ToList();
+            dataGridView3.Columns[0].Width = 65;
         }
         private void button4_Click_1(object sender, EventArgs e)
         {
