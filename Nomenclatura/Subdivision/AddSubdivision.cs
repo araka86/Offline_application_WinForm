@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CartrigeAltstar.Nomenclatura.Subdivision
+namespace CartrigeAltstar
 {
     public partial class AddSubdivision : Form
     {
         public AddSubdivision()
         {
             InitializeComponent();
+        }
+
+        private void AddSubdivision_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,8 +26,8 @@ namespace CartrigeAltstar
         private void ListSettingPinterForm_Load(object sender, EventArgs e)
         {
             PrintPrinter();
-      //     PropertyInfo verticalOffset = dataGridViewListPrinter.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
-      //     verticalOffset.SetValue(this.dataGridViewListPrinter, 10, null);
+            //     PropertyInfo verticalOffset = dataGridViewListPrinter.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
+            //     verticalOffset.SetValue(this.dataGridViewListPrinter, 10, null);
 
         }
 
@@ -35,7 +35,7 @@ namespace CartrigeAltstar
         public void PrintPrinter()
         {
 
-        var pr = from p in db.Printers
+            var pr = from p in db.Printers
                      select new
                      {
                          p.Id,
@@ -44,7 +44,7 @@ namespace CartrigeAltstar
                          Дата_покуки = p.DateTimes
 
                      };
-            
+
             dataGridViewListPrinter.DataSource = pr.ToList();
             dataGridViewListPrinter.Columns[0].Width = 45;
 
@@ -52,7 +52,7 @@ namespace CartrigeAltstar
 
 
 
-       
+
 
 
         }
@@ -70,7 +70,7 @@ namespace CartrigeAltstar
         {
 
 
-            
+
             AddPrinter add = new AddPrinter();
 
 
@@ -107,7 +107,7 @@ namespace CartrigeAltstar
 
 
 
-           
+
             if (dataGridViewListPrinter.SelectedRows.Count > 0)
             {
                 int index = dataGridViewListPrinter.SelectedRows[0].Index;
@@ -184,10 +184,6 @@ namespace CartrigeAltstar
                 this.dataGridViewListPrinter.Update();
                 this.dataGridViewListPrinter.Refresh();
                 PrintPrinter();
-
-
-
-
 
 
 
@@ -271,7 +267,7 @@ namespace CartrigeAltstar
 
         }
 
-      
+
 
         //Sort Id
         private void button2_Click(object sender, EventArgs e)
@@ -306,7 +302,7 @@ namespace CartrigeAltstar
 
                      };
 
-           
+
             dataGridViewListPrinter.DataSource = pr.OrderBy(d => d.Модель).ToList();
             dataGridViewListPrinter.Columns[0].Width = 45;
         }
