@@ -117,8 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="folder_icon-icons.com_52385" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folder_icon-icons.com_52385.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="labelDivision.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="labelDivision.Text" xml:space="preserve">
+    <value>Cartrige</value>
+  </data>
+  <data name="datalabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 13</value>
+  </data>
+  <data name="datalabel.Text" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Subdivision</value>
+  </data>
+  <data name="rbEmpty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 17</value>
+  </data>
+  <data name="rbEmpty.Text" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="rbFull.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 17</value>
+  </data>
+  <data name="rbFull.Text" xml:space="preserve">
+    <value>Full</value>
   </data>
 </root>

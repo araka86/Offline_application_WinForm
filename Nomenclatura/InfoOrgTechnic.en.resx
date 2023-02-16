@@ -117,8 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="folder_icon-icons.com_52385" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folder_icon-icons.com_52385.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button5.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>Edit Compatibility</value>
+  </data>
+  <data name="button4.Text" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Edit Compatibility</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Printers</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Cartridges</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Printer</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Subdivisions</value>
   </data>
 </root>

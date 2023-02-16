@@ -1,60 +1,74 @@
 ﻿using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartrige;
 using System;
-using System.Data;
 using System.Data.Entity;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-
 
 namespace CartrigeAltstar
 {
     public partial class ListCartrigeForm : Form
     {
-
+        public string CultureDefine;
+        private string UkrainCulture;
+        private string RussianCulture;
+        private string EngCulture;
+        public ResourceManager resourceManager;
+        public DateTime dateTime;
         ContexAltstarContext db;
-
+       
 
         public ListCartrigeForm()
         {
             InitializeComponent();
+         
             db = new ContexAltstarContext();
-            db.Printers.Load();
+            db.Cartriges.Load();
+
+            UkrainCulture = "uk-UA";
+            RussianCulture = "ru-RU";
+            EngCulture = "en";
+
+            if (CultureDefine == UkrainCulture)
+            {
+                // Создаем новый объект resourceManager, извлекающий из сборки 
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langUA", Assembly.GetExecutingAssembly());
+            }
+            else if (CultureDefine == RussianCulture)
+            {
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langRU", Assembly.GetExecutingAssembly());
+            }
+            else
+            {
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langEN", Assembly.GetExecutingAssembly());
+            }
 
         }
 
         public void PrintCartrige()
         {
 
-            var pr = from p in db.Cartriges
-                     select new
-                     {
-                         p.Id,
-                         Модель = p.ModelCartrige,
-                         Артикул = p.ArticleCartrige,
-                         Дата_покуки = p.purchase_date
-                     };
+          
+                var data = db.Cartriges.Local.ToBindingList();
+                // Bind the BindingList to the DataGridView control.
+                dataGridViewListCartrige.DataSource = data;
+                dataGridViewListCartrige.Columns["Printers"].Visible = false;
+                dataGridViewListCartrige.Columns[1].HeaderText= resourceManager.GetString("Cartrige");
+                dataGridViewListCartrige.Columns[2].HeaderText= resourceManager.GetString("Article");
+                dataGridViewListCartrige.Columns[3].HeaderText= resourceManager.GetString("Data");
+                dataGridViewListCartrige.Columns[0].Width = 45;
 
-            dataGridViewListCartrige.DataSource = pr.ToList();
-            dataGridViewListCartrige.Columns[0].Width = 45;
+            
+
+        }
 
 
-
+        private void ListCartrigeForm_Load(object sender, EventArgs e) => PrintCartrige();
        
-
-
-        }
-
-
-        private void ListCartrigeForm_Load(object sender, EventArgs e)
-        {
-            PrintCartrige();
-         //   PropertyInfo verticalOffset = dataGridViewListCartrige.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
-         //   verticalOffset.SetValue(this.dataGridViewListCartrige, 10, null);
-        }
+        
 
 
         //Add Cartrige
@@ -83,7 +97,9 @@ namespace CartrigeAltstar
 
                 db.SaveChanges();
 
-                MessageBox.Show("Новый картридж добавлен ");
+
+
+                MessageBox.Show(resourceManager.GetString("AddNewCartrigeMsgBox"));
                 dataGridViewListCartrige.DataSource = null;
                 this.dataGridViewListCartrige.Update();
                 this.dataGridViewListCartrige.Refresh();
@@ -105,7 +121,7 @@ namespace CartrigeAltstar
             {
                 int index = dataGridViewListCartrige.SelectedRows[0].Index;
                 int id = 0;
-                bool converted = Int32.TryParse(dataGridViewListCartrige[0, index].Value.ToString(), out id);
+                bool converted = int.TryParse(dataGridViewListCartrige[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
 
@@ -171,9 +187,8 @@ namespace CartrigeAltstar
 
             }
 
-
         }
-        //Export to Exel
+        //Export to Exel cartridges
         private void btnExportCartroge_Click(object sender, EventArgs e)
         {
 
@@ -194,13 +209,14 @@ namespace CartrigeAltstar
             ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
 
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
+            var datenow = curTime.ToShortDateString().ToString();
+            datenow = datenow.Replace("/", ".");
 
-
-            ExcelWorkSheet.Name = "Крартриджи -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+            ExcelWorkSheet.Name = $"Крартриджи - {resourceManager.GetString("printReceptExel")} "; //Название листа (вкладки снизу)
 
             object[,] d = new object[dataGridViewListCartrige.RowCount, dataGridViewListCartrige.ColumnCount];
 
-            for (int i = 1; i < dataGridViewListCartrige.Columns.Count + 1; i++)
+            for (int i = 1; i < dataGridViewListCartrige.Columns.Count ; i++) //cols Header
             {
 
                 ExcelWorkSheet.Cells[1, i] = dataGridViewListCartrige.Columns[i - 1].HeaderText;
@@ -217,9 +233,9 @@ namespace CartrigeAltstar
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridViewListCartrige.Rows.Count; i++) //отступ вниз 1
+            for (int i = 0; i < dataGridViewListCartrige.Rows.Count -1; i++) //отступ вниз 1
             {
-                for (int j = 0; j < dataGridViewListCartrige.Columns.Count; j++)
+                for (int j = 0; j < dataGridViewListCartrige.Columns.Count - 1; j++) //cols Body (data)
                 {
                     d[i, j] = dataGridViewListCartrige.Rows[i].Cells[j].Value.ToString();
                 }
@@ -239,12 +255,12 @@ namespace CartrigeAltstar
                 int rows = data.GetUpperBound(0) + 1;
                 int cols = data.GetUpperBound(1) + 1;
 
-                Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+                Excel.Worksheet sheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
 
                 object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
-                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridViewListCartrige.RowCount - 1, leftCol + dataGridViewListCartrige.ColumnCount - 1];
+                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridViewListCartrige.RowCount - 2, leftCol + dataGridViewListCartrige.ColumnCount - 2]; //cols body border
 
-                Microsoft.Office.Interop.Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
+                Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
                 range.Value2 = data;
                 setStyle(range);
 
@@ -270,6 +286,7 @@ namespace CartrigeAltstar
                     range.Borders[(Excel.XlBordersIndex)border[i]].LineStyle = Excel.XlLineStyle.xlContinuous; //Стиль
                     range.Borders[(Excel.XlBordersIndex)border[i]].Weight = Excel.XlBorderWeight.xlThin; //Толщина
                     range.Borders[(Excel.XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
+                    range.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter; //all column center
                 }
 
             }
@@ -278,76 +295,11 @@ namespace CartrigeAltstar
 
         }
 
-        private void btnClosed_Click(object sender, EventArgs e)
-        {
-
-
-            Close();
-        }
-        //Sort Id
-        private void button2_Click(object sender, EventArgs e)
-        {
-            dataGridViewListCartrige.DataSource = null;
-            var pr = from p in db.Cartriges
-                     select new
-                     {
-                         p.Id,
-                         Модель = p.ModelCartrige,
-                         Артикул = p.ArticleCartrige,
-                         Дата_покуки = p.purchase_date
-                     };
-
-            dataGridViewListCartrige.DataSource = pr.OrderBy(p=>p.Id).ToList();
-            dataGridViewListCartrige.Columns[0].Width = 45;
-
-        }
-        //Sort Model
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dataGridViewListCartrige.DataSource = null;
-            var pr = from p in db.Cartriges
-                     select new
-                     {
-                         p.Id,
-                         Модель = p.ModelCartrige,
-                         Артикул = p.ArticleCartrige,
-                         Дата_покуки = p.purchase_date
-                     };
-
-            dataGridViewListCartrige.DataSource = pr.OrderBy(p => p.Модель).ToList();
-            dataGridViewListCartrige.Columns[0].Width = 45;
-        }
-        //Sort article
-        private void button3_Click(object sender, EventArgs e)
-        {
-            dataGridViewListCartrige.DataSource = null;
-            var pr = from p in db.Cartriges
-                     select new
-                     {
-                         p.Id,
-                         Модель = p.ModelCartrige,
-                         Артикул = p.ArticleCartrige,
-                         Дата_покуки = p.purchase_date
-                     };
-
-            dataGridViewListCartrige.DataSource = pr.OrderBy(p => p.Артикул).ToList();
-            dataGridViewListCartrige.Columns[0].Width = 45;
-        }
-        //Sort Data
-        private void button4_Click(object sender, EventArgs e)
-        {
-            dataGridViewListCartrige.DataSource = null;
-            var pr = from p in db.Cartriges
-                     select new
-                     {
-                         p.Id,
-                         Модель = p.ModelCartrige,
-                         Артикул = p.ArticleCartrige,
-                         Дата_покуки = p.purchase_date
-                     };
-
-            dataGridViewListCartrige.DataSource = pr.OrderBy(p => p.Дата_покуки).ToList();
-            dataGridViewListCartrige.Columns[0].Width = 45;
-        }
+        private void btnClosed_Click(object sender, EventArgs e) => Close();
+        
+     
+    
+    
+      
     }
 }

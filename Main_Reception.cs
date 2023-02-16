@@ -8,17 +8,56 @@ using System.Windows.Forms;
 using CartrigeAltstar.Model;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
-using System.Text.RegularExpressions;
+using System.Threading;
+using System.Resources;
+
+using System.Globalization;
+//Простір, використовуваний для роботи з файлами ресурсів .resx,
+using System.Reflection;
 
 namespace CartrigeAltstar
 {
     public partial class Main_Reception : Form
     {
         ContexAltstarContext db;
+        //Переменная выбора, необходимая для определения культуры 
+        public string CultureDefine;
+        //Переменная для хранения английской культуры
+        private string UkrainCulture;
+        //Переменная для русской культуры.
+        private string RussianCulture;
+        private string EngCulture;
+        //Создаем экземпляр resourceManager класса ResourceManager
+        public ResourceManager resourceManager;
+        public DateTime dateTime;
 
-        public Main_Reception()
+
+
+
+        public Main_Reception(string FormCulture = "en")
         {
+
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
             InitializeComponent();
+            CultureDefine = FormCulture;
+            UkrainCulture = "uk-UA";
+            RussianCulture = "ru-RU";
+            EngCulture = "en";
+
+            if (CultureDefine == UkrainCulture)
+            {
+                // Создаем новый объект resourceManager, извлекающий из сборки 
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langUA", Assembly.GetExecutingAssembly());
+            }
+            else if (CultureDefine == RussianCulture)
+            {
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langRU", Assembly.GetExecutingAssembly());
+            }
+            else
+            {
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langEN", Assembly.GetExecutingAssembly());
+            }
+
             db = new ContexAltstarContext();
             db.Subdivisions.Load();
 
@@ -57,12 +96,7 @@ namespace CartrigeAltstar
         }
 
 
-      
-
-
-
-
-        public string [] ForCartrigeArticleComboboxCUT() 
+        public string[] ForCartrigeArticleComboboxCUT()
         {
             var ListCartrige = from lc in db.Cartriges
                                select new
@@ -80,7 +114,7 @@ namespace CartrigeAltstar
 
                 //     sdata[i] = p[i].ToString().Replace('}', ')').Replace('{', '(');
 
-                sdata[i] = p[i].ToString().Trim(new char[] { '{','}' });
+                sdata[i] = p[i].ToString().Trim(new char[] { '{', '}' });
 
 
             }
@@ -92,8 +126,8 @@ namespace CartrigeAltstar
             var ListCartrige = from lc in db.Cartriges
                                select new
                                {
-                                   Модель = lc.ModelCartrige,
-                                   Артикул = lc.ArticleCartrige
+                                   Model = lc.ModelCartrige,
+                                   Article = lc.ArticleCartrige
                                };
 
 
@@ -105,7 +139,7 @@ namespace CartrigeAltstar
 
                 sdata[i] = p[i].ToString().Replace('}', ')').Replace('{', '(');
 
-             
+
 
             }
             return sdata;
@@ -114,22 +148,10 @@ namespace CartrigeAltstar
 
 
 
-
-
-
         private void Reception_Load(object sender, EventArgs e)
         {
-            printRecept();
-            PrintDispatch();
-
-
-            //     dataGridView2.Columns[0].Width = 65;
-
-            //    db.Receptions.Load();
-            //   dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
-
-            //    dataGridView1.Columns[0].Width = 45;
-
+            printRecept();      //reception
+            PrintDispatch();    //sending
 
             //Fill Filter
             comboBoxFiltrCartrige.DataSource = ForCartrigeArticleComboboxCUT().ToList();
@@ -137,7 +159,7 @@ namespace CartrigeAltstar
 
         }
 
-       
+
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
@@ -152,73 +174,70 @@ namespace CartrigeAltstar
             o_.ShowDialog();
         }
 
-        public void printRecept() //отображение прием картриджа
+        public void printRecept(int cntMonth = -2) // reception
         {
 
-            var dataReception = from r in db.Receptions
-                                select new
-                                {
-                                    ID = r.id,
-                                    Дата = r.Дата,
-                                    Картридж = r.Картридж,
-                                    Статус = r.Статус,
-                                    Вес = r.Вес,
-                                    Подразделения = r.Подразделения
-                                };
+            dataGridView1.Columns.Clear();
 
+            
+            if (cntMonth != 0)
+            {
+               dateTime = DateTime.Now.AddMonths(cntMonth);
+               dataGridView1.DataSource = db.Receptions.Where(x => x.Дата >= dateTime).ToList();
+            }
+            else
+            {
+                dataGridView1.DataSource = db.Receptions.ToList();
+            }
+               
 
-            //   dataGridView1.DataSource = dataReception.ToArray();
-
-
-            db.Receptions.Load();
-
-            dataGridView1.DataSource = db.Receptions.Local.ToBindingList();
-            //   dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
-
+           
             dataGridView1.Columns[0].Width = 65;
             dataGridView1.Columns[1].Width = 220;
+            dataGridView1.Columns[1].HeaderText = resourceManager.GetString("Data");
             dataGridView1.Columns[2].Width = 300;
+            dataGridView1.Columns[2].HeaderText = resourceManager.GetString("Cartrige");
             dataGridView1.Columns[3].Width = 200;
+            dataGridView1.Columns[3].HeaderText = resourceManager.GetString("Weight");
             dataGridView1.Columns[4].Width = 200;
-
+            dataGridView1.Columns[4].HeaderText = resourceManager.GetString("Status");
+            dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[5].HeaderText = resourceManager.GetString("Subivision");
 
         }
 
-        public void PrintDispatch()
+        public void PrintDispatch(int cntMonth = -2) //Dispatches 
         {
-            db.Dispatches.Load();
-            var datadispath = from d in db.Dispatches
-                              select new
-                              {
-                                  ID = d.id,
-                                  Дата = d.Дата,
-                                  Картридж = d.Картридж,
-                                  Заметки = d.Заметки,
-                                  Вес = d.Вес,
-                                  Подразделения = d.Подразделения
-                              };
 
 
+            if (cntMonth != 0)
+            {
+                dateTime = DateTime.Now.AddMonths(cntMonth);
+                dataGridView2.DataSource = db.Dispatches.Where(x => x.Дата >= dateTime).ToList();
+            }
+            else
+            {
+                dataGridView2.DataSource = db.Dispatches.ToList();
+            }
 
-            //  dataGridView2.DataSource = datadispath.ToList();
-            dataGridView2.DataSource = db.Dispatches.Local.ToBindingList();
-            //
+           
             dataGridView2.Columns[0].Width = 65;
             dataGridView2.Columns[1].Width = 220;
+            dataGridView2.Columns[1].HeaderText = resourceManager.GetString("Data");
             dataGridView2.Columns[2].Width = 300;
+            dataGridView2.Columns[2].HeaderText = resourceManager.GetString("Cartrige");
             dataGridView2.Columns[3].Width = 200;
+            dataGridView2.Columns[3].HeaderText = resourceManager.GetString("Notes");
             dataGridView2.Columns[4].Width = 200;
+            dataGridView2.Columns[4].HeaderText = resourceManager.GetString("Weight");
             dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-
+            dataGridView2.Columns[5].HeaderText = resourceManager.GetString("Subivision");
         }
-
 
 
         //ADD INSERT ////////////////////////
         private void button1_Click(object sender, EventArgs e)
         {
-
 
             ReceptionConfig receptioncfg = new ReceptionConfig();
 
@@ -228,40 +247,25 @@ namespace CartrigeAltstar
             var ListDivision = from ls in db.Subdivisions
                                select ls.division;
 
-            //  receptioncfg.comboBoxCartrige.DataSource = ListCartrige.ToList();
-
             receptioncfg.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
             receptioncfg.comboBoxDivision.DataSource = ListDivision.ToList();
-
 
 
             DialogResult result = receptioncfg.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
 
-
-
-
-
-          
-
-
             Reception reception = new Reception();
-
 
             reception.Дата = receptioncfg.txtdate.Value;
             reception.Подразделения = receptioncfg.comboBoxDivision.Text.ToString();
-
 
             //вносим в переменную выбранную позицию
             string res2 = receptioncfg.comboBoxCartrige.SelectedItem.ToString();
             //обрезаем
 
 
-
             string trimmed = res2.Trim(new char[] { '(', ')' });
-
-
 
             reception.Картридж = trimmed.ToString();
 
@@ -279,7 +283,7 @@ namespace CartrigeAltstar
 
             db.Receptions.Add(reception);
             db.SaveChanges();
-            MessageBox.Show("Картридж на приемку записан!!!!");
+            MessageBox.Show(resourceManager.GetString("WriteSuccessCartigeIn"));
             dataGridView1.DataSource = null;
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
@@ -297,13 +301,15 @@ namespace CartrigeAltstar
             {
                 int index = dataGridView1.SelectedRows[0].Index;
                 int id = 0;
-                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id); //Find Index
+                bool converted = int.TryParse(dataGridView1[0, index].Value.ToString(), out id); //Find Index
                 Reception receptionupdateModel = db.Receptions.Find(id); //нахождения индекса модели
                 ReceptionConfig receptionConfigUpdateForm = new ReceptionConfig(); //екземпляяр класа формы
                 //заполнения даты
                 receptionConfigUpdateForm.txtdate.Text = receptionupdateModel.Дата.ToString();
                 //заполнение веса
                 receptionConfigUpdateForm.txtWeight.Text = receptionupdateModel.Вес.ToString();
+
+
 
                 // проверка и заполениия radioButton
                 if (receptionupdateModel.Статус == "Пустой")
@@ -317,7 +323,6 @@ namespace CartrigeAltstar
                     receptionConfigUpdateForm.rbFull.Checked = true;
                     receptionConfigUpdateForm.rbEmpty.Checked = false;
                 }
-
 
 
                 //заполнения comboBoxCartrige
@@ -376,16 +381,17 @@ namespace CartrigeAltstar
 
 
 
-
                 //подключения к состоянию обьявив его модифицированним
                 db.Entry(receptionupdateModel).State = EntityState.Modified;
                 db.SaveChanges();
 
 
-                MessageBox.Show("Запись обновленна!!!!");
+              
+
+                MessageBox.Show(resourceManager.GetString("WriteIsUpdated"));
                 dataGridView1.DataSource = null; //занулить датагрид
-                this.dataGridView1.Update(); //обновить
-                this.dataGridView1.Refresh(); //обновить
+                dataGridView1.Update(); //обновить
+                dataGridView1.Refresh(); //обновить
                 printRecept(); //вивести по новой
 
 
@@ -428,7 +434,7 @@ namespace CartrigeAltstar
         private void button4_Click(object sender, EventArgs e)
         {
 
-            CartrigePlace ctpl = new CartrigePlace(); // екземпляр формы CartrigePlace
+            moving_the_cartridge ctpl = new moving_the_cartridge(); // екземпляр формы CartrigePlace
 
 
             var cp = from c1 in db.Compatibilities
@@ -475,98 +481,6 @@ namespace CartrigeAltstar
             dataGridView1.DataSource = ctt.ToList();
 
 
-            //
-            //         for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            //         {
-            //             foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
-            //             {
-            //
-            //                 if( cell.Value.ToString().Contains(searchValue)) 
-            //                 {
-            //
-            //                   
-            //                 }
-            //
-            //
-            //                    
-            //             }
-            //         }
-
-            //
-            //        dataGridView1.ClearSelection();
-            //        var targetText = searchValue;
-            //        if (targetText != String.Empty)
-            //        {
-            //            foreach (DataGridViewRow row in dataGridView1.Rows)
-            //            {
-            //                if (!row.IsNewRow && row.Cells["Cartrige"].Value != null && row.Cells["Cartrige"].Value.ToString().Contains(targetText))
-            //                {
-            //                    row.Selected = true;
-            //                  dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
-            //
-            //                    
-            //                    //   break;  // remove this if you want to select all the rows that contain the text
-            //
-            //                   
-            //
-            //                }
-            //               
-            //            }
-            //        }
-
-
-
-
-
-
-            //      try
-            //      {
-            //          bool valueResult = false;
-            //          foreach (DataGridViewRow row in dataGridView1.Rows)
-            //          {
-            //              for (int i = 0; i < row.Cells.Count; i++)
-            //              {
-            //                  if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(searchValue))
-            //                  {
-            //                      var rowIndex = row.Cells[i].Value;
-            //
-            //
-            //
-            //                      DataGridViewRow rows = (DataGridViewRow)row.Cells[i].Value;
-            //
-            //
-            //
-            //
-            //
-            //                      //      dataGridView1.DataSource = null;
-            //                      //      this.dataGridView1.Update();
-            //                      //      this.dataGridView1.Refresh();
-            //                      //      printRecept();
-            //                      //
-            //
-            //                      //
-            //                      //      object  ss = dataGridView1.SelectedRows[rowIndex];
-            //                      //      dataGridView1.Rows[rowIndex].Selected = true;
-            //                      //      valueResult = true;
-            //                      //      break;
-            //                  }
-            //              }
-            //
-            //          }
-            //          if (!valueResult)
-            //          {
-            //              MessageBox.Show("Unable to find " + "Not Found");
-            //              return;
-            //          }
-            //      }
-            //      catch (Exception exc)
-            //      {
-            //          MessageBox.Show(exc.Message);
-            //      }
-            //
-            //
-
-
         }
 
         private void resetFiltr_Click(object sender, EventArgs e)
@@ -576,9 +490,9 @@ namespace CartrigeAltstar
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
             printRecept();
-
         }
 
+        //EXEL RECEPT
         private void button7_Click(object sender, EventArgs e)
         {
 
@@ -599,8 +513,10 @@ namespace CartrigeAltstar
 
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
 
+            var datenow = curTime.ToShortDateString().ToString();
+            datenow = datenow.Replace("/", ".");
 
-            ExcelWorkSheet.Name = "Приемка -  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+            ExcelWorkSheet.Name = $"{resourceManager.GetString("printReceptExel")} - {datenow}"; //Название листа (вкладки снизу)
 
             object[,] d = new object[dataGridView1.RowCount, dataGridView1.ColumnCount];
 
@@ -626,7 +542,7 @@ namespace CartrigeAltstar
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++) //отступ вниз 1
+            for (int i = 0; i < dataGridView1.Rows.Count; i++) //отступ вниз 1
             {
 
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
@@ -648,12 +564,12 @@ namespace CartrigeAltstar
                 int rows = data.GetUpperBound(0) + 1;
                 int cols = data.GetUpperBound(1) + 1;
 
-                Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+                Worksheet sheet = (Worksheet)ExcelApp.ActiveSheet;
 
                 object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
                 object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridView1.RowCount - 1, leftCol + dataGridView1.ColumnCount - 1];
 
-                Microsoft.Office.Interop.Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
+                Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
                 range.Value2 = data;
                 setStyle(range);
 
@@ -677,7 +593,7 @@ namespace CartrigeAltstar
                 {
                     range.Borders[(Excel.XlBordersIndex)border[i]].LineStyle = Excel.XlLineStyle.xlContinuous; //Стиль
                     range.Borders[(Excel.XlBordersIndex)border[i]].Weight = Excel.XlBorderWeight.xlThin; //Толщина
-                    range.Borders[(Excel.XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
+                    range.Borders[(XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
                 }
 
             }
@@ -696,17 +612,11 @@ namespace CartrigeAltstar
         {
 
             ListCartrigeForm listCartrigeForm = new ListCartrigeForm();
-
             listCartrigeForm.Show();
-
-
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-
-
-
             comboBoxFiltrCartrige.DataSource = null;
             comboBoxFiltrDispath.DataSource = null;
             comboBoxFiltrCartrige.DataSource = ForCartrigeArticleComboboxCUT().ToList();
@@ -731,26 +641,13 @@ namespace CartrigeAltstar
         //добавления для отправки
         private void button9_Click(object sender, EventArgs e)
         {
-
-
-
             DispatchConfig dispatchConfigForm = new DispatchConfig();
-
-
-           
             dispatchConfigForm.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
-
-
-
             var ListDivision = from ls in db.Subdivisions
                                select ls.division;
 
             //  dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
             dispatchConfigForm.comboBoxDivision.DataSource = ListDivision.ToList();
-
-
-
-
 
 
             DialogResult result = dispatchConfigForm.ShowDialog(this);
@@ -769,10 +666,6 @@ namespace CartrigeAltstar
 
 
 
-
-
-
-
             Dispatch dispatchModel = new Dispatch();
 
 
@@ -787,22 +680,19 @@ namespace CartrigeAltstar
 
             db.Dispatches.Add(dispatchModel);
             db.SaveChanges();
-            MessageBox.Show("Картридж на отправку записан!!!!");
+
+            var qwe = resourceManager.GetString("WriteSuccessCartigeOut");
+            MessageBox.Show(resourceManager.GetString("WriteSuccessCartigeOut"));
             dataGridView2.DataSource = null;
             this.dataGridView2.Update();
             this.dataGridView2.Refresh();
             PrintDispatch();
 
-
-
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
-            dataGridView1.Sort(dataGridView1.Columns["Id"], ListSortDirection.Ascending);
+        private void button14_Click(object sender, EventArgs e) => dataGridView1.Sort(dataGridView1.Columns["Id"], ListSortDirection.Ascending);
 
 
-        }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -829,20 +719,10 @@ namespace CartrigeAltstar
                 dispatchnConfigUpdateForm.txtZametki.Text = dispatchUpdateModel.Заметки.ToString();
 
 
-                //заполнения comboBoxCartrige
-                //          dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = MiGlobalFunction();
-
-
-
-             
                 dispatchnConfigUpdateForm.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
 
                 //достаем из базы ранее найденую по id чистую запись (без скобок) и вешаем скобки для поиска на равенство
                 var findForFiltrCartrige = "(" + dispatchUpdateModel.Картридж + ")";
-
-
-
-
 
                 int findIndexComboboxCartrige = dispatchnConfigUpdateForm.comboBoxCartrige.FindString(findForFiltrCartrige); //поиск строки в comboBoxCartrige
                 dispatchnConfigUpdateForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrige;
@@ -930,7 +810,7 @@ namespace CartrigeAltstar
             //заполняем выбранное
             string searchValue = comboBoxFiltrDispath.SelectedItem.ToString();
 
-          
+
             //находим запись в базе
             var ctt = from u in db.Dispatches.Where(p => p.Картридж == searchValue) select u;
 
@@ -956,7 +836,7 @@ namespace CartrigeAltstar
             PrintDispatch();
         }
 
-        //EXPORT EXCEL
+        //EXPORT EXCEL Sending
         private void button15_Click(object sender, EventArgs e)
         {
 
@@ -977,8 +857,10 @@ namespace CartrigeAltstar
 
             ExcelWorkSheet = (Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
 
+            var datenow = curTime.ToShortDateString().ToString();
+            datenow = datenow.Replace("/", ".");
 
-            ExcelWorkSheet.Name = "Отправка-  " + curTime.ToShortDateString().ToString(); //Название листа (вкладки снизу)
+            ExcelWorkSheet.Name = $"{resourceManager.GetString("printSendingExel")} - {datenow}"; //Название листа (вкладки снизу)
 
             object[,] d = new object[dataGridView2.RowCount, dataGridView2.ColumnCount];
 
@@ -987,10 +869,6 @@ namespace CartrigeAltstar
             {
 
                 ExcelWorkSheet.Cells[1, i] = dataGridView2.Columns[i - 1].HeaderText;
-
-
-
-
                 ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeRight].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeTop].Weight = 2;
                 ExcelWorkSheet.Cells[1, i].Borders[XlBordersIndex.xlEdgeLeft].Weight = 2;
@@ -1006,7 +884,10 @@ namespace CartrigeAltstar
 
             //DATA (Fill)
 
-            for (int i = 0; i < dataGridView2.Rows.Count - 1; i++) //отступ вниз 1
+
+            var qwer = dataGridView2.RowCount + 1;
+
+            for (int i = 0; i < dataGridView2.Rows.Count; i++) //отступ вниз 1
             {
 
                 for (int j = 0; j < dataGridView2.Columns.Count; j++)
@@ -1067,7 +948,7 @@ namespace CartrigeAltstar
 
         private void button14_Click_1(object sender, EventArgs e)
         {
-            CartrigePlace ctpl = new CartrigePlace(); // екземпляр формы CartrigePlace
+            moving_the_cartridge ctpl = new moving_the_cartridge(); // екземпляр формы CartrigePlace
 
 
             var cp = from c1 in db.Compatibilities
@@ -1087,15 +968,91 @@ namespace CartrigeAltstar
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
-            
+
             db.Dispose();
             System.Windows.Forms.Application.Exit();
         }
 
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+
+            О_программе o_ = new О_программе();
+            o_.ShowDialog();
+        }
+        ///UA
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            CultureDefine = UkrainCulture;
+            // Устанавливаем выбранную культуру в качестве культуры  пользовательского интерфейса 
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureDefine, true);
+            // Устанавливаем в качестве текущей культуры выбранную
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(CultureDefine, true);
+
+            this.Hide();
+            new Main_Reception(CultureDefine).Show();
+        }
+
+        //RU
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            CultureDefine = RussianCulture;
+            // Устанавливаем выбранную культуру в качестве культуры  пользовательского интерфейса 
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureDefine, true);
+            // Устанавливаем в качестве текущей культуры выбранную
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(CultureDefine, true);
+
+            this.Hide();
+            new Main_Reception(CultureDefine).Show();
 
 
-        //2
+
+        }
+        //EN
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            CultureDefine = EngCulture;
+            // Устанавливаем выбранную культуру в качестве культуры  пользовательского интерфейса 
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureDefine, true);
+            // Устанавливаем в качестве текущей культуры выбранную
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(CultureDefine, true);
+
+            Main_Reception main_Reception = new Main_Reception(CultureDefine);
+
+
+            this.Hide();
+            new Main_Reception().Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Show all time  reception
+        private void button19_Click(object sender, EventArgs e) => printRecept(0); 
+
+        //Show last 2 month  reception
+        private void button18_Click(object sender, EventArgs e) => printRecept();  
+     
+        //Show last month  reception
+        private void button5_Click_1(object sender, EventArgs e) => printRecept(-1);      //reception
+        
+
+        //Show all time  Sending
+        private void button21_Click(object sender, EventArgs e) => PrintDispatch(0);      //sending
+
+       
+        //Show last 2 month  sending
+        private void button20_Click(object sender, EventArgs e) => PrintDispatch();      //sending
+        
+        //Show last month  sending
+        private void button17_Click(object sender, EventArgs e) => PrintDispatch(-1);      //sending
+        
+
     }
 
     //1

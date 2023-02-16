@@ -117,4 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddNewCartrigeMsgBox" xml:space="preserve">
+    <value>Новий картридж додано</value>
+  </data>
+  <data name="AddNewPrinterMsgBox" xml:space="preserve">
+    <value>Новий принтер додано</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Артикль</value>
+  </data>
+  <data name="Cartrige" xml:space="preserve">
+    <value>Картридж</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="DelPrinterMsgBox" xml:space="preserve">
+    <value>Принтер видалено</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Подробиці</value>
+  </data>
+  <data name="printersList" xml:space="preserve">
+    <value>Список принтерів</value>
+  </data>
+  <data name="printReceptExel" xml:space="preserve">
+    <value>Прийомка</value>
+  </data>
+  <data name="printSendingExel" xml:space="preserve">
+    <value>Відправка</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Subivision" xml:space="preserve">
+    <value>Підрозділ</value>
+  </data>
+  <data name="UpdatePrinterMsgBox" xml:space="preserve">
+    <value>Принтер оновленно</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Вага</value>
+  </data>
+  <data name="WriteIsUpdated" xml:space="preserve">
+    <value>Запис оновленна!!!</value>
+  </data>
+  <data name="WriteSuccessCartigeIn" xml:space="preserve">
+    <value>Картридж на відправку записаннй</value>
+  </data>
+  <data name="WriteSuccessCartigeOut" xml:space="preserve">
+    <value>Картридж на прийом записаннй</value>
+  </data>
 </root>

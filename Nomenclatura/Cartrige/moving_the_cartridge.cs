@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace CartrigeAltstar
 {
-    public partial class CartrigePlace : Form
+    public partial class moving_the_cartridge : Form
     {
         ContexAltstarContext db;
-        public CartrigePlace()
+        public moving_the_cartridge()
         {
             InitializeComponent();
 

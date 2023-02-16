@@ -179,11 +179,11 @@
     <Compile Include="Nomenclatura\Subdivision\AddSubdivision.Designer.cs">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\CartrigePlace.cs">
+    <Compile Include="Nomenclatura\Cartrige\moving_the_cartridge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\CartrigePlace.Designer.cs">
-      <DependentUpon>CartrigePlace.cs</DependentUpon>
+    <Compile Include="Nomenclatura\Cartrige\moving_the_cartridge.Designer.cs">
+      <DependentUpon>moving_the_cartridge.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\Cartrige\CartrigeSubdivision.cs">
       <SubType>Form</SubType>
@@ -231,12 +231,40 @@
     <Compile Include="Nomenclatura\Cartrige\UpdateMovingCartrige.Designer.cs">
       <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resources\langEN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>langEN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\langRU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>langRU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\langUA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>langUA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Translate.cs" />
     <Compile Include="О программе.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="О программе.Designer.cs">
       <DependentUpon>О программе.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DispatchConfig.en.resx">
+      <DependentUpon>DispatchConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Reception.en.resx">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Reception.ru-RU.resx">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Reception.uk-UA.resx">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,8 +277,23 @@
     <EmbeddedResource Include="Nomenclatura\Cartrige\AddCartriges.resx">
       <DependentUpon>AddCartriges.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.en.resx">
+      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.resx">
       <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.ru-RU.resx">
+      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.uk-UA.resx">
+      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\moving_the_cartridge.en.resx">
+      <DependentUpon>moving_the_cartridge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\InfoOrgTechnic.en.resx">
+      <DependentUpon>InfoOrgTechnic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\InfoOrgTechnic.resx">
       <DependentUpon>InfoOrgTechnic.cs</DependentUpon>
@@ -258,11 +301,20 @@
     <EmbeddedResource Include="Nomenclatura\Printer\AddPrinter.resx">
       <DependentUpon>AddPrinter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.en.resx">
+      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.ru-RU.resx">
+      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.uk-UA.resx">
+      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Subdivision\AddSubdivision.resx">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\CartrigePlace.resx">
-      <DependentUpon>CartrigePlace.cs</DependentUpon>
+    <EmbeddedResource Include="Nomenclatura\Cartrige\moving_the_cartridge.resx">
+      <DependentUpon>moving_the_cartridge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\CartrigeSubdivision.resx">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
@@ -284,15 +336,31 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Main_Reception.resx">
       <DependentUpon>Main_Reception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptionConfig.en.resx">
+      <DependentUpon>ReceptionConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReceptionConfig.resx">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartrige\UpdateMovingCartrige.resx">
       <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\langEN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langEN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\langRU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langRU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\langUA.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langUA.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="О программе.resx">
       <DependentUpon>О программе.cs</DependentUpon>
@@ -330,6 +398,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1618581029516.ico" />
+    <None Include="Resources\folder_icon-icons.com_52385.ico" />
     <Content Include="unnamed.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
