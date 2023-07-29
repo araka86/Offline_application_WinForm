@@ -1,7 +1,10 @@
-﻿namespace CartrigeAltstar.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CartrigeAltstar.Model
 {
     class Compatibility
     {
+        [Key]
         public int id { get; set; }
 
         //Foreign key

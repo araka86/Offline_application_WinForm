@@ -1,10 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar
 {
     class Reception //прием + сдача на сервис
     {
-
+        [Key]
         public int id { get; set; }
         public DateTime? Дата { get; set; } //data empty
         public string Картридж { get; set; }//Catrige

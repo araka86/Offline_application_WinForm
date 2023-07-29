@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
+
 namespace CartrigeAltstar.Model
 {
     class Cartrige
     {
 
+        [Key]
         public int Id { get; set; }
         public string ModelCartrige { get; set; } // модель, наименования картриджа
         public string ArticleCartrige { get; set; } //артикул картриджа

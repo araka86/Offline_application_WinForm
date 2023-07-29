@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar.Model
 {
     class Printer
     {
+        [Key]
         public int Id { get; set; }
         public DateTime? DateTimes { get; set; }
 

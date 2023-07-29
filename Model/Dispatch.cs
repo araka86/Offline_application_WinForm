@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar.Model
 {
     class Dispatch //отправка на подразделения
     {
+        [Key]
         public int id { get; set; }
         
         public DateTime? Дата { get; set; } //data empty

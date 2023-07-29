@@ -157,6 +157,7 @@ namespace CartrigeAltstar
             comboBoxFiltrCartrige.DataSource = ForCartrigeArticleComboboxCUT().ToList();
             comboBoxFiltrDispath.DataSource = ForCartrigeArticleComboboxCUT().ToList();
 
+            comboBoxDepertment.DataSource =  db.Subdivisions.Select(x=>x.division).ToArray();
         }
 
 
@@ -283,6 +284,13 @@ namespace CartrigeAltstar
 
             db.Receptions.Add(reception);
             db.SaveChanges();
+
+
+
+
+
+          //  db.Currents.Add(reception);
+
             MessageBox.Show(resourceManager.GetString("WriteSuccessCartigeIn"));
             dataGridView1.DataSource = null;
             this.dataGridView1.Update();
@@ -1051,8 +1059,12 @@ namespace CartrigeAltstar
         
         //Show last month  sending
         private void button17_Click(object sender, EventArgs e) => PrintDispatch(-1);      //sending
-        
 
+        private void button22_Click(object sender, EventArgs e)
+        {
+            string searchValue = comboBoxDepertment.SelectedItem.ToString();
+
+        }
     }
 
     //1

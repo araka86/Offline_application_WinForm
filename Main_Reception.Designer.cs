@@ -69,7 +69,11 @@ namespace CartrigeAltstar
             this.exportRecive = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxDepertment = new System.Windows.Forms.ComboBox();
+            this.button22 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -312,7 +316,11 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Controls.Add(this.exportRecive);
             this.flowLayoutPanel1.Controls.Add(this.button5);
             this.flowLayoutPanel1.Controls.Add(this.button18);
+            this.flowLayoutPanel1.Controls.Add(this.button7);
             this.flowLayoutPanel1.Controls.Add(this.button19);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxDepertment);
+            this.flowLayoutPanel1.Controls.Add(this.button22);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // button1
@@ -384,12 +392,37 @@ namespace CartrigeAltstar
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
+            // button7
+            // 
+            resources.ApplyResources(this.button7, "button7");
+            this.button7.Name = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // button19
             // 
             resources.ApplyResources(this.button19, "button19");
             this.button19.Name = "button19";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // comboBoxDepertment
+            // 
+            resources.ApplyResources(this.comboBoxDepertment, "comboBoxDepertment");
+            this.comboBoxDepertment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDepertment.FormattingEnabled = true;
+            this.comboBoxDepertment.Name = "comboBoxDepertment";
+            // 
+            // button22
+            // 
+            resources.ApplyResources(this.button22, "button22");
+            this.button22.Name = "button22";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // tabPage2
             // 
@@ -655,5 +688,9 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox comboBoxDepertment;
+        public System.Windows.Forms.Button button7;
+        public System.Windows.Forms.Button button22;
     }
 }

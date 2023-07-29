@@ -125,6 +125,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Current.cs" />
     <Compile Include="Nomenclatura\Cartrige\AddDellCartrigeSubdivisionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +261,9 @@
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Reception.ru-RU.resx">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Reception.ru.resx">
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Reception.uk-UA.resx">
