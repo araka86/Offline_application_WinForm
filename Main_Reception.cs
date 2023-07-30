@@ -283,13 +283,14 @@ namespace CartrigeAltstar
             reception.Вес = Convert.ToDouble(receptioncfg.txtWeight.Text);
 
             db.Receptions.Add(reception);
+            db.Currents.Add(reception);
             db.SaveChanges();
 
 
 
+           
 
-
-          //  db.Currents.Add(reception);
+          
 
             MessageBox.Show(resourceManager.GetString("WriteSuccessCartigeIn"));
             dataGridView1.DataSource = null;

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar.Model
 {
-    class Subdivision
+  public  class Subdivision
     {
         [Key]
         public int Id { get; set; }

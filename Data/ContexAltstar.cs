@@ -18,6 +18,7 @@ namespace CartrigeAltstar.Model
         public DbSet<Reception> Receptions { get; set; } //Прием картриджей
         public DbSet<Dispatch> Dispatches { get; set; } //отправка картриджей
         public DbSet<Current> Currents { get; set; }
+        public DbSet<Article> Articles { get; set; }
 
 
 

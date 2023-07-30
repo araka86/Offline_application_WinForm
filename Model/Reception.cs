@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar
 {
-    class Reception //прием + сдача на сервис
+  public class Reception //прием + сдача на сервис
     {
         [Key]
         public int id { get; set; }

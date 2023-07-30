@@ -2,7 +2,7 @@
 
 namespace CartrigeAltstar.Model
 {
-    class Compatibility
+  public  class Compatibility
     {
         [Key]
         public int id { get; set; }

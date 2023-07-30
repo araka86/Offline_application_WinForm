@@ -125,6 +125,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Article.cs" />
     <Compile Include="Model\Current.cs" />
     <Compile Include="Nomenclatura\Cartrige\AddDellCartrigeSubdivisionForm.cs">
       <SubType>Form</SubType>
