@@ -32,7 +32,7 @@ namespace CartrigeAltstar.Model
 
         public static implicit operator Current(Reception v)
         {
-            return new Current(v.id, v.Дата, v.Картридж, v.Вес,v.Статус, v.Подразделения);
+            return new Current(v.id, v.Дата, v.Картридж, v.Вес, v.Статус, v.Подразделения);
         }
     }
 }

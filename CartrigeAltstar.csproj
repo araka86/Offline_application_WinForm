@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -85,22 +84,30 @@
       <HintPath>packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
@@ -112,6 +119,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -125,12 +133,19 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Article.cs" />
-    <Compile Include="Model\Current.cs" />
-    <Compile Include="Nomenclatura\Cartrige\AddDellCartrigeSubdivisionForm.cs">
+    <Compile Include="Dialogs\DialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\AddDellCartrigeSubdivisionForm.Designer.cs">
+    <Compile Include="Dialogs\DialogForm.designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ExelHelper.cs" />
+    <Compile Include="Model\Article.cs" />
+    <Compile Include="Model\Current.cs" />
+    <Compile Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.Designer.cs">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DispatchConfig.cs">
@@ -157,16 +172,16 @@
     <Compile Include="Nomenclatura\Subdivision\ListSubdivisionForm.Designer.cs">
       <DependentUpon>ListSubdivisionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\AddCartriges.cs">
+    <Compile Include="Nomenclatura\Cartriges\AddUpdateCartriges.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\AddCartriges.Designer.cs">
-      <DependentUpon>AddCartriges.cs</DependentUpon>
+    <Compile Include="Nomenclatura\Cartriges\AddUpdateCartriges.Designer.cs">
+      <DependentUpon>AddUpdateCartriges.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\ListCartrigeForm.cs">
+    <Compile Include="Nomenclatura\Cartriges\ListCartrigeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\ListCartrigeForm.Designer.cs">
+    <Compile Include="Nomenclatura\Cartriges\ListCartrigeForm.Designer.cs">
       <DependentUpon>ListCartrigeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\Printer\AddPrinter.cs">
@@ -181,16 +196,16 @@
     <Compile Include="Nomenclatura\Subdivision\AddSubdivision.Designer.cs">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\moving_the_cartridge.cs">
+    <Compile Include="Nomenclatura\Cartriges\moving_the_cartridge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\moving_the_cartridge.Designer.cs">
+    <Compile Include="Nomenclatura\Cartriges\moving_the_cartridge.Designer.cs">
       <DependentUpon>moving_the_cartridge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\CartrigeSubdivision.cs">
+    <Compile Include="Nomenclatura\Cartriges\CartrigeSubdivision.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\CartrigeSubdivision.Designer.cs">
+    <Compile Include="Nomenclatura\Cartriges\CartrigeSubdivision.Designer.cs">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\Printer\ListSettingPinterForm.cs">
@@ -227,10 +242,10 @@
     <Compile Include="ReceptionConfig.Designer.cs">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\UpdateMovingCartrige.cs">
+    <Compile Include="Nomenclatura\Cartriges\UpdateMovingCartrige.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Cartrige\UpdateMovingCartrige.Designer.cs">
+    <Compile Include="Nomenclatura\Cartriges\UpdateMovingCartrige.Designer.cs">
       <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
     </Compile>
     <Compile Include="Resources\langEN.Designer.cs">
@@ -255,6 +270,9 @@
     <Compile Include="О программе.Designer.cs">
       <DependentUpon>О программе.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dialogs\DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DispatchConfig.en.resx">
       <DependentUpon>DispatchConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,7 +288,7 @@
     <EmbeddedResource Include="Main_Reception.uk-UA.resx">
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\AddDellCartrigeSubdivisionForm.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchConfig.resx">
@@ -279,22 +297,13 @@
     <EmbeddedResource Include="Nomenclatura\AddI_Del_infoOrgTehnic.resx">
       <DependentUpon>AddI_Del_infoOrgTehnic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\AddCartriges.resx">
-      <DependentUpon>AddCartriges.cs</DependentUpon>
+    <EmbeddedResource Include="Nomenclatura\Cartriges\AddUpdateCartriges.resx">
+      <DependentUpon>AddUpdateCartriges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.en.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartriges\ListCartrigeForm.resx">
       <DependentUpon>ListCartrigeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.resx">
-      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.ru-RU.resx">
-      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\ListCartrigeForm.uk-UA.resx">
-      <DependentUpon>ListCartrigeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\moving_the_cartridge.en.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartriges\moving_the_cartridge.en.resx">
       <DependentUpon>moving_the_cartridge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\InfoOrgTechnic.en.resx">
@@ -306,22 +315,13 @@
     <EmbeddedResource Include="Nomenclatura\Printer\AddPrinter.resx">
       <DependentUpon>AddPrinter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.en.resx">
-      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.ru-RU.resx">
-      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.uk-UA.resx">
-      <DependentUpon>ListSettingPinterForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Subdivision\AddSubdivision.resx">
       <DependentUpon>AddSubdivision.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\moving_the_cartridge.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartriges\moving_the_cartridge.resx">
       <DependentUpon>moving_the_cartridge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\CartrigeSubdivision.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartriges\CartrigeSubdivision.resx">
       <DependentUpon>CartrigeSubdivision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Printer\ListSettingPinterForm.resx">
@@ -352,20 +352,23 @@
     <EmbeddedResource Include="ReceptionConfig.resx">
       <DependentUpon>ReceptionConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Cartrige\UpdateMovingCartrige.resx">
+    <EmbeddedResource Include="Nomenclatura\Cartriges\UpdateMovingCartrige.resx">
       <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\langEN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>langEN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\langRU.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>langRU.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\langUA.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>langUA.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="О программе.resx">
       <DependentUpon>О программе.cs</DependentUpon>
@@ -404,15 +407,15 @@
   <ItemGroup>
     <Content Include="1618581029516.ico" />
     <None Include="Resources\folder_icon-icons.com_52385.ico" />
+    <None Include="Resources\Exel.jpg" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\delete.png" />
     <Content Include="unnamed.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temp\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-  </Target>
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

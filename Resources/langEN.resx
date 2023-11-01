@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCartigeModal" xml:space="preserve">
+    <value>Add cartige</value>
+    <comment>Nomenclatura/Cartrige Add/Update (Title)</comment>
+  </data>
   <data name="AddNewCartrigeMsgBox" xml:space="preserve">
     <value>New cartridge added</value>
   </data>
@@ -126,14 +130,66 @@
   <data name="Article" xml:space="preserve">
     <value>Article</value>
   </data>
+  <data name="ArticleCartrige" xml:space="preserve">
+    <value>Article</value>
+    <comment>Model/Cartrige</comment>
+  </data>
+  <data name="btnAddCartrige" xml:space="preserve">
+    <value>Add</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="btnDellCartrige" xml:space="preserve">
+    <value>Del</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="btnExportExel" xml:space="preserve">
+    <value>Export</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="btnUpdateCartrige" xml:space="preserve">
+    <value>Update</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
   <data name="Cartrige" xml:space="preserve">
     <value>Cartrige</value>
+  </data>
+  <data name="CartrigeWasRemoved" xml:space="preserve">
+    <value>The cartridge has been removed</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="ChekFieldMessage" xml:space="preserve">
+    <value>Both fields must be filled in</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="ChekFieldMessageUpdate" xml:space="preserve">
+    <value>The cartridge has been updated</value>
+    <comment>Nomenclatura/Cartrige</comment>
   </data>
   <data name="Data" xml:space="preserve">
     <value>Data</value>
   </data>
   <data name="DelPrinterMsgBox" xml:space="preserve">
     <value>Printer removed</value>
+  </data>
+  <data name="lblArticle" xml:space="preserve">
+    <value>Article</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="lblDatePurchase" xml:space="preserve">
+    <value>DatePurchase</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="lblModel" xml:space="preserve">
+    <value>Cartrige Model</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="ListOfCartrige" xml:space="preserve">
+    <value>List Of Cartrige</value>
+    <comment>Nomenclatura/Cartrige(Tittle)</comment>
+  </data>
+  <data name="ModelCartrige" xml:space="preserve">
+    <value>Model</value>
+    <comment>Model/Cartrige</comment>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
@@ -147,11 +203,19 @@
   <data name="printSendingExel" xml:space="preserve">
     <value>Sending</value>
   </data>
+  <data name="purchase_date" xml:space="preserve">
+    <value>Date</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Subivision" xml:space="preserve">
     <value>Subivision</value>
+  </data>
+  <data name="UpdateCartigeModal" xml:space="preserve">
+    <value>Update catrige</value>
+    <comment>Nomenclatura/Cartrige</comment>
   </data>
   <data name="UpdatePrinterMsgBox" xml:space="preserve">
     <value>Printer updated</value>

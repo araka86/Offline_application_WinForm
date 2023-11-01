@@ -14,51 +14,29 @@ namespace CartrigeAltstar
 {
     public partial class ListSettingPinterForm : Form
     {
-        public string CultureDefine;
-        private string UkrainCulture;
-        private string RussianCulture;
-        private string EngCulture;
+ 
         public ResourceManager resourceManager;
-        public DateTime dateTime;
         ContexAltstarContext db;
 
         public ListSettingPinterForm()
         {
             InitializeComponent();
             db = new ContexAltstarContext();
-            db.Printers.Load();
-            UkrainCulture = "uk-UA";
-            RussianCulture = "ru-RU";
-            EngCulture = "en";
-
-            if (CultureDefine == UkrainCulture)
-            {
-                // Создаем новый объект resourceManager, извлекающий из сборки 
-                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langUA", Assembly.GetExecutingAssembly());
-            }
-            else if (CultureDefine == RussianCulture)
-            {
-                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langRU", Assembly.GetExecutingAssembly());
-            }
-            else
-            {
-                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langEN", Assembly.GetExecutingAssembly());
-            }
-
-
+   
 
         }
 
+     
         private void ListSettingPinterForm_Load(object sender, EventArgs e) => PrintPrinter();
-        
+        private void button1_Click(object sender, EventArgs e) => Close();
 
-        
+
 
         //------------------------Вивод Принтеров----------------------------
         public void PrintPrinter()
         {
 
-          
+            db.Printers.Load();
 
             var data = db.Printers.Local.ToBindingList();
             dataGridViewListPrinter.DataSource = data;
@@ -71,10 +49,8 @@ namespace CartrigeAltstar
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+    
+        
 
 
 
@@ -173,7 +149,7 @@ namespace CartrigeAltstar
                 update.txtArticle.Text = printerUpdate.Article;
 
 
-                s = printerUpdate.SubdivisioPK; //
+             //   s = printerUpdate.SubdivisioPK; //
 
 
 

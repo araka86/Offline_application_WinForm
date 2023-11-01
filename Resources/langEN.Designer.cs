@@ -61,6 +61,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add cartige.
+        /// </summary>
+        internal static string AddCartigeModal {
+            get {
+                return ResourceManager.GetString("AddCartigeModal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на New cartridge added.
         /// </summary>
         internal static string AddNewCartrigeMsgBox {
@@ -88,11 +97,83 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Article.
+        /// </summary>
+        internal static string ArticleCartrige {
+            get {
+                return ResourceManager.GetString("ArticleCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add.
+        /// </summary>
+        internal static string btnAddCartrige {
+            get {
+                return ResourceManager.GetString("btnAddCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Del.
+        /// </summary>
+        internal static string btnDellCartrige {
+            get {
+                return ResourceManager.GetString("btnDellCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Export.
+        /// </summary>
+        internal static string btnExportExel {
+            get {
+                return ResourceManager.GetString("btnExportExel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Update.
+        /// </summary>
+        internal static string btnUpdateCartrige {
+            get {
+                return ResourceManager.GetString("btnUpdateCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Cartrige.
         /// </summary>
         internal static string Cartrige {
             get {
                 return ResourceManager.GetString("Cartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The cartridge has been removed.
+        /// </summary>
+        internal static string CartrigeWasRemoved {
+            get {
+                return ResourceManager.GetString("CartrigeWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Both fields must be filled in.
+        /// </summary>
+        internal static string ChekFieldMessage {
+            get {
+                return ResourceManager.GetString("ChekFieldMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The cartridge has been updated.
+        /// </summary>
+        internal static string ChekFieldMessageUpdate {
+            get {
+                return ResourceManager.GetString("ChekFieldMessageUpdate", resourceCulture);
             }
         }
         
@@ -111,6 +192,51 @@ namespace CartrigeAltstar.Resources {
         internal static string DelPrinterMsgBox {
             get {
                 return ResourceManager.GetString("DelPrinterMsgBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Article.
+        /// </summary>
+        internal static string lblArticle {
+            get {
+                return ResourceManager.GetString("lblArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DatePurchase.
+        /// </summary>
+        internal static string lblDatePurchase {
+            get {
+                return ResourceManager.GetString("lblDatePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cartrige Model.
+        /// </summary>
+        internal static string lblModel {
+            get {
+                return ResourceManager.GetString("lblModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на List Of Cartrige.
+        /// </summary>
+        internal static string ListOfCartrige {
+            get {
+                return ResourceManager.GetString("ListOfCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Model.
+        /// </summary>
+        internal static string ModelCartrige {
+            get {
+                return ResourceManager.GetString("ModelCartrige", resourceCulture);
             }
         }
         
@@ -151,6 +277,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Date.
+        /// </summary>
+        internal static string purchase_date {
+            get {
+                return ResourceManager.GetString("purchase_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Status.
         /// </summary>
         internal static string Status {
@@ -165,6 +300,15 @@ namespace CartrigeAltstar.Resources {
         internal static string Subivision {
             get {
                 return ResourceManager.GetString("Subivision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Update catrige.
+        /// </summary>
+        internal static string UpdateCartigeModal {
+            get {
+                return ResourceManager.GetString("UpdateCartigeModal", resourceCulture);
             }
         }
         

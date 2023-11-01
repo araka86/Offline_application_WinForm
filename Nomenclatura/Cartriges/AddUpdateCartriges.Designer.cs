@@ -1,7 +1,7 @@
 ﻿
-namespace CartrigeAltstar.Nomenclatura.Cartrige
+namespace CartrigeAltstar.Nomenclatura.Cartriges
 {
-    partial class AddCartriges
+    partial class AddUpdateCartriges
     {
         /// <summary>
         /// Required designer variable.
@@ -33,12 +33,12 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDatetimeCartrige = new System.Windows.Forms.DateTimePicker();
-            this.txtArticleCartrige = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtModelCartrige = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDatePurchase = new System.Windows.Forms.Label();
+            this.dtpDatetimeCartrige = new System.Windows.Forms.DateTimePicker();
+            this.tbArticleCartrige = new System.Windows.Forms.TextBox();
+            this.lblModel = new System.Windows.Forms.Label();
+            this.tbModelCartrige = new System.Windows.Forms.TextBox();
+            this.lblArticle = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,12 +75,12 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtDatetimeCartrige);
-            this.groupBox1.Controls.Add(this.txtArticleCartrige);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtModelCartrige);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblDatePurchase);
+            this.groupBox1.Controls.Add(this.dtpDatetimeCartrige);
+            this.groupBox1.Controls.Add(this.tbArticleCartrige);
+            this.groupBox1.Controls.Add(this.lblModel);
+            this.groupBox1.Controls.Add(this.tbModelCartrige);
+            this.groupBox1.Controls.Add(this.lblArticle);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -88,63 +88,64 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // lblDatePurchase
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Дата покупки картриджа";
+            this.lblDatePurchase.AutoSize = true;
+            this.lblDatePurchase.Location = new System.Drawing.Point(18, 31);
+            this.lblDatePurchase.Name = "lblDatePurchase";
+            this.lblDatePurchase.Size = new System.Drawing.Size(135, 13);
+            this.lblDatePurchase.TabIndex = 2;
+            this.lblDatePurchase.Text = "Дата покупки картриджа";
             // 
-            // txtDatetimeCartrige
+            // dtpDatetimeCartrige
             // 
-            this.txtDatetimeCartrige.Location = new System.Drawing.Point(200, 25);
-            this.txtDatetimeCartrige.Name = "txtDatetimeCartrige";
-            this.txtDatetimeCartrige.Size = new System.Drawing.Size(215, 20);
-            this.txtDatetimeCartrige.TabIndex = 3;
+            this.dtpDatetimeCartrige.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDatetimeCartrige.Location = new System.Drawing.Point(200, 31);
+            this.dtpDatetimeCartrige.Name = "dtpDatetimeCartrige";
+            this.dtpDatetimeCartrige.Size = new System.Drawing.Size(215, 20);
+            this.dtpDatetimeCartrige.TabIndex = 3;
             // 
-            // txtArticleCartrige
+            // tbArticleCartrige
             // 
-            this.txtArticleCartrige.Location = new System.Drawing.Point(200, 124);
-            this.txtArticleCartrige.Name = "txtArticleCartrige";
-            this.txtArticleCartrige.Size = new System.Drawing.Size(134, 20);
-            this.txtArticleCartrige.TabIndex = 4;
+            this.tbArticleCartrige.Location = new System.Drawing.Point(200, 124);
+            this.tbArticleCartrige.Name = "tbArticleCartrige";
+            this.tbArticleCartrige.Size = new System.Drawing.Size(215, 20);
+            this.tbArticleCartrige.TabIndex = 4;
             // 
-            // label2
+            // lblModel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Модель картриджа";
+            this.lblModel.AutoSize = true;
+            this.lblModel.Location = new System.Drawing.Point(18, 77);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(104, 13);
+            this.lblModel.TabIndex = 5;
+            this.lblModel.Text = "Модель картриджа";
             // 
-            // txtModelCartrige
+            // tbModelCartrige
             // 
-            this.txtModelCartrige.Location = new System.Drawing.Point(200, 77);
-            this.txtModelCartrige.Name = "txtModelCartrige";
-            this.txtModelCartrige.Size = new System.Drawing.Size(134, 20);
-            this.txtModelCartrige.TabIndex = 8;
+            this.tbModelCartrige.Location = new System.Drawing.Point(200, 77);
+            this.tbModelCartrige.Name = "tbModelCartrige";
+            this.tbModelCartrige.Size = new System.Drawing.Size(215, 20);
+            this.tbModelCartrige.TabIndex = 8;
             // 
-            // label3
+            // lblArticle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Артикул";
+            this.lblArticle.AutoSize = true;
+            this.lblArticle.Location = new System.Drawing.Point(18, 131);
+            this.lblArticle.Name = "lblArticle";
+            this.lblArticle.Size = new System.Drawing.Size(49, 13);
+            this.lblArticle.TabIndex = 6;
+            this.lblArticle.Text = "Артикль";
             // 
-            // AddCartriges
+            // AddUpdateCartriges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 197);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddCartriges";
-            this.Text = "AddCartrige";
+            this.Name = "AddUpdateCartriges";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCartriges_FormClosing);
             this.Load += new System.EventHandler(this.AddCartriges_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -159,11 +160,11 @@ namespace CartrigeAltstar.Nomenclatura.Cartrige
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.DateTimePicker txtDatetimeCartrige;
-        public System.Windows.Forms.TextBox txtArticleCartrige;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox txtModelCartrige;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDatePurchase;
+        public System.Windows.Forms.DateTimePicker dtpDatetimeCartrige;
+        public System.Windows.Forms.TextBox tbArticleCartrige;
+        private System.Windows.Forms.Label lblModel;
+        public System.Windows.Forms.TextBox tbModelCartrige;
+        private System.Windows.Forms.Label lblArticle;
     }
 }

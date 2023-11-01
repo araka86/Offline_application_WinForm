@@ -117,59 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAddCartrige.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 23</value>
-  </data>
-  <data name="btnAddCartrige.Text" xml:space="preserve">
-    <value>Додати</value>
-  </data>
-  <data name="btnDellCartrige.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 3</value>
-  </data>
-  <data name="btnDellCartrige.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 23</value>
-  </data>
-  <data name="btnDellCartrige.Text" xml:space="preserve">
-    <value>Видалити</value>
-  </data>
-  <data name="btnUpdateCartrige.Location" type="System.Drawing.Point, System.Drawing">
-    <value>285, 3</value>
-  </data>
-  <data name="btnUpdateCartrige.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 23</value>
-  </data>
-  <data name="btnUpdateCartrige.Text" xml:space="preserve">
-    <value>Оновити</value>
-  </data>
-  <data name="btnExportCartroge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 3</value>
-  </data>
-  <data name="btnExportCartroge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 23</value>
-  </data>
-  <data name="btnClosed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 3</value>
-  </data>
-  <data name="btnClosed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 23</value>
-  </data>
-  <data name="btnClosed.Text" xml:space="preserve">
-    <value>Закрити</value>
-  </data>
-  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>705, 30</value>
-  </data>
-  <data name="dataGridViewListCartrige.Size" type="System.Drawing.Size, System.Drawing">
-    <value>699, 411</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>705, 430</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Список картриджів</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>705, 430</value>
-  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

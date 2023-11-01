@@ -14,6 +14,7 @@ using System.Resources;
 using System.Globalization;
 //Простір, використовуваний для роботи з файлами ресурсів .resx,
 using System.Reflection;
+using CartrigeAltstar.Resources;
 
 namespace CartrigeAltstar
 {
@@ -22,11 +23,7 @@ namespace CartrigeAltstar
         ContexAltstarContext db;
         //Переменная выбора, необходимая для определения культуры 
         public string CultureDefine;
-        //Переменная для хранения английской культуры
-        private string UkrainCulture;
-        //Переменная для русской культуры.
-        private string RussianCulture;
-        private string EngCulture;
+    
         //Создаем экземпляр resourceManager класса ResourceManager
         public ResourceManager resourceManager;
         public DateTime dateTime;
@@ -34,30 +31,42 @@ namespace CartrigeAltstar
 
 
 
-        public Main_Reception(string FormCulture = "en")
+        private string currentlang;
+
+        public string Currentlang
         {
+            get { return currentlang; }
+            set { currentlang = value; }
+        }
 
-            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
-            InitializeComponent();
-            CultureDefine = FormCulture;
-            UkrainCulture = "uk-UA";
-            RussianCulture = "ru-RU";
-            EngCulture = "en";
 
-            if (CultureDefine == UkrainCulture)
+
+        public Main_Reception()
+        {
+         
+
+
+  
+
+           
+            CultureDefine = CultureInfo.CurrentCulture.Name;
+    
+
+            if (CultureDefine == "uk-UA")
             {
                 // Создаем новый объект resourceManager, извлекающий из сборки 
                 resourceManager = new ResourceManager("CartrigeAltstar.Resources.langUA", Assembly.GetExecutingAssembly());
             }
-            else if (CultureDefine == RussianCulture)
-            {
-                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langRU", Assembly.GetExecutingAssembly());
-            }
-            else
+            else if (CultureDefine == "en")
             {
                 resourceManager = new ResourceManager("CartrigeAltstar.Resources.langEN", Assembly.GetExecutingAssembly());
             }
+            else
+            {
+                resourceManager = new ResourceManager("CartrigeAltstar.Resources.langRU", Assembly.GetExecutingAssembly());
+            }
 
+            InitializeComponent();
             db = new ContexAltstarContext();
             db.Subdivisions.Load();
 
@@ -619,8 +628,7 @@ namespace CartrigeAltstar
 
         private void btnCartrigeShow_Click(object sender, EventArgs e)
         {
-
-            ListCartrigeForm listCartrigeForm = new ListCartrigeForm();
+            ListCartrigeForm listCartrigeForm = new ListCartrigeForm(resourceManager);
             listCartrigeForm.Show();
         }
 
@@ -991,27 +999,28 @@ namespace CartrigeAltstar
         ///UA
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            CultureDefine = UkrainCulture;
+
+
             // Устанавливаем выбранную культуру в качестве культуры  пользовательского интерфейса 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureDefine, true);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk-UA", true);
             // Устанавливаем в качестве текущей культуры выбранную
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(CultureDefine, true);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("uk-UA", true);
 
             this.Hide();
-            new Main_Reception(CultureDefine).Show();
+            new Main_Reception().Show();
         }
 
         //RU
         private void toolStripMenuItem15_Click(object sender, EventArgs e)
         {
-            CultureDefine = RussianCulture;
+        
             // Устанавливаем выбранную культуру в качестве культуры  пользовательского интерфейса 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureDefine, true);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-UA", true);
             // Устанавливаем в качестве текущей культуры выбранную
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(CultureDefine, true);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-UA".ToString(), true);
 
             this.Hide();
-            new Main_Reception(CultureDefine).Show();
+            new Main_Reception().Show();
 
 
 
@@ -1019,13 +1028,13 @@ namespace CartrigeAltstar
         //EN
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
-            CultureDefine = EngCulture;
+           
             // Устанавливаем выбранную культуру в качестве культуры  пользовательского интерфейса 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureDefine, true);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en", true);
             // Устанавливаем в качестве текущей культуры выбранную
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(CultureDefine, true);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en", true);
 
-            Main_Reception main_Reception = new Main_Reception(CultureDefine);
+            Main_Reception main_Reception = new Main_Reception();
 
 
             this.Hide();

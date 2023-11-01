@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Reflection.Emit;
+
 namespace CartrigeAltstar.Model
 {
     class ContexAltstarContext : DbContext
@@ -22,14 +24,24 @@ namespace CartrigeAltstar.Model
 
 
 
-        //initialization 2
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Compatibility>()
+            //    .HasRequired(c => c.CartrigePK)
+            //    .WithMany()
+            //    .HasForeignKey(c => c.CartrigeId)
+            //    .WillCascadeOnDelete(true);
+
+            //modelBuilder.Entity<Printer>()
+            //    .HasOptional(p => p.CartrigePk)
+            //    .WithMany()
+            //    .HasForeignKey(p => p.CartrigeId)
+            //    .WillCascadeOnDelete(true);
+        }
 
 
-        //      protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //      {
-        //          base.OnModelCreating(modelBuilder);
-        //      }
-        //  
+
+
 
 
     }

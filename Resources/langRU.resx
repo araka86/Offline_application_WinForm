@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCartigeModal" xml:space="preserve">
+    <value>Добавить картридж</value>
+    <comment>Nomenclatura/Cartrige Add/Update (Title)</comment>
+  </data>
   <data name="AddNewCartrigeMsgBox" xml:space="preserve">
     <value>Новый картридж добавлен</value>
   </data>
@@ -126,14 +130,66 @@
   <data name="Article" xml:space="preserve">
     <value>Артикул</value>
   </data>
+  <data name="ArticleCartrige" xml:space="preserve">
+    <value>Артикль</value>
+    <comment>Model/Cartrige</comment>
+  </data>
+  <data name="btnAddCartrige" xml:space="preserve">
+    <value>Добавить</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="btnDellCartrige" xml:space="preserve">
+    <value>Удалить</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="btnExportExel" xml:space="preserve">
+    <value>Експортировать</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="btnUpdateCartrige" xml:space="preserve">
+    <value>Обновить</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
   <data name="Cartrige" xml:space="preserve">
     <value>Картридж</value>
+  </data>
+  <data name="CartrigeWasRemoved" xml:space="preserve">
+    <value>Картридж был удален</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="ChekFieldMessage" xml:space="preserve">
+    <value>Оба поля должны быть заполненными</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="ChekFieldMessageUpdate" xml:space="preserve">
+    <value>Картридж был обновлен</value>
+    <comment>Nomenclatura/Cartrige</comment>
   </data>
   <data name="Data" xml:space="preserve">
     <value>Дата</value>
   </data>
   <data name="DelPrinterMsgBox" xml:space="preserve">
     <value>Принтер удален</value>
+  </data>
+  <data name="lblArticle" xml:space="preserve">
+    <value>Артикль</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="lblDatePurchase" xml:space="preserve">
+    <value>Дата покупки</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="lblModel" xml:space="preserve">
+    <value>Модель картриджа</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="ListOfCartrige" xml:space="preserve">
+    <value>Список картриждей</value>
+    <comment>Nomenclatura/Cartrige(Tittle)</comment>
+  </data>
+  <data name="ModelCartrige" xml:space="preserve">
+    <value>Модель</value>
+    <comment>Model/Cartrige</comment>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Заметки</value>
@@ -147,11 +203,19 @@
   <data name="printSendingExel" xml:space="preserve">
     <value>Отправка</value>
   </data>
+  <data name="purchase_date" xml:space="preserve">
+    <value>Дата</value>
+    <comment>Nomenclatura/Cartrige</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
   </data>
   <data name="Subivision" xml:space="preserve">
     <value>Подразделение</value>
+  </data>
+  <data name="UpdateCartigeModal" xml:space="preserve">
+    <value>Обновить картридж</value>
+    <comment>Nomenclatura/Cartrige</comment>
   </data>
   <data name="UpdatePrinterMsgBox" xml:space="preserve">
     <value>Принтер обновлен</value>

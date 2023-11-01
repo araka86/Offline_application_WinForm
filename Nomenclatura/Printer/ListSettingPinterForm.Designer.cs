@@ -30,104 +30,135 @@ namespace CartrigeAltstar
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListSettingPinterForm));
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.dataGridViewListPrinter = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button18 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolStripPrinter = new System.Windows.Forms.ToolStrip();
+            this.btnAddPrinter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnUpdatePrinter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDelPrinter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnExportExel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnClosed = new System.Windows.Forms.ToolStripButton();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListPrinter)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.toolStripPrinter.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button8
-            // 
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button7
-            // 
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Name = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridViewListPrinter
             // 
             resources.ApplyResources(this.dataGridViewListPrinter, "dataGridViewListPrinter");
-            this.dataGridViewListPrinter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewListPrinter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListPrinter.MultiSelect = false;
             this.dataGridViewListPrinter.Name = "dataGridViewListPrinter";
+            this.dataGridViewListPrinter.ReadOnly = true;
             this.dataGridViewListPrinter.RowHeadersVisible = false;
             this.dataGridViewListPrinter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
-            // button1
+            // toolStripPrinter
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.toolStripPrinter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddPrinter,
+            this.toolStripSeparator3,
+            this.btnUpdatePrinter,
+            this.toolStripSeparator2,
+            this.btnDelPrinter,
+            this.toolStripSeparator4,
+            this.btnExportExel,
+            this.toolStripSeparator1,
+            this.btnClosed});
+            resources.ApplyResources(this.toolStripPrinter, "toolStripPrinter");
+            this.toolStripPrinter.Name = "toolStripPrinter";
+            this.toolStripPrinter.Stretch = true;
             // 
-            // flowLayoutPanel1
+            // btnAddPrinter
             // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.button6);
-            this.flowLayoutPanel1.Controls.Add(this.button7);
-            this.flowLayoutPanel1.Controls.Add(this.button8);
-            this.flowLayoutPanel1.Controls.Add(this.button18);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.btnAddPrinter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddPrinter.Image = global::CartrigeAltstar.Properties.Resources.Add;
+            resources.ApplyResources(this.btnAddPrinter, "btnAddPrinter");
+            this.btnAddPrinter.Name = "btnAddPrinter";
             // 
-            // button18
+            // toolStripSeparator3
             // 
-            resources.ApplyResources(this.button18, "button18");
-            this.button18.Name = "button18";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
-            // groupBox1
+            // btnUpdatePrinter
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.dataGridViewListPrinter);
-            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this.btnUpdatePrinter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnUpdatePrinter.Image = global::CartrigeAltstar.Properties.Resources.update;
+            resources.ApplyResources(this.btnUpdatePrinter, "btnUpdatePrinter");
+            this.btnUpdatePrinter.Name = "btnUpdatePrinter";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // btnDelPrinter
+            // 
+            this.btnDelPrinter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDelPrinter.Image = global::CartrigeAltstar.Properties.Resources.delete;
+            resources.ApplyResources(this.btnDelPrinter, "btnDelPrinter");
+            this.btnDelPrinter.Name = "btnDelPrinter";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // btnExportExel
+            // 
+            this.btnExportExel.Image = global::CartrigeAltstar.Properties.Resources.Exel;
+            resources.ApplyResources(this.btnExportExel, "btnExportExel");
+            this.btnExportExel.Name = "btnExportExel";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // btnClosed
+            // 
+            this.btnClosed.Image = global::CartrigeAltstar.Properties.Resources.Close;
+            resources.ApplyResources(this.btnClosed, "btnClosed");
+            this.btnClosed.Name = "btnClosed";
+            // 
+            // splitter1
+            // 
+            resources.ApplyResources(this.splitter1, "splitter1");
+            this.splitter1.Name = "splitter1";
+            this.splitter1.TabStop = false;
             // 
             // ListSettingPinterForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.dataGridViewListPrinter);
+            this.Controls.Add(this.toolStripPrinter);
             this.Name = "ListSettingPinterForm";
             this.Load += new System.EventHandler(this.ListSettingPinterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListPrinter)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.toolStripPrinter.ResumeLayout(false);
+            this.toolStripPrinter.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
         public System.Windows.Forms.DataGridView dataGridViewListPrinter;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        public System.Windows.Forms.Button button18;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStrip toolStripPrinter;
+        private System.Windows.Forms.ToolStripButton btnAddPrinter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton btnUpdatePrinter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton btnDelPrinter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton btnExportExel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton btnClosed;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }

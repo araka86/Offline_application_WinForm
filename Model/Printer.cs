@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CartrigeAltstar.Model
 {
@@ -21,9 +22,10 @@ namespace CartrigeAltstar.Model
         //    public int? Subdivisionid { get; set; } //внешний ключ
 
 
-        public int? SubdivisionId { get; set; } //Foreign Key
-        public int? CartrigeId { get; set; }   //Foreign Key
+        public int? SubdivisionId { get; set; } //Foreign Key    
         public virtual Subdivision SubdivisioPK { get; set; } //ссилка на подразделения + внешний ключ SubdivisioPK_Id
+
+        public int? CartrigeId { get; set; }   //Foreign Key
         public virtual Cartrige CartrigePk { get; set; }     //ссилка на картридж + внешний ключ CartrigePk_Id
     }
 
