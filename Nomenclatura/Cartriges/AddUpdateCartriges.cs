@@ -95,9 +95,6 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
 
         private bool UpdateData() 
         {
-
-
-            DateTime dddd = dtpDatetimeCartrige.Value;
             try
             {
                 if (!string.IsNullOrEmpty(tbArticleCartrige.Text) && !string.IsNullOrEmpty(tbArticleCartrige.Text))

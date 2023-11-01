@@ -91,7 +91,7 @@ namespace CartrigeAltstar
             db = new ContexAltstarContext();
 
             var ListDivision = from ls in db.Subdivisions
-                               select ls.division;
+                               select ls.Department;
             return ListDivision.ToList();
 
         }
@@ -166,7 +166,7 @@ namespace CartrigeAltstar
             comboBoxFiltrCartrige.DataSource = ForCartrigeArticleComboboxCUT().ToList();
             comboBoxFiltrDispath.DataSource = ForCartrigeArticleComboboxCUT().ToList();
 
-            comboBoxDepertment.DataSource =  db.Subdivisions.Select(x=>x.division).ToArray();
+            comboBoxDepertment.DataSource =  db.Subdivisions.Select(x=>x.Department).ToArray();
         }
 
 
@@ -255,7 +255,7 @@ namespace CartrigeAltstar
                                select lc.ModelCartrige;
 
             var ListDivision = from ls in db.Subdivisions
-                               select ls.division;
+                               select ls.Department;
 
             receptioncfg.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
             receptioncfg.comboBoxDivision.DataSource = ListDivision.ToList();
@@ -461,7 +461,7 @@ namespace CartrigeAltstar
                          c1.id,
                          Модель = c1.CartrigePK.ModelCartrige,
                          Артикул = c1.CartrigePK.ArticleCartrige,
-                         Подразделение = c1.SubdivisionPK.division
+                         Подразделение = c1.SubdivisionPK.Department
 
                      };
 
@@ -620,7 +620,7 @@ namespace CartrigeAltstar
 
         private void btnPrinterShow_Click(object sender, EventArgs e)
         {
-            ListSettingPinterForm listSettingPinterForm = new ListSettingPinterForm();
+            ListSettingPinterForm listSettingPinterForm = new ListSettingPinterForm(resourceManager);
 
             listSettingPinterForm.Show();
 
@@ -644,7 +644,7 @@ namespace CartrigeAltstar
 
         private void btnDivisionShow_Click(object sender, EventArgs e)
         {
-            ListSubdivisionForm listSubdivisionForm = new ListSubdivisionForm();
+            ListSubdivisionForm listSubdivisionForm = new ListSubdivisionForm(resourceManager);
             listSubdivisionForm.Show();
         }
 
@@ -661,7 +661,7 @@ namespace CartrigeAltstar
             DispatchConfig dispatchConfigForm = new DispatchConfig();
             dispatchConfigForm.comboBoxCartrige.DataSource = ForCartrigeArticleComboboxFull().ToList();
             var ListDivision = from ls in db.Subdivisions
-                               select ls.division;
+                               select ls.Department;
 
             //  dispatchConfigForm.comboBoxCartrige.DataSource = ListCartrige.ToList();
             dispatchConfigForm.comboBoxDivision.DataSource = ListDivision.ToList();
@@ -974,7 +974,7 @@ namespace CartrigeAltstar
                          c1.id,
                          Модель = c1.CartrigePK.ModelCartrige,
                          Артикул = c1.CartrigePK.ArticleCartrige,
-                         Подразделение = c1.SubdivisionPK.division
+                         Подразделение = c1.SubdivisionPK.Department
 
                      };
 

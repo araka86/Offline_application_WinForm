@@ -121,11 +121,29 @@
     <value>Add cartige</value>
     <comment>Nomenclatura/Cartrige Add/Update (Title)</comment>
   </data>
+  <data name="AddDepartmentModal" xml:space="preserve">
+    <value>Add Department</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
+  </data>
   <data name="AddNewCartrigeMsgBox" xml:space="preserve">
     <value>New cartridge added</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="AddNewDepartmenMsgBox" xml:space="preserve">
+    <value>The new department had been added</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
   </data>
   <data name="AddNewPrinterMsgBox" xml:space="preserve">
     <value>New printer added</value>
+    <comment>Nomenclatura/Printer Add/Update</comment>
+  </data>
+  <data name="AddPrinterModal" xml:space="preserve">
+    <value>Add Printer</value>
+    <comment>Nomenclatura/Printer Add/Update</comment>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+    <comment>Nomenclatura/Department</comment>
   </data>
   <data name="Article" xml:space="preserve">
     <value>Article</value>
@@ -165,11 +183,27 @@
     <value>The cartridge has been updated</value>
     <comment>Nomenclatura/Cartrige</comment>
   </data>
+  <data name="ChekFieldMessageUpdateDepartment" xml:space="preserve">
+    <value>The new subdivision has been updated</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Data</value>
   </data>
   <data name="DelPrinterMsgBox" xml:space="preserve">
     <value>Printer removed</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+    <comment>Nomenclatura/Department</comment>
+  </data>
+  <data name="DepartmentWasRemoved" xml:space="preserve">
+    <value>The new subdivision has been deleted</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
+  </data>
+  <data name="lblAddressDepartment" xml:space="preserve">
+    <value>Address of department</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
   </data>
   <data name="lblArticle" xml:space="preserve">
     <value>Article</value>
@@ -183,13 +217,36 @@
     <value>Cartrige Model</value>
     <comment>Nomenclatura/Cartrige Add/Update</comment>
   </data>
+  <data name="lblNameDepartment" xml:space="preserve">
+    <value>Name of Department</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
+  </data>
   <data name="ListOfCartrige" xml:space="preserve">
     <value>List Of Cartrige</value>
     <comment>Nomenclatura/Cartrige(Tittle)</comment>
   </data>
+  <data name="ListOfDepartment" xml:space="preserve">
+    <value>List of department</value>
+    <comment>Nomenclatura/Department(Tittle)</comment>
+  </data>
+  <data name="ListOfPrinrter" xml:space="preserve">
+    <value>List of Prinrters</value>
+    <comment>Nomenclatura/Printer(Title)</comment>
+  </data>
+  <data name="MessageUpdatePrinter" xml:space="preserve">
+    <value>The printer has been updated</value>
+    <comment>Nomenclatura/Printer Add/Update</comment>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
   <data name="ModelCartrige" xml:space="preserve">
     <value>Model</value>
     <comment>Model/Cartrige</comment>
+  </data>
+  <data name="ModelPrinter" xml:space="preserve">
+    <value>Printer model</value>
+    <comment>Nomenclatura/Printer</comment>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
@@ -216,6 +273,14 @@
   <data name="UpdateCartigeModal" xml:space="preserve">
     <value>Update catrige</value>
     <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="UpdateDepartmentModal" xml:space="preserve">
+    <value>Update Department</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
+  </data>
+  <data name="UpdatePrinterModal" xml:space="preserve">
+    <value>Update printer</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
   <data name="UpdatePrinterMsgBox" xml:space="preserve">
     <value>Printer updated</value>

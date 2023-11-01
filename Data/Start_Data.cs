@@ -15,32 +15,32 @@ namespace CartrigeAltstar.Model
             Subdivision sb1 = new Subdivision
             {
 
-                division = " Сто Бориспольская",
-                address_part = "Киев, ул. Бориспольсякая 7"
+                Department = " Сто Бориспольская",
+                Address = "Киев, ул. Бориспольсякая 7"
 
 
             };
             Subdivision sb2 = new Subdivision
             {
 
-                division = "СТО Киев Академгородок",
-                address_part = "Киев, ул. Степанченко, 5-4"
+                Department = "СТО Киев Академгородок",
+                Address = "Киев, ул. Степанченко, 5-4"
 
 
             };
             Subdivision sb3 = new Subdivision
             {
 
-                division = "СТО Киев Окружная",
-                address_part = "Киев, ул. Большая Окружная, 4Г"
+                Department = "СТО Киев Окружная",
+                Address = "Киев, ул. Большая Окружная, 4Г"
 
 
             };
             Subdivision sb4 = new Subdivision
             {
 
-                division = "СТО Киев Выдубичи",
-                address_part = "Киев, ул. Будиндустрии, 6",
+                Department = "СТО Киев Выдубичи",
+                Address = "Киев, ул. Будиндустрии, 6",
 
 
 
@@ -48,104 +48,104 @@ namespace CartrigeAltstar.Model
             Subdivision sb5 = new Subdivision
             {
 
-                division = "СТО Киев Жуляны Авторынок",
-                address_part = "Киев, ул. Садовая 70А/110"
+                Department = "СТО Киев Жуляны Авторынок",
+                Address = "Киев, ул. Садовая 70А/110"
 
 
             };
             Subdivision sb6 = new Subdivision
             {
 
-                division = "СТО Киев Голосеево",
-                address_part = "Киев ул. Голосеевская, 9"
+                Department = "СТО Киев Голосеево",
+                Address = "Киев ул. Голосеевская, 9"
 
 
             };
             Subdivision sb7 = new Subdivision
             {
 
-                division = "СТО Киев Подол",
-                address_part = "Киев ул. Новоконстантиновская 1В (Бокс 194, 195)"
+                Department = "СТО Киев Подол",
+                Address = "Киев ул. Новоконстантиновская 1В (Бокс 194, 195)"
 
 
             };
             Subdivision sb8 = new Subdivision
             {
 
-                division = "СТО Вишневое Центр",
-                address_part = "г. Вишневое, ул. Киевская, 1"
+                Department = "СТО Вишневое Центр",
+                Address = "г. Вишневое, ул. Киевская, 1"
 
 
             };
             Subdivision sb9 = new Subdivision
             {
 
-                division = "СТО Бровары Центр",
-                address_part = "Бровары, ул. Киевская, 227/1"
+                Department = "СТО Бровары Центр",
+                Address = "Бровары, ул. Киевская, 227/1"
 
 
             };
             Subdivision sb10 = new Subdivision
             {
 
-                division = "СТО Бровары Окружная",
-                address_part = "Бровары ул.Броварської сотні, 43 (ул. Чкалова)"
+                Department = "СТО Бровары Окружная",
+                Address = "Бровары ул.Броварської сотні, 43 (ул. Чкалова)"
 
 
             };
             Subdivision sb11 = new Subdivision
             {
 
-                division = "Мастерская АЛЬТ-СТАР «Тиса» Окружная",
-                address_part = "Киев ул. Большая Кольцевая, 4Б"
+                Department = "Мастерская АЛЬТ-СТАР «Тиса» Окружная",
+                Address = "Киев ул. Большая Кольцевая, 4Б"
 
 
             };
             Subdivision sb12 = new Subdivision
             {
 
-                division = "Мастерская Киев «Жуляны» Авторынок",
-                address_part = "Киев ул.Садовая, 70-А/110, п.176"
+                Department = "Мастерская Киев «Жуляны» Авторынок",
+                Address = "Киев ул.Садовая, 70-А/110, п.176"
 
 
             };
             Subdivision sb13 = new Subdivision
             {
 
-                division = "Мастерская Киев «Перова» Авторынок",
-                address_part = "Киев ул.Перова, 19, павильон 6-А"
+                Department = "Мастерская Киев «Перова» Авторынок",
+                Address = "Киев ул.Перова, 19, павильон 6-А"
 
 
             };
             Subdivision sb14 = new Subdivision
             {
 
-                division = "Мастерская Альт Стар – Киев Пуховская",
-                address_part = "Киев, ул. Пуховская 2а"
+                Department = "Мастерская Альт Стар – Киев Пуховская",
+                Address = "Киев, ул. Пуховская 2а"
 
 
             };
             Subdivision sb15 = new Subdivision
             {
 
-                division = "СТО Киев «Вереснева»",
-                address_part = "Киев ул. Вереснева 24"
+                Department = "СТО Киев «Вереснева»",
+                Address = "Киев ул. Вереснева 24"
 
 
             };
             Subdivision sb16 = new Subdivision
             {
 
-                division = "Бухгалтерия 275каб",
-                address_part = "Киев ул. Бориспольская 7, 2ет"
+                Department = "Бухгалтерия 275каб",
+                Address = "Киев ул. Бориспольская 7, 2ет"
 
 
             };
             Subdivision sb17 = new Subdivision
             {
 
-                division = "279",
-                address_part = "Киев ул. Бориспольская 7, 2ет"
+                Department = "279",
+                Address = "Киев ул. Бориспольская 7, 2ет"
 
 
             };

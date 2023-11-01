@@ -1,10 +1,13 @@
-﻿using CartrigeAltstar.Model;
+﻿using CartrigeAltstar.Helpers;
+using CartrigeAltstar.Model;
+using CartrigeAltstar.Nomenclatura.Cartriges;
 using System;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -15,74 +18,176 @@ namespace CartrigeAltstar
     public partial class ListSubdivisionForm : Form
     {
 
-        ContexAltstarContext db;
-
-        public ListSubdivisionForm()
+        protected override void OnShown(EventArgs e)
         {
+            base.OnShown(e);
+            PrintDepartment();
+        }
+
+
+        ContexAltstarContext db;
+        public ResourceManager resourceManager;
+
+
+        public ListSubdivisionForm(ResourceManager _resourceManager)
+        {
+            this.resourceManager = _resourceManager;
             InitializeComponent();
             db = new ContexAltstarContext();
             db.Subdivisions.Load();
+            this.Text = resourceManager.GetString("ListOfDepartment");
         }
 
 
-        public void ShowSubdivision()
+
+
+
+        public void PrintDepartment()
         {
-            var sub = from r in db.Subdivisions
-                      select new
-                      {
-                          iD = r.Id,
-                          Подразделения = r.division,
-                          Адресс = r.address_part
-                      };
-            dataGridViewListSubdivision.DataSource = sub.ToList();
-            dataGridViewListSubdivision.Columns[0].Width = 45;
+            var dt = DateTime.Now;
+            try
+            {
+                db.Subdivisions.Load();
+                var data = db.Subdivisions.Local.ToBindingList();
+
+                dataGridViewListSubdivision.DataSource = data;
+
+                dataGridViewListSubdivision.Columns["Department"].HeaderText = resourceManager.GetString("Department");
+                dataGridViewListSubdivision.Columns["Address"].HeaderText = resourceManager.GetString("Address");
+
+                dataGridViewListSubdivision.Columns["Id"].Width = 30;
+                dataGridViewListSubdivision.Columns["Department"].Width = 300;
+                dataGridViewListSubdivision.Columns["Address"].Width = 350;
+
+                dataGridViewListSubdivision.Columns["Printers"].Visible = false;
+                dataGridViewListSubdivision.Columns["Compatibilities"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
-        private void ListSubdivisionForm_Load(object sender, EventArgs e)
-        {
-            ShowSubdivision();
-        //   PropertyInfo verticalOffset = dataGridViewListSubdivision.GetType().GetProperty("VerticalOffset", BindingFlags.NonPublic | BindingFlags.Instance);
-        //   verticalOffset.SetValue(this.dataGridViewListSubdivision, 10, null);
-        }
+ 
 
 
-        //Add Subdivision
-        private void button6_Click(object sender, EventArgs e)
+
+
+        //Add
+        private void btnAddDepartment_Click(object sender, EventArgs e)
         {
 
-
-            //Add подразделения
-
-
-            AddSubdivision addSubdivisionForm = new AddSubdivision();
-
-
-            DialogResult result = addSubdivisionForm.ShowDialog(this);
+            AddUpdateSubdivision addCartrige = new AddUpdateSubdivision(resourceManager, null);
+            DialogResult result = addCartrige.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
 
+            PrintDepartment();
+        }
+
+        //Update
+        private void btnUpdateDepartment_Click(object sender, EventArgs e)
+        {
+
+            // update Cartrige
+            if (dataGridViewListSubdivision.SelectedRows.Count > 0)
+            {
+                int index = dataGridViewListSubdivision.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = int.TryParse(dataGridViewListSubdivision[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                AddUpdateSubdivision updateCartrigeForm = new AddUpdateSubdivision(resourceManager, id);
+                DialogResult result = updateCartrigeForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
 
 
 
-            Subdivision subdivisionModel = new Subdivision();
-            subdivisionModel.division = addSubdivisionForm.txtModelDivision.Text;
-            subdivisionModel.address_part = addSubdivisionForm.txtStreet.Text;
-            db.Subdivisions.Add(subdivisionModel);
-
-
-
-            db.SaveChanges();
-
-            MessageBox.Show("Новое подразделение добавленно ");
-            dataGridViewListSubdivision.DataSource = null;
-            this.dataGridViewListSubdivision.Update();
-            this.dataGridViewListSubdivision.Refresh();
-            ShowSubdivision();
-
-
+                db = new ContexAltstarContext();
+                PrintDepartment();
+            }
 
         }
+
+        //Delete
+        private void btnDellDepartment_Click(object sender, EventArgs e)
+        {
+
+            // Delete Cartrige
+            if (dataGridViewListSubdivision.SelectedRows.Count > 0)
+            {
+                int index = dataGridViewListSubdivision.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = int.TryParse(dataGridViewListSubdivision[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                Subdivision subdivisionDel = db.Subdivisions.Find(id);
+                db.Subdivisions.Remove(subdivisionDel);
+                db.SaveChanges();
+
+                MessageBox.Show(resourceManager.GetString("DepartmentWasRemoved"));
+                PrintDepartment();
+            }
+        }
+
+        //export
+        private void btnExportExel_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dataGridViewListSubdivision, true, resourceManager.GetString("ListOfDepartment"));
+
+        private void btnClosed_Click(object sender, EventArgs e) =>this.Close();
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////Add Subdivision
+        //private void button6_Click(object sender, EventArgs e)
+        //{
+
+
+        //    //Add подразделения
+
+
+        //    AddUpdateSubdivision addSubdivisionForm = new AddSubdivision();
+
+
+        //    DialogResult result = addSubdivisionForm.ShowDialog(this);
+        //    if (result == DialogResult.Cancel)
+        //        return;
+
+
+
+
+        //    Subdivision subdivisionModel = new Subdivision();
+        //    subdivisionModel.Department = addSubdivisionForm.tbNameDepartment.Text;
+        //    subdivisionModel.Address    = addSubdivisionForm.tbAddessDepartment.Text;
+        //    db.Subdivisions.Add(subdivisionModel);
+
+
+
+        //    db.SaveChanges();
+
+        //    MessageBox.Show("Новое подразделение добавленно ");
+        //    dataGridViewListSubdivision.DataSource = null;
+        //    this.dataGridViewListSubdivision.Update();
+        //    this.dataGridViewListSubdivision.Refresh();
+        //    PrintDepartment();
+
+
+
+        //}
 
         //DELETE Subdivision
         private void button7_Click(object sender, EventArgs e)
@@ -104,7 +209,7 @@ namespace CartrigeAltstar
                 dataGridViewListSubdivision.DataSource = null;
                 this.dataGridViewListSubdivision.Update();
                 this.dataGridViewListSubdivision.Refresh();
-                ShowSubdivision();
+                PrintDepartment();
 
 
             }
@@ -112,51 +217,51 @@ namespace CartrigeAltstar
         }
 
 
-        //UPDATE Subdivision
-        private void button8_Click(object sender, EventArgs e)
-        {
+        ////UPDATE Subdivision
+        //private void button8_Click(object sender, EventArgs e)
+        //{
 
 
-            if (dataGridViewListSubdivision.SelectedRows.Count > 0)
-            {
-                int index = dataGridViewListSubdivision.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = Int32.TryParse(dataGridViewListSubdivision[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
-                //екземпляр Формы
-                AddSubdivision updateSubdivisionForm = new AddSubdivision();
+        //    if (dataGridViewListSubdivision.SelectedRows.Count > 0)
+        //    {
+        //        int index = dataGridViewListSubdivision.SelectedRows[0].Index;
+        //        int id = 0;
+        //        bool converted = Int32.TryParse(dataGridViewListSubdivision[0, index].Value.ToString(), out id);
+        //        if (converted == false)
+        //            return;
+        //        //екземпляр Формы
+        //        AddUpdateSubdivision updateSubdivisionForm = new AddSubdivision();
 
-                //заполнение полей
-                Subdivision subdivisionModel = db.Subdivisions.Find(id);
-                updateSubdivisionForm.txtModelDivision.Text = subdivisionModel.division;
-                updateSubdivisionForm.txtStreet.Text = subdivisionModel.address_part;
-
-
-                //откритие диалогового окна AddCartrige
-                DialogResult result = updateSubdivisionForm.ShowDialog(this);
-                if (result == DialogResult.Cancel)
-                    return;
-
-                //
-                subdivisionModel.division = updateSubdivisionForm.txtModelDivision.Text;
-                subdivisionModel.address_part = updateSubdivisionForm.txtStreet.Text;
+        //        //заполнение полей
+        //        Subdivision subdivisionModel = db.Subdivisions.Find(id);
+        //        updateSubdivisionForm.tbNameDepartment.Text = subdivisionModel.Department;
+        //        updateSubdivisionForm.tbAddessDepartment.Text = subdivisionModel.Address;
 
 
-                //подключения к состоянию обьявив его модифицированним
-                db.Entry(subdivisionModel).State = EntityState.Modified;
-                db.SaveChanges();
+        //        //откритие диалогового окна AddCartrige
+        //        DialogResult result = updateSubdivisionForm.ShowDialog(this);
+        //        if (result == DialogResult.Cancel)
+        //            return;
+
+        //        //
+        //        subdivisionModel.Department = updateSubdivisionForm.tbNameDepartment.Text;
+        //        subdivisionModel.Address = updateSubdivisionForm.tbAddessDepartment.Text;
 
 
-                MessageBox.Show("Подразделение Обновленно!! ");
-                dataGridViewListSubdivision.DataSource = null;
-                this.dataGridViewListSubdivision.Update();
-                this.dataGridViewListSubdivision.Refresh();
-                ShowSubdivision();
+        //        //подключения к состоянию обьявив его модифицированним
+        //        db.Entry(subdivisionModel).State = EntityState.Modified;
+        //        db.SaveChanges();
 
-            }
 
-        }
+        //        MessageBox.Show("Подразделение Обновленно!! ");
+        //        dataGridViewListSubdivision.DataSource = null;
+        //        this.dataGridViewListSubdivision.Update();
+        //        this.dataGridViewListSubdivision.Refresh();
+        //        PrintDepartment();
+
+        //    }
+
+        //}
 
         //EXPORT to EXCEL
 
@@ -255,8 +360,8 @@ namespace CartrigeAltstar
                       select new
                       {
                           iD = r.Id,
-                          Подразделения = r.division,
-                          Адресс = r.address_part
+                          Подразделения = r.Department,
+                          Адресс = r.Address
                       };
             dataGridViewListSubdivision.DataSource = sub.OrderBy(s=>s.iD).ToList();
             dataGridViewListSubdivision.Columns[0].Width = 45;
@@ -270,8 +375,8 @@ namespace CartrigeAltstar
                       select new
                       {
                           iD = r.Id,
-                          Подразделения = r.division,
-                          Адресс = r.address_part
+                          Подразделения = r.Department,
+                          Адресс = r.Address
                       };
             dataGridViewListSubdivision.DataSource = sub.OrderBy(s => s.Подразделения).ToList();
             dataGridViewListSubdivision.Columns[0].Width = 45;
@@ -284,11 +389,13 @@ namespace CartrigeAltstar
                       select new
                       {
                           iD = r.Id,
-                          Подразделения = r.division,
-                          Адресс = r.address_part
+                          Подразделения = r.Department,
+                          Адресс = r.Address
                       };
             dataGridViewListSubdivision.DataSource = sub.OrderBy(s => s.Адресс).ToList();
             dataGridViewListSubdivision.Columns[0].Width = 45;
         }
+
+      
     }
 }

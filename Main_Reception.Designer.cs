@@ -36,6 +36,7 @@ namespace CartrigeAltstar
             this.btnPrinterShow = new System.Windows.Forms.Button();
             this.btnCartrigeShow = new System.Windows.Forms.Button();
             this.btnDivisionShow = new System.Windows.Forms.Button();
+            this.btnArticleShow = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -95,7 +96,6 @@ namespace CartrigeAltstar
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.btnArticleShow = new System.Windows.Forms.Button();
             this.flowLayoutPanel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -142,6 +142,12 @@ namespace CartrigeAltstar
             this.btnDivisionShow.Name = "btnDivisionShow";
             this.btnDivisionShow.UseVisualStyleBackColor = true;
             this.btnDivisionShow.Click += new System.EventHandler(this.btnDivisionShow_Click);
+            // 
+            // btnArticleShow
+            // 
+            resources.ApplyResources(this.btnArticleShow, "btnArticleShow");
+            this.btnArticleShow.Name = "btnArticleShow";
+            this.btnArticleShow.UseVisualStyleBackColor = true;
             // 
             // button16
             // 
@@ -593,12 +599,6 @@ namespace CartrigeAltstar
             resources.ApplyResources(this.helpToolStripButton, "helpToolStripButton");
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.helpToolStripButton.Name = "helpToolStripButton";
-            // 
-            // btnArticleShow
-            // 
-            resources.ApplyResources(this.btnArticleShow, "btnArticleShow");
-            this.btnArticleShow.Name = "btnArticleShow";
-            this.btnArticleShow.UseVisualStyleBackColor = true;
             // 
             // Main_Reception
             // 

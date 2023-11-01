@@ -121,11 +121,29 @@
     <value>Додати картридж</value>
     <comment>Nomenclatura/Cartrige Add/Update (Title)</comment>
   </data>
+  <data name="AddDepartmentModal" xml:space="preserve">
+    <value>Додавання підрозділу</value>
+    <comment>Nomenclatura/Department  Add/Update</comment>
+  </data>
   <data name="AddNewCartrigeMsgBox" xml:space="preserve">
     <value>Новий картридж додано</value>
+    <comment>Nomenclatura/Cartrige Add/Update</comment>
+  </data>
+  <data name="AddNewDepartmenMsgBox" xml:space="preserve">
+    <value>Новий підрозділ доданно</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
   <data name="AddNewPrinterMsgBox" xml:space="preserve">
     <value>Новий принтер додано</value>
+    <comment>Nomenclatura/Printer Add/Update</comment>
+  </data>
+  <data name="AddPrinterModal" xml:space="preserve">
+    <value>Добавить принтер</value>
+    <comment>Nomenclatura/Printer</comment>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адресса</value>
+    <comment>Nomenclatura/Department</comment>
   </data>
   <data name="Article" xml:space="preserve">
     <value>Артикль</value>
@@ -165,11 +183,27 @@
     <value>Картридж було оновлено</value>
     <comment>Nomenclatura/Cartrige</comment>
   </data>
+  <data name="ChekFieldMessageUpdateDepartment" xml:space="preserve">
+    <value>Підрозділ було оновленно</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Дата</value>
   </data>
   <data name="DelPrinterMsgBox" xml:space="preserve">
     <value>Принтер видалено</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Підрозділ</value>
+    <comment>Nomenclatura/Department</comment>
+  </data>
+  <data name="DepartmentWasRemoved" xml:space="preserve">
+    <value>Підрозділ було видалено</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
+  </data>
+  <data name="lblAddressDepartment" xml:space="preserve">
+    <value>Адресса підрозділу</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
   <data name="lblArticle" xml:space="preserve">
     <value>Артикль</value>
@@ -183,13 +217,36 @@
     <value>Модель картриджа</value>
     <comment>Nomenclatura/Cartrige Add/Update</comment>
   </data>
+  <data name="lblNameDepartment" xml:space="preserve">
+    <value>Назва підрозділу</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
+  </data>
   <data name="ListOfCartrige" xml:space="preserve">
     <value>Список картриджів</value>
     <comment>Nomenclatura/Cartrige(Tittle)</comment>
   </data>
+  <data name="ListOfDepartment" xml:space="preserve">
+    <value>Список підрозділів</value>
+    <comment>Nomenclatura/Department(Tittle)</comment>
+  </data>
+  <data name="ListOfPrinrter" xml:space="preserve">
+    <value>Список принтерів</value>
+    <comment>Nomenclatura/Printer(Title)</comment>
+  </data>
+  <data name="MessageUpdatePrinter" xml:space="preserve">
+    <value>Принтер було оновлено</value>
+    <comment>Nomenclatura/Printer Add/Update</comment>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
   <data name="ModelCartrige" xml:space="preserve">
     <value>Модель</value>
     <comment>Model/Cartrige</comment>
+  </data>
+  <data name="ModelPrinter" xml:space="preserve">
+    <value>Модель принтера</value>
+    <comment>Nomenclatura/Printer</comment>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Подробиці</value>
@@ -216,6 +273,14 @@
   <data name="UpdateCartigeModal" xml:space="preserve">
     <value>Оновити картридж</value>
     <comment>Nomenclatura/Cartrige</comment>
+  </data>
+  <data name="UpdateDepartmentModal" xml:space="preserve">
+    <value>Оновлення підрозділу</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
+  </data>
+  <data name="UpdatePrinterModal" xml:space="preserve">
+    <value>Обновити принтер</value>
+    <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
   <data name="UpdatePrinterMsgBox" xml:space="preserve">
     <value>Принтер оновленно</value>

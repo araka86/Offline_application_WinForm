@@ -70,6 +70,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Додавання підрозділу.
+        /// </summary>
+        internal static string AddDepartmentModal {
+            get {
+                return ResourceManager.GetString("AddDepartmentModal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Новий картридж додано.
         /// </summary>
         internal static string AddNewCartrigeMsgBox {
@@ -79,11 +88,38 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Новий підрозділ доданно.
+        /// </summary>
+        internal static string AddNewDepartmenMsgBox {
+            get {
+                return ResourceManager.GetString("AddNewDepartmenMsgBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Новий принтер додано.
         /// </summary>
         internal static string AddNewPrinterMsgBox {
             get {
                 return ResourceManager.GetString("AddNewPrinterMsgBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить принтер.
+        /// </summary>
+        internal static string AddPrinterModal {
+            get {
+                return ResourceManager.GetString("AddPrinterModal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Адресса.
+        /// </summary>
+        internal static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
             }
         }
         
@@ -178,6 +214,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Підрозділ було оновленно.
+        /// </summary>
+        internal static string ChekFieldMessageUpdateDepartment {
+            get {
+                return ResourceManager.GetString("ChekFieldMessageUpdateDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дата.
         /// </summary>
         internal static string Data {
@@ -192,6 +237,33 @@ namespace CartrigeAltstar.Resources {
         internal static string DelPrinterMsgBox {
             get {
                 return ResourceManager.GetString("DelPrinterMsgBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Підрозділ.
+        /// </summary>
+        internal static string Department {
+            get {
+                return ResourceManager.GetString("Department", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Підрозділ було видалено.
+        /// </summary>
+        internal static string DepartmentWasRemoved {
+            get {
+                return ResourceManager.GetString("DepartmentWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Адресса підрозділу.
+        /// </summary>
+        internal static string lblAddressDepartment {
+            get {
+                return ResourceManager.GetString("lblAddressDepartment", resourceCulture);
             }
         }
         
@@ -223,6 +295,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Назва підрозділу.
+        /// </summary>
+        internal static string lblNameDepartment {
+            get {
+                return ResourceManager.GetString("lblNameDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Список картриджів.
         /// </summary>
         internal static string ListOfCartrige {
@@ -232,11 +313,56 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Список підрозділів.
+        /// </summary>
+        internal static string ListOfDepartment {
+            get {
+                return ResourceManager.GetString("ListOfDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Список принтерів.
+        /// </summary>
+        internal static string ListOfPrinrter {
+            get {
+                return ResourceManager.GetString("ListOfPrinrter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Принтер було оновлено.
+        /// </summary>
+        internal static string MessageUpdatePrinter {
+            get {
+                return ResourceManager.GetString("MessageUpdatePrinter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Модель.
+        /// </summary>
+        internal static string Model {
+            get {
+                return ResourceManager.GetString("Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Модель.
         /// </summary>
         internal static string ModelCartrige {
             get {
                 return ResourceManager.GetString("ModelCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Модель принтера.
+        /// </summary>
+        internal static string ModelPrinter {
+            get {
+                return ResourceManager.GetString("ModelPrinter", resourceCulture);
             }
         }
         
@@ -309,6 +435,24 @@ namespace CartrigeAltstar.Resources {
         internal static string UpdateCartigeModal {
             get {
                 return ResourceManager.GetString("UpdateCartigeModal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Оновлення підрозділу.
+        /// </summary>
+        internal static string UpdateDepartmentModal {
+            get {
+                return ResourceManager.GetString("UpdateDepartmentModal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обновити принтер.
+        /// </summary>
+        internal static string UpdatePrinterModal {
+            get {
+                return ResourceManager.GetString("UpdatePrinterModal", resourceCulture);
             }
         }
         

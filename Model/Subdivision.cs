@@ -7,8 +7,8 @@ namespace CartrigeAltstar.Model
     {
         [Key]
         public int Id { get; set; }
-        public string division { get; set; }
-        public string address_part { get; set; }
+        public string Department { get; set; }
+        public string Address { get; set; }
 
         public virtual ICollection<Compatibility> Compatibilities { get; set; }
       
@@ -22,13 +22,6 @@ namespace CartrigeAltstar.Model
         }
 
       
-
-
-        //  public override string ToString()
-        //  {
-        //      Id2 = Convert.ToString(id);
-        //      return Id2;
-        //  }
 
     }
 }

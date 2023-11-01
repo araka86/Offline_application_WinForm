@@ -44,7 +44,7 @@ namespace CartrigeAltstar
                 dataGridViewListCartrige.Columns["ModelCartrige"].Width = 100;
                 dataGridViewListCartrige.Columns["ArticleCartrige"].Width = 100;
 
-            //    dataGridViewListCartrige.Columns["Printers"].Visible = false;
+                dataGridViewListCartrige.Columns["Printers"].Visible = false;
                 dataGridViewListCartrige.Columns["Article"].Visible = false;
                 dataGridViewListCartrige.Columns["ArticleId"].Visible = false;
             }

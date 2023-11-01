@@ -184,17 +184,17 @@
     <Compile Include="Nomenclatura\Cartriges\ListCartrigeForm.Designer.cs">
       <DependentUpon>ListCartrigeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Printer\AddPrinter.cs">
+    <Compile Include="Nomenclatura\Printer\AddUpdatePrinter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Printer\AddPrinter.Designer.cs">
-      <DependentUpon>AddPrinter.cs</DependentUpon>
+    <Compile Include="Nomenclatura\Printer\AddUpdatePrinter.Designer.cs">
+      <DependentUpon>AddUpdatePrinter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nomenclatura\Subdivision\AddSubdivision.cs">
+    <Compile Include="Nomenclatura\Subdivision\AddUpdateSubdivision.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nomenclatura\Subdivision\AddSubdivision.Designer.cs">
-      <DependentUpon>AddSubdivision.cs</DependentUpon>
+    <Compile Include="Nomenclatura\Subdivision\AddUpdateSubdivision.Designer.cs">
+      <DependentUpon>AddUpdateSubdivision.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\Cartriges\moving_the_cartridge.cs">
       <SubType>Form</SubType>
@@ -312,11 +312,11 @@
     <EmbeddedResource Include="Nomenclatura\InfoOrgTechnic.resx">
       <DependentUpon>InfoOrgTechnic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Printer\AddPrinter.resx">
-      <DependentUpon>AddPrinter.cs</DependentUpon>
+    <EmbeddedResource Include="Nomenclatura\Printer\AddUpdatePrinter.resx">
+      <DependentUpon>AddUpdatePrinter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nomenclatura\Subdivision\AddSubdivision.resx">
-      <DependentUpon>AddSubdivision.cs</DependentUpon>
+    <EmbeddedResource Include="Nomenclatura\Subdivision\AddUpdateSubdivision.resx">
+      <DependentUpon>AddUpdateSubdivision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\moving_the_cartridge.resx">
       <DependentUpon>moving_the_cartridge.cs</DependentUpon>

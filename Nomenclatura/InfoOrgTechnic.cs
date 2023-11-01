@@ -88,8 +88,8 @@ namespace CartrigeAltstar
                     select new
                     {
                         l.Id,
-                        Подразделение = l.division,
-                        Адресс = l.address_part,
+                        Подразделение = l.Department,
+                        Адресс = l.Address,
 
                     };
 
@@ -267,7 +267,7 @@ namespace CartrigeAltstar
                               select new
                               {
                                   a.Id,
-                                  Подразделение = a.division,
+                                  Подразделение = a.Department,
                                  
                               };
 

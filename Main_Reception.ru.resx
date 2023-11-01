@@ -140,15 +140,8 @@
   <data name="btnArticleShow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnArticleShow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 90</value>
-  </data>
   <data name="btnArticleShow.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 23</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnArticleShow.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
   </data>
   <data name="btnArticleShow.Text" xml:space="preserve">
     <value>Артикли</value>

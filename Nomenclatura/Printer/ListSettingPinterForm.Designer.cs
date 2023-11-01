@@ -77,6 +77,7 @@ namespace CartrigeAltstar
             this.btnAddPrinter.Image = global::CartrigeAltstar.Properties.Resources.Add;
             resources.ApplyResources(this.btnAddPrinter, "btnAddPrinter");
             this.btnAddPrinter.Name = "btnAddPrinter";
+            this.btnAddPrinter.Click += new System.EventHandler(this.btnAddPrinter_Click);
             // 
             // toolStripSeparator3
             // 
@@ -89,6 +90,7 @@ namespace CartrigeAltstar
             this.btnUpdatePrinter.Image = global::CartrigeAltstar.Properties.Resources.update;
             resources.ApplyResources(this.btnUpdatePrinter, "btnUpdatePrinter");
             this.btnUpdatePrinter.Name = "btnUpdatePrinter";
+            this.btnUpdatePrinter.Click += new System.EventHandler(this.btnUpdatePrinter_Click);
             // 
             // toolStripSeparator2
             // 
@@ -101,6 +103,7 @@ namespace CartrigeAltstar
             this.btnDelPrinter.Image = global::CartrigeAltstar.Properties.Resources.delete;
             resources.ApplyResources(this.btnDelPrinter, "btnDelPrinter");
             this.btnDelPrinter.Name = "btnDelPrinter";
+            this.btnDelPrinter.Click += new System.EventHandler(this.btnDelPrinter_Click);
             // 
             // toolStripSeparator4
             // 
@@ -112,6 +115,7 @@ namespace CartrigeAltstar
             this.btnExportExel.Image = global::CartrigeAltstar.Properties.Resources.Exel;
             resources.ApplyResources(this.btnExportExel, "btnExportExel");
             this.btnExportExel.Name = "btnExportExel";
+            this.btnExportExel.Click += new System.EventHandler(this.btnExportExel_Click);
             // 
             // toolStripSeparator1
             // 
@@ -123,6 +127,7 @@ namespace CartrigeAltstar
             this.btnClosed.Image = global::CartrigeAltstar.Properties.Resources.Close;
             resources.ApplyResources(this.btnClosed, "btnClosed");
             this.btnClosed.Name = "btnClosed";
+            this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click_1);
             // 
             // splitter1
             // 

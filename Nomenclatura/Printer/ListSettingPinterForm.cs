@@ -1,14 +1,9 @@
-﻿using CartrigeAltstar.Model;
+﻿using CartrigeAltstar.Helpers;
+using CartrigeAltstar.Model;
 using System;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CartrigeAltstar
 {
@@ -17,16 +12,20 @@ namespace CartrigeAltstar
  
         public ResourceManager resourceManager;
         ContexAltstarContext db;
-
-        public ListSettingPinterForm()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_resourceManager">language resource </param>
+        public ListSettingPinterForm(ResourceManager _resourceManager)
         {
             InitializeComponent();
+            resourceManager = _resourceManager;
             db = new ContexAltstarContext();
-   
+            this.Text = resourceManager.GetString("ListOfPrinrter");
+
 
         }
-
-     
+   
         private void ListSettingPinterForm_Load(object sender, EventArgs e) => PrintPrinter();
         private void button1_Click(object sender, EventArgs e) => Close();
 
@@ -35,74 +34,80 @@ namespace CartrigeAltstar
         //------------------------Вивод Принтеров----------------------------
         public void PrintPrinter()
         {
+            try
+            {
+                db.Printers.Load();
+                var data = db.Printers.Local.ToBindingList();
 
-            db.Printers.Load();
+                dataGridViewListPrinter.DataSource = data;
 
-            var data = db.Printers.Local.ToBindingList();
-            dataGridViewListPrinter.DataSource = data;
-            dataGridViewListPrinter.Columns["SubdivisionId"].Visible = false;
-            dataGridViewListPrinter.Columns["CartrigeId"].Visible = false;
-            dataGridViewListPrinter.Columns["CartrigePK"].Visible = false;
-            dataGridViewListPrinter.Columns["SubdivisioPK"].Visible = false;
-            dataGridViewListPrinter.Columns[0].Width = 45;
+                dataGridViewListPrinter.Columns["Id"].Width = 30;
+                dataGridViewListPrinter.Columns["ModelPrinter"].HeaderText = resourceManager.GetString("ModelPrinter");
+                dataGridViewListPrinter.Columns["Article"].HeaderText = resourceManager.GetString("Article");
+                dataGridViewListPrinter.Columns["DateTimes"].HeaderText = resourceManager.GetString("purchase_date");
 
-
+                dataGridViewListPrinter.Columns["SubdivisionId"].Visible = false;
+                dataGridViewListPrinter.Columns["CartrigeId"].Visible = false;
+                dataGridViewListPrinter.Columns["CartrigePK"].Visible = false;
+                dataGridViewListPrinter.Columns["SubdivisioPK"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+              
+                MessageBox.Show(ex.ToString());
+            }
+ 
         }
 
-    
-        
 
-
-
-
-        //////////////////////Insert (ADD) Printers////////////////////////
-        private void button6_Click(object sender, EventArgs e)
+        private void btnAddPrinter_Click(object sender, EventArgs e)
         {
+            AddUpdatePrinter add = new AddUpdatePrinter(resourceManager, null);
 
-
-
-            AddPrinter add = new AddPrinter();
-
-
-            DialogResult result = add.ShowDialog(this);
+            DialogResult result = add.ShowDialog();
             if (result == DialogResult.Cancel)
                 return;
 
 
-
-
-            Printer printer = new Printer();
-            printer.DateTimes = add.txtDatetime.Value;
-            printer.ModelPrinter = add.txtModelPrinter.Text;
-            printer.Article = add.txtArticle.Text;
-
-            db.Printers.Add(printer);
-
-            db.SaveChanges();
-
-            MessageBox.Show(resourceManager.GetString("AddNewPrinterMsgBox"));
-            dataGridViewListPrinter.DataSource = null;
-            this.dataGridViewListPrinter.Update();
-            this.dataGridViewListPrinter.Refresh();
             PrintPrinter();
-
-
-
         }
 
-
-        /////// Delete/////////////////////////////////////////////
-        private void button7_Click(object sender, EventArgs e)
+        private void btnUpdatePrinter_Click(object sender, EventArgs e)
         {
 
-
-
-
+            // update Cartrige
             if (dataGridViewListPrinter.SelectedRows.Count > 0)
             {
                 int index = dataGridViewListPrinter.SelectedRows[0].Index;
                 int id = 0;
-                bool converted = Int32.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
+                bool converted = int.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                AddUpdatePrinter updatePrinerForm = new AddUpdatePrinter(resourceManager, id);
+                DialogResult result = updatePrinerForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+
+
+
+                db = new ContexAltstarContext();
+                PrintPrinter();
+            }
+
+        }
+
+
+
+
+        private void btnDelPrinter_Click(object sender, EventArgs e)
+        {
+            // Delete Printer
+            if (dataGridViewListPrinter.SelectedRows.Count > 0)
+            {
+                int index = dataGridViewListPrinter.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = int.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
 
@@ -111,165 +116,18 @@ namespace CartrigeAltstar
                 db.SaveChanges();
 
 
-                MessageBox.Show(resourceManager.GetString("DelPrinterMsgBox"));
-                dataGridViewListPrinter.DataSource = null;
-                this.dataGridViewListPrinter.Update();
-                this.dataGridViewListPrinter.Refresh();
+                MessageBox.Show(resourceManager.GetString("CartrigeWasRemoved"));
                 PrintPrinter();
 
-
-            }
-
-
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-
-            // update
-            if (dataGridViewListPrinter.SelectedRows.Count > 0)
-            {
-                int index = dataGridViewListPrinter.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = Int32.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
-                //заполнение полей
-                Subdivision s = new Subdivision();
-                Printer printerUpdate = db.Printers.Find(id);
-                AddPrinter update = new AddPrinter();
-                update.txtDatetime.Text = printerUpdate.DateTimes.ToString();
-                update.txtModelPrinter.Text = printerUpdate.ModelPrinter;
-                update.txtArticle.Text = printerUpdate.Article;
-
-
-             //   s = printerUpdate.SubdivisioPK; //
-
-
-
-
-                //откритие диалогового окна AddPrinter
-                DialogResult result = update.ShowDialog(this);
-                if (result == DialogResult.Cancel)
-                    return;
-
-
-                printerUpdate.DateTimes = update.txtDatetime.Value;
-                printerUpdate.ModelPrinter = update.txtModelPrinter.Text;
-                printerUpdate.Article = update.txtArticle.Text;
-
-
-
-
-                db.Entry(printerUpdate).State = EntityState.Modified;
-                db.SaveChanges();
-
-
-                MessageBox.Show(resourceManager.GetString("UpdatePrinterMsgBox"));
-                dataGridViewListPrinter.DataSource = null;
-                this.dataGridViewListPrinter.Update();
-                this.dataGridViewListPrinter.Refresh();
-                PrintPrinter();
-
-
-
             }
         }
 
-        private void button18_Click(object sender, EventArgs e)
-        {
-            DateTime curTime = DateTime.Now; // Current Data
-            Excel.Application ExcelApp = new Excel.Application(); //Объявляем приложение
-            Excel.Workbook ExcelWorkBook; //инициализация рабочей книги
-            Excel.Worksheet ExcelWorkSheet; //инициализация рабочего листа
-            Excel.Range ExecelRange; //Переменная диапазона
-            ExcelApp.SheetsInNewWorkbook = 2; //Количество листов в рабочей книге
-            ExcelWorkBook = ExcelApp.Workbooks.Add(Missing.Value); //Добавить рабочую книгу
-            ExcelApp.DisplayAlerts = false; //Отключить отображение окон с сообщениями
-            ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1); //Получаем первый лист документа (счет начинается с 1) (переключение междк листами)
-
-            var datenow = curTime.ToShortDateString().ToString();
-            datenow = datenow.Replace("/", ".");
 
 
+        //Export to Exel
+        private void btnExportExel_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dataGridViewListPrinter, true, resourceManager.GetString("ListOfPrinrter"));
 
-            ExcelWorkSheet.Name = $"{resourceManager.GetString("printersList")} - {datenow} ";      //update .net6 
-
-
-            object[,] d = new object[dataGridViewListPrinter.RowCount, dataGridViewListPrinter.ColumnCount];
-
-            for (int i = 1; i < dataGridViewListPrinter.Columns.Count-3; i++) // +1del cols Header
-            {
-
-                ExcelWorkSheet.Cells[1, i] = dataGridViewListPrinter.Columns[i - 1].HeaderText;
-                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeRight].Weight = 2;
-                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = 2;
-                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeLeft].Weight = 2;
-                ExcelWorkSheet.Cells[1, i].Borders[Excel.XlBordersIndex.xlEdgeBottom].Weight = 4;
-
-                ExecelRange = (Excel.Range)ExcelWorkSheet.Cells[1, i];
-                ExecelRange.Cells.Font.Size = 14;
-                ExecelRange.Cells.Font.Bold = 500;
-                ExecelRange.Cells.Font.Color = Color.Brown;
-            }
-            //DATA (Fill)
-            for (int i = 0; i < dataGridViewListPrinter.Rows.Count -1; i++) //отступ вниз -1
-            {
-                for (int j = 0; j < dataGridViewListPrinter.Columns.Count -2 ; j++) //cols Body (data) -1
-                {
-                    d[i, j] = dataGridViewListPrinter.Rows[i].Cells[j].Value.ToString();
-                }
-            }
-            Fill(2, 1, d);
-            ExcelApp.Visible = true; //Отобразить Excel
-            //Заполнение строк
-            void Fill(int topRow, int leftCol, object[,] data)
-            {
-                int rows = data.GetUpperBound(0) + 1;
-                int cols = data.GetUpperBound(1) + 1;
-
-                Excel.Worksheet sheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
-
-                object leftTop = ExcelWorkSheet.Cells[topRow, leftCol];
-                object rightBottom = ExcelWorkSheet.Cells[topRow + dataGridViewListPrinter.RowCount - 1, leftCol + dataGridViewListPrinter.ColumnCount - 5]; //cols body border RowCount - 2 ColumnCount - 2
-
-                Excel.Range range = ExcelWorkSheet.get_Range(leftTop, rightBottom);
-                range.Value2 = data;
-                setStyle(range);
-            }
-
-            //Прорисовка  (оформление) документа
-            void setStyle(Excel.Range range)
-            {
-                range.EntireColumn.AutoFit();
-                range.EntireRow.AutoFit();
-                //отрисовка линий для excel документа
-                object[] border = new object[] { Excel.XlBordersIndex.xlEdgeLeft, //Лево
-                                                Excel.XlBordersIndex.xlEdgeTop, //Верх
-                                                Excel.XlBordersIndex.xlEdgeBottom, //Низ
-                                                Excel.XlBordersIndex.xlEdgeRight, //Право
-                                                Excel.XlBordersIndex.xlInsideVertical, //Вертикаль
-                                                Excel.XlBordersIndex.xlInsideHorizontal}; //Горизонталь
-
-                for (int i = 0; i < border.Length; i++)
-                {
-                    range.Borders[(Excel.XlBordersIndex)border[i]].LineStyle = Excel.XlLineStyle.xlContinuous; //Стиль
-                    range.Borders[(Excel.XlBordersIndex)border[i]].Weight = Excel.XlBorderWeight.xlThin; //Толщина
-                    range.Borders[(Excel.XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
-                    range.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter; //all column center
-                }
-
-            }
-
-        }
-
-
+        private void btnClosed_Click_1(object sender, EventArgs e) => Close();
 
     }
 }

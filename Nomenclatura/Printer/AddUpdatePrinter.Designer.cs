@@ -1,7 +1,7 @@
 ﻿
 namespace CartrigeAltstar
 {
-    partial class AddPrinter
+    partial class AddUpdatePrinter
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@ namespace CartrigeAltstar
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDatetime = new System.Windows.Forms.DateTimePicker();
-            this.txtArticle = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDatePrinter = new System.Windows.Forms.Label();
+            this.dtpDatetimePrinter = new System.Windows.Forms.DateTimePicker();
+            this.tbArticlePrinter = new System.Windows.Forms.TextBox();
+            this.lblModelPrinter = new System.Windows.Forms.Label();
+            this.lblArticlePrinter = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtModelPrinter = new System.Windows.Forms.TextBox();
+            this.tbModelPrinter = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1.SuspendLayout();
@@ -53,46 +53,47 @@ namespace CartrigeAltstar
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblDatePrinter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Дата покупки принетра";
+            this.lblDatePrinter.AutoSize = true;
+            this.lblDatePrinter.Location = new System.Drawing.Point(18, 31);
+            this.lblDatePrinter.Name = "lblDatePrinter";
+            this.lblDatePrinter.Size = new System.Drawing.Size(127, 13);
+            this.lblDatePrinter.TabIndex = 2;
+            this.lblDatePrinter.Text = "Дата покупки принетра";
             // 
-            // txtDatetime
+            // dtpDatetimePrinter
             // 
-            this.txtDatetime.Location = new System.Drawing.Point(200, 25);
-            this.txtDatetime.Name = "txtDatetime";
-            this.txtDatetime.Size = new System.Drawing.Size(215, 20);
-            this.txtDatetime.TabIndex = 3;
+            this.dtpDatetimePrinter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDatetimePrinter.Location = new System.Drawing.Point(212, 25);
+            this.dtpDatetimePrinter.Name = "dtpDatetimePrinter";
+            this.dtpDatetimePrinter.Size = new System.Drawing.Size(203, 20);
+            this.dtpDatetimePrinter.TabIndex = 3;
             // 
-            // txtArticle
+            // tbArticlePrinter
             // 
-            this.txtArticle.Location = new System.Drawing.Point(200, 124);
-            this.txtArticle.Name = "txtArticle";
-            this.txtArticle.Size = new System.Drawing.Size(134, 20);
-            this.txtArticle.TabIndex = 4;
+            this.tbArticlePrinter.Location = new System.Drawing.Point(212, 124);
+            this.tbArticlePrinter.Name = "tbArticlePrinter";
+            this.tbArticlePrinter.Size = new System.Drawing.Size(203, 20);
+            this.tbArticlePrinter.TabIndex = 4;
             // 
-            // label2
+            // lblModelPrinter
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Модель принтера";
+            this.lblModelPrinter.AutoSize = true;
+            this.lblModelPrinter.Location = new System.Drawing.Point(18, 77);
+            this.lblModelPrinter.Name = "lblModelPrinter";
+            this.lblModelPrinter.Size = new System.Drawing.Size(96, 13);
+            this.lblModelPrinter.TabIndex = 5;
+            this.lblModelPrinter.Text = "Модель принтера";
             // 
-            // label3
+            // lblArticlePrinter
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Артикул";
+            this.lblArticlePrinter.AutoSize = true;
+            this.lblArticlePrinter.Location = new System.Drawing.Point(18, 131);
+            this.lblArticlePrinter.Name = "lblArticlePrinter";
+            this.lblArticlePrinter.Size = new System.Drawing.Size(48, 13);
+            this.lblArticlePrinter.TabIndex = 6;
+            this.lblArticlePrinter.Text = "Артикул";
             // 
             // button2
             // 
@@ -104,21 +105,21 @@ namespace CartrigeAltstar
             this.button2.Text = "Calcel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // txtModelPrinter
+            // tbModelPrinter
             // 
-            this.txtModelPrinter.Location = new System.Drawing.Point(200, 77);
-            this.txtModelPrinter.Name = "txtModelPrinter";
-            this.txtModelPrinter.Size = new System.Drawing.Size(134, 20);
-            this.txtModelPrinter.TabIndex = 8;
+            this.tbModelPrinter.Location = new System.Drawing.Point(212, 77);
+            this.tbModelPrinter.Name = "tbModelPrinter";
+            this.tbModelPrinter.Size = new System.Drawing.Size(203, 20);
+            this.tbModelPrinter.TabIndex = 8;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtDatetime);
-            this.groupBox1.Controls.Add(this.txtArticle);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtModelPrinter);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblDatePrinter);
+            this.groupBox1.Controls.Add(this.dtpDatetimePrinter);
+            this.groupBox1.Controls.Add(this.tbArticlePrinter);
+            this.groupBox1.Controls.Add(this.lblModelPrinter);
+            this.groupBox1.Controls.Add(this.tbModelPrinter);
+            this.groupBox1.Controls.Add(this.lblArticlePrinter);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -136,7 +137,7 @@ namespace CartrigeAltstar
             this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 30);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
-            // AddPrinter
+            // AddUpdatePrinter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,8 +146,9 @@ namespace CartrigeAltstar
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Name = "AddPrinter";
-            this.Text = "AddPrinter";
+            this.Name = "AddUpdatePrinter";
+            this.Text = "AddUpdatePrinter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUpdatePrinter_FormClosing);
             this.Load += new System.EventHandler(this.AddPrinter_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -158,13 +160,13 @@ namespace CartrigeAltstar
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDatePrinter;
+        private System.Windows.Forms.Label lblModelPrinter;
+        private System.Windows.Forms.Label lblArticlePrinter;
         private System.Windows.Forms.Button button2;
-        public System.Windows.Forms.DateTimePicker txtDatetime;
-        public System.Windows.Forms.TextBox txtModelPrinter;
-        public System.Windows.Forms.TextBox txtArticle;
+        public System.Windows.Forms.DateTimePicker dtpDatetimePrinter;
+        public System.Windows.Forms.TextBox tbModelPrinter;
+        public System.Windows.Forms.TextBox tbArticlePrinter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
