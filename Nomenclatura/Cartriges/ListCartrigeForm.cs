@@ -3,6 +3,7 @@ using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartriges;
 using System;
 using System.Data.Entity;
+using System.Linq;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -17,13 +18,13 @@ namespace CartrigeAltstar
         {
             db = new ContexAltstarContext();
             InitializeComponent();
-            resourceManager = _resourceManager;         
+            resourceManager = _resourceManager;
             this.Text = resourceManager.GetString("ListOfCartrige");
         }
 
 
         private void ListCartrigeForm_Load(object sender, EventArgs e) => PrintCartrige();
-        
+
 
 
         public void PrintCartrige()
@@ -32,8 +33,8 @@ namespace CartrigeAltstar
             try
             {
                 db.Cartriges.Load();
-                var data = db.Cartriges.Local.ToBindingList();             
-           
+                var data = db.Cartriges.Local.ToBindingList();
+
                 dataGridViewListCartrige.DataSource = data;
 
                 dataGridViewListCartrige.Columns["ModelCartrige"].HeaderText = resourceManager.GetString("ModelCartrige");
@@ -105,72 +106,48 @@ namespace CartrigeAltstar
             // Delete Cartrige
             if (dataGridViewListCartrige.SelectedRows.Count > 0)
             {
-                int index = dataGridViewListCartrige.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = int.TryParse(dataGridViewListCartrige[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
+                try
+                {
+                    int index = dataGridViewListCartrige.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = int.TryParse(dataGridViewListCartrige[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
 
-                Cartrige cartrigeDel = db.Cartriges.Find(id);
-                db.Cartriges.Remove(cartrigeDel);
+
+
+                    var cartrigeDel = db.Cartriges.Find(id);
+                    //find ForeignKey Compatibilitys.CartrigeId and set null
+                    var compatability = cartrigeDel.Compatibilitys.FirstOrDefault(x => x.CartrigeId == id);
+                    if (compatability != null)
+                        compatability.CartrigeId = null;
+                    //find ForeignKey Printers.CartrigeId and set null
+                    var printers = cartrigeDel.Printers.FirstOrDefault(x => x.CartrigeId.Equals(id));
+                    if (printers != null)
+                        printers.CartrigeId = null;
+
+                    db.SaveChanges();
+
+                    db.Cartriges.Remove(cartrigeDel);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 db.SaveChanges();
-
-
                 MessageBox.Show(resourceManager.GetString("CartrigeWasRemoved"));
                 PrintCartrige();
-
             }
 
         }
-    
+
 
         //Export to Exel cartridges
-        private void btnExportCartroge_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dataGridViewListCartrige,true, resourceManager.GetString("ListOfCartrige"));
+        private void btnExportCartroge_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dataGridViewListCartrige, true, resourceManager.GetString("ListOfCartrige"));
 
 
         private void btnClosed_Click(object sender, EventArgs e) => Close();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

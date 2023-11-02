@@ -23,20 +23,25 @@ namespace CartrigeAltstar.Model
         public DbSet<Article> Articles { get; set; }
 
 
-
+      
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Compatibility>()
             //    .HasRequired(c => c.CartrigePK)
-            //    .WithMany()
+            //    .WithMany(x => x.Compatibilitys)
             //    .HasForeignKey(c => c.CartrigeId)
-            //    .WillCascadeOnDelete(true);
+            //    .WillCascadeOnDelete(false);
+
+
+
 
             //modelBuilder.Entity<Printer>()
             //    .HasOptional(p => p.CartrigePk)
-            //    .WithMany()
+            //    .WithMany(a=>a.Printers)                // Добавляем это, чтобы указать свойство обратной навигации
             //    .HasForeignKey(p => p.CartrigeId)
-            //    .WillCascadeOnDelete(true);
+            //    .WillCascadeOnDelete(false);
+
+
         }
 
 

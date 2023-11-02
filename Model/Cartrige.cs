@@ -24,7 +24,11 @@ namespace CartrigeAltstar.Model
 
 
 
-        public ICollection<Printer> Printers { get; set; }
+        public virtual ICollection<Printer> Printers { get; set; }
+        public virtual ICollection<Compatibility> Compatibilitys { get; set; }
+
+
+
 
 
         [ForeignKey("Article")]
