@@ -127,7 +127,6 @@ namespace CartrigeAltstar
                         printers.CartrigeId = null;
 
                     db.SaveChanges();
-
                     db.Cartriges.Remove(cartrigeDel);
                 }
                 catch (Exception ex)
