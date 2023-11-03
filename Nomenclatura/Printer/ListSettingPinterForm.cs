@@ -2,6 +2,7 @@
 using CartrigeAltstar.Model;
 using System;
 using System.Data.Entity;
+using System.Drawing;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -45,6 +46,8 @@ namespace CartrigeAltstar
                 dataGridViewListPrinter.Columns["ModelPrinter"].HeaderText = resourceManager.GetString("ModelPrinter");
                 dataGridViewListPrinter.Columns["Article"].HeaderText = resourceManager.GetString("Article");
                 dataGridViewListPrinter.Columns["DateTimes"].HeaderText = resourceManager.GetString("purchase_date");
+
+                dataGridViewListPrinter.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewListPrinter.Font, FontStyle.Bold);
 
                 dataGridViewListPrinter.Columns["SubdivisionId"].Visible = false;
                 dataGridViewListPrinter.Columns["CartrigeId"].Visible = false;

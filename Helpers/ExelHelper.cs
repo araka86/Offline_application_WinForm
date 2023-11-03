@@ -98,6 +98,7 @@ namespace CartrigeAltstar.Helpers
                     ExcelRange.Cells.Font.Size = 14;
                     ExcelRange.Cells.Font.Bold = 500;
                     ExcelRange.Cells.Font.Color = Color.Brown;
+                    ExcelRange.Cells.HorizontalAlignment = HorizontalAlignment.Center;
                     columnIndex++;
                 }
             }
@@ -179,7 +180,7 @@ namespace CartrigeAltstar.Helpers
                     //range.Borders[(Excel.XlBordersIndex)border[i]].LineStyle = Excel.XlLineStyle.xlContinuous;
                     //range.Borders[(Excel.XlBordersIndex)border[i]].Weight = Excel.XlBorderWeight.xlThin;
                     //range.Borders[(Excel.XlBordersIndex)border[i]].ColorIndex = Excel.XlColorIndex.xlColorIndexAutomatic;
-                    range.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    range.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
                 }
             }
 

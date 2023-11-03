@@ -1,8 +1,10 @@
 ﻿using CartrigeAltstar.Helpers;
 using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartriges;
+
 using System;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Resources;
 using System.Windows.Forms;
@@ -41,6 +43,10 @@ namespace CartrigeAltstar
                 dataGridViewListCartrige.Columns["ArticleCartrige"].HeaderText = resourceManager.GetString("ArticleCartrige");
                 dataGridViewListCartrige.Columns["purchase_date"].HeaderText = resourceManager.GetString("purchase_date");
 
+                dataGridViewListCartrige.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewListCartrige.Font, FontStyle.Bold);
+
+
+
                 dataGridViewListCartrige.Columns["Id"].Width = 30;
                 dataGridViewListCartrige.Columns["ModelCartrige"].Width = 100;
                 dataGridViewListCartrige.Columns["ArticleCartrige"].Width = 100;
@@ -48,6 +54,8 @@ namespace CartrigeAltstar
                 dataGridViewListCartrige.Columns["Printers"].Visible = false;
                 dataGridViewListCartrige.Columns["Article"].Visible = false;
                 dataGridViewListCartrige.Columns["ArticleId"].Visible = false;
+                dataGridViewListCartrige.Columns["Compatibilitys"].Visible = false;
+                
             }
             catch (Exception ex)
             {

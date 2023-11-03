@@ -2,6 +2,7 @@
 using CartrigeAltstar.Model;
 using System;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Resources;
 using System.Windows.Forms;
@@ -42,6 +43,8 @@ namespace CartrigeAltstar
 
                 dataGridViewListSubdivision.Columns["Department"].HeaderText = resourceManager.GetString("Department");
                 dataGridViewListSubdivision.Columns["Address"].HeaderText = resourceManager.GetString("Address");
+
+                dataGridViewListSubdivision.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewListSubdivision.Font, FontStyle.Bold);
 
                 dataGridViewListSubdivision.Columns["Id"].Width = 30;
                 dataGridViewListSubdivision.Columns["Department"].Width = 300;
