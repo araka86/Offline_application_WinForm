@@ -169,6 +169,24 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Go to the menu cartridges from refills.
+        /// </summary>
+        internal static string btnReceivingFromService {
+            get {
+                return ResourceManager.GetString("btnReceivingFromService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Go to the menu cartridges for refilling.
+        /// </summary>
+        internal static string btnsendingToService {
+            get {
+                return ResourceManager.GetString("btnsendingToService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Update.
         /// </summary>
         internal static string btnUpdateCartrige {
@@ -304,6 +322,24 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Search by article.
+        /// </summary>
+        internal static string lblSearchArticle {
+            get {
+                return ResourceManager.GetString("lblSearchArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Status.
+        /// </summary>
+        internal static string lblStatus {
+            get {
+                return ResourceManager.GetString("lblStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на List Of Cartrige.
         /// </summary>
         internal static string ListOfCartrige {
@@ -327,6 +363,24 @@ namespace CartrigeAltstar.Resources {
         internal static string ListOfPrinrter {
             get {
                 return ResourceManager.GetString("ListOfPrinrter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Main menu.
+        /// </summary>
+        internal static string main_Reception {
+            get {
+                return ResourceManager.GetString("main_Reception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на MainCartriges.
+        /// </summary>
+        internal static string MainListOfCartiges {
+            get {
+                return ResourceManager.GetString("MainListOfCartiges", resourceCulture);
             }
         }
         
@@ -412,6 +466,24 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Receiving from service.
+        /// </summary>
+        internal static string ReceivingFromService {
+            get {
+                return ResourceManager.GetString("ReceivingFromService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sending to service.
+        /// </summary>
+        internal static string sendingToService {
+            get {
+                return ResourceManager.GetString("sendingToService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Status.
         /// </summary>
         internal static string Status {
@@ -426,6 +498,159 @@ namespace CartrigeAltstar.Resources {
         internal static string Subivision {
             get {
                 return ResourceManager.GetString("Subivision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Accept from service.
+        /// </summary>
+        internal static string tsbAcceptCrtige {
+            get {
+                return ResourceManager.GetString("tsbAcceptCrtige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Apply.
+        /// </summary>
+        internal static string tsbApply {
+            get {
+                return ResourceManager.GetString("tsbApply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reception.
+        /// </summary>
+        internal static string tsbChangeModeArrival {
+            get {
+                return ResourceManager.GetString("tsbChangeModeArrival", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sending.
+        /// </summary>
+        internal static string tsbChangeModeSend {
+            get {
+                return ResourceManager.GetString("tsbChangeModeSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to change.
+        /// </summary>
+        internal static string tsbChangeModeToolTipText {
+            get {
+                return ResourceManager.GetString("tsbChangeModeToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reset.
+        /// </summary>
+        internal static string tsbReset {
+            get {
+                return ResourceManager.GetString("tsbReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Receive to warehouse.
+        /// </summary>
+        internal static string tsbReturnFillCartrige {
+            get {
+                return ResourceManager.GetString("tsbReturnFillCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Send for cartridge refill.
+        /// </summary>
+        internal static string tsbSendtoFillCartrige {
+            get {
+                return ResourceManager.GetString("tsbSendtoFillCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cartriges.
+        /// </summary>
+        internal static string tslCartriges {
+            get {
+                return ResourceManager.GetString("tslCartriges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Departments.
+        /// </summary>
+        internal static string tslDepartment {
+            get {
+                return ResourceManager.GetString("tslDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Filter.
+        /// </summary>
+        internal static string tslFilter {
+            get {
+                return ResourceManager.GetString("tslFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Menu.
+        /// </summary>
+        internal static string tsmiMenu {
+            get {
+                return ResourceManager.GetString("tsmiMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Printers.
+        /// </summary>
+        internal static string tsniPrinters {
+            get {
+                return ResourceManager.GetString("tsniPrinters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на In service, cannot be sent.
+        /// </summary>
+        internal static string txStatusSendCartrigeNoOK {
+            get {
+                return ResourceManager.GetString("txStatusSendCartrigeNoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The cartridge is not in service and cannot be obtained.
+        /// </summary>
+        internal static string txStatusSendCartrigeNoOKReceive {
+            get {
+                return ResourceManager.GetString("txStatusSendCartrigeNoOKReceive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Not in service, can be sent.
+        /// </summary>
+        internal static string txStatusSendCartrigeOK {
+            get {
+                return ResourceManager.GetString("txStatusSendCartrigeOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The cartridge is being serviced, you can get it.
+        /// </summary>
+        internal static string txStatusSendCartrigeOKReceive {
+            get {
+                return ResourceManager.GetString("txStatusSendCartrigeOKReceive", resourceCulture);
             }
         }
         

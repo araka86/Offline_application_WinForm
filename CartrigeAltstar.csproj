@@ -140,25 +140,39 @@
       <DependentUpon>DialogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExelHelper.cs" />
-    <Compile Include="Model\Article.cs" />
+    <Compile Include="Main_Reception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Reception.Designer.cs">
+      <DependentUpon>Main_Reception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CartrigeHome.cs" />
+    <Compile Include="Model\CartrigeService.cs" />
     <Compile Include="Model\Current.cs" />
+    <Compile Include="Model\Login.cs" />
     <Compile Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.Designer.cs">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DispatchConfig.cs">
+    <Compile Include="AcceptСartridgesFromLocations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DispatchConfig.Designer.cs">
-      <DependentUpon>DispatchConfig.cs</DependentUpon>
+    <Compile Include="AcceptСartridgesFromLocations.Designer.cs">
+      <DependentUpon>AcceptСartridgesFromLocations.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\AddI_Del_infoOrgTehnic.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Nomenclatura\AddI_Del_infoOrgTehnic.Designer.cs">
       <DependentUpon>AddI_Del_infoOrgTehnic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nomenclatura\Cartriges\SendingForFilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nomenclatura\Cartriges\SendingForFilling.Designer.cs">
+      <DependentUpon>SendingForFilling.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\InfoOrgTechnic.cs">
       <SubType>Form</SubType>
@@ -219,7 +233,7 @@
     <Compile Include="Data\ContexAltstar.cs" />
     <Compile Include="Model\Dispatch.cs" />
     <Compile Include="Model\Printer.cs" />
-    <Compile Include="Model\Reception.cs" />
+    <Compile Include="Model\Tolocation.cs" />
     <Compile Include="Data\Start_Data.cs" />
     <Compile Include="Model\Subdivision.cs" />
     <Compile Include="Nomenclatura\Printer\PrinterSubdivision.cs">
@@ -230,17 +244,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Main_Reception.cs">
+    <Compile Include="DistribOfCartridgesByLocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_Reception.Designer.cs">
-      <DependentUpon>Main_Reception.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReceptionConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReceptionConfig.Designer.cs">
-      <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    <Compile Include="DistribOfCartridgesByLocation.Designer.cs">
+      <DependentUpon>DistribOfCartridgesByLocation.cs</DependentUpon>
     </Compile>
     <Compile Include="Nomenclatura\Cartriges\UpdateMovingCartrige.cs">
       <SubType>Form</SubType>
@@ -273,26 +281,17 @@
     <EmbeddedResource Include="Dialogs\DialogForm.resx">
       <DependentUpon>DialogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispatchConfig.en.resx">
-      <DependentUpon>DispatchConfig.cs</DependentUpon>
+    <EmbeddedResource Include="AcceptСartridgesFromLocations.en.resx">
+      <DependentUpon>AcceptСartridgesFromLocations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_Reception.en.resx">
-      <DependentUpon>Main_Reception.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_Reception.ru-RU.resx">
-      <DependentUpon>Main_Reception.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_Reception.ru.resx">
-      <DependentUpon>Main_Reception.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_Reception.uk-UA.resx">
+    <EmbeddedResource Include="Main_Reception.resx">
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispatchConfig.resx">
-      <DependentUpon>DispatchConfig.cs</DependentUpon>
+    <EmbeddedResource Include="AcceptСartridgesFromLocations.resx">
+      <DependentUpon>AcceptСartridgesFromLocations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\AddI_Del_infoOrgTehnic.resx">
       <DependentUpon>AddI_Del_infoOrgTehnic.cs</DependentUpon>
@@ -305,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\moving_the_cartridge.en.resx">
       <DependentUpon>moving_the_cartridge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nomenclatura\Cartriges\SendingForFilling.resx">
+      <DependentUpon>SendingForFilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\InfoOrgTechnic.en.resx">
       <DependentUpon>InfoOrgTechnic.cs</DependentUpon>
@@ -343,14 +345,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Main_Reception.resx">
-      <DependentUpon>Main_Reception.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReceptionConfig.en.resx">
-      <DependentUpon>ReceptionConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReceptionConfig.resx">
-      <DependentUpon>ReceptionConfig.cs</DependentUpon>
+    <EmbeddedResource Include="DistribOfCartridgesByLocation.resx">
+      <DependentUpon>DistribOfCartridgesByLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\UpdateMovingCartrige.resx">
       <DependentUpon>UpdateMovingCartrige.cs</DependentUpon>
@@ -412,6 +408,18 @@
     <None Include="Resources\Close.png" />
     <None Include="Resources\update.png" />
     <None Include="Resources\delete.png" />
+    <None Include="Resources\update2.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\fillCartrige.png" />
+    <None Include="Resources\sendAccept.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\Send.png" />
+    <None Include="Resources\sendBack.png" />
+    <None Include="Resources\rightArrow.png" />
+    <None Include="Resources\LeftArrow.png" />
+    <None Include="Resources\ok.png" />
     <Content Include="unnamed.ico" />
   </ItemGroup>
   <ItemGroup>

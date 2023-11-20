@@ -42,6 +42,7 @@ namespace CartrigeAltstar
 
                 dataGridViewListPrinter.DataSource = data;
 
+            
                 dataGridViewListPrinter.Columns["Id"].Width = 30;
                 dataGridViewListPrinter.Columns["ModelPrinter"].HeaderText = resourceManager.GetString("ModelPrinter");
                 dataGridViewListPrinter.Columns["Article"].HeaderText = resourceManager.GetString("Article");
@@ -132,5 +133,6 @@ namespace CartrigeAltstar
 
         private void btnClosed_Click_1(object sender, EventArgs e) => Close();
 
+    
     }
 }

@@ -164,6 +164,14 @@
     <value>Експортувати</value>
     <comment>Nomenclatura/Cartrige</comment>
   </data>
+  <data name="btnReceivingFromService" xml:space="preserve">
+    <value>Прейти до меню картриджі із заправки</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="btnsendingToService" xml:space="preserve">
+    <value>Прейти до меню картриджі на заправку</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="btnUpdateCartrige" xml:space="preserve">
     <value>Оновити</value>
     <comment>Nomenclatura/Cartrige</comment>
@@ -201,6 +209,14 @@
     <value>Підрозділ було видалено</value>
     <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
+  <data name="labelInfoGridInService" xml:space="preserve">
+    <value>Картриджі на сервісі</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="labelInfoGridNotInService" xml:space="preserve">
+    <value>Картриджі не на сервісі</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="lblAddressDepartment" xml:space="preserve">
     <value>Адресса підрозділу</value>
     <comment>Nomenclatura/Printer Add/Update(Title)</comment>
@@ -221,6 +237,14 @@
     <value>Назва підрозділу</value>
     <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
+  <data name="lblSearchArticle" xml:space="preserve">
+    <value>Пошук по артиклю</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="lblStatus" xml:space="preserve">
+    <value>Статус</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="ListOfCartrige" xml:space="preserve">
     <value>Список картриджів</value>
     <comment>Nomenclatura/Cartrige(Tittle)</comment>
@@ -232,6 +256,14 @@
   <data name="ListOfPrinrter" xml:space="preserve">
     <value>Список принтерів</value>
     <comment>Nomenclatura/Printer(Title)</comment>
+  </data>
+  <data name="MainListOfCartiges" xml:space="preserve">
+    <value>Картриджі на підрозділах</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="main_Reception" xml:space="preserve">
+    <value>Головне меню</value>
+    <comment>Main_Reseption(Titile)</comment>
   </data>
   <data name="MessageUpdatePrinter" xml:space="preserve">
     <value>Принтер було оновлено</value>
@@ -264,11 +296,87 @@
     <value>Дата</value>
     <comment>Nomenclatura/Cartrige</comment>
   </data>
+  <data name="ReceivingFromService" xml:space="preserve">
+    <value>Отримання з обслуговування</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
+  </data>
+  <data name="sendingToService" xml:space="preserve">
+    <value>Відправка на обслуговування</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
   </data>
   <data name="Subivision" xml:space="preserve">
     <value>Підрозділ</value>
+  </data>
+  <data name="tsbAcceptCrtige" xml:space="preserve">
+    <value>Прийняти із обслуговування</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="tsbApply" xml:space="preserve">
+    <value>Задіяти</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbChangeModeArrival" xml:space="preserve">
+    <value>Прийняття</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbChangeModeSend" xml:space="preserve">
+    <value>Відправка</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbChangeModeToolTipText" xml:space="preserve">
+    <value>Натисніть для зміни</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbReset" xml:space="preserve">
+    <value>Скинути</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbReturnFillCartrige" xml:space="preserve">
+    <value>Прийняти на склад</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="tsbSendtoFillCartrige" xml:space="preserve">
+    <value>Відправити на заправку</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="tslCartriges" xml:space="preserve">
+    <value>Картриджі</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tslDepartment" xml:space="preserve">
+    <value>Підрозділи</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tslFilter" xml:space="preserve">
+    <value>Фільтр</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiMenu" xml:space="preserve">
+    <value>Меню</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsniPrinters" xml:space="preserve">
+    <value>Принтери</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="txStatusSendCartrigeNoOK" xml:space="preserve">
+    <value>На обслуговуванні, не може бути відправленний</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="txStatusSendCartrigeNoOKReceive" xml:space="preserve">
+    <value>Картридж не на обслуговуванні, отримати не можливо</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="txStatusSendCartrigeOK" xml:space="preserve">
+    <value>Не на обслуговуванні, може бути відправленний</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="txStatusSendCartrigeOKReceive" xml:space="preserve">
+    <value>Картридж на обслуговуванні, можливо отримати</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="UpdateCartigeModal" xml:space="preserve">
     <value>Оновити картридж</value>

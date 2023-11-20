@@ -13,7 +13,7 @@ namespace CartrigeAltstar.Resources
     {
 
 
-        public static void chkTranc(string culture, ResourceManager resourceManager, Main_Reception main_Reception)
+        public static void chkTranc(string culture, ResourceManager resourceManager, main_Reception main_Reception)
         {
 
 

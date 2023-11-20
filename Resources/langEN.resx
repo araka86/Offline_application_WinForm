@@ -164,6 +164,14 @@
     <value>Export</value>
     <comment>Nomenclatura/Cartrige</comment>
   </data>
+  <data name="btnReceivingFromService" xml:space="preserve">
+    <value>Go to the menu cartridges from refills</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="btnsendingToService" xml:space="preserve">
+    <value>Go to the menu cartridges for refilling</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="btnUpdateCartrige" xml:space="preserve">
     <value>Update</value>
     <comment>Nomenclatura/Cartrige</comment>
@@ -221,6 +229,14 @@
     <value>Name of Department</value>
     <comment>Nomenclatura/Department  Add/Update</comment>
   </data>
+  <data name="lblSearchArticle" xml:space="preserve">
+    <value>Search by article</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="lblStatus" xml:space="preserve">
+    <value>Status</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="ListOfCartrige" xml:space="preserve">
     <value>List Of Cartrige</value>
     <comment>Nomenclatura/Cartrige(Tittle)</comment>
@@ -232,6 +248,14 @@
   <data name="ListOfPrinrter" xml:space="preserve">
     <value>List of Prinrters</value>
     <comment>Nomenclatura/Printer(Title)</comment>
+  </data>
+  <data name="MainListOfCartiges" xml:space="preserve">
+    <value>MainCartriges</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="main_Reception" xml:space="preserve">
+    <value>Main menu</value>
+    <comment>Main_Reseption(Titile)</comment>
   </data>
   <data name="MessageUpdatePrinter" xml:space="preserve">
     <value>The printer has been updated</value>
@@ -264,11 +288,86 @@
     <value>Date</value>
     <comment>Nomenclatura/Cartrige</comment>
   </data>
+  <data name="ReceivingFromService" xml:space="preserve">
+    <value>Receiving from service</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
+  </data>
+  <data name="sendingToService" xml:space="preserve">
+    <value>Sending to service</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Subivision" xml:space="preserve">
     <value>Subivision</value>
+  </data>
+  <data name="tsbAcceptCrtige" xml:space="preserve">
+    <value>Accept from service</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="tsbApply" xml:space="preserve">
+    <value>Apply</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbChangeModeArrival" xml:space="preserve">
+    <value>Reception</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbChangeModeSend" xml:space="preserve">
+    <value>Sending</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbChangeModeToolTipText" xml:space="preserve">
+    <value>Click to change</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbReset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsbReturnFillCartrige" xml:space="preserve">
+    <value>Receive to warehouse</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="tsbSendtoFillCartrige" xml:space="preserve">
+    <value>Send for cartridge refill</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="tslCartriges" xml:space="preserve">
+    <value>Cartriges</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tslDepartment" xml:space="preserve">
+    <value>Departments</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tslFilter" xml:space="preserve">
+    <value>Filter</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiMenu" xml:space="preserve">
+    <value>Menu</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsniPrinters" xml:space="preserve">
+    <value>Printers</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="txStatusSendCartrigeNoOK" xml:space="preserve">
+    <value>In service, cannot be sent</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="txStatusSendCartrigeNoOKReceive" xml:space="preserve">
+    <value>The cartridge is not in service and cannot be obtained</value>
+  </data>
+  <data name="txStatusSendCartrigeOK" xml:space="preserve">
+    <value>Not in service, can be sent</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="txStatusSendCartrigeOKReceive" xml:space="preserve">
+    <value>The cartridge is being serviced, you can get it</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="UpdateCartigeModal" xml:space="preserve">
     <value>Update catrige</value>

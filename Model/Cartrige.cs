@@ -22,21 +22,11 @@ namespace CartrigeAltstar.Model
         public DateTime? purchase_date { get; set; } 
 
 
+        public bool IsService { get; set; }
 
 
         public virtual ICollection<Printer> Printers { get; set; }
         public virtual ICollection<Compatibility> Compatibilitys { get; set; }
-
-
-
-
-
-        [ForeignKey("Article")]
-        public int? ArticleId { get; set; } 
-        public Article Article { get; set; }
-
-
-
 
     }
 }

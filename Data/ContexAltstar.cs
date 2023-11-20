@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Configuration;
+using System.Data.Entity;
 using System.Reflection.Emit;
 
 namespace CartrigeAltstar.Model
@@ -17,13 +18,15 @@ namespace CartrigeAltstar.Model
         public DbSet<Printer> Printers { get; set; } //Принтеры
         public DbSet<Subdivision> Subdivisions { get; set; } //Подразделения
         public DbSet<Cartrige> Cartriges { get; set; } //Картриджи
-        public DbSet<Reception> Receptions { get; set; } //Прием картриджей
+        public DbSet<Tolocation> Tolocations { get; set; } //Прием картриджей
         public DbSet<Dispatch> Dispatches { get; set; } //отправка картриджей
         public DbSet<Current> Currents { get; set; }
-        public DbSet<Article> Articles { get; set; }
+
+        public DbSet<Login> Logins { get; set; }
 
 
-      
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Compatibility>()
@@ -37,12 +40,46 @@ namespace CartrigeAltstar.Model
 
             //modelBuilder.Entity<Printer>()
             //    .HasOptional(p => p.CartrigePk)
-            //    .WithMany(a=>a.Printers)                // Добавляем это, чтобы указать свойство обратной навигации
+            //    .WithMany(a=>a.Printers)                // Добавляем это, чтобы указать свойство обратной навигации (2 стрелочки)
             //    .HasForeignKey(p => p.CartrigeId)
             //    .WillCascadeOnDelete(false);
 
+            //modelBuilder.Entity<Login>().HasData(
+            //    new Login 
+            //{
+            //    Id = 1,
+            //    Name = "Test",
+            //    Password = "password",
+            //});
 
         }
+
+
+        // .Net Core
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //        optionsBuilder.UseSqlServer(connectionString, options =>
+        //        {
+        //            //   options.EnableRetryOnFailure(); // Включаем повторные попытки при сбоях
+        //        });
+        //    }
+        //}
+
+
+
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+
+        //    modelBuilder.Entity<Cartrige>()
+        //   .HasOne(c => c.Article)
+        //   .WithMany(a => a.Cartriges)
+        //   .HasForeignKey(c => c.ArticleId)
+        //   .OnDelete(DeleteBehavior.SetNull);
+        //}
 
 
 
