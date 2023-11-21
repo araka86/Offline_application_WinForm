@@ -91,7 +91,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(714, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(779, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -152,7 +152,7 @@
             this.tsUpdateButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(714, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(779, 42);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Заправка картрижда";
             // 
@@ -167,6 +167,7 @@
             this.tsbAdd.Name = "tsbAdd";
             this.tsbAdd.Size = new System.Drawing.Size(40, 35);
             this.tsbAdd.Text = "toolStripButton1";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
             // 
             // toolStripSeparator1
             // 
@@ -182,6 +183,7 @@
             this.tsbUpdate.Name = "tsbUpdate";
             this.tsbUpdate.Size = new System.Drawing.Size(83, 39);
             this.tsbUpdate.Text = "toolStripButton2";
+            this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
             // toolStripSeparator2
             // 
@@ -197,6 +199,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(64, 39);
             this.tsbDelete.Text = "toolStripButton3";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator3
             // 
@@ -416,6 +419,7 @@
             this.tsbApply.Name = "tsbApply";
             this.tsbApply.Size = new System.Drawing.Size(147, 19);
             this.tsbApply.Text = "Применить";
+            this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
             // tsbReset
             // 
@@ -466,7 +470,7 @@
             this.dgwMain.ReadOnly = true;
             this.dgwMain.RowHeadersVisible = false;
             this.dgwMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwMain.Size = new System.Drawing.Size(553, 346);
+            this.dgwMain.Size = new System.Drawing.Size(618, 346);
             this.dgwMain.TabIndex = 0;
             // 
             // groupBox1
@@ -476,7 +480,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(714, 384);
+            this.groupBox1.Size = new System.Drawing.Size(779, 384);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -486,7 +490,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(152, 16);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(559, 365);
+            this.groupBox2.Size = new System.Drawing.Size(624, 365);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "картриджи на подразделения";
@@ -495,7 +499,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 450);
+            this.ClientSize = new System.Drawing.Size(779, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);

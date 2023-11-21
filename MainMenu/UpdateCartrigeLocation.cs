@@ -1,0 +1,123 @@
+﻿using CartrigeAltstar.Model;
+using System.Data.Entity;
+using System;
+using System.Windows.Forms;
+using System.Linq;
+
+namespace CartrigeAltstar.MainMenu
+{
+    public partial class UpdateCartrigeLocation : Form
+    {
+        private ContexAltstarContext db;
+        private int itemId;
+
+        public int ItemId
+        {
+            get { return itemId; }
+            set { itemId = value; }
+        }
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            db = new ContexAltstarContext();
+            db.Subdivisions.Load();
+            FillCombobox();
+        }
+
+        public UpdateCartrigeLocation(int _itemId)
+        {
+            InitializeComponent();
+            ItemId = _itemId;
+            lbId.Text = _itemId.ToString();
+        }
+        public void FillCombobox()
+        {
+
+            try
+            {
+                var currentUpdate = db.Tolocations.Find(itemId);
+                if (currentUpdate != null)
+                {
+
+
+                    cbUpdateCartrigeArticle.DataSource = db.Cartriges
+                    .OrderByDescending(a => a.ArticleCartrige == currentUpdate.Article) // Order by the condition (true comes first)
+                    .ThenBy(a => a.ArticleCartrige) // Then order by ArticleCartrige
+                    .Select(x => x.ArticleCartrige)
+                    .ToList();
+
+
+
+                    cbUpdateDupertment.DataSource = db.Subdivisions
+                     .OrderByDescending(a => a.Department == currentUpdate.Department)
+                     .ThenBy(s => s.Department)
+                     .Select(x => x.Department)
+                     .ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+
+
+        }
+
+        private void cbUpdateCartrigeArticle_TextChanged(object sender, EventArgs e)
+        {
+            if (cbUpdateCartrigeArticle != null)
+            {
+
+                var getSelectArticle = cbUpdateCartrigeArticle.SelectedItem as string;
+                tbCartrige.Text = db.Cartriges
+                    .Where(x => x.ArticleCartrige
+                    .Equals(getSelectArticle))
+                    .Select(x => x.ModelCartrige).FirstOrDefault();
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var getCurrent = db.Tolocations.FirstOrDefault(x => x.Id == ItemId);
+
+                if (getCurrent != null)
+                {
+                    var chkToLocation = db.Tolocations.Any(x => x.Article == cbUpdateCartrigeArticle.SelectedItem.ToString());
+
+                    if (chkToLocation) 
+                    {
+                        MessageBox.Show("Error!!");
+                        return;
+                    }
+                    else 
+                    {
+                        getCurrent.Article = cbUpdateCartrigeArticle.SelectedItem.ToString();
+                        getCurrent.Cartrige = tbCartrige.Text.ToString();
+                    }
+
+                    getCurrent.Department = cbUpdateDupertment.SelectedItem.ToString();
+                    db.Entry(getCurrent).State = EntityState.Modified;
+                    db.SaveChanges();                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e) =>this.Close();
+        
+    }
+}

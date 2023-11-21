@@ -78,52 +78,61 @@ namespace CartrigeAltstar
 
         private void btnUpdatePrinter_Click(object sender, EventArgs e)
         {
-
-            // update Cartrige
-            if (dataGridViewListPrinter.SelectedRows.Count > 0)
+            try
             {
-                int index = dataGridViewListPrinter.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = int.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
+                // update Cartrige
+                if (dataGridViewListPrinter.SelectedRows.Count > 0)
+                {
+                    int index = dataGridViewListPrinter.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = int.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
 
-                AddUpdatePrinter updatePrinerForm = new AddUpdatePrinter(resourceManager, id);
-                DialogResult result = updatePrinerForm.ShowDialog(this);
-                if (result == DialogResult.Cancel)
-                    return;
+                    AddUpdatePrinter updatePrinerForm = new AddUpdatePrinter(resourceManager, id);
+                    DialogResult result = updatePrinerForm.ShowDialog(this);
+                    if (result == DialogResult.Cancel)
+                        return;
 
 
-
-                db = new ContexAltstarContext();
-                PrintPrinter();
+                    db = new ContexAltstarContext();
+                    PrintPrinter();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
 
         }
 
 
 
-
+        // Delete Printer
         private void btnDelPrinter_Click(object sender, EventArgs e)
         {
-            // Delete Printer
-            if (dataGridViewListPrinter.SelectedRows.Count > 0)
+
+
+            try
             {
-                int index = dataGridViewListPrinter.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = int.TryParse(dataGridViewListPrinter[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
-
-                Printer printerdel = db.Printers.Find(id);
-                db.Printers.Remove(printerdel);
-                db.SaveChanges();
-
-
-                MessageBox.Show(resourceManager.GetString("CartrigeWasRemoved"));
-                PrintPrinter();
-
+                if (dataGridViewListPrinter.SelectedRows.Count > 0)
+                {
+                    int findId = int.Parse(dataGridViewListPrinter.SelectedRows[0].Cells["id"].Value.ToString());
+                    DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Подтверждение удаления", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        db.Printers.Remove(db.Printers.Find(findId));
+                        db.SaveChanges();
+                        MessageBox.Show(resourceManager.GetString("MessageRemovePrinter"));
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
 

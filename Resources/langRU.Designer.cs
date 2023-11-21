@@ -403,6 +403,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Принтер был удален.
+        /// </summary>
+        internal static string MessageRemovePrinter {
+            get {
+                return ResourceManager.GetString("MessageRemovePrinter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Принтер был обновлен.
         /// </summary>
         internal static string MessageUpdatePrinter {

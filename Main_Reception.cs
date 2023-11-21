@@ -1,6 +1,8 @@
 ﻿using CartrigeAltstar.Helpers;
+using CartrigeAltstar.MainMenu;
 using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartriges;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Data.Entity;
 using System.Globalization;
@@ -14,6 +16,11 @@ namespace CartrigeAltstar
 {
     public partial class main_Reception : Form
     {
+        //false - от
+        private static bool ChekMode = false;
+        private string CultureDefine;
+        private ContexAltstarContext db;
+        public ResourceManager resourceManager;
 
         protected override void OnShown(EventArgs e)
         {
@@ -26,21 +33,15 @@ namespace CartrigeAltstar
             SetOperationAccess();
         }
 
-        private void SetOperationAccess() 
-        {
-            if(dgwMain.Rows.Count > 0) tsbExport.Enabled = true;
-        }
+        private void SetOperationAccess() => tsbExport.Enabled = (dgwMain.Rows.Count > 0) ? true : false;
 
 
 
-        //false - от
-        private static bool ChekMode = false;
-        private  string CultureDefine;
-        private ContexAltstarContext db;
-        public ResourceManager resourceManager;
 
 
-     
+
+
+
 
         public main_Reception()
         {
@@ -66,7 +67,7 @@ namespace CartrigeAltstar
 
 
 
-        private void TranslateMenu() 
+        private void TranslateMenu()
         {
             tsmiMenu.Text = resourceManager.GetString("tsmiMenu");
             this.Text = resourceManager.GetString("main_Reception");
@@ -83,7 +84,7 @@ namespace CartrigeAltstar
         }
 
 
-    
+
 
         #region Click Change Language
         private void tsmiUA_Click(object sender, EventArgs e)
@@ -143,50 +144,64 @@ namespace CartrigeAltstar
 
         #region Fill Data
 
-        public void FillCombobox() 
-        {     
+        public void FillCombobox()
+        {
             db = new ContexAltstarContext();
-            var ListCartrige = db.Cartriges.Select(c=>c.ModelCartrige).ToList();
+            var ListCartrige = db.Cartriges.Select(c => c.ModelCartrige).ToList();
             tscbCartriges.ComboBox.DataSource = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
-            tscbDepartment.ComboBox.DataSource = db.Subdivisions.Select(s=>s.Department).ToList();
+            tscbDepartment.ComboBox.DataSource = db.Subdivisions.Select(s => s.Department).ToList();
         }
 
         private void FillDataGrid()
         {
-            dgwMain.DataSource = db.Tolocations.Local.ToBindingList();
-            dgwMain.Columns["Id"].Width = 35;
-            dgwMain.Columns["Data"].Width = 80;
-            dgwMain.Columns["Data"].Width = 80;
-            dgwMain.Columns["Department"].Width = 300;
+            try
+            {
+                db = new ContexAltstarContext();
+                dgwMain.DataSource = db.Tolocations.Local.ToBindingList();
+                dgwMain.Columns["Id"].Width = 35;
+                dgwMain.Columns["Data"].Width = 80;
+                dgwMain.Columns["Data"].DefaultCellStyle.Format = "dd.MM.yyyy";
+                dgwMain.Columns["Article"].Width = 80;
+                dgwMain.Columns["Cartrige"].Width = 80;
+                dgwMain.Columns["Department"].Width = 300;
 
-            dgwMain.Columns["Data"].DefaultCellStyle.Format = "dd.MM.yyyy";
-            dgwMain.Columns["Article"].Visible = false;
-            dgwMain.Columns["Status"].Visible = false;
-            dgwMain.Columns["Weight"].Visible = false;
-            db.Tolocations.Load();
+
+                dgwMain.Columns["Status"].Visible = false;
+                dgwMain.Columns["Weight"].Visible = false;
+                db.Tolocations.Load();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
 
         #endregion
 
 
         #region Отправка/Прием Сервис
+
         private void tsmiSendCartrige_Click(object sender, EventArgs e)
         {
-            SendingForFilling sendingForFilling = new SendingForFilling(resourceManager,true);       
+            SendingForFilling sendingForFilling = new SendingForFilling(resourceManager, true);
             if (sendingForFilling.ShowDialog() != DialogResult.OK)
-                return;      
+                return;
         }
 
         private void tsmiAcceptCartriges_Click(object sender, EventArgs e)
         {
             var sendingForFilling = new SendingForFilling(resourceManager, false);
             DialogResult result = sendingForFilling.ShowDialog();
-            if (result == DialogResult.Cancel) return;        
+            if (result == DialogResult.Cancel) return;
         }
         #endregion
 
         #region Отправка/Прием Лакации
-
+        private void tsbAdd_Click(object sender, EventArgs e) => tsmiSendToLocation_Click(sender, e);
         private void tsmiSendToLocation_Click(object sender, EventArgs e)
         {
             var distribOfCartridgesByLocation = new DistribOfCartridgesByLocation(resourceManager);
@@ -194,13 +209,13 @@ namespace CartrigeAltstar
             distribOfCartridgesByLocation.Show();
         }
 
-        private void DistribOfCartridgesByLocation_FormClosing(object sender, FormClosingEventArgs e)=> dgwMain.DataSource = db.Tolocations.ToList();
-        
+        private void DistribOfCartridgesByLocation_FormClosing(object sender, FormClosingEventArgs e) => dgwMain.DataSource = db.Tolocations.ToList();
+
         private void tsmiAcceptFromLocation_Click(object sender, EventArgs e)
         {
             var acceptСartridgesFromLocations = new AcceptСartridgesFromLocations(resourceManager);
             DialogResult result = acceptСartridgesFromLocations.ShowDialog();
-            if (result != DialogResult.OK) 
+            if (result != DialogResult.OK)
             {
                 dgwMain.DataSource = db.Tolocations.ToList();
                 return;
@@ -216,9 +231,80 @@ namespace CartrigeAltstar
             tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
             ChekMode = !ChekMode;
         }
-         
+
         //export
         private void tsbExport_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dgwMain, true, resourceManager.GetString("ListOfCartrige"));
-        
+
+        private void tsbApply_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgwMain.SelectedRows.Count > 0)
+            {
+                var getDatagridrow = dgwMain.SelectedRows[0];
+                int idValue = int.Parse(getDatagridrow.Cells["id"].Value.ToString());
+
+                var updateCartrigeLocation = new UpdateCartrigeLocation(idValue);
+                if (updateCartrigeLocation.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Item is updated");
+                    FillDataGrid();
+                    SetOperationAccess();
+                }
+
+                //  var uid = this.UserID;
+            }
+
+
+
+
+
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (dgwMain.SelectedRows.Count > 0)
+                {
+                    var getDatagridrow = dgwMain.SelectedRows[0];
+                    int idValue = int.Parse(getDatagridrow.Cells["id"].Value.ToString());
+                    DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Подтверждение удаления", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        db.Tolocations.Remove(db.Tolocations.Find(idValue));
+                        db.SaveChanges();
+                        MessageBox.Show("Запись удалена!!!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        //private int _userID = 0;
+        //public int UserID
+        //{
+        //    set
+        //    {
+        //        _userID = value;
+        //    }
+        //    get
+        //    {
+        //        //return ((MainForm)ParentForm).UserID;
+        //        return (_userID != 0) ? _userID : (ParentForm != null) ? ((main_Reception)ParentForm).UserID : 0;
+        //    }
+        //}
+
+
+
+
     }
 }

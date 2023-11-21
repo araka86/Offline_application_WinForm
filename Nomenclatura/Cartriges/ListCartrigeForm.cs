@@ -54,7 +54,7 @@ namespace CartrigeAltstar
                 dataGridViewListCartrige.Columns["IsService"].Visible = false;
                 dataGridViewListCartrige.Columns["Printers"].Visible = false;
                 dataGridViewListCartrige.Columns["Compatibilitys"].Visible = false;
-                
+
             }
             catch (Exception ex)
             {
@@ -109,6 +109,8 @@ namespace CartrigeAltstar
         //Delete Cartrige
         private void btnDellCartrige_Click(object sender, EventArgs e)
         {
+           
+
 
             // Delete Cartrige
             if (dataGridViewListCartrige.SelectedRows.Count > 0)
@@ -138,7 +140,6 @@ namespace CartrigeAltstar
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 db.SaveChanges();

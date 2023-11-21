@@ -265,6 +265,10 @@
     <value>Главное меню</value>
     <comment>Main_Reseption(Titile)</comment>
   </data>
+  <data name="MessageRemovePrinter" xml:space="preserve">
+    <value>Принтер был удален</value>
+    <comment>Nomenclatura/Printer</comment>
+  </data>
   <data name="MessageUpdatePrinter" xml:space="preserve">
     <value>Принтер был обновлен</value>
     <comment>Nomenclatura/Printer Add/Update</comment>

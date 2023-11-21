@@ -257,6 +257,10 @@
     <value>Main menu</value>
     <comment>Main_Reseption(Titile)</comment>
   </data>
+  <data name="MessageRemovePrinter" xml:space="preserve">
+    <value>The printer was removed</value>
+    <comment>Nomenclatura/Printer</comment>
+  </data>
   <data name="MessageUpdatePrinter" xml:space="preserve">
     <value>The printer has been updated</value>
     <comment>Nomenclatura/Printer Add/Update</comment>
