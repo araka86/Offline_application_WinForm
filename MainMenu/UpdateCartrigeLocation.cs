@@ -21,7 +21,7 @@ namespace CartrigeAltstar.MainMenu
             base.OnShown(e);
 
             db = new ContexAltstar();
-            db.Department.Load();
+            db.Departments.Load();
             FillCombobox();
         }
 
@@ -49,7 +49,7 @@ namespace CartrigeAltstar.MainMenu
 
 
 
-                    cbUpdateDupertment.DataSource = db.Department
+                    cbUpdateDupertment.DataSource = db.Departments
                      .OrderByDescending(a => a.Name == currentUpdate.Department)
                      .ThenBy(s => s.Name)
                      .Select(x => x.Name)

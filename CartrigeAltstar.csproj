@@ -219,10 +219,17 @@
     <Compile Include="Migrations\202311221035050_initNewTable.designer.cs">
       <DependentUpon>202311221035050_initNewTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311221038139_initNewTable1.cs" />
+    <Compile Include="Migrations\202311221038139_initNewTable1.designer.cs">
+      <DependentUpon>202311221038139_initNewTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311221041296_initNewTable2.cs" />
+    <Compile Include="Migrations\202311221041296_initNewTable2.designer.cs">
+      <DependentUpon>202311221041296_initNewTable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CartrigeHome.cs" />
     <Compile Include="Model\CartrigeService.cs" />
-    <Compile Include="Model\Current.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.cs">
       <SubType>Form</SubType>
@@ -305,7 +312,6 @@
     <Compile Include="Model\Cartrige.cs" />
     <Compile Include="Model\Compatibility.cs" />
     <Compile Include="Data\ContexAltstar.cs" />
-    <Compile Include="Model\Dispatch.cs" />
     <Compile Include="Model\Printer.cs" />
     <Compile Include="Model\Cartrigelolocation.cs" />
     <Compile Include="Data\Start_Data.cs" />
@@ -369,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311221035050_initNewTable.resx">
       <DependentUpon>202311221035050_initNewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221038139_initNewTable1.resx">
+      <DependentUpon>202311221038139_initNewTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221041296_initNewTable2.resx">
+      <DependentUpon>202311221041296_initNewTable2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>

@@ -36,7 +36,7 @@ namespace CartrigeAltstar.Auth
             if (user != null && user.Password == enteredPassword)
             {
                 // Логин и пароль верны
-                UserId = user.UniqId.ToString();
+                UserId = user.UniqId.ToString();// Передаем информацию об уникальном id
                 Role = user.Role; // Передаем информацию о роли
 
 

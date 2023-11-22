@@ -19,7 +19,7 @@ namespace CartrigeAltstar
             db = new ContexAltstar();
 
             db.Printers.Load();
-            db.Department.Load();
+            db.Departments.Load();
             db.Cartriges.Load();
             db.Compatibilities.Load();
 
@@ -81,9 +81,9 @@ namespace CartrigeAltstar
 
 
             Printer sb = db.Printers.Find(ids);
-            Subdivision subdivision = new Subdivision();
+            Department subdivision = new Department();
 
-            var p = from l in db.Department
+            var p = from l in db.Departments
                     where l.Id == sb.SubdivisionId
                     select new
                     {
@@ -263,7 +263,7 @@ namespace CartrigeAltstar
 
 
             //создаем запрос для комбобокса Name
-            var divisionAdd = from a in db.Department
+            var divisionAdd = from a in db.Departments
                               select new
                               {
                                   a.Id,
@@ -321,10 +321,10 @@ namespace CartrigeAltstar
 
 
             //находим подразделение в базе выбраннымподразделением с комбобокса(выпадающего списка) и вносим в переменную типа db.Name
-            var pr = db.Department.Find(getId);
+            var pr = db.Departments.Find(getId);
 
 
-            //     Subdivision subdivisionadd = db.Name.Find(getId);
+            //     Department subdivisionadd = db.Name.Find(getId);
 
 
             printerAdd.SubdivisionId = pr.Id;

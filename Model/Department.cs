@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar.Model
 {
-  public  class Subdivision
+  public  class Department
     {
         [Key]
         public int Id { get; set; }
@@ -14,7 +14,7 @@ namespace CartrigeAltstar.Model
       
         public virtual ICollection<Printer> Printers { get; set; }
 
-        public Subdivision()
+        public Department()
         {
 
             Printers = new List<Printer>();

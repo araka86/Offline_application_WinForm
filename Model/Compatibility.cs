@@ -13,7 +13,7 @@ namespace CartrigeAltstar.Model
 
 
         public int? SubdivisionId { get; set; }
-        public virtual Subdivision SubdivisionPK { get; set; } 
+        public virtual Department SubdivisionPK { get; set; } 
 
         public int? CartrigeId { get; set; }    
         public virtual Cartrige CartrigePK { get; set; } 

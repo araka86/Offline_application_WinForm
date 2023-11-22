@@ -27,7 +27,7 @@ namespace CartrigeAltstar
             this.resourceManager = _resourceManager;
             InitializeComponent();
             db = new ContexAltstar();
-            db.Department.Load();
+            db.Departments.Load();
             this.Text = resourceManager.GetString("ListOfDepartment");
         }
 
@@ -36,8 +36,8 @@ namespace CartrigeAltstar
             var dt = DateTime.Now;
             try
             {
-                db.Department.Load();
-                var data = db.Department.Local.ToBindingList();
+                db.Departments.Load();
+                var data = db.Departments.Local.ToBindingList();
 
                 dataGridViewListSubdivision.DataSource = data;
 
@@ -113,7 +113,7 @@ namespace CartrigeAltstar
                     if (converted == false)
                         return;
 
-                    Subdivision depertmentDel = db.Department.Find(id);
+                    Department depertmentDel = db.Departments.Find(id);
                     //find ForeignKey Printer.SubdivisionId and set null
                     var printer = depertmentDel.Printers.FirstOrDefault(p=>p.SubdivisionId==id);
                     if (printer != null)
@@ -125,7 +125,7 @@ namespace CartrigeAltstar
                             compatibilities.SubdivisionId = null;
 
                         db.SaveChanges();
-                        db.Department.Remove(depertmentDel);
+                        db.Departments.Remove(depertmentDel);
 
                 }
                 catch (Exception ex)

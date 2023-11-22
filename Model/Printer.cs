@@ -15,14 +15,14 @@ namespace CartrigeAltstar.Model
 
 
         // явно указать  внешний ключ
-        //     [ForeignKey("Subdivision")]  //название таблици на которуюбудет ссилатся внешний ключ
+        //     [ForeignKey("Department")]  //название таблици на которуюбудет ссилатся внешний ключ
         //     public int Subdivisionid { get; set; }
         //
         //
         //    public int? Subdivisionid { get; set; } //внешний ключ
 
         public int? SubdivisionId { get; set; } //Foreign Key    
-        public virtual Subdivision SubdivisioPK { get; set; } //ссилка на подразделения + внешний ключ SubdivisioPK_Id
+        public virtual Department SubdivisioPK { get; set; } //ссилка на подразделения + внешний ключ SubdivisioPK_Id
 
 
     

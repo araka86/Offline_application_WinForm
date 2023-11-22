@@ -48,7 +48,7 @@ namespace CartrigeAltstar
 
             //выборка данных
                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
-               var div = from dv in db.Department select (dv.Name);
+               var div = from dv in db.Departments select (dv.Name);
 
             //заполнения comboBox даними
                cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
@@ -76,10 +76,10 @@ namespace CartrigeAltstar
 
             cm.CartrigeId = ctt.Id; //write Foreign Key
 
-            //choise combobox Subdivision
+            //choise combobox Department
             var t3 = cartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
-            //Find Subdivision
-            var t4 = db.Department.Single(t5 => t5.Name.StartsWith(t3));
+            //Find Department
+            var t4 = db.Departments.Single(t5 => t5.Name.StartsWith(t3));
 
             cm.SubdivisionId = t4.Id; //write Foreign Key
 
@@ -133,7 +133,7 @@ namespace CartrigeAltstar
             {
                 UpdateMovingCartrige UpdateMovingCartrigeForm = new UpdateMovingCartrige();
                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
-                var div = from dv in db.Department select (dv.Name);
+                var div = from dv in db.Departments select (dv.Name);
 
 
                 UpdateMovingCartrigeForm.comboBoxDivision.DataSource = div.ToList();
@@ -158,7 +158,7 @@ namespace CartrigeAltstar
 
 
 
-                Subdivision fndCtt1 = db.Department.Find(cmUpd.SubdivisionId); //поиск индека в таблице подразделения первичного ключа
+                Department fndCtt1 = db.Departments.Find(cmUpd.SubdivisionId); //поиск индека в таблице подразделения первичного ключа
 
 
                 //        int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
@@ -183,8 +183,8 @@ namespace CartrigeAltstar
 
 
                 var t3 = UpdateMovingCartrigeForm.comboBoxDivision.SelectedItem.ToString();
-                //Find Subdivision
-                var t4 = db.Department.Single(t5 => t5.Name.StartsWith(t3));
+                //Find Department
+                var t4 = db.Departments.Single(t5 => t5.Name.StartsWith(t3));
 
                 cmUpd.SubdivisionId = t4.Id; //write Foreign Key
 

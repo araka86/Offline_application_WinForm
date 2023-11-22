@@ -12,7 +12,7 @@ namespace CartrigeAltstar.Model
         {
 
 
-            Subdivision sb1 = new Subdivision
+            Department sb1 = new Department
             {
 
                 Name = " Сто Бориспольская",
@@ -20,7 +20,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb2 = new Subdivision
+            Department sb2 = new Department
             {
 
                 Name = "СТО Киев Академгородок",
@@ -28,7 +28,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb3 = new Subdivision
+            Department sb3 = new Department
             {
 
                 Name = "СТО Киев Окружная",
@@ -36,7 +36,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb4 = new Subdivision
+            Department sb4 = new Department
             {
 
                 Name = "СТО Киев Выдубичи",
@@ -45,7 +45,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb5 = new Subdivision
+            Department sb5 = new Department
             {
 
                 Name = "СТО Киев Жуляны Авторынок",
@@ -53,7 +53,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb6 = new Subdivision
+            Department sb6 = new Department
             {
 
                 Name = "СТО Киев Голосеево",
@@ -61,7 +61,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb7 = new Subdivision
+            Department sb7 = new Department
             {
 
                 Name = "СТО Киев Подол",
@@ -69,7 +69,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb8 = new Subdivision
+            Department sb8 = new Department
             {
 
                 Name = "СТО Вишневое Центр",
@@ -77,7 +77,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb9 = new Subdivision
+            Department sb9 = new Department
             {
 
                 Name = "СТО Бровары Центр",
@@ -85,7 +85,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb10 = new Subdivision
+            Department sb10 = new Department
             {
 
                 Name = "СТО Бровары Окружная",
@@ -93,7 +93,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb11 = new Subdivision
+            Department sb11 = new Department
             {
 
                 Name = "Мастерская АЛЬТ-СТАР «Тиса» Окружная",
@@ -101,7 +101,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb12 = new Subdivision
+            Department sb12 = new Department
             {
 
                 Name = "Мастерская Киев «Жуляны» Авторынок",
@@ -109,7 +109,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb13 = new Subdivision
+            Department sb13 = new Department
             {
 
                 Name = "Мастерская Киев «Перова» Авторынок",
@@ -117,7 +117,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb14 = new Subdivision
+            Department sb14 = new Department
             {
 
                 Name = "Мастерская Альт Стар – Киев Пуховская",
@@ -125,7 +125,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb15 = new Subdivision
+            Department sb15 = new Department
             {
 
                 Name = "СТО Киев «Вереснева»",
@@ -133,7 +133,7 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb16 = new Subdivision
+            Department sb16 = new Department
             {
 
                 Name = "Бухгалтерия 275каб",
@@ -141,14 +141,14 @@ namespace CartrigeAltstar.Model
 
 
             };
-            Subdivision sb17 = new Subdivision
+            Department sb17 = new Department
             {
 
                 Name = "279",
                 Address = "Киев ул. Бориспольская 7, 2ет"
 
             };
-            context.Department.AddRange(new List<Subdivision> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15, sb16 });
+            context.Departments.AddRange(new List<Department> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15, sb16 });
 
 
             Cartrige ct1 = new Cartrige

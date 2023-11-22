@@ -25,7 +25,7 @@ namespace CartrigeAltstar
         {
             base.OnShown(e);
             db = new ContexAltstar();
-            db.Department.Load();
+            db.Departments.Load();
             TranslateMenu();
             FillCombobox();
             FillDataGrid();
@@ -168,7 +168,7 @@ namespace CartrigeAltstar
             db = new ContexAltstar();
             var ListCartrige = db.Cartriges.Select(c => c.ModelCartrige).ToList();
             tscbCartriges.ComboBox.DataSource = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
-            tscbDepartment.ComboBox.DataSource = db.Department.Select(s => s.Name).ToList();
+            tscbDepartment.ComboBox.DataSource = db.Departments.Select(s => s.Name).ToList();
         }
 
         private void FillDataGrid()

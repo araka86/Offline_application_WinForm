@@ -11,7 +11,7 @@ namespace CartrigeAltstar
         private ResourceManager resourceManager;
         ContexAltstar db;
         private readonly int? id;
-        private  Subdivision SubdivisionModel;
+        private  Department SubdivisionModel;
 
 
 
@@ -28,7 +28,7 @@ namespace CartrigeAltstar
         {
             if (id != null)
             {
-                SubdivisionModel = db.Department.Find(id);
+                SubdivisionModel = db.Departments.Find(id);
                 tbNameDepartment.Text = SubdivisionModel.Name.ToString();
                 tbAddessDepartment.Text = SubdivisionModel.Address.ToString();
 
@@ -66,10 +66,10 @@ namespace CartrigeAltstar
                 //Check
                 if (!string.IsNullOrEmpty(tbNameDepartment.Text) && !string.IsNullOrEmpty(tbAddessDepartment.Text))
                 {
-                    SubdivisionModel = new Subdivision();
+                    SubdivisionModel = new Department();
                     SubdivisionModel.Name = tbNameDepartment.Text;
                     SubdivisionModel.Address = tbAddessDepartment.Text;
-                    db.Department.Add(SubdivisionModel);
+                    db.Departments.Add(SubdivisionModel);
                     db.SaveChanges();
                     MessageBox.Show(resourceManager.GetString("AddNewDepartmenMsgBox"));
                 }

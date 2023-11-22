@@ -18,10 +18,9 @@ namespace CartrigeAltstar.Model
         
         public DbSet<Compatibility> Compatibilities { get; set; } //Совместимость
         public DbSet<Printer> Printers { get; set; } //Принтеры
-        public DbSet<Subdivision> Department { get; set; } //Подразделения
+        public DbSet<Department> Departments { get; set; } //Подразделения
         public DbSet<Cartrige> Cartriges { get; set; } //Картриджи
         public DbSet<Cartrigelolocation> Cartrigelolocations { get; set; } //Прием картриджей
-        public DbSet<Current> Currents { get; set; }
 
         public DbSet<User> Users { get; set; }
 
