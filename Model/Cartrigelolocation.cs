@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CartrigeAltstar
 {
-    public class Tolocation
+    public class Cartrigelolocation
     {
         [Key]
         public int Id { get; set; }

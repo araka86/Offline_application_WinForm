@@ -57,6 +57,7 @@ namespace CartrigeAltstar
             this.dataGridViewListCartrige.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewListCartrige.Size = new System.Drawing.Size(334, 453);
             this.dataGridViewListCartrige.TabIndex = 0;
+            this.dataGridViewListCartrige.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewListCartrige_MouseDoubleClick);
             // 
             // toolStrip1
             // 

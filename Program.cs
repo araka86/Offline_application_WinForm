@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CartrigeAltstar.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,23 @@ namespace CartrigeAltstar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new main_Reception());
+           
+
+            using (var loginForm = new LoginForm())
+            {
+                // Отображаем форму авторизации
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Если авторизация успешна, отображаем главное окно
+                    main_Reception mainForm = new main_Reception();
+                    mainForm.SetCurrentUserId(loginForm.UserId);
+                    Application.Run(mainForm);
+
+                }
+            }
+
+
+
         }
     }
 }

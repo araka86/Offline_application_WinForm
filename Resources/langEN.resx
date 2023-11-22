@@ -350,6 +350,10 @@
     <value>Filter</value>
     <comment>Main_Reseption</comment>
   </data>
+  <data name="tsmenuLanguage" xml:space="preserve">
+    <value>Language</value>
+    <comment>Main_Reseption</comment>
+  </data>
   <data name="tsmiMenu" xml:space="preserve">
     <value>Menu</value>
     <comment>Main_Reseption</comment>

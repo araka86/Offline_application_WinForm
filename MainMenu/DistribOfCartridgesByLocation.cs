@@ -42,7 +42,7 @@ namespace CartrigeAltstar
                 var data = (from cartrige in db.Cartriges
                             where cartrige.ArticleCartrige.StartsWith(searchText)
                                   && cartrige.IsService != true
-                                  && !db.Tolocations.Any(location => location.Article == cartrige.ArticleCartrige)
+                                  && !db.Cartrigelolocations.Any(location => location.Article == cartrige.ArticleCartrige)
                             select new
                             {
                                 id = cartrige.Id,
@@ -83,7 +83,7 @@ namespace CartrigeAltstar
             {
                 string searchValue = cbDepartment.SelectedItem.ToString();
 
-                Tolocation tolocation = new Tolocation()
+                Cartrigelolocation tolocation = new Cartrigelolocation()
                 {
                     Cartrige = tbCaretigeModel.Text,
                     Article = tbCartrigeArticle.Text,
@@ -93,12 +93,12 @@ namespace CartrigeAltstar
 
 
 
-                var chkCartrige = db.Tolocations.Where(x => x.Article == tbCartrigeArticle.Text).FirstOrDefault();
+                var chkCartrige = db.Cartrigelolocations.Where(x => x.Article == tbCartrigeArticle.Text).FirstOrDefault();
 
                 if (chkCartrige == null) 
                 {
                     db = new ContexAltstarContext();
-                    db.Tolocations.Add(tolocation);
+                    db.Cartrigelolocations.Add(tolocation);
                     db.SaveChanges();
                     MessageBox.Show("Sucessfull!!");
                    

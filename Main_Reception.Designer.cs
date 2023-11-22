@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_Reception));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmenuLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUA = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEn = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +88,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiMenu,
-            this.toolStripMenuItem2});
+            this.tsmenuLanguage});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(779, 24);
@@ -101,15 +101,15 @@
             this.tsmiMenu.Size = new System.Drawing.Size(53, 20);
             this.tsmiMenu.Text = "Меню";
             // 
-            // toolStripMenuItem2
+            // tsmenuLanguage
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmenuLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiUA,
             this.tsmiRu,
             this.tsmiEn});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(46, 20);
-            this.toolStripMenuItem2.Text = "Язык";
+            this.tsmenuLanguage.Name = "tsmenuLanguage";
+            this.tsmenuLanguage.Size = new System.Drawing.Size(46, 20);
+            this.tsmenuLanguage.Text = "Язык";
             // 
             // tsmiUA
             // 
@@ -445,11 +445,11 @@
             // tsbChangeMode
             // 
             this.tsbChangeMode.BackColor = System.Drawing.Color.SeaShell;
-            this.tsbChangeMode.Image = global::CartrigeAltstar.Properties.Resources.update;
+            this.tsbChangeMode.Image = global::CartrigeAltstar.Properties.Resources.folder_icon_icons_com_52385;
             this.tsbChangeMode.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbChangeMode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbChangeMode.Name = "tsbChangeMode";
-            this.tsbChangeMode.Size = new System.Drawing.Size(147, 42);
+            this.tsbChangeMode.Size = new System.Drawing.Size(147, 51);
             this.tsbChangeMode.Text = "Отправка";
             this.tsbChangeMode.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.tsbChangeMode.ToolTipText = "Нажмите для смени режима";
@@ -462,6 +462,7 @@
             // 
             // dgwMain
             // 
+            this.dgwMain.AllowUserToAddRows = false;
             this.dgwMain.AllowUserToDeleteRows = false;
             this.dgwMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgwMain.Location = new System.Drawing.Point(3, 16);
@@ -546,7 +547,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripLabel tslCartriges;
         private System.Windows.Forms.ToolStripLabel tslDepartment;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem tsmenuLanguage;
         private System.Windows.Forms.ToolStripMenuItem tsmiUA;
         private System.Windows.Forms.ToolStripMenuItem tsmiRu;
         private System.Windows.Forms.ToolStripMenuItem tsmiEn;

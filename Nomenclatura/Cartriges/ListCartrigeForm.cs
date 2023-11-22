@@ -79,27 +79,33 @@ namespace CartrigeAltstar
 
 
         //UPDATE Cartrige
+        private void dataGridViewListCartrige_MouseDoubleClick(object sender, MouseEventArgs e) => btnUpdateCartrige_Click(sender, e);
         private void btnUpdateCartrige_Click(object sender, EventArgs e)
         {
 
             // update Cartrige
             if (dataGridViewListCartrige.SelectedRows.Count > 0)
             {
-                int index = dataGridViewListCartrige.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = int.TryParse(dataGridViewListCartrige[0, index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
+                if (int.Parse(dataGridViewListCartrige.SelectedRows[0].Cells["id"].Value.ToString()) !=0 && !string.IsNullOrEmpty(dataGridViewListCartrige.SelectedRows[0].Cells["id"].Value.ToString())) 
+                {
 
-                AddUpdateCartriges updateCartrigeForm = new AddUpdateCartriges(resourceManager, id);
-                DialogResult result = updateCartrigeForm.ShowDialog(this);
-                if (result == DialogResult.Cancel)
-                    return;
+                    int index = dataGridViewListCartrige.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = int.TryParse(dataGridViewListCartrige[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+
+                    AddUpdateCartriges updateCartrigeForm = new AddUpdateCartriges(resourceManager, id);
+                    DialogResult result = updateCartrigeForm.ShowDialog(this);
+                    if (result == DialogResult.Cancel)
+                        return;
 
 
 
-                db = new ContexAltstarContext();
-                PrintCartrige();
+                    db = new ContexAltstarContext();
+                    PrintCartrige();
+                }
+               
             }
 
         }
@@ -156,10 +162,7 @@ namespace CartrigeAltstar
 
         private void btnClosed_Click(object sender, EventArgs e) => Close();
 
-
-
-
-
-
+       
+        
     }
 }

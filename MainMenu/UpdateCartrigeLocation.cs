@@ -36,7 +36,7 @@ namespace CartrigeAltstar.MainMenu
 
             try
             {
-                var currentUpdate = db.Tolocations.Find(itemId);
+                var currentUpdate = db.Cartrigelolocations.Find(itemId);
                 if (currentUpdate != null)
                 {
 
@@ -87,11 +87,11 @@ namespace CartrigeAltstar.MainMenu
         {
             try
             {
-                var getCurrent = db.Tolocations.FirstOrDefault(x => x.Id == ItemId);
+                var getCurrent = db.Cartrigelolocations.FirstOrDefault(x => x.Id == ItemId);
 
                 if (getCurrent != null)
                 {
-                    var chkToLocation = db.Tolocations.Any(x => x.Article == cbUpdateCartrigeArticle.SelectedItem.ToString());
+                    var chkToLocation = db.Cartrigelolocations.Any(x => x.Article == cbUpdateCartrigeArticle.SelectedItem.ToString());
 
                     if (chkToLocation) 
                     {

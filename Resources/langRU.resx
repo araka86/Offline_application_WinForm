@@ -358,6 +358,10 @@
     <value>Фильтр</value>
     <comment>Main_Reseption</comment>
   </data>
+  <data name="tsmenuLanguage" xml:space="preserve">
+    <value>Язык</value>
+    <comment>Main_Reseption</comment>
+  </data>
   <data name="tsmiMenu" xml:space="preserve">
     <value>Меню</value>
     <comment>Main_Reseption</comment>

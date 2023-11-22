@@ -1,28 +1,29 @@
-﻿using System.Configuration;
-using System.Data.Entity;
-using System.Reflection.Emit;
+﻿using System.Data.Entity;
 
 namespace CartrigeAltstar.Model
 {
     class ContexAltstarContext : DbContext
     {
 
-        public ContexAltstarContext() : base("DefaultConnection") { }  //initialization 1
-
-        static ContexAltstarContext()
+        public ContexAltstarContext() : base("DefaultConnection") 
         {
             Database.SetInitializer(new ContexAltstarInit());
-        }
+        }  //initialization 1
+
+        //static ContexAltstarContext()
+        //{
+        //    Database.SetInitializer(new ContexAltstarInit());
+        //}
 
         public DbSet<Compatibility> Compatibilities { get; set; } //Совместимость
         public DbSet<Printer> Printers { get; set; } //Принтеры
         public DbSet<Subdivision> Subdivisions { get; set; } //Подразделения
         public DbSet<Cartrige> Cartriges { get; set; } //Картриджи
-        public DbSet<Tolocation> Tolocations { get; set; } //Прием картриджей
+        public DbSet<Cartrigelolocation> Cartrigelolocations { get; set; } //Прием картриджей
         public DbSet<Dispatch> Dispatches { get; set; } //отправка картриджей
         public DbSet<Current> Currents { get; set; }
 
-        public DbSet<Login> Logins { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
 

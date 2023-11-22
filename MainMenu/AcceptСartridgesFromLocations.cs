@@ -29,7 +29,7 @@ namespace CartrigeAltstar
                 var data = (from cartrige in db.Cartriges
                             where cartrige.ArticleCartrige.StartsWith(searchText)
                                   && cartrige.IsService != true
-                                  && db.Tolocations.Any(location => location.Article == cartrige.ArticleCartrige)
+                                  && db.Cartrigelolocations.Any(location => location.Article == cartrige.ArticleCartrige)
                             select new
                             {
                                 id = cartrige.Id,
@@ -70,7 +70,7 @@ namespace CartrigeAltstar
             if (dgvFindArticleResulttoLocations.SelectedRows.Count > 0)
             {
                 string getArticle = dgvFindArticleResulttoLocations.SelectedRows[0].Cells["Article"].Value.ToString();
-                Tolocation data = db.Tolocations.Where(x => x.Article == getArticle).FirstOrDefault();
+                Cartrigelolocation data = db.Cartrigelolocations.Where(x => x.Article == getArticle).FirstOrDefault();
 
                 // Если столбцы отсутствуют, добавляем их
                 if (dataTable.Columns.Count == 0)
@@ -133,9 +133,9 @@ namespace CartrigeAltstar
         //    var data = 
 
 
-        //    var data = db.Tolocations.Find(2);
+        //    var data = db.Cartrigelolocations.Find(2);
 
-        //        db.Tolocations.Remove(data);
+        //        db.Cartrigelolocations.Remove(data);
         //        db.SaveChanges();
 
         //}
@@ -155,11 +155,11 @@ namespace CartrigeAltstar
                 }
 
                 // Находим соответствующие записи в базе данных и удаляем их
-                var toDeleteList = db.Tolocations.Where(x => selectedIds.Contains(x.Id)).ToList();
+                var toDeleteList = db.Cartrigelolocations.Where(x => selectedIds.Contains(x.Id)).ToList();
 
                 if (toDeleteList.Any())
                 {
-                    db.Tolocations.RemoveRange(toDeleteList);
+                    db.Cartrigelolocations.RemoveRange(toDeleteList);
                     db.SaveChanges();
 
                     dgvAcceptFromLocations.DataSource = null;

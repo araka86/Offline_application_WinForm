@@ -16,7 +16,7 @@ namespace CartrigeAltstar
 
             db = new ContexAltstarContext();
 
-            db.Tolocations.Load();
+            db.Cartrigelolocations.Load();
         }
 
        

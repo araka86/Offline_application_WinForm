@@ -2,7 +2,6 @@
 using CartrigeAltstar.MainMenu;
 using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartriges;
-using Microsoft.Office.Interop.Excel;
 using System;
 using System.Data.Entity;
 using System.Globalization;
@@ -31,9 +30,26 @@ namespace CartrigeAltstar
             FillCombobox();
             FillDataGrid();
             SetOperationAccess();
+            var cnt = dgwMain.Rows.Count;
         }
 
-        private void SetOperationAccess() => tsbExport.Enabled = (dgwMain.Rows.Count > 0) ? true : false;
+
+
+
+
+
+
+
+
+
+
+
+        private void SetOperationAccess() 
+        {
+            tsbDelete.Enabled = (dgwMain.Rows.Count > 0) ? true : false;
+            tsbUpdate.Enabled = (dgwMain.Rows.Count > 0) ? true : false;
+            tsbExport.Enabled = (dgwMain.Rows.Count > 0) ? true : false;
+        } 
 
 
 
@@ -81,6 +97,7 @@ namespace CartrigeAltstar
             tsniPrinters.Text = resourceManager.GetString("tsniPrinters");
             tsmiCartriges.Text = resourceManager.GetString("tslCartriges");
             tsmiDepartment.Text = resourceManager.GetString("tslDepartment");
+            tsmenuLanguage.Text = resourceManager.GetString("tsmenuLanguage");
         }
 
 
@@ -157,7 +174,7 @@ namespace CartrigeAltstar
             try
             {
                 db = new ContexAltstarContext();
-                dgwMain.DataSource = db.Tolocations.Local.ToBindingList();
+                dgwMain.DataSource = db.Cartrigelolocations.Local.ToBindingList();
                 dgwMain.Columns["Id"].Width = 35;
                 dgwMain.Columns["Data"].Width = 80;
                 dgwMain.Columns["Data"].DefaultCellStyle.Format = "dd.MM.yyyy";
@@ -168,7 +185,7 @@ namespace CartrigeAltstar
 
                 dgwMain.Columns["Status"].Visible = false;
                 dgwMain.Columns["Weight"].Visible = false;
-                db.Tolocations.Load();
+                db.Cartrigelolocations.Load();
             }
             catch (Exception ex)
             {
@@ -207,9 +224,16 @@ namespace CartrigeAltstar
             var distribOfCartridgesByLocation = new DistribOfCartridgesByLocation(resourceManager);
             distribOfCartridgesByLocation.FormClosing += DistribOfCartridgesByLocation_FormClosing;
             distribOfCartridgesByLocation.Show();
+
         }
 
-        private void DistribOfCartridgesByLocation_FormClosing(object sender, FormClosingEventArgs e) => dgwMain.DataSource = db.Tolocations.ToList();
+        private void DistribOfCartridgesByLocation_FormClosing(object sender, FormClosingEventArgs e) 
+        {
+            dgwMain.DataSource = db.Cartrigelolocations.ToList();
+            SetOperationAccess();
+        } 
+
+
 
         private void tsmiAcceptFromLocation_Click(object sender, EventArgs e)
         {
@@ -217,7 +241,7 @@ namespace CartrigeAltstar
             DialogResult result = acceptСartridgesFromLocations.ShowDialog();
             if (result != DialogResult.OK)
             {
-                dgwMain.DataSource = db.Tolocations.ToList();
+                dgwMain.DataSource = db.Cartrigelolocations.ToList();
                 return;
             }
         }
@@ -225,7 +249,7 @@ namespace CartrigeAltstar
 
 
 
-        private void tsUpdateButton_Click(object sender, EventArgs e) => dgwMain.DataSource = db.Tolocations.ToList();
+        private void tsUpdateButton_Click(object sender, EventArgs e) => dgwMain.DataSource = db.Cartrigelolocations.ToList();
         private void tsbChangeMode_Click(object sender, EventArgs e)
         {
             tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
@@ -242,6 +266,11 @@ namespace CartrigeAltstar
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
+
+
+
+            var uid = this.currentUserId;
+
             if (dgwMain.SelectedRows.Count > 0)
             {
                 var getDatagridrow = dgwMain.SelectedRows[0];
@@ -251,11 +280,11 @@ namespace CartrigeAltstar
                 if (updateCartrigeLocation.ShowDialog() == DialogResult.OK)
                 {
                     MessageBox.Show("Item is updated");
-                    FillDataGrid();
+                    dgwMain.DataSource = db.Cartrigelolocations.ToList();
                     SetOperationAccess();
                 }
 
-                //  var uid = this.UserID;
+                 
             }
 
 
@@ -276,9 +305,11 @@ namespace CartrigeAltstar
                     DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Подтверждение удаления", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
-                        db.Tolocations.Remove(db.Tolocations.Find(idValue));
+                        db.Cartrigelolocations.Remove(db.Cartrigelolocations.Find(idValue));
                         db.SaveChanges();
                         MessageBox.Show("Запись удалена!!!");
+                        dgwMain.DataSource = db.Cartrigelolocations.ToList();
+                        SetOperationAccess();
                     }
                 }
             }
@@ -288,22 +319,15 @@ namespace CartrigeAltstar
             }
            
         }
+        private string currentUserId;
+     
 
-        //private int _userID = 0;
-        //public int UserID
-        //{
-        //    set
-        //    {
-        //        _userID = value;
-        //    }
-        //    get
-        //    {
-        //        //return ((MainForm)ParentForm).UserID;
-        //        return (_userID != 0) ? _userID : (ParentForm != null) ? ((main_Reception)ParentForm).UserID : 0;
-        //    }
-        //}
-
-
+        // Метод для установки текущего UserId из LoginForm
+        public void SetCurrentUserId(string userId)
+        {
+            currentUserId = userId;
+            // Здесь вы можете использовать currentUserId по вашему усмотрению
+        }
 
 
     }

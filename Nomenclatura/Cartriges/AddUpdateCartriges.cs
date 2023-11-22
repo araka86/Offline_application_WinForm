@@ -33,7 +33,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
         }
         private void AddCartriges_Load(object sender, System.EventArgs e)
         {
-            if (id != null) 
+            if (id != null && id!=0) 
             {
                 CartrigeModel = db.Cartriges.Find(id);
                 dtpDatetimeCartrige.Text = CartrigeModel.purchase_date.ToString();

@@ -147,10 +147,9 @@ namespace CartrigeAltstar.Model
                 Department = "279",
                 Address = "Киев ул. Бориспольская 7, 2ет"
 
-
             };
             context.Subdivisions.AddRange(new List<Subdivision> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15, sb16 });
-            context.SaveChanges();
+
 
             Cartrige ct1 = new Cartrige
             {
@@ -172,12 +171,7 @@ namespace CartrigeAltstar.Model
             };
 
             context.Cartriges.AddRange(new List<Cartrige> { ct1, ct2, ct3 });
-            context.SaveChanges();
 
-
-
-
-          
             Printer pr1 = new Printer
             {
                 
@@ -185,9 +179,6 @@ namespace CartrigeAltstar.Model
                 Article = "P0KV",
                 CartrigePk = ct3,
                 SubdivisioPK = sb4
-
-
-
 
 
             };
@@ -199,9 +190,6 @@ namespace CartrigeAltstar.Model
                 CartrigePk = ct1,
                 SubdivisioPK = sb1
 
-
-
-
             };
             Printer pr3 = new Printer
             {
@@ -211,13 +199,10 @@ namespace CartrigeAltstar.Model
                 CartrigePk = ct2,
                 SubdivisioPK = sb1
 
-
-
-
             };
 
             context.Printers.AddRange(new List<Printer> { pr1, pr2, pr3 });
-            context.SaveChanges();
+           
 
 
             Compatibility cp = new Compatibility
@@ -228,8 +213,19 @@ namespace CartrigeAltstar.Model
 
             };
             context.Compatibilities.Add(cp);
-            context.SaveChanges();
+      
 
+            User user = new User()
+            {
+                FirstName="Admin",
+                LasttName="Admin",
+                LoginId = "12345",
+                UniqId = 1234567890,
+                Role="SuperAdmin",
+                Password="12345"
+            };
+            context.Users.Add(user);
+            context.SaveChanges();
 
 
         }
