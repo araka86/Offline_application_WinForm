@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initNewTable : DbMigration
     {
         public override void Up()
         {
@@ -52,7 +52,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Department = c.String(),
+                        Name = c.String(),
                         Address = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -76,19 +76,6 @@
             
             CreateTable(
                 "dbo.Currents",
-                c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        Дата = c.DateTime(),
-                        Картридж = c.String(),
-                        Вес = c.Double(nullable: false),
-                        Заметки = c.String(),
-                        Подразделения = c.String(),
-                    })
-                .PrimaryKey(t => t.id);
-            
-            CreateTable(
-                "dbo.Dispatches",
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
@@ -127,7 +114,6 @@
             DropIndex("dbo.Compatibilities", new[] { "CartrigeId" });
             DropIndex("dbo.Compatibilities", new[] { "SubdivisionId" });
             DropTable("dbo.Users");
-            DropTable("dbo.Dispatches");
             DropTable("dbo.Currents");
             DropTable("dbo.Printers");
             DropTable("dbo.Subdivisions");

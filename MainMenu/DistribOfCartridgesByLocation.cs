@@ -13,7 +13,7 @@ namespace CartrigeAltstar
 
         private void DistribOfCartridgesByLocation_Load(object sender, EventArgs e)
         {
-            cbDepartment.DataSource = db.Department.Select(x => x.Department).ToArray();
+            cbDepartment.DataSource = db.Department.Select(x => x.Name).ToArray();
         }
         public DistribOfCartridgesByLocation(ResourceManager resourceManager)
         {

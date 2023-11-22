@@ -50,9 +50,9 @@ namespace CartrigeAltstar.MainMenu
 
 
                     cbUpdateDupertment.DataSource = db.Department
-                     .OrderByDescending(a => a.Department == currentUpdate.Department)
-                     .ThenBy(s => s.Department)
-                     .Select(x => x.Department)
+                     .OrderByDescending(a => a.Name == currentUpdate.Department)
+                     .ThenBy(s => s.Name)
+                     .Select(x => x.Name)
                      .ToList();
 
                 }

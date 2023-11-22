@@ -7,7 +7,7 @@ namespace CartrigeAltstar.Model
     {
         [Key]
         public int Id { get; set; }
-        public string Department { get; set; }
+        public string Name { get; set; }
         public string Address { get; set; }
 
         public virtual ICollection<Compatibility> Compatibilities { get; set; }

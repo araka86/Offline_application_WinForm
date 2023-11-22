@@ -70,7 +70,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Add Department.
+        ///   Ищет локализованную строку, похожую на Add Departments.
         /// </summary>
         internal static string AddDepartmentModal {
             get {
@@ -259,7 +259,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Department.
+        ///   Ищет локализованную строку, похожую на Departments.
         /// </summary>
         internal static string Department {
             get {
@@ -313,7 +313,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Name of Department.
+        ///   Ищет локализованную строку, похожую на Name of Departments.
         /// </summary>
         internal static string lblNameDepartment {
             get {
@@ -682,7 +682,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Update Department.
+        ///   Ищет локализованную строку, похожую на Update Departments.
         /// </summary>
         internal static string UpdateDepartmentModal {
             get {

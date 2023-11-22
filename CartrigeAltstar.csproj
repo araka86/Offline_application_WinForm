@@ -215,17 +215,9 @@
     <Compile Include="Main_Reception.Designer.cs">
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311211457168_InitialCreate.cs" />
-    <Compile Include="Migrations\202311211457168_InitialCreate.designer.cs">
-      <DependentUpon>202311211457168_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311220723254_InitialCreate1.cs" />
-    <Compile Include="Migrations\202311220723254_InitialCreate1.designer.cs">
-      <DependentUpon>202311220723254_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311220814301_InitialCreate3.cs" />
-    <Compile Include="Migrations\202311220814301_InitialCreate3.designer.cs">
-      <DependentUpon>202311220814301_InitialCreate3.cs</DependentUpon>
+    <Compile Include="Migrations\202311221035050_initNewTable.cs" />
+    <Compile Include="Migrations\202311221035050_initNewTable.designer.cs">
+      <DependentUpon>202311221035050_initNewTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CartrigeHome.cs" />
@@ -317,7 +309,7 @@
     <Compile Include="Model\Printer.cs" />
     <Compile Include="Model\Cartrigelolocation.cs" />
     <Compile Include="Data\Start_Data.cs" />
-    <Compile Include="Model\Subdivision.cs" />
+    <Compile Include="Model\Department.cs" />
     <Compile Include="Nomenclatura\Printer\PrinterSubdivision.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,14 +367,8 @@
     <EmbeddedResource Include="Main_Reception.resx">
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311211457168_InitialCreate.resx">
-      <DependentUpon>202311211457168_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311220723254_InitialCreate1.resx">
-      <DependentUpon>202311220723254_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311220814301_InitialCreate3.resx">
-      <DependentUpon>202311220814301_InitialCreate3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311221035050_initNewTable.resx">
+      <DependentUpon>202311221035050_initNewTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>

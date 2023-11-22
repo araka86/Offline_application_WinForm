@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "CartrigeAltstar.Model.ContexAltstarContext";
         }
 
         protected override void Seed(CartrigeAltstar.Model.ContexAltstar context)

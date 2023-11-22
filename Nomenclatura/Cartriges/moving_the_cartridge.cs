@@ -30,7 +30,7 @@ namespace CartrigeAltstar
                          c1.id,
                          Модель = c1.CartrigePK.ModelCartrige,
                          Артикул = c1.CartrigePK.ArticleCartrige,
-                         Подразделение = c1.SubdivisionPK.Department
+                         Подразделение = c1.SubdivisionPK.Name
 
                      };
 
@@ -48,7 +48,7 @@ namespace CartrigeAltstar
 
             //выборка данных
                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
-               var div = from dv in db.Department select (dv.Department);
+               var div = from dv in db.Department select (dv.Name);
 
             //заполнения comboBox даними
                cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
@@ -79,7 +79,7 @@ namespace CartrigeAltstar
             //choise combobox Subdivision
             var t3 = cartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
             //Find Subdivision
-            var t4 = db.Department.Single(t5 => t5.Department.StartsWith(t3));
+            var t4 = db.Department.Single(t5 => t5.Name.StartsWith(t3));
 
             cm.SubdivisionId = t4.Id; //write Foreign Key
 
@@ -133,7 +133,7 @@ namespace CartrigeAltstar
             {
                 UpdateMovingCartrige UpdateMovingCartrigeForm = new UpdateMovingCartrige();
                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
-                var div = from dv in db.Department select (dv.Department);
+                var div = from dv in db.Department select (dv.Name);
 
 
                 UpdateMovingCartrigeForm.comboBoxDivision.DataSource = div.ToList();
@@ -162,7 +162,7 @@ namespace CartrigeAltstar
 
 
                 //        int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
-                int findIndexComboboxDivision = UpdateMovingCartrigeForm.comboBoxDivision.FindString(fndCtt1.Department); //find index comboboxDivision
+                int findIndexComboboxDivision = UpdateMovingCartrigeForm.comboBoxDivision.FindString(fndCtt1.Name); //find index comboboxDivision
 
 
                 //             cartrigeSubdivisionForm.comboBoxCartrige.SelectedIndex = findIndexComboboxCartrigeArticle; //insert value for cartrige
@@ -184,7 +184,7 @@ namespace CartrigeAltstar
 
                 var t3 = UpdateMovingCartrigeForm.comboBoxDivision.SelectedItem.ToString();
                 //Find Subdivision
-                var t4 = db.Department.Single(t5 => t5.Department.StartsWith(t3));
+                var t4 = db.Department.Single(t5 => t5.Name.StartsWith(t3));
 
                 cmUpd.SubdivisionId = t4.Id; //write Foreign Key
 

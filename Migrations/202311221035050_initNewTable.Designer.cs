@@ -7,13 +7,13 @@ namespace CartrigeAltstar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate3 : IMigrationMetadata
+    public sealed partial class initNewTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initNewTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311220814301_InitialCreate3"; }
+            get { return "202311221035050_initNewTable"; }
         }
         
         string IMigrationMetadata.Source

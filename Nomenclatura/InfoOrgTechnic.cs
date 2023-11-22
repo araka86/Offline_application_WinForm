@@ -88,7 +88,7 @@ namespace CartrigeAltstar
                     select new
                     {
                         l.Id,
-                        Подразделение = l.Department,
+                        Подразделение = l.Name,
                         Адресс = l.Address,
 
                     };
@@ -262,12 +262,12 @@ namespace CartrigeAltstar
             addI_Del_InfoOrgTehnicForm.textBoxArticleCartige.Text = printerAdd.Article;
 
 
-            //создаем запрос для комбобокса Department
+            //создаем запрос для комбобокса Name
             var divisionAdd = from a in db.Department
                               select new
                               {
                                   a.Id,
-                                  Подразделение = a.Department,
+                                  Подразделение = a.Name,
                                  
                               };
 
@@ -320,11 +320,11 @@ namespace CartrigeAltstar
 
 
 
-            //находим подразделение в базе выбраннымподразделением с комбобокса(выпадающего списка) и вносим в переменную типа db.Department
+            //находим подразделение в базе выбраннымподразделением с комбобокса(выпадающего списка) и вносим в переменную типа db.Name
             var pr = db.Department.Find(getId);
 
 
-            //     Subdivision subdivisionadd = db.Department.Find(getId);
+            //     Subdivision subdivisionadd = db.Name.Find(getId);
 
 
             printerAdd.SubdivisionId = pr.Id;

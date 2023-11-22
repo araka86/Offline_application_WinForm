@@ -15,7 +15,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb1 = new Subdivision
             {
 
-                Department = " Сто Бориспольская",
+                Name = " Сто Бориспольская",
                 Address = "Киев, ул. Бориспольсякая 7"
 
 
@@ -23,7 +23,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb2 = new Subdivision
             {
 
-                Department = "СТО Киев Академгородок",
+                Name = "СТО Киев Академгородок",
                 Address = "Киев, ул. Степанченко, 5-4"
 
 
@@ -31,7 +31,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb3 = new Subdivision
             {
 
-                Department = "СТО Киев Окружная",
+                Name = "СТО Киев Окружная",
                 Address = "Киев, ул. Большая Окружная, 4Г"
 
 
@@ -39,7 +39,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb4 = new Subdivision
             {
 
-                Department = "СТО Киев Выдубичи",
+                Name = "СТО Киев Выдубичи",
                 Address = "Киев, ул. Будиндустрии, 6",
 
 
@@ -48,7 +48,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb5 = new Subdivision
             {
 
-                Department = "СТО Киев Жуляны Авторынок",
+                Name = "СТО Киев Жуляны Авторынок",
                 Address = "Киев, ул. Садовая 70А/110"
 
 
@@ -56,7 +56,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb6 = new Subdivision
             {
 
-                Department = "СТО Киев Голосеево",
+                Name = "СТО Киев Голосеево",
                 Address = "Киев ул. Голосеевская, 9"
 
 
@@ -64,7 +64,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb7 = new Subdivision
             {
 
-                Department = "СТО Киев Подол",
+                Name = "СТО Киев Подол",
                 Address = "Киев ул. Новоконстантиновская 1В (Бокс 194, 195)"
 
 
@@ -72,7 +72,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb8 = new Subdivision
             {
 
-                Department = "СТО Вишневое Центр",
+                Name = "СТО Вишневое Центр",
                 Address = "г. Вишневое, ул. Киевская, 1"
 
 
@@ -80,7 +80,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb9 = new Subdivision
             {
 
-                Department = "СТО Бровары Центр",
+                Name = "СТО Бровары Центр",
                 Address = "Бровары, ул. Киевская, 227/1"
 
 
@@ -88,7 +88,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb10 = new Subdivision
             {
 
-                Department = "СТО Бровары Окружная",
+                Name = "СТО Бровары Окружная",
                 Address = "Бровары ул.Броварської сотні, 43 (ул. Чкалова)"
 
 
@@ -96,7 +96,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb11 = new Subdivision
             {
 
-                Department = "Мастерская АЛЬТ-СТАР «Тиса» Окружная",
+                Name = "Мастерская АЛЬТ-СТАР «Тиса» Окружная",
                 Address = "Киев ул. Большая Кольцевая, 4Б"
 
 
@@ -104,7 +104,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb12 = new Subdivision
             {
 
-                Department = "Мастерская Киев «Жуляны» Авторынок",
+                Name = "Мастерская Киев «Жуляны» Авторынок",
                 Address = "Киев ул.Садовая, 70-А/110, п.176"
 
 
@@ -112,7 +112,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb13 = new Subdivision
             {
 
-                Department = "Мастерская Киев «Перова» Авторынок",
+                Name = "Мастерская Киев «Перова» Авторынок",
                 Address = "Киев ул.Перова, 19, павильон 6-А"
 
 
@@ -120,7 +120,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb14 = new Subdivision
             {
 
-                Department = "Мастерская Альт Стар – Киев Пуховская",
+                Name = "Мастерская Альт Стар – Киев Пуховская",
                 Address = "Киев, ул. Пуховская 2а"
 
 
@@ -128,7 +128,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb15 = new Subdivision
             {
 
-                Department = "СТО Киев «Вереснева»",
+                Name = "СТО Киев «Вереснева»",
                 Address = "Киев ул. Вереснева 24"
 
 
@@ -136,7 +136,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb16 = new Subdivision
             {
 
-                Department = "Бухгалтерия 275каб",
+                Name = "Бухгалтерия 275каб",
                 Address = "Киев ул. Бориспольская 7, 2ет"
 
 
@@ -144,7 +144,7 @@ namespace CartrigeAltstar.Model
             Subdivision sb17 = new Subdivision
             {
 
-                Department = "279",
+                Name = "279",
                 Address = "Киев ул. Бориспольская 7, 2ет"
 
             };

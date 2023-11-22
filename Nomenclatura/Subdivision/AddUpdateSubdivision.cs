@@ -29,7 +29,7 @@ namespace CartrigeAltstar
             if (id != null)
             {
                 SubdivisionModel = db.Department.Find(id);
-                tbNameDepartment.Text = SubdivisionModel.Department.ToString();
+                tbNameDepartment.Text = SubdivisionModel.Name.ToString();
                 tbAddessDepartment.Text = SubdivisionModel.Address.ToString();
 
             }
@@ -67,7 +67,7 @@ namespace CartrigeAltstar
                 if (!string.IsNullOrEmpty(tbNameDepartment.Text) && !string.IsNullOrEmpty(tbAddessDepartment.Text))
                 {
                     SubdivisionModel = new Subdivision();
-                    SubdivisionModel.Department = tbNameDepartment.Text;
+                    SubdivisionModel.Name = tbNameDepartment.Text;
                     SubdivisionModel.Address = tbAddessDepartment.Text;
                     db.Department.Add(SubdivisionModel);
                     db.SaveChanges();
@@ -94,7 +94,7 @@ namespace CartrigeAltstar
                 if (!string.IsNullOrEmpty(tbNameDepartment.Text) && !string.IsNullOrEmpty(tbAddessDepartment.Text))
                 {
                    
-                    SubdivisionModel.Department = tbNameDepartment.Text;
+                    SubdivisionModel.Name = tbNameDepartment.Text;
                     SubdivisionModel.Address = tbAddessDepartment.Text;
                     db.Entry(SubdivisionModel).State = EntityState.Modified;
                     db.SaveChanges();

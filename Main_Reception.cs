@@ -152,7 +152,7 @@ namespace CartrigeAltstar
             var listCartrigeForm = new ListCartrigeForm(resourceManager);
             listCartrigeForm.Show();
         }
-        //Edit Department
+        //Edit Name
         private void tsmiDepartment_Click(object sender, EventArgs e)
         {
             ListSubdivisionForm listSubdivisionForm = new ListSubdivisionForm(resourceManager);
@@ -168,7 +168,7 @@ namespace CartrigeAltstar
             db = new ContexAltstar();
             var ListCartrige = db.Cartriges.Select(c => c.ModelCartrige).ToList();
             tscbCartriges.ComboBox.DataSource = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
-            tscbDepartment.ComboBox.DataSource = db.Department.Select(s => s.Department).ToList();
+            tscbDepartment.ComboBox.DataSource = db.Department.Select(s => s.Name).ToList();
         }
 
         private void FillDataGrid()
