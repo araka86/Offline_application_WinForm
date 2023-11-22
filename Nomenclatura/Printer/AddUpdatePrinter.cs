@@ -10,14 +10,14 @@ namespace CartrigeAltstar
     {
 
         private ResourceManager resourceManager;
-        ContexAltstarContext db;
+        ContexAltstar db;
         private readonly int? id;
         private Printer PrinterModel;
 
         public AddUpdatePrinter(ResourceManager _resourceManager, int? _id)
         {
             InitializeComponent();
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
             resourceManager = _resourceManager;
             id = _id;
         }

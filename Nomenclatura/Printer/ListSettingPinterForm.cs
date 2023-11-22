@@ -12,7 +12,7 @@ namespace CartrigeAltstar
     {
  
         public ResourceManager resourceManager;
-        ContexAltstarContext db;
+        ContexAltstar db;
         /// <summary>
         /// 
         /// </summary>
@@ -21,7 +21,7 @@ namespace CartrigeAltstar
         {
             InitializeComponent();
             resourceManager = _resourceManager;
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
             this.Text = resourceManager.GetString("ListOfPrinrter");
 
 
@@ -95,7 +95,7 @@ namespace CartrigeAltstar
                         return;
 
 
-                    db = new ContexAltstarContext();
+                    db = new ContexAltstar();
                     PrintPrinter();
                 }
             }

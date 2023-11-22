@@ -19,15 +19,15 @@ namespace CartrigeAltstar
             PrintDepartment();
         }
 
-        ContexAltstarContext db;
+        ContexAltstar db;
         public ResourceManager resourceManager;
 
         public ListSubdivisionForm(ResourceManager _resourceManager)
         {
             this.resourceManager = _resourceManager;
             InitializeComponent();
-            db = new ContexAltstarContext();
-            db.Subdivisions.Load();
+            db = new ContexAltstar();
+            db.Department.Load();
             this.Text = resourceManager.GetString("ListOfDepartment");
         }
 
@@ -36,8 +36,8 @@ namespace CartrigeAltstar
             var dt = DateTime.Now;
             try
             {
-                db.Subdivisions.Load();
-                var data = db.Subdivisions.Local.ToBindingList();
+                db.Department.Load();
+                var data = db.Department.Local.ToBindingList();
 
                 dataGridViewListSubdivision.DataSource = data;
 
@@ -91,7 +91,7 @@ namespace CartrigeAltstar
                     return;
 
 
-                db = new ContexAltstarContext();
+                db = new ContexAltstar();
                 PrintDepartment();
             }
 
@@ -113,7 +113,7 @@ namespace CartrigeAltstar
                     if (converted == false)
                         return;
 
-                    Subdivision depertmentDel = db.Subdivisions.Find(id);
+                    Subdivision depertmentDel = db.Department.Find(id);
                     //find ForeignKey Printer.SubdivisionId and set null
                     var printer = depertmentDel.Printers.FirstOrDefault(p=>p.SubdivisionId==id);
                     if (printer != null)
@@ -125,7 +125,7 @@ namespace CartrigeAltstar
                             compatibilities.SubdivisionId = null;
 
                         db.SaveChanges();
-                        db.Subdivisions.Remove(depertmentDel);
+                        db.Department.Remove(depertmentDel);
 
                 }
                 catch (Exception ex)

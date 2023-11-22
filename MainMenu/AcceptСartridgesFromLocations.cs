@@ -10,7 +10,7 @@ namespace CartrigeAltstar
 {
     public partial class AcceptСartridgesFromLocations : Form
     {
-        private ContexAltstarContext db = new ContexAltstarContext();
+        private ContexAltstar db = new ContexAltstar();
         public ResourceManager resourceManager;
         private DataTable dataTable = new DataTable();
 

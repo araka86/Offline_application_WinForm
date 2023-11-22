@@ -9,12 +9,12 @@ namespace CartrigeAltstar
 {
     public partial class moving_the_cartridge : Form
     {
-        ContexAltstarContext db;
+        ContexAltstar db;
         public moving_the_cartridge()
         {
             InitializeComponent();
 
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
 
             db.Cartrigelolocations.Load();
         }
@@ -48,7 +48,7 @@ namespace CartrigeAltstar
 
             //выборка данных
                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
-               var div = from dv in db.Subdivisions select (dv.Department);
+               var div = from dv in db.Department select (dv.Department);
 
             //заполнения comboBox даними
                cartrigeSubdivisionForm.comboBoxSub.DataSource = div.ToList();
@@ -79,7 +79,7 @@ namespace CartrigeAltstar
             //choise combobox Subdivision
             var t3 = cartrigeSubdivisionForm.comboBoxSub.SelectedItem.ToString();
             //Find Subdivision
-            var t4 = db.Subdivisions.Single(t5 => t5.Department.StartsWith(t3));
+            var t4 = db.Department.Single(t5 => t5.Department.StartsWith(t3));
 
             cm.SubdivisionId = t4.Id; //write Foreign Key
 
@@ -133,7 +133,7 @@ namespace CartrigeAltstar
             {
                 UpdateMovingCartrige UpdateMovingCartrigeForm = new UpdateMovingCartrige();
                var crt = from ct1 in db.Cartriges select (ct1.ArticleCartrige);
-                var div = from dv in db.Subdivisions select (dv.Department);
+                var div = from dv in db.Department select (dv.Department);
 
 
                 UpdateMovingCartrigeForm.comboBoxDivision.DataSource = div.ToList();
@@ -158,7 +158,7 @@ namespace CartrigeAltstar
 
 
 
-                Subdivision fndCtt1 = db.Subdivisions.Find(cmUpd.SubdivisionId); //поиск индека в таблице подразделения первичного ключа
+                Subdivision fndCtt1 = db.Department.Find(cmUpd.SubdivisionId); //поиск индека в таблице подразделения первичного ключа
 
 
                 //        int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
@@ -184,7 +184,7 @@ namespace CartrigeAltstar
 
                 var t3 = UpdateMovingCartrigeForm.comboBoxDivision.SelectedItem.ToString();
                 //Find Subdivision
-                var t4 = db.Subdivisions.Single(t5 => t5.Department.StartsWith(t3));
+                var t4 = db.Department.Single(t5 => t5.Department.StartsWith(t3));
 
                 cmUpd.SubdivisionId = t4.Id; //write Foreign Key
 

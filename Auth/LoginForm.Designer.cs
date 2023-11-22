@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtUserId = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLoginId = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblUserIdPrompt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -45,19 +45,19 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txtUserId
+            // txtLoginId
             // 
-            this.txtUserId.Location = new System.Drawing.Point(252, 35);
-            this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(205, 20);
-            this.txtUserId.TabIndex = 1;
+            this.txtLoginId.Location = new System.Drawing.Point(252, 35);
+            this.txtLoginId.Name = "txtLoginId";
+            this.txtLoginId.Size = new System.Drawing.Size(205, 20);
+            this.txtLoginId.TabIndex = 1;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(252, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtPassword.Location = new System.Drawing.Point(252, 83);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(205, 20);
+            this.txtPassword.TabIndex = 2;
             // 
             // lblUserIdPrompt
             // 
@@ -86,8 +86,8 @@
             this.ClientSize = new System.Drawing.Size(470, 175);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUserIdPrompt);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.txtUserId);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtLoginId);
             this.Controls.Add(this.btnLogin);
             this.Name = "LoginForm";
             this.Text = "Authorization";
@@ -99,8 +99,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtUserId;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLoginId;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblUserIdPrompt;
         private System.Windows.Forms.Label label1;
     }

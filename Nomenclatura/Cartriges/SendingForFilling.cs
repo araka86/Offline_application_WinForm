@@ -13,7 +13,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
 {
     public partial class SendingForFilling : Form
     {
-        private ContexAltstarContext db = new ContexAltstarContext();
+        private ContexAltstar db = new ContexAltstar();
         private ResourceManager resourceManager;
         private void SendingForFilling_Load(object sender, EventArgs e) => db.Cartriges.Load();
 
@@ -66,7 +66,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
             string searchText = tbSearchCartrigeArticle.Text; // Получаем текст из текстового поля
             if (!string.IsNullOrEmpty(searchText))
             {
-             //  db = new ContexAltstarContext();
+             //  db = new ContexAltstar();
                 var data = db.Cartriges
                    .Where(x => x.ArticleCartrige.StartsWith(searchText))
                    .Select(c => new
@@ -246,7 +246,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
         {
             try
             {
-                db = new ContexAltstarContext();
+                db = new ContexAltstar();
                 var cartptiges = new List<Cartrige>(); // Создаем новую коллекцию для объектов Cartrige
 
                 if (listBoxForSend != null)

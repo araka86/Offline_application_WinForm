@@ -240,21 +240,21 @@
             // tsniPrinters
             // 
             this.tsniPrinters.Name = "tsniPrinters";
-            this.tsniPrinters.Size = new System.Drawing.Size(159, 22);
+            this.tsniPrinters.Size = new System.Drawing.Size(180, 22);
             this.tsniPrinters.Text = "Принтери";
             this.tsniPrinters.Click += new System.EventHandler(this.tsniPrinters_Click);
             // 
             // tsmiCartriges
             // 
             this.tsmiCartriges.Name = "tsmiCartriges";
-            this.tsmiCartriges.Size = new System.Drawing.Size(159, 22);
+            this.tsmiCartriges.Size = new System.Drawing.Size(180, 22);
             this.tsmiCartriges.Text = "Картриджи";
             this.tsmiCartriges.Click += new System.EventHandler(this.tsmiCartriges_Click);
             // 
             // tsmiDepartment
             // 
             this.tsmiDepartment.Name = "tsmiDepartment";
-            this.tsmiDepartment.Size = new System.Drawing.Size(159, 22);
+            this.tsmiDepartment.Size = new System.Drawing.Size(180, 22);
             this.tsmiDepartment.Text = "Подразделения";
             this.tsmiDepartment.Click += new System.EventHandler(this.tsmiDepartment_Click);
             // 
@@ -534,7 +534,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbExport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripDropDownButton tsddbutton;
         private System.Windows.Forms.ToolStripMenuItem tsniPrinters;
         private System.Windows.Forms.ToolStripMenuItem tsmiCartriges;
         private System.Windows.Forms.ToolStripMenuItem tsmiDepartment;
@@ -570,5 +569,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStripButton tsUpdateButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        public System.Windows.Forms.ToolStripDropDownButton tsddbutton;
     }
 }

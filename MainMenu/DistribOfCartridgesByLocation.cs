@@ -8,12 +8,12 @@ namespace CartrigeAltstar
 {
     public partial class DistribOfCartridgesByLocation : Form
     {
-        private ContexAltstarContext db = new ContexAltstarContext();
+        private ContexAltstar db = new ContexAltstar();
         private ResourceManager resourceManager;
 
         private void DistribOfCartridgesByLocation_Load(object sender, EventArgs e)
         {
-            cbDepartment.DataSource = db.Subdivisions.Select(x => x.Department).ToArray();
+            cbDepartment.DataSource = db.Department.Select(x => x.Department).ToArray();
         }
         public DistribOfCartridgesByLocation(ResourceManager resourceManager)
         {
@@ -97,7 +97,7 @@ namespace CartrigeAltstar
 
                 if (chkCartrige == null) 
                 {
-                    db = new ContexAltstarContext();
+                    db = new ContexAltstar();
                     db.Cartrigelolocations.Add(tolocation);
                     db.SaveChanges();
                     MessageBox.Show("Sucessfull!!");

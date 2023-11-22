@@ -195,6 +195,7 @@
     <Compile Include="Auth\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\DatabaseSeedAfterMigrations.cs" />
     <Compile Include="Dialogs\DialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +222,10 @@
     <Compile Include="Migrations\202311220723254_InitialCreate1.cs" />
     <Compile Include="Migrations\202311220723254_InitialCreate1.designer.cs">
       <DependentUpon>202311220723254_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311220814301_InitialCreate3.cs" />
+    <Compile Include="Migrations\202311220814301_InitialCreate3.designer.cs">
+      <DependentUpon>202311220814301_InitialCreate3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CartrigeHome.cs" />
@@ -375,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311220723254_InitialCreate1.resx">
       <DependentUpon>202311220723254_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311220814301_InitialCreate3.resx">
+      <DependentUpon>202311220814301_InitialCreate3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>

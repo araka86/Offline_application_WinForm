@@ -15,10 +15,10 @@ namespace CartrigeAltstar
     {
 
         public ResourceManager resourceManager;
-        ContexAltstarContext db;
+        ContexAltstar db;
         public ListCartrigeForm(ResourceManager _resourceManager)
         {
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
             InitializeComponent();
             resourceManager = _resourceManager;
             this.Text = resourceManager.GetString("ListOfCartrige");
@@ -102,7 +102,7 @@ namespace CartrigeAltstar
 
 
 
-                    db = new ContexAltstarContext();
+                    db = new ContexAltstar();
                     PrintCartrige();
                 }
                

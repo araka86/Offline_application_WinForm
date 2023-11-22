@@ -12,14 +12,14 @@ namespace CartrigeAltstar
 
     public partial class InfoOrgTechnic : Form
     {
-        ContexAltstarContext db;
+        ContexAltstar db;
         public InfoOrgTechnic()
         {
             InitializeComponent();
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
 
             db.Printers.Load();
-            db.Subdivisions.Load();
+            db.Department.Load();
             db.Cartriges.Load();
             db.Compatibilities.Load();
 
@@ -83,7 +83,7 @@ namespace CartrigeAltstar
             Printer sb = db.Printers.Find(ids);
             Subdivision subdivision = new Subdivision();
 
-            var p = from l in db.Subdivisions
+            var p = from l in db.Department
                     where l.Id == sb.SubdivisionId
                     select new
                     {
@@ -262,8 +262,8 @@ namespace CartrigeAltstar
             addI_Del_InfoOrgTehnicForm.textBoxArticleCartige.Text = printerAdd.Article;
 
 
-            //создаем запрос для комбобокса Subdivisions
-            var divisionAdd = from a in db.Subdivisions
+            //создаем запрос для комбобокса Department
+            var divisionAdd = from a in db.Department
                               select new
                               {
                                   a.Id,
@@ -320,11 +320,11 @@ namespace CartrigeAltstar
 
 
 
-            //находим подразделение в базе выбраннымподразделением с комбобокса(выпадающего списка) и вносим в переменную типа db.Subdivisions
-            var pr = db.Subdivisions.Find(getId);
+            //находим подразделение в базе выбраннымподразделением с комбобокса(выпадающего списка) и вносим в переменную типа db.Department
+            var pr = db.Department.Find(getId);
 
 
-            //     Subdivision subdivisionadd = db.Subdivisions.Find(getId);
+            //     Subdivision subdivisionadd = db.Department.Find(getId);
 
 
             printerAdd.SubdivisionId = pr.Id;

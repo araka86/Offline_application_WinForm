@@ -11,7 +11,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
     {
 
         private ResourceManager resourceManager;
-        ContexAltstarContext db;
+        ContexAltstar db;
 
         
         private readonly int? id;
@@ -26,7 +26,7 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
         public AddUpdateCartriges(ResourceManager _resourceManager,int? _id)
         {
             InitializeComponent();
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
             resourceManager = _resourceManager;
             
             id = _id;

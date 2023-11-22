@@ -2,13 +2,13 @@
 using System.Data.Entity;
 namespace CartrigeAltstar.Model
 {
-    class ContexAltstarInit : CreateDatabaseIfNotExists<ContexAltstarContext>
+    class ContexAltstarInit : CreateDatabaseIfNotExists<ContexAltstar>
     {
 
 
 
 
-        protected override void Seed(ContexAltstarContext context)
+        protected override void Seed(ContexAltstar context)
         {
 
 
@@ -148,7 +148,7 @@ namespace CartrigeAltstar.Model
                 Address = "Киев ул. Бориспольская 7, 2ет"
 
             };
-            context.Subdivisions.AddRange(new List<Subdivision> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15, sb16 });
+            context.Department.AddRange(new List<Subdivision> { sb1, sb2, sb3, sb4, sb5, sb6, sb7, sb8, sb9, sb10, sb11, sb12, sb13, sb14, sb15, sb16 });
 
 
             Cartrige ct1 = new Cartrige

@@ -5,7 +5,7 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CartrigeAltstar.Model.ContexAltstarContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CartrigeAltstar.Model.ContexAltstar>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@
             ContextKey = "CartrigeAltstar.Model.ContexAltstarContext";
         }
 
-        protected override void Seed(CartrigeAltstar.Model.ContexAltstarContext context)
+        protected override void Seed(CartrigeAltstar.Model.ContexAltstar context)
         {
             //  This method will be called after migrating to the latest version.
 

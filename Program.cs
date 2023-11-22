@@ -1,4 +1,5 @@
 ﻿using CartrigeAltstar.Auth;
+using CartrigeAltstar.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace CartrigeAltstar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
+            //chek data after migration if exist
+            DatabaseSeedAfterMigrations databaseService = new DatabaseSeedAfterMigrations();
+            databaseService.CheckAndPopulateData();
 
             using (var loginForm = new LoginForm())
             {
@@ -26,7 +29,16 @@ namespace CartrigeAltstar
                 {
                     // Если авторизация успешна, отображаем главное окно
                     main_Reception mainForm = new main_Reception();
+
+                    //проверка роли и сритие админ панели управления номенклатурой
+                    if (loginForm.Role != "SuperAdmin")
+                    {
+                        mainForm.tsddbutton.Visible = false;
+                    }
+
                     mainForm.SetCurrentUserId(loginForm.UserId);
+                   
+
                     Application.Run(mainForm);
 
                 }

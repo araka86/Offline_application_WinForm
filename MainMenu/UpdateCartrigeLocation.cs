@@ -8,7 +8,7 @@ namespace CartrigeAltstar.MainMenu
 {
     public partial class UpdateCartrigeLocation : Form
     {
-        private ContexAltstarContext db;
+        private ContexAltstar db;
         private int itemId;
 
         public int ItemId
@@ -20,8 +20,8 @@ namespace CartrigeAltstar.MainMenu
         {
             base.OnShown(e);
 
-            db = new ContexAltstarContext();
-            db.Subdivisions.Load();
+            db = new ContexAltstar();
+            db.Department.Load();
             FillCombobox();
         }
 
@@ -49,7 +49,7 @@ namespace CartrigeAltstar.MainMenu
 
 
 
-                    cbUpdateDupertment.DataSource = db.Subdivisions
+                    cbUpdateDupertment.DataSource = db.Department
                      .OrderByDescending(a => a.Department == currentUpdate.Department)
                      .ThenBy(s => s.Department)
                      .Select(x => x.Department)

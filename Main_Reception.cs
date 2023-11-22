@@ -18,19 +18,21 @@ namespace CartrigeAltstar
         //false - от
         private static bool ChekMode = false;
         private string CultureDefine;
-        private ContexAltstarContext db;
+        private ContexAltstar db;
         public ResourceManager resourceManager;
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            db = new ContexAltstarContext();
-            db.Subdivisions.Load();
+            db = new ContexAltstar();
+            db.Department.Load();
             TranslateMenu();
             FillCombobox();
             FillDataGrid();
             SetOperationAccess();
             var cnt = dgwMain.Rows.Count;
+          
+
         }
 
 
@@ -163,17 +165,17 @@ namespace CartrigeAltstar
 
         public void FillCombobox()
         {
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
             var ListCartrige = db.Cartriges.Select(c => c.ModelCartrige).ToList();
             tscbCartriges.ComboBox.DataSource = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
-            tscbDepartment.ComboBox.DataSource = db.Subdivisions.Select(s => s.Department).ToList();
+            tscbDepartment.ComboBox.DataSource = db.Department.Select(s => s.Department).ToList();
         }
 
         private void FillDataGrid()
         {
             try
             {
-                db = new ContexAltstarContext();
+                db = new ContexAltstar();
                 dgwMain.DataSource = db.Cartrigelolocations.Local.ToBindingList();
                 dgwMain.Columns["Id"].Width = 35;
                 dgwMain.Columns["Data"].Width = 80;

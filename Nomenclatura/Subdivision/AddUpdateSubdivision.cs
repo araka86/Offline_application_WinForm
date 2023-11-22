@@ -9,7 +9,7 @@ namespace CartrigeAltstar
     public partial class AddUpdateSubdivision : Form
     {
         private ResourceManager resourceManager;
-        ContexAltstarContext db;
+        ContexAltstar db;
         private readonly int? id;
         private  Subdivision SubdivisionModel;
 
@@ -19,7 +19,7 @@ namespace CartrigeAltstar
         public AddUpdateSubdivision(ResourceManager _resourceManager, int? _id)
         {
             InitializeComponent();
-            db = new ContexAltstarContext();
+            db = new ContexAltstar();
             resourceManager = _resourceManager;
             id = _id;
         }
@@ -28,7 +28,7 @@ namespace CartrigeAltstar
         {
             if (id != null)
             {
-                SubdivisionModel = db.Subdivisions.Find(id);
+                SubdivisionModel = db.Department.Find(id);
                 tbNameDepartment.Text = SubdivisionModel.Department.ToString();
                 tbAddessDepartment.Text = SubdivisionModel.Address.ToString();
 
@@ -69,7 +69,7 @@ namespace CartrigeAltstar
                     SubdivisionModel = new Subdivision();
                     SubdivisionModel.Department = tbNameDepartment.Text;
                     SubdivisionModel.Address = tbAddessDepartment.Text;
-                    db.Subdivisions.Add(SubdivisionModel);
+                    db.Department.Add(SubdivisionModel);
                     db.SaveChanges();
                     MessageBox.Show(resourceManager.GetString("AddNewDepartmenMsgBox"));
                 }
