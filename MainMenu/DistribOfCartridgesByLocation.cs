@@ -81,6 +81,16 @@ namespace CartrigeAltstar
         {
             try
             {
+                if (cbDepartment.SelectedItem == null) 
+                {
+                    MessageBox.Show("Department is not selected!!!");
+                    return;
+                }
+                    
+                
+
+                
+
                 string searchValue = cbDepartment.SelectedItem.ToString();
 
                 Cartrigelolocation tolocation = new Cartrigelolocation()

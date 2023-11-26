@@ -51,6 +51,7 @@
             this.txtLoginId.Name = "txtLoginId";
             this.txtLoginId.Size = new System.Drawing.Size(205, 20);
             this.txtLoginId.TabIndex = 1;
+            this.txtLoginId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLoginId_KeyDown);
             // 
             // txtPassword
             // 
@@ -58,6 +59,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(205, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // lblUserIdPrompt
             // 
@@ -91,6 +93,7 @@
             this.Controls.Add(this.btnLogin);
             this.Name = "LoginForm";
             this.Text = "Authorization";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

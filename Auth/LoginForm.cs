@@ -54,7 +54,19 @@ namespace CartrigeAltstar.Auth
             }
         }
 
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) { btnLogin_Click(sender, e); }
+        }
 
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) { btnLogin_Click(sender, e); }
+        }
 
+        private void txtLoginId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) { btnLogin_Click(sender, e); }
+        }
     }
 }

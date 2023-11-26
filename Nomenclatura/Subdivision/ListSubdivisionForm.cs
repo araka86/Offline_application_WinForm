@@ -41,13 +41,13 @@ namespace CartrigeAltstar
 
                 dataGridViewListSubdivision.DataSource = data;
 
-                dataGridViewListSubdivision.Columns["Department"].HeaderText = resourceManager.GetString("Department");
+               dataGridViewListSubdivision.Columns["Name"].HeaderText = resourceManager.GetString("Department");
                 dataGridViewListSubdivision.Columns["Address"].HeaderText = resourceManager.GetString("Address");
 
                 dataGridViewListSubdivision.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewListSubdivision.Font, FontStyle.Bold);
 
                 dataGridViewListSubdivision.Columns["Id"].Width = 30;
-                dataGridViewListSubdivision.Columns["Department"].Width = 300;
+                dataGridViewListSubdivision.Columns["Name"].Width = 300;
                 dataGridViewListSubdivision.Columns["Address"].Width = 350;
 
                 dataGridViewListSubdivision.Columns["Printers"].Visible = false;
