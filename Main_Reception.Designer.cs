@@ -68,7 +68,7 @@
             this.tscbDepartment = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbApply = new System.Windows.Forms.ToolStripButton();
-            this.tsbReset = new System.Windows.Forms.ToolStripButton();
+            this.tsbResetFiltr = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tsbChangeMode = new System.Windows.Forms.ToolStripButton();
@@ -240,21 +240,21 @@
             // tsniPrinters
             // 
             this.tsniPrinters.Name = "tsniPrinters";
-            this.tsniPrinters.Size = new System.Drawing.Size(180, 22);
+            this.tsniPrinters.Size = new System.Drawing.Size(159, 22);
             this.tsniPrinters.Text = "Принтери";
             this.tsniPrinters.Click += new System.EventHandler(this.tsniPrinters_Click);
             // 
             // tsmiCartriges
             // 
             this.tsmiCartriges.Name = "tsmiCartriges";
-            this.tsmiCartriges.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCartriges.Size = new System.Drawing.Size(159, 22);
             this.tsmiCartriges.Text = "Картриджи";
             this.tsmiCartriges.Click += new System.EventHandler(this.tsmiCartriges_Click);
             // 
             // tsmiDepartment
             // 
             this.tsmiDepartment.Name = "tsmiDepartment";
-            this.tsmiDepartment.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDepartment.Size = new System.Drawing.Size(159, 22);
             this.tsmiDepartment.Text = "Подразделения";
             this.tsmiDepartment.Click += new System.EventHandler(this.tsmiDepartment_Click);
             // 
@@ -354,7 +354,7 @@
             this.tscbDepartment,
             this.toolStripSeparator7,
             this.tsbApply,
-            this.tsbReset,
+            this.tsbResetFiltr,
             this.toolStripSeparator10,
             this.toolStripLabel1,
             this.tsbChangeMode,
@@ -419,17 +419,18 @@
             this.tsbApply.Name = "tsbApply";
             this.tsbApply.Size = new System.Drawing.Size(147, 19);
             this.tsbApply.Text = "Применить";
-            this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
+            this.tsbApply.Click += new System.EventHandler(this.tsb_ClickFilter);
             // 
-            // tsbReset
+            // tsbResetFiltr
             // 
-            this.tsbReset.BackColor = System.Drawing.Color.Orange;
-            this.tsbReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbReset.Image = ((System.Drawing.Image)(resources.GetObject("tsbReset.Image")));
-            this.tsbReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbReset.Name = "tsbReset";
-            this.tsbReset.Size = new System.Drawing.Size(147, 19);
-            this.tsbReset.Text = "Сбросить";
+            this.tsbResetFiltr.BackColor = System.Drawing.Color.Orange;
+            this.tsbResetFiltr.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbResetFiltr.Image = ((System.Drawing.Image)(resources.GetObject("tsbResetFiltr.Image")));
+            this.tsbResetFiltr.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbResetFiltr.Name = "tsbResetFiltr";
+            this.tsbResetFiltr.Size = new System.Drawing.Size(147, 19);
+            this.tsbResetFiltr.Text = "Сбросить";
+            this.tsbResetFiltr.Click += new System.EventHandler(this.tsbResetFiltr_Click);
             // 
             // toolStripSeparator10
             // 
@@ -553,7 +554,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton tsbApply;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripButton tsbReset;
+        private System.Windows.Forms.ToolStripButton tsbResetFiltr;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripDropDownButton tsddbCartrige;

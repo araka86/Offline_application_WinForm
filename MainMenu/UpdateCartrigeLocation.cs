@@ -91,17 +91,19 @@ namespace CartrigeAltstar.MainMenu
 
                 if (getCurrent != null)
                 {
-                    var chkToLocation = db.Cartrigelolocations.Any(x => x.Article == cbUpdateCartrigeArticle.SelectedItem.ToString());
 
-                    if (chkToLocation) 
+                    var checkExistItem = db.Cartrigelolocations.Any(x=>x.Article == cbUpdateCartrigeArticle.SelectedItem.ToString() 
+                    && x.Department == cbUpdateDupertment.SelectedItem.ToString() );
+                    
+                    if (checkExistItem)
                     {
-                        MessageBox.Show("Error!!");
+                        MessageBox.Show("Error!! такая запись уже существует ");
                         return;
                     }
-                    else 
+                    else
                     {
                         getCurrent.Article = cbUpdateCartrigeArticle.SelectedItem.ToString();
-                        getCurrent.Cartrige = tbCartrige.Text.ToString();
+                        getCurrent.Cartrige = tbCartrige.Text.ToString();                
                     }
 
                     getCurrent.Department = cbUpdateDupertment.SelectedItem.ToString();

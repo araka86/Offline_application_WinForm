@@ -3,6 +3,7 @@ using CartrigeAltstar.MainMenu;
 using CartrigeAltstar.Model;
 using CartrigeAltstar.Nomenclatura.Cartriges;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
@@ -38,7 +39,13 @@ namespace CartrigeAltstar
 
 
 
+        private string currentUserId;
 
+        // Метод для установки текущего UserId из LoginForm
+        public void SetCurrentUserId(string userId)
+        {
+            currentUserId = userId;
+        }
 
 
 
@@ -93,7 +100,7 @@ namespace CartrigeAltstar
             tslCartriges.Text = resourceManager.GetString("tslCartriges");
             tslDepartment.Text = resourceManager.GetString("tslDepartment");
             tsbApply.Text = resourceManager.GetString("tsbApply");
-            tsbReset.Text = resourceManager.GetString("tsbReset");
+            tsbResetFiltr.Text = resourceManager.GetString("tsbReset");
             tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
             tsbChangeMode.ToolTipText = resourceManager.GetString("tsbChangeModeToolTipText");
             tsniPrinters.Text = resourceManager.GetString("tsniPrinters");
@@ -167,8 +174,19 @@ namespace CartrigeAltstar
         {
             db = new ContexAltstar();
             var ListCartrige = db.Cartriges.Select(c => c.ModelCartrige).ToList();
-            tscbCartriges.ComboBox.DataSource = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
-            tscbDepartment.ComboBox.DataSource = db.Departments.Select(s => s.Name).ToList();
+            //    tscbCartriges.ComboBox.DataSource = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
+            //    tscbDepartment.ComboBox.DataSource = db.Departments.Select(s => s.Name).ToList();
+
+
+
+            List<string> cartrigeModels = db.Cartriges.Select(c => c.ModelCartrige).Distinct().ToList();
+            cartrigeModels.Insert(0, "select_item");
+            tscbCartriges.ComboBox.DataSource = cartrigeModels;
+
+            List<string> departmentModels = db.Departments.Select(c => c.Name).Distinct().ToList();
+            departmentModels.Insert(0, "select_item");
+            tscbDepartment.ComboBox.DataSource = departmentModels;
+
         }
 
         private void FillDataGrid()
@@ -224,13 +242,14 @@ namespace CartrigeAltstar
         private void tsmiSendToLocation_Click(object sender, EventArgs e)
         {
             var distribOfCartridgesByLocation = new DistribOfCartridgesByLocation(resourceManager);
-            distribOfCartridgesByLocation.FormClosing += DistribOfCartridgesByLocation_FormClosing;
+            distribOfCartridgesByLocation.FormClosing += RefreshMainDatagrid;
             distribOfCartridgesByLocation.Show();
 
         }
 
-        private void DistribOfCartridgesByLocation_FormClosing(object sender, FormClosingEventArgs e) 
+        private void RefreshMainDatagrid(object sender, FormClosingEventArgs e) 
         {
+            db = new ContexAltstar();
             dgwMain.DataSource = db.Cartrigelolocations.ToList();
             SetOperationAccess();
         } 
@@ -261,10 +280,6 @@ namespace CartrigeAltstar
         //export
         private void tsbExport_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dgwMain, true, resourceManager.GetString("ListOfCartrige"));
 
-        private void tsbApply_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
@@ -282,18 +297,15 @@ namespace CartrigeAltstar
                 if (updateCartrigeLocation.ShowDialog() == DialogResult.OK)
                 {
                     MessageBox.Show("Item is updated");
-                    dgwMain.DataSource = db.Cartrigelolocations.ToList();
-                    SetOperationAccess();
+                    RefreshMainDatagrid(this, null);
+
                 }
 
                  
             }
-
-
-
-
-
         }
+   
+
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
@@ -321,16 +333,32 @@ namespace CartrigeAltstar
             }
            
         }
-        private string currentUserId;
-     
+       
 
-        // Метод для установки текущего UserId из LoginForm
-        public void SetCurrentUserId(string userId)
+        private void tsb_ClickFilter(object sender, EventArgs e)
         {
-            currentUserId = userId;
-            // Здесь вы можете использовать currentUserId по вашему усмотрению
+
+            if (tscbCartriges.SelectedItem.ToString() != "select_item" 
+                && tscbDepartment.SelectedItem.ToString() != "select_item")
+            {
+                dgwMain.DataSource = db.Cartrigelolocations.Where(x => x.Cartrige == tscbCartriges.SelectedItem.ToString() &&
+               x.Department == tscbDepartment.SelectedItem.ToString()).ToList();
+            }
+            else if (tscbCartriges.SelectedItem.ToString() != "select_item")
+            {
+                dgwMain.DataSource = db.Cartrigelolocations.Where(x => x.Cartrige == tscbCartriges.SelectedItem.ToString()).ToList();
+            }
+            else 
+            {
+
+                dgwMain.DataSource = db.Cartrigelolocations.Where(x =>x.Department == tscbDepartment.SelectedItem.ToString()).ToList();
+            }
+
+            
+
         }
 
-
+        private void tsbResetFiltr_Click(object sender, EventArgs e) => RefreshMainDatagrid(this, null);
+        
     }
 }
