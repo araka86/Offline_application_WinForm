@@ -14,6 +14,15 @@ namespace CartrigeAltstar
         public ResourceManager resourceManager;
         private DataTable dataTable = new DataTable();
 
+
+
+        private void AcceptСartridgesFromLocations_Load(object sender, EventArgs e)
+        {
+            this.Text = resourceManager.GetString("tsmiAcceptFromLocation");
+            gbReceivingCartridges.Text = resourceManager.GetString("tsmiAcceptFromLocation");
+            datalabel.Text = resourceManager.GetString("Data");
+            gbSearchArtileCartrige.Text = resourceManager.GetString("SearchArticle");
+        }
         public AcceptСartridgesFromLocations(ResourceManager resourceManager)
         {
             InitializeComponent();
@@ -179,10 +188,6 @@ namespace CartrigeAltstar
             }
         }
 
-
-
-
-
-
+     
     }
 }

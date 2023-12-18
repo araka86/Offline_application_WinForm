@@ -40,7 +40,7 @@ namespace CartrigeAltstar.Model
 
             //modelBuilder.Entity<Printer>()
             //    .HasOptional(p => p.CartrigePk)
-            //    .WithMany(a=>a.Printers)                // Добавляем это, чтобы указать свойство обратной навигации (2 стрелочки)
+            //    .WithMany(a => a.Printers)                // Добавляем это, чтобы указать свойство обратной навигации (2 стрелочки)
             //    .HasForeignKey(p => p.CartrigeId)
             //    .WillCascadeOnDelete(false);
 

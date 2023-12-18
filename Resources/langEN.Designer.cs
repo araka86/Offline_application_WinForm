@@ -70,7 +70,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Add Departments.
+        ///   Ищет локализованную строку, похожую на Add Department.
         /// </summary>
         internal static string AddDepartmentModal {
             get {
@@ -259,7 +259,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Departments.
+        ///   Ищет локализованную строку, похожую на Department.
         /// </summary>
         internal static string Department {
             get {
@@ -273,6 +273,24 @@ namespace CartrigeAltstar.Resources {
         internal static string DepartmentWasRemoved {
             get {
                 return ResourceManager.GetString("DepartmentWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на cartridges on departments.
+        /// </summary>
+        internal static string gbCartrigeOnDepartment {
+            get {
+                return ResourceManager.GetString("gbCartrigeOnDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Receiving cartridges.
+        /// </summary>
+        internal static string gbReceivingCartridges {
+            get {
+                return ResourceManager.GetString("gbReceivingCartridges", resourceCulture);
             }
         }
         
@@ -313,7 +331,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Name of Departments.
+        ///   Ищет локализованную строку, похожую на Name of Department.
         /// </summary>
         internal static string lblNameDepartment {
             get {
@@ -336,6 +354,15 @@ namespace CartrigeAltstar.Resources {
         internal static string lblStatus {
             get {
                 return ResourceManager.GetString("lblStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на List of available cartridges for shipment.
+        /// </summary>
+        internal static string ListAvilableCartrigeFarSedning {
+            get {
+                return ResourceManager.GetString("ListAvilableCartrigeFarSedning", resourceCulture);
             }
         }
         
@@ -484,6 +511,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Search by cartridge article number.
+        /// </summary>
+        internal static string SearchArticle {
+            get {
+                return ResourceManager.GetString("SearchArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Sending to service.
         /// </summary>
         internal static string sendingToService {
@@ -619,11 +655,74 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Accept from filling.
+        /// </summary>
+        internal static string tsmiAcceptCartriges {
+            get {
+                return ResourceManager.GetString("tsmiAcceptCartriges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Accept from the location.
+        /// </summary>
+        internal static string tsmiAcceptFromLocation {
+            get {
+                return ResourceManager.GetString("tsmiAcceptFromLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на English.
+        /// </summary>
+        internal static string tsmiEn {
+            get {
+                return ResourceManager.GetString("tsmiEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Menu.
         /// </summary>
         internal static string tsmiMenu {
             get {
                 return ResourceManager.GetString("tsmiMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Russian.
+        /// </summary>
+        internal static string tsmiRu {
+            get {
+                return ResourceManager.GetString("tsmiRu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Send to fill.
+        /// </summary>
+        internal static string tsmiSendCartrige {
+            get {
+                return ResourceManager.GetString("tsmiSendCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Send to location.
+        /// </summary>
+        internal static string tsmiSendToLocation {
+            get {
+                return ResourceManager.GetString("tsmiSendToLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ukrainian.
+        /// </summary>
+        internal static string tsmiUA {
+            get {
+                return ResourceManager.GetString("tsmiUA", resourceCulture);
             }
         }
         
@@ -682,7 +781,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Update Departments.
+        ///   Ищет локализованную строку, похожую на Update Department.
         /// </summary>
         internal static string UpdateDepartmentModal {
             get {

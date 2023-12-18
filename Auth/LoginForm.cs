@@ -22,6 +22,7 @@ namespace CartrigeAltstar.Auth
         {
             InitializeComponent();
             contexAltstar = new ContexAltstar();
+            txtPassword.PasswordChar = '*';
         }
 
 

@@ -38,27 +38,27 @@ namespace CartrigeAltstar
             this.datalabel = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.tbCaretigeModel = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbDepartment = new System.Windows.Forms.Label();
             this.tbSearchCartrigeArticle = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gpSearchArticle = new System.Windows.Forms.GroupBox();
+            this.gbListAvilableCartrigeFarSedning = new System.Windows.Forms.GroupBox();
             this.dgvFindArticleResult = new System.Windows.Forms.DataGridView();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.tbCartrigeArticle = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbId = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lbCartrige = new System.Windows.Forms.Label();
+            this.tbId = new System.Windows.Forms.TextBox();
+            this.gpSearchArticle.SuspendLayout();
+            this.gbListAvilableCartrigeFarSedning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindArticleResult)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelDivision
@@ -108,10 +108,10 @@ namespace CartrigeAltstar
             this.tbCaretigeModel.Name = "tbCaretigeModel";
             this.tbCaretigeModel.ReadOnly = true;
             // 
-            // label2
+            // lbDepartment
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lbDepartment, "lbDepartment");
+            this.lbDepartment.Name = "lbDepartment";
             // 
             // tbSearchCartrigeArticle
             // 
@@ -119,21 +119,21 @@ namespace CartrigeAltstar
             this.tbSearchCartrigeArticle.Name = "tbSearchCartrigeArticle";
             this.tbSearchCartrigeArticle.TextChanged += new System.EventHandler(this.tbSearchCartrigeArticle_TextChanged);
             // 
-            // groupBox1
+            // gpSearchArticle
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.tbSearchCartrigeArticle);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this.gpSearchArticle.Controls.Add(this.gbListAvilableCartrigeFarSedning);
+            this.gpSearchArticle.Controls.Add(this.tbSearchCartrigeArticle);
+            resources.ApplyResources(this.gpSearchArticle, "gpSearchArticle");
+            this.gpSearchArticle.Name = "gpSearchArticle";
+            this.gpSearchArticle.TabStop = false;
             // 
-            // groupBox3
+            // gbListAvilableCartrigeFarSedning
             // 
-            this.groupBox3.Controls.Add(this.dgvFindArticleResult);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
+            this.gbListAvilableCartrigeFarSedning.Controls.Add(this.dgvFindArticleResult);
+            resources.ApplyResources(this.gbListAvilableCartrigeFarSedning, "gbListAvilableCartrigeFarSedning");
+            this.gbListAvilableCartrigeFarSedning.ForeColor = System.Drawing.Color.DarkGreen;
+            this.gbListAvilableCartrigeFarSedning.Name = "gbListAvilableCartrigeFarSedning";
+            this.gbListAvilableCartrigeFarSedning.TabStop = false;
             // 
             // dgvFindArticleResult
             // 
@@ -163,34 +163,11 @@ namespace CartrigeAltstar
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox5);
-            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.gpSearchArticle);
             this.groupBox2.Controls.Add(this.groupBox4);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
-            // 
-            // tbId
-            // 
-            resources.ApplyResources(this.tbId, "tbId");
-            this.tbId.Name = "tbId";
-            this.tbId.ReadOnly = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.tbId);
-            this.groupBox4.Controls.Add(this.dtpData);
-            this.groupBox4.Controls.Add(this.cbDepartment);
-            this.groupBox4.Controls.Add(this.tbCaretigeModel);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.tbCartrigeArticle);
-            this.groupBox4.Controls.Add(this.okAdd);
-            this.groupBox4.Controls.Add(this.labelDivision);
-            this.groupBox4.Controls.Add(this.datalabel);
-            this.groupBox4.Controls.Add(this.button2);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
             // 
             // groupBox5
             // 
@@ -214,10 +191,33 @@ namespace CartrigeAltstar
             this.tsbAdd.Name = "tsbAdd";
             this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
             // 
-            // label1
+            // groupBox4
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this.groupBox4.Controls.Add(this.lbCartrige);
+            this.groupBox4.Controls.Add(this.tbId);
+            this.groupBox4.Controls.Add(this.dtpData);
+            this.groupBox4.Controls.Add(this.cbDepartment);
+            this.groupBox4.Controls.Add(this.tbCaretigeModel);
+            this.groupBox4.Controls.Add(this.lbDepartment);
+            this.groupBox4.Controls.Add(this.tbCartrigeArticle);
+            this.groupBox4.Controls.Add(this.okAdd);
+            this.groupBox4.Controls.Add(this.labelDivision);
+            this.groupBox4.Controls.Add(this.datalabel);
+            this.groupBox4.Controls.Add(this.button2);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
+            // 
+            // lbCartrige
+            // 
+            resources.ApplyResources(this.lbCartrige, "lbCartrige");
+            this.lbCartrige.Name = "lbCartrige";
+            // 
+            // tbId
+            // 
+            resources.ApplyResources(this.tbId, "tbId");
+            this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
             // 
             // DistribOfCartridgesByLocation
             // 
@@ -227,18 +227,18 @@ namespace CartrigeAltstar
             this.Controls.Add(this.LabelData);
             this.Name = "DistribOfCartridgesByLocation";
             this.Load += new System.EventHandler(this.DistribOfCartridgesByLocation_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gpSearchArticle.ResumeLayout(false);
+            this.gpSearchArticle.PerformLayout();
+            this.gbListAvilableCartrigeFarSedning.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindArticleResult)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,21 +251,21 @@ namespace CartrigeAltstar
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button okAdd;
         public System.Windows.Forms.Label datalabel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbDepartment;
         public System.Windows.Forms.DateTimePicker dtpData;
         public System.Windows.Forms.TextBox tbCaretigeModel;
         public System.Windows.Forms.TextBox tbSearchCartrigeArticle;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpSearchArticle;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         public System.Windows.Forms.TextBox tbCartrigeArticle;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.DataGridView dgvFindArticleResult;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbListAvilableCartrigeFarSedning;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbAdd;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbCartrige;
     }
 }

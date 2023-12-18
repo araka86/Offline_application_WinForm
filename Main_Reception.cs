@@ -31,7 +31,7 @@ namespace CartrigeAltstar
             FillCombobox();
             FillDataGrid();
             SetOperationAccess();
-            var cnt = dgwMain.Rows.Count;
+          
           
 
         }
@@ -107,6 +107,14 @@ namespace CartrigeAltstar
             tsmiCartriges.Text = resourceManager.GetString("tslCartriges");
             tsmiDepartment.Text = resourceManager.GetString("tslDepartment");
             tsmenuLanguage.Text = resourceManager.GetString("tsmenuLanguage");
+            tsmiSendCartrige.Text = resourceManager.GetString("tsmiSendCartrige");
+            tsmiAcceptCartriges.Text = resourceManager.GetString("tsmiAcceptCartriges");
+            tsmiSendToLocation.Text = resourceManager.GetString("tsmiSendToLocation");
+            tsmiAcceptFromLocation.Text = resourceManager.GetString("tsmiAcceptFromLocation");
+            gbCartrigeOnDepartment.Text = resourceManager.GetString("gbCartrigeOnDepartment");
+            tsmiUA.Text = resourceManager.GetString("tsmiUA");
+            tsmiEn.Text = resourceManager.GetString("tsmiEn");
+            tsmiRu.Text = resourceManager.GetString("tsmiRu");
         }
 
 
@@ -247,6 +255,7 @@ namespace CartrigeAltstar
 
         }
 
+        /// update whenForm will be Closed
         private void RefreshMainDatagrid(object sender, FormClosingEventArgs e) 
         {
             db = new ContexAltstar();

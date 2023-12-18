@@ -178,7 +178,7 @@ namespace CartrigeAltstar.Model
                 ModelPrinter = "Samsung 106A",
                 Article = "P0KV",
                 CartrigePk = ct3,
-                SubdivisioPK = sb4
+                Department = sb4
 
 
             };
@@ -188,7 +188,7 @@ namespace CartrigeAltstar.Model
                 ModelPrinter = "Canon MF3010 V4",
                 Article = "P001",
                 CartrigePk = ct1,
-                SubdivisioPK = sb1
+                Department = sb1
 
             };
             Printer pr3 = new Printer
@@ -197,7 +197,7 @@ namespace CartrigeAltstar.Model
                 ModelPrinter = "Canon MF3010 V4",
                 Article = "P883",
                 CartrigePk = ct2,
-                SubdivisioPK = sb1
+                Department = sb1
 
             };
 

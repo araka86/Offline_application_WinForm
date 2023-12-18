@@ -215,19 +215,6 @@
     <Compile Include="Main_Reception.Designer.cs">
       <DependentUpon>Main_Reception.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311221035050_initNewTable.cs" />
-    <Compile Include="Migrations\202311221035050_initNewTable.designer.cs">
-      <DependentUpon>202311221035050_initNewTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311221038139_initNewTable1.cs" />
-    <Compile Include="Migrations\202311221038139_initNewTable1.designer.cs">
-      <DependentUpon>202311221038139_initNewTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311221041296_initNewTable2.cs" />
-    <Compile Include="Migrations\202311221041296_initNewTable2.designer.cs">
-      <DependentUpon>202311221041296_initNewTable2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CartrigeHome.cs" />
     <Compile Include="Model\CartrigeService.cs" />
     <Compile Include="Model\User.cs" />
@@ -372,15 +359,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Reception.resx">
       <DependentUpon>Main_Reception.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311221035050_initNewTable.resx">
-      <DependentUpon>202311221035050_initNewTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311221038139_initNewTable1.resx">
-      <DependentUpon>202311221038139_initNewTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311221041296_initNewTable2.resx">
-      <DependentUpon>202311221041296_initNewTable2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nomenclatura\Cartriges\AddDellCartrigeSubdivisionForm.resx">
       <DependentUpon>AddDellCartrigeSubdivisionForm.cs</DependentUpon>

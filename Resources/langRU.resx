@@ -209,6 +209,14 @@
     <value>Подразделение было удалено</value>
     <comment>Nomenclatura/Department  Add/Update</comment>
   </data>
+  <data name="gbCartrigeOnDepartment" xml:space="preserve">
+    <value>картриджи на подразделения</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="gbReceivingCartridges" xml:space="preserve">
+    <value>Прием картриджей</value>
+    <comment>MainMenu/AcceptСartridgesFromLocations</comment>
+  </data>
   <data name="labelInfoGridInService" xml:space="preserve">
     <value>Картриджи на сервисе</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
@@ -244,6 +252,10 @@
   <data name="lblStatus" xml:space="preserve">
     <value>Статус</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="ListAvilableCartrigeFarSedning" xml:space="preserve">
+    <value>Список доступных картриджей для отправки</value>
+    <comment>MainMenu/DistribOfCartridgesByLocation</comment>
   </data>
   <data name="ListOfCartrige" xml:space="preserve">
     <value>Список картриждей</value>
@@ -304,6 +316,10 @@
     <value>Получение с обслуживания</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
   </data>
+  <data name="SearchArticle" xml:space="preserve">
+    <value>Поиск по артикулу картриджа</value>
+    <comment>MainMenu/DistribOfCartridgesByLocation</comment>
+  </data>
   <data name="sendingToService" xml:space="preserve">
     <value>Отправка на обслуживания</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
@@ -362,8 +378,36 @@
     <value>Язык</value>
     <comment>Main_Reseption</comment>
   </data>
+  <data name="tsmiAcceptCartriges" xml:space="preserve">
+    <value>Принять из заправки</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiAcceptFromLocation" xml:space="preserve">
+    <value>Принять с локации</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiEn" xml:space="preserve">
+    <value>Английский</value>
+    <comment>Main_Reseption</comment>
+  </data>
   <data name="tsmiMenu" xml:space="preserve">
     <value>Меню</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiRu" xml:space="preserve">
+    <value>Русский</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiSendCartrige" xml:space="preserve">
+    <value>Отправить на заправку</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiSendToLocation" xml:space="preserve">
+    <value>Отправить на локацию</value>
+    <comment>Main_Reseption</comment>
+  </data>
+  <data name="tsmiUA" xml:space="preserve">
+    <value>Украинский</value>
     <comment>Main_Reseption</comment>
   </data>
   <data name="tsniPrinters" xml:space="preserve">

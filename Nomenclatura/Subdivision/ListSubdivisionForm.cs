@@ -115,9 +115,9 @@ namespace CartrigeAltstar
 
                     Department depertmentDel = db.Departments.Find(id);
                     //find ForeignKey Printer.SubdivisionId and set null
-                    var printer = depertmentDel.Printers.FirstOrDefault(p=>p.SubdivisionId==id);
+                    var printer = depertmentDel.Printers.FirstOrDefault(p=>p.DepartmentId == id);
                     if (printer != null)
-                        printer.SubdivisionId = null;
+                        printer.DepartmentId = null;
 
                     //find ForeignKey Printer.SubdivisionId and set null
                     var compatibilities = depertmentDel.Compatibilities.FirstOrDefault(c=>c.SubdivisionId == id);

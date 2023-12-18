@@ -14,18 +14,18 @@ namespace CartrigeAltstar.Model
         public string Article { get; set; }
 
 
-        // явно указать  внешний ключ
-        //     [ForeignKey("Department")]  //название таблици на которуюбудет ссилатся внешний ключ
-        //     public int Subdivisionid { get; set; }
-        //
-        //
-        //    public int? Subdivisionid { get; set; } //внешний ключ
-
-        public int? SubdivisionId { get; set; } //Foreign Key    
-        public virtual Department SubdivisioPK { get; set; } //ссилка на подразделения + внешний ключ SubdivisioPK_Id
+            //явно указать  внешний ключ
+            [ForeignKey("Department")]  //название таблици на которуюбудет ссилатся внешний ключ
+             public int? DepartmentId { get; set; }
+            public virtual Department Department { get; set; }
 
 
-    
+
+        //public int? SubdivisionId { get; set; } //Foreign Key    
+        //public virtual Department SubdivisioPK { get; set; } //ссилка на подразделения + внешний ключ SubdivisioPK_Id
+
+
+
         public int? CartrigeId { get; set; }   //Foreign Key
         public virtual Cartrige CartrigePk { get; set; }     //ссилка на картридж + внешний ключ CartrigePk_Id
     }

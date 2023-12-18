@@ -58,9 +58,7 @@ namespace CartrigeAltstar.Data
                         Role = "SuperAdmin",
                         Password = "12345"
                     });
-                    break;
-                    
-
+                    break;              
             }
         }
 

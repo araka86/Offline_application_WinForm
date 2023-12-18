@@ -1,5 +1,6 @@
 ﻿using CartrigeAltstar.Helpers;
 using CartrigeAltstar.Model;
+using DocumentFormat.OpenXml.Bibliography;
 using System;
 using System.Data.Entity;
 using System.Drawing;
@@ -49,11 +50,11 @@ namespace CartrigeAltstar
                 dataGridViewListPrinter.Columns["DateTimes"].HeaderText = resourceManager.GetString("purchase_date");
 
                 dataGridViewListPrinter.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewListPrinter.Font, FontStyle.Bold);
-
-                dataGridViewListPrinter.Columns["SubdivisionId"].Visible = false;
+                
+                dataGridViewListPrinter.Columns["Department"].Visible = false;
+                dataGridViewListPrinter.Columns["DepartmentId"].Visible = false;
                 dataGridViewListPrinter.Columns["CartrigeId"].Visible = false;
                 dataGridViewListPrinter.Columns["CartrigePK"].Visible = false;
-                dataGridViewListPrinter.Columns["SubdivisioPK"].Visible = false;
             }
             catch (Exception ex)
             {

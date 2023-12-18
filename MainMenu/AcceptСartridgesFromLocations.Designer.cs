@@ -33,7 +33,7 @@ namespace CartrigeAltstar
             this.tbSearchCartrigeArticle = new System.Windows.Forms.TextBox();
             this.txtdate = new System.Windows.Forms.DateTimePicker();
             this.datalabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbSearchArtileCartrige = new System.Windows.Forms.GroupBox();
             this.dgvFindArticleResulttoLocations = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -42,13 +42,13 @@ namespace CartrigeAltstar
             this.tsbRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbLeft = new System.Windows.Forms.ToolStripButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbReceivingCartridges = new System.Windows.Forms.GroupBox();
             this.dgvAcceptFromLocations = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.gbSearchArtileCartrige.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindArticleResulttoLocations)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbReceivingCartridges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcceptFromLocations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,13 +69,13 @@ namespace CartrigeAltstar
             resources.ApplyResources(this.datalabel, "datalabel");
             this.datalabel.Name = "datalabel";
             // 
-            // groupBox1
+            // gbSearchArtileCartrige
             // 
-            this.groupBox1.Controls.Add(this.dgvFindArticleResulttoLocations);
-            this.groupBox1.Controls.Add(this.tbSearchCartrigeArticle);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this.gbSearchArtileCartrige.Controls.Add(this.dgvFindArticleResulttoLocations);
+            this.gbSearchArtileCartrige.Controls.Add(this.tbSearchCartrigeArticle);
+            resources.ApplyResources(this.gbSearchArtileCartrige, "gbSearchArtileCartrige");
+            this.gbSearchArtileCartrige.Name = "gbSearchArtileCartrige";
+            this.gbSearchArtileCartrige.TabStop = false;
             // 
             // dgvFindArticleResulttoLocations
             // 
@@ -140,13 +140,13 @@ namespace CartrigeAltstar
             this.tsbLeft.Name = "tsbLeft";
             this.tsbLeft.Click += new System.EventHandler(this.tsbLeft_Click);
             // 
-            // groupBox2
+            // gbReceivingCartridges
             // 
-            this.groupBox2.Controls.Add(this.datalabel);
-            this.groupBox2.Controls.Add(this.txtdate);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
+            this.gbReceivingCartridges.Controls.Add(this.datalabel);
+            this.gbReceivingCartridges.Controls.Add(this.txtdate);
+            resources.ApplyResources(this.gbReceivingCartridges, "gbReceivingCartridges");
+            this.gbReceivingCartridges.Name = "gbReceivingCartridges";
+            this.gbReceivingCartridges.TabStop = false;
             // 
             // dgvAcceptFromLocations
             // 
@@ -164,18 +164,19 @@ namespace CartrigeAltstar
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvAcceptFromLocations);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbReceivingCartridges);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbSearchArtileCartrige);
             this.Name = "AcceptСartridgesFromLocations";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.AcceptСartridgesFromLocations_Load);
+            this.gbSearchArtileCartrige.ResumeLayout(false);
+            this.gbSearchArtileCartrige.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindArticleResulttoLocations)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbReceivingCartridges.ResumeLayout(false);
+            this.gbReceivingCartridges.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcceptFromLocations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,7 +187,7 @@ namespace CartrigeAltstar
         public System.Windows.Forms.TextBox tbSearchCartrigeArticle;
         public System.Windows.Forms.DateTimePicker txtdate;
         public System.Windows.Forms.Label datalabel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbSearchArtileCartrige;
         private System.Windows.Forms.DataGridView dgvFindArticleResulttoLocations;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -195,7 +196,7 @@ namespace CartrigeAltstar
         private System.Windows.Forms.ToolStripButton tsbRight;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbLeft;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbReceivingCartridges;
         private System.Windows.Forms.DataGridView dgvAcceptFromLocations;
     }
 }

@@ -75,13 +75,13 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.dgwMain = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbCartrigeOnDepartment = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMain)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbCartrigeOnDepartment.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -312,14 +312,14 @@
             // tsmiSendToLocation
             // 
             this.tsmiSendToLocation.Name = "tsmiSendToLocation";
-            this.tsmiSendToLocation.Size = new System.Drawing.Size(132, 22);
+            this.tsmiSendToLocation.Size = new System.Drawing.Size(180, 22);
             this.tsmiSendToLocation.Text = "Отрпавить";
             this.tsmiSendToLocation.Click += new System.EventHandler(this.tsmiSendToLocation_Click);
             // 
             // tsmiAcceptFromLocation
             // 
             this.tsmiAcceptFromLocation.Name = "tsmiAcceptFromLocation";
-            this.tsmiAcceptFromLocation.Size = new System.Drawing.Size(132, 22);
+            this.tsmiAcceptFromLocation.Size = new System.Drawing.Size(180, 22);
             this.tsmiAcceptFromLocation.Text = "Принять";
             this.tsmiAcceptFromLocation.Click += new System.EventHandler(this.tsmiAcceptFromLocation_Click);
             // 
@@ -477,7 +477,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.gbCartrigeOnDepartment);
             this.groupBox1.Controls.Add(this.toolStrip2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 66);
@@ -486,16 +486,16 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox2
+            // gbCartrigeOnDepartment
             // 
-            this.groupBox2.Controls.Add(this.dgwMain);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(152, 16);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(624, 365);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "картриджи на подразделения";
+            this.gbCartrigeOnDepartment.Controls.Add(this.dgwMain);
+            this.gbCartrigeOnDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbCartrigeOnDepartment.Location = new System.Drawing.Point(152, 16);
+            this.gbCartrigeOnDepartment.Name = "gbCartrigeOnDepartment";
+            this.gbCartrigeOnDepartment.Size = new System.Drawing.Size(624, 365);
+            this.gbCartrigeOnDepartment.TabIndex = 1;
+            this.gbCartrigeOnDepartment.TabStop = false;
+            this.gbCartrigeOnDepartment.Text = "картриджи на подразделения";
             // 
             // main_Reception
             // 
@@ -516,7 +516,7 @@
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMain)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.gbCartrigeOnDepartment.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,7 +567,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbCartrigeOnDepartment;
         private System.Windows.Forms.ToolStripButton tsUpdateButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         public System.Windows.Forms.ToolStripDropDownButton tsddbutton;

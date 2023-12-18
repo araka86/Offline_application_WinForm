@@ -84,7 +84,7 @@ namespace CartrigeAltstar
             Department subdivision = new Department();
 
             var p = from l in db.Departments
-                    where l.Id == sb.SubdivisionId
+                    where l.Id == sb.DepartmentId
                     select new
                     {
                         l.Id,
@@ -327,7 +327,7 @@ namespace CartrigeAltstar
             //     Department subdivisionadd = db.Name.Find(getId);
 
 
-            printerAdd.SubdivisionId = pr.Id;
+            printerAdd.DepartmentId = pr.Id;
 
 
             db.ChangeTracker.DetectChanges();

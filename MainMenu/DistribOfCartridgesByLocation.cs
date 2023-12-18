@@ -14,7 +14,19 @@ namespace CartrigeAltstar
         private void DistribOfCartridgesByLocation_Load(object sender, EventArgs e)
         {
             cbDepartment.DataSource = db.Departments.Select(x => x.Name).ToArray();
+
+            TranslateMenu();
         }
+
+        private void TranslateMenu()
+        {
+            lbCartrige.Text = resourceManager.GetString("Cartrige");
+            lbDepartment.Text = resourceManager.GetString("Department");
+            gpSearchArticle.Text = resourceManager.GetString("SearchArticle");
+            gbListAvilableCartrigeFarSedning.Text = resourceManager.GetString("ListAvilableCartrigeFarSedning");
+           this.Text = resourceManager.GetString("tsmiSendToLocation");
+        }
+
         public DistribOfCartridgesByLocation(ResourceManager resourceManager)
         {
             InitializeComponent();

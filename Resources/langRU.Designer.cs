@@ -277,6 +277,24 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на картриджи на подразделения.
+        /// </summary>
+        internal static string gbCartrigeOnDepartment {
+            get {
+                return ResourceManager.GetString("gbCartrigeOnDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Прием картриджей.
+        /// </summary>
+        internal static string gbReceivingCartridges {
+            get {
+                return ResourceManager.GetString("gbReceivingCartridges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Картриджи на сервисе.
         /// </summary>
         internal static string labelInfoGridInService {
@@ -354,6 +372,15 @@ namespace CartrigeAltstar.Resources {
         internal static string lblStatus {
             get {
                 return ResourceManager.GetString("lblStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Список доступных картриджей для отправки.
+        /// </summary>
+        internal static string ListAvilableCartrigeFarSedning {
+            get {
+                return ResourceManager.GetString("ListAvilableCartrigeFarSedning", resourceCulture);
             }
         }
         
@@ -502,6 +529,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Поиск по артикулу картриджа.
+        /// </summary>
+        internal static string SearchArticle {
+            get {
+                return ResourceManager.GetString("SearchArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Отправка на обслуживания.
         /// </summary>
         internal static string sendingToService {
@@ -637,11 +673,74 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Принять из заправки.
+        /// </summary>
+        internal static string tsmiAcceptCartriges {
+            get {
+                return ResourceManager.GetString("tsmiAcceptCartriges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Принять с локации.
+        /// </summary>
+        internal static string tsmiAcceptFromLocation {
+            get {
+                return ResourceManager.GetString("tsmiAcceptFromLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Английский.
+        /// </summary>
+        internal static string tsmiEn {
+            get {
+                return ResourceManager.GetString("tsmiEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Меню.
         /// </summary>
         internal static string tsmiMenu {
             get {
                 return ResourceManager.GetString("tsmiMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Русский.
+        /// </summary>
+        internal static string tsmiRu {
+            get {
+                return ResourceManager.GetString("tsmiRu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отправить на заправку.
+        /// </summary>
+        internal static string tsmiSendCartrige {
+            get {
+                return ResourceManager.GetString("tsmiSendCartrige", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отправить на локацию.
+        /// </summary>
+        internal static string tsmiSendToLocation {
+            get {
+                return ResourceManager.GetString("tsmiSendToLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Украинский.
+        /// </summary>
+        internal static string tsmiUA {
+            get {
+                return ResourceManager.GetString("tsmiUA", resourceCulture);
             }
         }
         

@@ -139,7 +139,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbSearchCartrigeArticle.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>gbSearchArtileCartrige</value>
   </data>
   <data name="&gt;&gt;tbSearchCartrigeArticle.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -160,7 +160,7 @@
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtdate.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+    <value>gbReceivingCartridges</value>
   </data>
   <data name="&gt;&gt;txtdate.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -190,10 +190,49 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;datalabel.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+    <value>gbReceivingCartridges</value>
   </data>
   <data name="&gt;&gt;datalabel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvFindArticleResulttoLocations.Name" xml:space="preserve">
+    <value>dgvFindArticleResulttoLocations</value>
+  </data>
+  <data name="&gt;&gt;dgvFindArticleResulttoLocations.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvFindArticleResulttoLocations.Parent" xml:space="preserve">
+    <value>gbSearchArtileCartrige</value>
+  </data>
+  <data name="&gt;&gt;dgvFindArticleResulttoLocations.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbSearchArtileCartrige.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="gbSearchArtileCartrige.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gbSearchArtileCartrige.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 461</value>
+  </data>
+  <data name="gbSearchArtileCartrige.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="gbSearchArtileCartrige.Text" xml:space="preserve">
+    <value>Поиск по артиклу картриджа</value>
+  </data>
+  <data name="&gt;&gt;gbSearchArtileCartrige.Name" xml:space="preserve">
+    <value>gbSearchArtileCartrige</value>
+  </data>
+  <data name="&gt;&gt;gbSearchArtileCartrige.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSearchArtileCartrige.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbSearchArtileCartrige.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="dgvFindArticleResulttoLocations.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -214,40 +253,52 @@
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dgvFindArticleResulttoLocations.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>gbSearchArtileCartrige</value>
   </data>
   <data name="&gt;&gt;dgvFindArticleResulttoLocations.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 461</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Поиск по артиклу картриджа</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="groupBox3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBox3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 0</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 461</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -257,6 +308,30 @@
   </data>
   <data name="toolStrip1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 442</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tsbOk.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -300,79 +375,31 @@
   <data name="tsbLeft.Text" xml:space="preserve">
     <value>toolStripButton3</value>
   </data>
-  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
-  </data>
-  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 442</value>
-  </data>
-  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="toolStrip1.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="groupBox3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 0</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 461</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>53</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="groupBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="gbReceivingCartridges.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="gbReceivingCartridges.Location" type="System.Drawing.Point, System.Drawing">
     <value>324, 0</value>
   </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="gbReceivingCartridges.Size" type="System.Drawing.Size, System.Drawing">
     <value>526, 46</value>
   </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="gbReceivingCartridges.TabIndex" type="System.Int32, mscorlib">
     <value>54</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
+  <data name="gbReceivingCartridges.Text" xml:space="preserve">
     <value>Прием картриждей</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;gbReceivingCartridges.Name" xml:space="preserve">
+    <value>gbReceivingCartridges</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;gbReceivingCartridges.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gbReceivingCartridges.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;gbReceivingCartridges.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="dgvAcceptFromLocations.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -409,7 +436,7 @@
     <value>850, 461</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Принять картридж из подрахделений</value>
+    <value>Принять с локации</value>
   </data>
   <data name="&gt;&gt;tsbOk.Name" xml:space="preserve">
     <value>tsbOk</value>

@@ -46,6 +46,12 @@ namespace CartrigeAltstar
 
 
 
+
+
+            // Enable-Migrations
+            //Add-Migration InitialCreate
+            //Update-Database
+
         }
     }
 }
