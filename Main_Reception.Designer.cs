@@ -70,12 +70,10 @@
             this.tsbApply = new System.Windows.Forms.ToolStripButton();
             this.tsbResetFiltr = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tsbChangeMode = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.dgwMain = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbCartrigeOnDepartment = new System.Windows.Forms.GroupBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -91,7 +89,7 @@
             this.tsmenuLanguage});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(779, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(839, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -152,7 +150,7 @@
             this.tsUpdateButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(779, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(839, 42);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Заправка картрижда";
             // 
@@ -240,21 +238,21 @@
             // tsniPrinters
             // 
             this.tsniPrinters.Name = "tsniPrinters";
-            this.tsniPrinters.Size = new System.Drawing.Size(159, 22);
+            this.tsniPrinters.Size = new System.Drawing.Size(180, 22);
             this.tsniPrinters.Text = "Принтери";
             this.tsniPrinters.Click += new System.EventHandler(this.tsniPrinters_Click);
             // 
             // tsmiCartriges
             // 
             this.tsmiCartriges.Name = "tsmiCartriges";
-            this.tsmiCartriges.Size = new System.Drawing.Size(159, 22);
+            this.tsmiCartriges.Size = new System.Drawing.Size(180, 22);
             this.tsmiCartriges.Text = "Картриджи";
             this.tsmiCartriges.Click += new System.EventHandler(this.tsmiCartriges_Click);
             // 
             // tsmiDepartment
             // 
             this.tsmiDepartment.Name = "tsmiDepartment";
-            this.tsmiDepartment.Size = new System.Drawing.Size(159, 22);
+            this.tsmiDepartment.Size = new System.Drawing.Size(180, 22);
             this.tsmiDepartment.Text = "Подразделения";
             this.tsmiDepartment.Click += new System.EventHandler(this.tsmiDepartment_Click);
             // 
@@ -312,14 +310,14 @@
             // tsmiSendToLocation
             // 
             this.tsmiSendToLocation.Name = "tsmiSendToLocation";
-            this.tsmiSendToLocation.Size = new System.Drawing.Size(180, 22);
+            this.tsmiSendToLocation.Size = new System.Drawing.Size(132, 22);
             this.tsmiSendToLocation.Text = "Отрпавить";
             this.tsmiSendToLocation.Click += new System.EventHandler(this.tsmiSendToLocation_Click);
             // 
             // tsmiAcceptFromLocation
             // 
             this.tsmiAcceptFromLocation.Name = "tsmiAcceptFromLocation";
-            this.tsmiAcceptFromLocation.Size = new System.Drawing.Size(180, 22);
+            this.tsmiAcceptFromLocation.Size = new System.Drawing.Size(132, 22);
             this.tsmiAcceptFromLocation.Text = "Принять";
             this.tsmiAcceptFromLocation.Click += new System.EventHandler(this.tsmiAcceptFromLocation_Click);
             // 
@@ -355,13 +353,10 @@
             this.toolStripSeparator7,
             this.tsbApply,
             this.tsbResetFiltr,
-            this.toolStripSeparator10,
-            this.toolStripLabel1,
-            this.tsbChangeMode,
-            this.toolStripSeparator11});
+            this.toolStripSeparator10});
             this.toolStrip2.Location = new System.Drawing.Point(3, 16);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(149, 365);
+            this.toolStrip2.Size = new System.Drawing.Size(227, 365);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -417,7 +412,7 @@
             this.tsbApply.Image = ((System.Drawing.Image)(resources.GetObject("tsbApply.Image")));
             this.tsbApply.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApply.Name = "tsbApply";
-            this.tsbApply.Size = new System.Drawing.Size(147, 19);
+            this.tsbApply.Size = new System.Drawing.Size(225, 19);
             this.tsbApply.Text = "Применить";
             this.tsbApply.Click += new System.EventHandler(this.tsb_ClickFilter);
             // 
@@ -437,30 +432,6 @@
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(147, 6);
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(147, 15);
-            this.toolStripLabel1.Text = "Сменить режим";
-            // 
-            // tsbChangeMode
-            // 
-            this.tsbChangeMode.BackColor = System.Drawing.Color.SeaShell;
-            this.tsbChangeMode.Image = global::CartrigeAltstar.Properties.Resources.folder_icon_icons_com_52385;
-            this.tsbChangeMode.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbChangeMode.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbChangeMode.Name = "tsbChangeMode";
-            this.tsbChangeMode.Size = new System.Drawing.Size(147, 51);
-            this.tsbChangeMode.Text = "Отправка";
-            this.tsbChangeMode.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.tsbChangeMode.ToolTipText = "Нажмите для смени режима";
-            this.tsbChangeMode.Click += new System.EventHandler(this.tsbChangeMode_Click);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(147, 6);
-            // 
             // dgwMain
             // 
             this.dgwMain.AllowUserToAddRows = false;
@@ -472,17 +443,18 @@
             this.dgwMain.ReadOnly = true;
             this.dgwMain.RowHeadersVisible = false;
             this.dgwMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwMain.Size = new System.Drawing.Size(618, 346);
+            this.dgwMain.Size = new System.Drawing.Size(600, 346);
             this.dgwMain.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.monthCalendar1);
             this.groupBox1.Controls.Add(this.gbCartrigeOnDepartment);
             this.groupBox1.Controls.Add(this.toolStrip2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(779, 384);
+            this.groupBox1.Size = new System.Drawing.Size(839, 384);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -490,21 +462,29 @@
             // 
             this.gbCartrigeOnDepartment.Controls.Add(this.dgwMain);
             this.gbCartrigeOnDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbCartrigeOnDepartment.Location = new System.Drawing.Point(152, 16);
+            this.gbCartrigeOnDepartment.Location = new System.Drawing.Point(230, 16);
             this.gbCartrigeOnDepartment.Name = "gbCartrigeOnDepartment";
-            this.gbCartrigeOnDepartment.Size = new System.Drawing.Size(624, 365);
+            this.gbCartrigeOnDepartment.Size = new System.Drawing.Size(606, 365);
             this.gbCartrigeOnDepartment.TabIndex = 1;
             this.gbCartrigeOnDepartment.TabStop = false;
             this.gbCartrigeOnDepartment.Text = "картриджи на подразделения";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(3, 222);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 2;
             // 
             // main_Reception
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 450);
+            this.ClientSize = new System.Drawing.Size(839, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "main_Reception";
             this.Text = "Главное меню";
@@ -563,13 +543,11 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem tsmiSendToLocation;
         private System.Windows.Forms.ToolStripMenuItem tsmiAcceptFromLocation;
-        private System.Windows.Forms.ToolStripButton tsbChangeMode;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.GroupBox gbCartrigeOnDepartment;
         private System.Windows.Forms.ToolStripButton tsUpdateButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         public System.Windows.Forms.ToolStripDropDownButton tsddbutton;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

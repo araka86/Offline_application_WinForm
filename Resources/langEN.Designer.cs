@@ -241,6 +241,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Clear.
+        /// </summary>
+        internal static string ClearBtn {
+            get {
+                return ResourceManager.GetString("ClearBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Data.
         /// </summary>
         internal static string Data {
@@ -291,6 +300,33 @@ namespace CartrigeAltstar.Resources {
         internal static string gbReceivingCartridges {
             get {
                 return ResourceManager.GetString("gbReceivingCartridges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cartridges on service.
+        /// </summary>
+        internal static string labelCartrigeInfoAboveTheGrid {
+            get {
+                return ResourceManager.GetString("labelCartrigeInfoAboveTheGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cartridges on service.
+        /// </summary>
+        internal static string labelInfoGridInService {
+            get {
+                return ResourceManager.GetString("labelInfoGridInService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cartridges in the office.
+        /// </summary>
+        internal static string labelInfoGridNotInService {
+            get {
+                return ResourceManager.GetString("labelInfoGridNotInService", resourceCulture);
             }
         }
         
@@ -529,6 +565,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Show.
+        /// </summary>
+        internal static string ShowButton {
+            get {
+                return ResourceManager.GetString("ShowButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Status.
         /// </summary>
         internal static string Status {
@@ -736,7 +781,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на In service, cannot be sent.
+        ///   Ищет локализованную строку, похожую на In the office, you can send.
         /// </summary>
         internal static string txStatusSendCartrigeNoOK {
             get {

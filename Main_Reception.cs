@@ -101,8 +101,8 @@ namespace CartrigeAltstar
             tslDepartment.Text = resourceManager.GetString("tslDepartment");
             tsbApply.Text = resourceManager.GetString("tsbApply");
             tsbResetFiltr.Text = resourceManager.GetString("tsbReset");
-            tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
-            tsbChangeMode.ToolTipText = resourceManager.GetString("tsbChangeModeToolTipText");
+            //tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
+            //tsbChangeMode.ToolTipText = resourceManager.GetString("tsbChangeModeToolTipText");
             tsniPrinters.Text = resourceManager.GetString("tsniPrinters");
             tsmiCartriges.Text = resourceManager.GetString("tslCartriges");
             tsmiDepartment.Text = resourceManager.GetString("tslDepartment");
@@ -165,13 +165,16 @@ namespace CartrigeAltstar
         private void tsmiCartriges_Click(object sender, EventArgs e)
         {
             var listCartrigeForm = new ListCartrigeForm(resourceManager);
+            listCartrigeForm.FormClosing += RefreshMainDatagrid;
             listCartrigeForm.Show();
         }
-        //Edit Name
+        //Edit Department
         private void tsmiDepartment_Click(object sender, EventArgs e)
         {
             ListSubdivisionForm listSubdivisionForm = new ListSubdivisionForm(resourceManager);
+            listSubdivisionForm.FormClosing += RefreshMainDatagrid;
             listSubdivisionForm.Show();
+
         }
         #endregion
 
@@ -260,6 +263,7 @@ namespace CartrigeAltstar
         {
             db = new ContexAltstar();
             dgwMain.DataSource = db.Cartrigelolocations.ToList();
+            FillCombobox();
             SetOperationAccess();
         } 
 
@@ -280,11 +284,11 @@ namespace CartrigeAltstar
 
 
         private void tsUpdateButton_Click(object sender, EventArgs e) => dgwMain.DataSource = db.Cartrigelolocations.ToList();
-        private void tsbChangeMode_Click(object sender, EventArgs e)
-        {
-            tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
-            ChekMode = !ChekMode;
-        }
+        //private void tsbChangeMode_Click(object sender, EventArgs e)
+        //{
+        //    tsbChangeMode.Text = ChekMode ? resourceManager.GetString("tsbChangeModeSend") : resourceManager.GetString("tsbChangeModeArrival");
+        //    ChekMode = !ChekMode;
+        //}
 
         //export
         private void tsbExport_Click(object sender, EventArgs e) => ExelHelper.MyExportExel(dgwMain, true, resourceManager.GetString("ListOfCartrige"));

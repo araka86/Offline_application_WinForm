@@ -209,7 +209,7 @@ namespace CartrigeAltstar.Model
             {
                
                 CartrigePK = ct3,
-                SubdivisionPK = sb4
+                Department = sb4
 
             };
             context.Compatibilities.Add(cp);

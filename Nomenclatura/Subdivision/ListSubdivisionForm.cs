@@ -120,9 +120,9 @@ namespace CartrigeAltstar
                         printer.DepartmentId = null;
 
                     //find ForeignKey Printer.SubdivisionId and set null
-                    var compatibilities = depertmentDel.Compatibilities.FirstOrDefault(c=>c.SubdivisionId == id);
+                    var compatibilities = depertmentDel.Compatibilities.FirstOrDefault(c=>c.DepartmentId == id);
                         if(compatibilities != null)
-                            compatibilities.SubdivisionId = null;
+                            compatibilities.DepartmentId = null;
 
                         db.SaveChanges();
                         db.Departments.Remove(depertmentDel);

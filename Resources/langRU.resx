@@ -195,6 +195,10 @@
     <value>Подразделение было обновленно</value>
     <comment>Nomenclatura/Department  Add/Update</comment>
   </data>
+  <data name="ClearBtn" xml:space="preserve">
+    <value>Очистить</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Дата</value>
   </data>
@@ -222,7 +226,7 @@
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="labelInfoGridNotInService" xml:space="preserve">
-    <value>Картриджи не на сервисе</value>
+    <value>Картриджи  на офисе</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="lblAddressDepartment" xml:space="preserve">
@@ -324,6 +328,10 @@
     <value>Отправка на обслуживания</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
+  <data name="ShowButton" xml:space="preserve">
+    <value>Показать</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
   </data>
@@ -415,7 +423,7 @@
     <comment>Main_Reseption</comment>
   </data>
   <data name="txStatusSendCartrigeNoOK" xml:space="preserve">
-    <value>Не на обслуживании, можно отправить</value>
+    <value>В офисе, можно отправить</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="txStatusSendCartrigeNoOKReceive" xml:space="preserve">

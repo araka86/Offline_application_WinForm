@@ -30,7 +30,7 @@ namespace CartrigeAltstar
                          c1.id,
                          Модель = c1.CartrigePK.ModelCartrige,
                          Артикул = c1.CartrigePK.ArticleCartrige,
-                         Подразделение = c1.SubdivisionPK.Name
+                         Подразделение = c1.Department.Name
 
                      };
 
@@ -81,7 +81,7 @@ namespace CartrigeAltstar
             //Find Department
             var t4 = db.Departments.Single(t5 => t5.Name.StartsWith(t3));
 
-            cm.SubdivisionId = t4.Id; //write Foreign Key
+            cm.DepartmentId = t4.Id; //write Foreign Key
 
 
             db.Compatibilities.Add(cm);
@@ -158,7 +158,7 @@ namespace CartrigeAltstar
 
 
 
-                Department fndCtt1 = db.Departments.Find(cmUpd.SubdivisionId); //поиск индека в таблице подразделения первичного ключа
+                Department fndCtt1 = db.Departments.Find(cmUpd.DepartmentId); //поиск индека в таблице подразделения первичного ключа
 
 
                 //        int findIndexComboboxCartrigeArticle = cartrigeSubdivisionForm.comboBoxCartrige.FindString(fndCtt.ArticleCartrige); //find index comboboxCatrige
@@ -186,7 +186,7 @@ namespace CartrigeAltstar
                 //Find Department
                 var t4 = db.Departments.Single(t5 => t5.Name.StartsWith(t3));
 
-                cmUpd.SubdivisionId = t4.Id; //write Foreign Key
+                cmUpd.DepartmentId = t4.Id; //write Foreign Key
 
 
                 db.Compatibilities.Add(cmUpd);

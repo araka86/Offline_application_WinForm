@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendingForFilling));
             this.listBoxFindArticleResult = new System.Windows.Forms.ListBox();
             this.tbSearchCartrigeArticle = new System.Windows.Forms.TextBox();
             this.labelCartrigeInfoAboveTheGrid = new System.Windows.Forms.Label();
@@ -303,6 +304,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SendingForFilling";
             this.Text = "Отправить картриджи на заправку";

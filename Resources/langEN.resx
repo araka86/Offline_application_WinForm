@@ -195,6 +195,10 @@
     <value>The new subdivision has been updated</value>
     <comment>Nomenclatura/Department  Add/Update</comment>
   </data>
+  <data name="ClearBtn" xml:space="preserve">
+    <value>Clear</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Data</value>
   </data>
@@ -216,6 +220,18 @@
   <data name="gbReceivingCartridges" xml:space="preserve">
     <value>Receiving cartridges</value>
     <comment>MainMenu/AcceptСartridgesFromLocations</comment>
+  </data>
+  <data name="labelCartrigeInfoAboveTheGrid" xml:space="preserve">
+    <value>Cartridges on service</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="labelInfoGridInService" xml:space="preserve">
+    <value>Cartridges on service</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
+  <data name="labelInfoGridNotInService" xml:space="preserve">
+    <value>Cartridges in the office</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="lblAddressDepartment" xml:space="preserve">
     <value>Address of department</value>
@@ -316,6 +332,10 @@
     <value>Sending to service</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
   </data>
+  <data name="ShowButton" xml:space="preserve">
+    <value>Show</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
@@ -407,7 +427,7 @@
     <comment>Main_Reseption</comment>
   </data>
   <data name="txStatusSendCartrigeNoOK" xml:space="preserve">
-    <value>In service, cannot be sent</value>
+    <value>In the office, you can send</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="txStatusSendCartrigeNoOKReceive" xml:space="preserve">

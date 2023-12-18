@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CartrigeAltstar.Model
 {
@@ -9,11 +10,13 @@ namespace CartrigeAltstar.Model
 
         //Foreign key
 
-   
 
 
-        public int? SubdivisionId { get; set; }
-        public virtual Department SubdivisionPK { get; set; } 
+       
+        [ForeignKey("Department")]  
+        public int? DepartmentId { get; set; }
+    
+        public virtual Department Department { get; set; } 
 
         public int? CartrigeId { get; set; }    
         public virtual Cartrige CartrigePK { get; set; } 

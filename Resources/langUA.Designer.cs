@@ -241,6 +241,15 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Очистити.
+        /// </summary>
+        internal static string ClearBtn {
+            get {
+                return ResourceManager.GetString("ClearBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дата.
         /// </summary>
         internal static string Data {
@@ -304,7 +313,7 @@ namespace CartrigeAltstar.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Картриджі не на сервісі.
+        ///   Ищет локализованную строку, похожую на Картриджі на офісі.
         /// </summary>
         internal static string labelInfoGridNotInService {
             get {
@@ -543,6 +552,15 @@ namespace CartrigeAltstar.Resources {
         internal static string sendingToService {
             get {
                 return ResourceManager.GetString("sendingToService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Показати.
+        /// </summary>
+        internal static string ShowButton {
+            get {
+                return ResourceManager.GetString("ShowButton", resourceCulture);
             }
         }
         

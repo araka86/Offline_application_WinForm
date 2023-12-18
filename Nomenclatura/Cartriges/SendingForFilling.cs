@@ -1,5 +1,6 @@
 ﻿using CartrigeAltstar.Model;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Office2010.Drawing.Charts;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,6 +40,9 @@ namespace CartrigeAltstar.Nomenclatura.Cartriges
 
             lblSearchArticle.Text = resourceManager.GetString("lblSearchArticle");
             lblStatus.Text = resourceManager.GetString("lblStatus");
+            btnShowIsServiceCartriges.Text = resourceManager.GetString("ShowButton");
+            btnClearServiceCartriges.Text = resourceManager.GetString("ClearBtn");
+
 
 
 

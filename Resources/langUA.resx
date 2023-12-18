@@ -195,6 +195,10 @@
     <value>Підрозділ було оновленно</value>
     <comment>Nomenclatura/Printer Add/Update(Title)</comment>
   </data>
+  <data name="ClearBtn" xml:space="preserve">
+    <value>Очистити</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Дата</value>
   </data>
@@ -222,7 +226,7 @@
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="labelInfoGridNotInService" xml:space="preserve">
-    <value>Картриджі не на сервісі</value>
+    <value>Картриджі на офісі</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="lblAddressDepartment" xml:space="preserve">
@@ -323,6 +327,10 @@
   <data name="sendingToService" xml:space="preserve">
     <value>Відправка на обслуговування</value>
     <comment>Nomenclatura/Cartriges/SendingForFilling(title)</comment>
+  </data>
+  <data name="ShowButton" xml:space="preserve">
+    <value>Показати</value>
+    <comment>Nomenclatura/Cartriges/SendingForFilling</comment>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>

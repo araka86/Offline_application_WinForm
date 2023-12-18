@@ -474,7 +474,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1618581029516.ico" />
     <None Include="Resources\folder_icon-icons.com_52385.ico" />
     <None Include="Resources\Exel.jpg" />
     <None Include="Resources\Add.png" />
